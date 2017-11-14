@@ -12,7 +12,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
 
     @IBOutlet weak var menuTableView: UITableView!
-    
+
     
     var menu = ["HOME","ABOUT US","PENDING ORDER","MEASURING TOOL"]
     
@@ -29,10 +29,23 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
 
         
+        
     
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+      UIApplication.shared.statusBarStyle = .lightContent
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menu.count
     }
@@ -51,6 +64,23 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
+
+        
+        cell?.contentView.backgroundColor =
+            #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.contentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(40)
     }

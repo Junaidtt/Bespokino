@@ -21,6 +21,10 @@ class ShirtDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
+        self.navigationItem.title = "BESPOKINO"
         addButton.layer.cornerRadius = 6
         addButton.layer.shadowRadius = 3
         addButton.layer.shadowColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)

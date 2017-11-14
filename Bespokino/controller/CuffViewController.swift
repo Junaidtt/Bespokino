@@ -20,8 +20,9 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // self.navigationItem.title = "BESPOKINO"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
+        self.navigationItem.title = "BESPOKINO"
 
         images = [UIImage(named: "button1square")!,UIImage(named: "button1curved")!,UIImage(named: "button1angled")!,UIImage(named: "button2squared")!,UIImage(named: "buttons2curved")!,UIImage(named: "buttons2angled")!,UIImage(named: "frenchsquared")!,UIImage(named: "frenchcurved")!,UIImage(named: "frenchangled")!]
       

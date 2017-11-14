@@ -19,7 +19,10 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
    
-      //  self.navigationItem.title = "BESPOKINO"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
+        self.navigationItem.title = "BESPOKINO"
+        
         images = [UIImage(named: "monogram_pocket")!,UIImage(named: "monogram_cuff")!,UIImage(named: "monogram_back_collar")!,UIImage(named: "monogram_inside_collar")!,UIImage(named: "monogram_body")!]
         
        

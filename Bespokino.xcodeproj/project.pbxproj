@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D9581E1ACE8EA04837553DF5 /* Pods_Bespokino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A976263D5193EF018595AC1F /* Pods_Bespokino.framework */; };
+		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
+		DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4A1FB62F0900566237 /* AsyncTask.swift */; };
+		DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4C1FB6307B00566237 /* LoginViewController.swift */; };
+		DE456A4F1FB650B800566237 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4E1FB650B800566237 /* CustomerInfo.swift */; };
+		DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A501FB6524500566237 /* RegisterViewController.swift */; };
 		DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */; };
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
 		DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D41FB51003005A369C /* MenuViewController.swift */; };
@@ -37,6 +42,11 @@
 		24A2EEA40EDE2F14CF992EB3 /* Pods-Bespokino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.debug.xcconfig"; sourceTree = "<group>"; };
 		8D2D05CEDF15ACB60D2BD9AE /* Pods-Bespokino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.release.xcconfig"; sourceTree = "<group>"; };
 		A976263D5193EF018595AC1F /* Pods_Bespokino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bespokino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DE456A4A1FB62F0900566237 /* AsyncTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
+		DE456A4C1FB6307B00566237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DE456A4E1FB650B800566237 /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
+		DE456A501FB6524500566237 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplayViewController.swift; sourceTree = "<group>"; };
 		DE7329D01FB50D46005A369C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DE7329D11FB50D46005A369C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -159,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				DE8659581FB0EF4F00A35877 /* Fabric.swift */,
+				DE456A481FB62D2100566237 /* User.swift */,
+				DE456A4A1FB62F0900566237 /* AsyncTask.swift */,
+				DE456A4E1FB650B800566237 /* CustomerInfo.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -175,6 +188,8 @@
 				DE9744961FB38EF00095A22B /* CuffViewController.swift */,
 				DE9744981FB39BCC0095A22B /* MonogramViewController.swift */,
 				DE7329D41FB51003005A369C /* MenuViewController.swift */,
+				DE456A4C1FB6307B00566237 /* LoginViewController.swift */,
+				DE456A501FB6524500566237 /* RegisterViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -327,6 +342,7 @@
 				DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */,
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
+				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
 				DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */,
 				DE9744931FB38E160095A22B /* CuffCollectionViewCell.swift in Sources */,
 				DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */,
@@ -335,15 +351,19 @@
 				DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */,
 				DEC2A5ED1FAFA39C00B77BC6 /* ParentViewController.swift in Sources */,
 				DE9744911FB374A20095A22B /* CollarCollectionViewCell.swift in Sources */,
+				DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */,
 				DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */,
 				DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */,
 				DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */,
+				DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */,
 				DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */,
 				DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */,
 				DEC2A5D41FAF884E00B77BC6 /* AppDelegate.swift in Sources */,
+				DE456A4F1FB650B800566237 /* CustomerInfo.swift in Sources */,
 				DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */,
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,
+				DE456A491FB62D2100566237 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

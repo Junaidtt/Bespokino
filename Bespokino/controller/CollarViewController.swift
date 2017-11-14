@@ -18,7 +18,9 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      //  self.navigationItem.title = "BESPOKINO"
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+
+        self.navigationItem.title = "BESPOKINO"
 
         images = [UIImage(named: "Collar_a")!,UIImage(named: "Collar_b")!,UIImage(named: "Collar_c")!,UIImage(named: "Collar_d")!,UIImage(named: "Collar_e")!]
 
@@ -49,8 +51,17 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell?.layer.borderWidth = 2
+        
+        
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
+        
+        
         
         self.navigationController?.pushViewController(newViewController, animated: true)
         
@@ -62,6 +73,10 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "collarHeader", for: indexPath as IndexPath)
         return headerView
     }
+    
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 5), height: CGFloat(170))
     }

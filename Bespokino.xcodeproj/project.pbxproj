@@ -11,7 +11,6 @@
 		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
 		DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4A1FB62F0900566237 /* AsyncTask.swift */; };
 		DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4C1FB6307B00566237 /* LoginViewController.swift */; };
-		DE456A4F1FB650B800566237 /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4E1FB650B800566237 /* CustomerInfo.swift */; };
 		DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A501FB6524500566237 /* RegisterViewController.swift */; };
 		DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */; };
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
@@ -36,6 +35,9 @@
 		DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5EE1FAFB2F900B77BC6 /* IncludedViewController.swift */; };
 		DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5F01FAFB31D00B77BC6 /* PremiumViewController.swift */; };
 		DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5F21FAFB62500B77BC6 /* LuxuryViewController.swift */; };
+		DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */; };
+		DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */; };
+		DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +47,6 @@
 		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE456A4A1FB62F0900566237 /* AsyncTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
 		DE456A4C1FB6307B00566237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DE456A4E1FB650B800566237 /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
 		DE456A501FB6524500566237 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplayViewController.swift; sourceTree = "<group>"; };
 		DE7329D01FB50D46005A369C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -74,6 +75,9 @@
 		DEC2A5EE1FAFB2F900B77BC6 /* IncludedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludedViewController.swift; sourceTree = "<group>"; };
 		DEC2A5F01FAFB31D00B77BC6 /* PremiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
 		DEC2A5F21FAFB62500B77BC6 /* LuxuryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxuryViewController.swift; sourceTree = "<group>"; };
+		DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramPadViewController.swift; sourceTree = "<group>"; };
+		DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,7 @@
 				DE7329D11FB50D46005A369C /* SWRevealViewController.m */,
 				DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */,
 				DE7329D61FB51197005A369C /* MenuTableViewCell.swift */,
+				DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */,
 			);
 			path = Bespokino;
 			sourceTree = "<group>";
@@ -171,7 +176,7 @@
 				DE8659581FB0EF4F00A35877 /* Fabric.swift */,
 				DE456A481FB62D2100566237 /* User.swift */,
 				DE456A4A1FB62F0900566237 /* AsyncTask.swift */,
-				DE456A4E1FB650B800566237 /* CustomerInfo.swift */,
+				DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				DE7329D41FB51003005A369C /* MenuViewController.swift */,
 				DE456A4C1FB6307B00566237 /* LoginViewController.swift */,
 				DE456A501FB6524500566237 /* RegisterViewController.swift */,
+				DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -339,7 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */,
 				DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */,
+				DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */,
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
@@ -359,7 +367,7 @@
 				DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */,
 				DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */,
 				DEC2A5D41FAF884E00B77BC6 /* AppDelegate.swift in Sources */,
-				DE456A4F1FB650B800566237 /* CustomerInfo.swift in Sources */,
+				DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */,
 				DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */,
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,

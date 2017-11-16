@@ -9,7 +9,9 @@
 import UIKit
 
 class CollarViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-   
+    
+    var selected = Array(repeating: false, count: 5)
+
     
     var names = ["NORMAL","WIDE SPREAD","ROUND EDGE","BUTTON DOWN","MANDRAIN"]
     
@@ -37,9 +39,8 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collar", for: indexPath) as! CollarCollectionViewCell
         
         cell.collarImage.image = images[indexPath.row]
-        
+       // cell.collarImage.isHidden = !selected[indexPath.row]
         cell.collarLabel.text = names[indexPath.row]
-        
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         cell.layer.shadowRadius = 5
@@ -55,14 +56,16 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
+    
+     
         
         
         
+        
+    
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
-        
-        
-        
         self.navigationController?.pushViewController(newViewController, animated: true)
         
         
@@ -83,5 +86,12 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell?.layer.borderWidth = 0
     }
 }

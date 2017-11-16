@@ -35,6 +35,8 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+      
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mono", for: indexPath) as! MonogramCollectionViewCell
         cell.monogramLabel.text = name[indexPath.row]
         cell.monogramImage.image = images[indexPath.row]
@@ -47,6 +49,22 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
         return cell
         
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell?.layer.borderWidth = 2
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramPadViewController") as! MonogramPadViewController
+        
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
+        
+    }
+    
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "monoHeader", for: indexPath as IndexPath)
@@ -59,5 +77,10 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell?.layer.borderWidth = 0
+    }
 }

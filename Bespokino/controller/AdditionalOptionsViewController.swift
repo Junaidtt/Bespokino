@@ -17,6 +17,10 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
+        self.navigationItem.title = "BESPOKINO"
+        
         images = [UIImage(named: "pocket")!,UIImage(named: "tuxedo_pleats")!,UIImage(named: "contrast_new")!,UIImage(named: "thread")!,UIImage(named: "whitec")!,UIImage(named: "placketb")!,UIImage(named: "twopleats")!,UIImage(named: "short_sleev")!]
     }
 
@@ -32,6 +36,10 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         cell.name.text = names[indexPath.row]
         cell.image.image = images[indexPath.row]
 
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        cell.layer.shadowRadius = 5
+        cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         return cell
         
         

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D9581E1ACE8EA04837553DF5 /* Pods_Bespokino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A976263D5193EF018595AC1F /* Pods_Bespokino.framework */; };
+		DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */; };
+		DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFF1FC20AEF00432688 /* StylingTask.swift */; };
 		DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */; };
 		DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */; };
 		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
@@ -46,6 +48,8 @@
 		24A2EEA40EDE2F14CF992EB3 /* Pods-Bespokino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.debug.xcconfig"; sourceTree = "<group>"; };
 		8D2D05CEDF15ACB60D2BD9AE /* Pods-Bespokino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.release.xcconfig"; sourceTree = "<group>"; };
 		A976263D5193EF018595AC1F /* Pods_Bespokino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bespokino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplay.swift; sourceTree = "<group>"; };
+		DE213EFF1FC20AEF00432688 /* StylingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingTask.swift; sourceTree = "<group>"; };
 		DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalOptionsViewController.swift; sourceTree = "<group>"; };
 		DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				DE456A481FB62D2100566237 /* User.swift */,
 				DE456A4A1FB62F0900566237 /* AsyncTask.swift */,
 				DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */,
+				DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */,
+				DE213EFF1FC20AEF00432688 /* StylingTask.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -357,6 +363,7 @@
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
 				DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
+				DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
 				DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */,
 				DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */,
@@ -380,6 +387,7 @@
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,
 				DE456A491FB62D2100566237 /* User.swift in Sources */,
+				DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bespokino/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,7 +552,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bespokino/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";

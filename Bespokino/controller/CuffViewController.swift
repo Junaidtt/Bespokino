@@ -14,8 +14,8 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
     var names = ["1 BUTTON SQUARE","1 BUTTON CURVEDD","1 BUTTON ANGLED","2 BUTTONS SQUARE","2 BUTTONS CURVED","2 BUTTONS ANGLE","FRENCH SQUARED","FRENCH CURVED","FRENCH ANGLED"]
     
     var images = [UIImage]()
-    
-    
+    var cuff = [StylingTask]()
+    let stylingTask = StylingTask()
     @IBOutlet weak var cuffCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,13 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
 
         images = [UIImage(named: "button1square")!,UIImage(named: "button1curved")!,UIImage(named: "button1angled")!,UIImage(named: "button2squared")!,UIImage(named: "buttons2curved")!,UIImage(named: "buttons2angled")!,UIImage(named: "frenchsquared")!,UIImage(named: "frenchcurved")!,UIImage(named: "frenchangled")!]
       
-    
+        stylingTask.getCuffData { (result) in
+            
+            self.cuff = result
+            
+        }
+        
+       
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,6 +61,23 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
+        
+        
+        
+        stylingTask.cuffInsertionTask { (success, response, error) in
+        
+            
+            if success{
+                
+                guard let result = response as? [String:Any] else{return}
+               
+                print(result)
+                
+            }
+            
+           
+        }
+        
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramViewController") as! MonogramViewController

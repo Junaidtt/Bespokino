@@ -10,14 +10,16 @@ import UIKit
 
 class CollarViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    var selected = Array(repeating: false, count: 5)
+ 
 
     @IBOutlet weak var collarCollectionView: UICollectionView!
     
     var names = ["NORMAL","WIDE SPREAD","ROUND EDGE","BUTTON DOWN","MANDRAIN"]
     
     var images = [UIImage]()
-
+    
+    var item = [StylingTask]()
+    var collar:StylingTask = StylingTask()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,27 +29,43 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
         images = [UIImage(named: "Collar_a")!,UIImage(named: "Collar_b")!,UIImage(named: "Collar_c")!,UIImage(named: "Collar_d")!,UIImage(named: "Collar_e")!]
 
+        collar.getCollarData(completion: { (result) in
+            
+            self.item = result
+            
+        })
+        
+        
+   
     }
 
+    
+    
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return names.count
+    //    return names.count
+        
+        return item.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collar", for: indexPath) as! CollarCollectionViewCell
-        cell.marker.isHidden = !selected[indexPath.row]
+       
+   
+        cell.collarImage.image = item[indexPath.row].itemImage
 
-        cell.collarImage.image = images[indexPath.row]
-       // cell.collarImage.isHidden = !selected[indexPath.row]
-        cell.collarLabel.text = names[indexPath.row]
+     //   cell.collarImage.image = images[indexPath.row]
+        
+        cell.collarLabel.text = item[indexPath.row].itemname
+
+        //cell.collarLabel.text = names[indexPath.row]
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         cell.layer.shadowRadius = 5
         cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        
+
         
         return cell
         
@@ -56,20 +74,33 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
-        collectionView.reloadData()
+       
         let cell = collectionView.cellForItem(at: indexPath)
 
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
-       
+
+        
       
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
-        self.navigationController?.pushViewController(newViewController, animated: true)
-        
- 
-        
+        collar.collarInsertionTask { (success, response, error) in
+            
+            
+            if success{
+               
+                guard let result = response as? [String:Any] else {return}
+                
+                print(result)
+                
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
+                self.navigationController?.pushViewController(newViewController, animated: true)
+                
+                
+            }
+            
+        }
+     
         
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -95,5 +126,8 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         
         cell?.layer.borderWidth = 0
+        
+
+    
     }
 }

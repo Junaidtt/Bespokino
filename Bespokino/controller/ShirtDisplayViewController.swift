@@ -42,10 +42,29 @@ class ShirtDisplayViewController: UIViewController {
 
     @IBAction func addShirtButtonTapped(_ sender: Any) {
         
+        
+
+        let s:ShirtDisplay = ShirtDisplay()
+        s.getCustomerDetailsTask(completion: { (success, response, error) in
+            
+            if success{
+                
+                guard let userDetails = response as? [String:Any]  else {return}
+                
+                print(userDetails)
+               
+            }
+            
+            
+        })
+        
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CollarViewController") as! CollarViewController
         
         self.navigationController?.pushViewController(newViewController, animated: true)
+ 
+ 
     }
     
 }

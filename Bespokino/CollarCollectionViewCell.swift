@@ -11,5 +11,20 @@ import UIKit
 class CollarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collarImage: UIImageView!
     @IBOutlet weak var collarLabel: UILabel!
-    
+    @IBOutlet weak var marker: UIImageView!
+    func toggleSelected ()
+    {
+        //If image is selected.
+        if (isSelected)
+        {
+            //Show check mark image.
+            self.marker.isHidden = false
+        }
+            
+        else
+        {
+            //Hide check mark image.
+            self.marker.isHidden = true
+        }
+    }
 }

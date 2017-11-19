@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D9581E1ACE8EA04837553DF5 /* Pods_Bespokino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A976263D5193EF018595AC1F /* Pods_Bespokino.framework */; };
+		DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */; };
+		DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */; };
 		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
 		DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4A1FB62F0900566237 /* AsyncTask.swift */; };
 		DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4C1FB6307B00566237 /* LoginViewController.swift */; };
@@ -44,6 +46,8 @@
 		24A2EEA40EDE2F14CF992EB3 /* Pods-Bespokino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.debug.xcconfig"; sourceTree = "<group>"; };
 		8D2D05CEDF15ACB60D2BD9AE /* Pods-Bespokino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.release.xcconfig"; sourceTree = "<group>"; };
 		A976263D5193EF018595AC1F /* Pods_Bespokino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bespokino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalOptionsViewController.swift; sourceTree = "<group>"; };
+		DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE456A4A1FB62F0900566237 /* AsyncTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
 		DE456A4C1FB6307B00566237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */,
 				DE7329D61FB51197005A369C /* MenuTableViewCell.swift */,
 				DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */,
+				DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */,
 			);
 			path = Bespokino;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				DE456A4C1FB6307B00566237 /* LoginViewController.swift */,
 				DE456A501FB6524500566237 /* RegisterViewController.swift */,
 				DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */,
+				DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -349,9 +355,11 @@
 				DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */,
 				DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */,
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
+				DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
 				DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */,
+				DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */,
 				DE9744931FB38E160095A22B /* CuffCollectionViewCell.swift in Sources */,
 				DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */,
 				DE9744971FB38EF00095A22B /* CuffViewController.swift in Sources */,

@@ -17,8 +17,10 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
     @IBOutlet weak var fancyMonogramButton: UIButton!
     
     var thread:Thread = Thread()
-    var monoStyle:String?
-    var threadCode:String?
+    var monoStyle:String!
+    var threadCode:String!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -111,7 +113,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         let cell = collectionView.cellForItem(at: indexPath)
         let item = thread.menuItems[indexPath.row]
 
-        self.threadCode = item["code"]
+        self.threadCode = item["code"]!
         
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
@@ -134,26 +136,32 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         async.displayAlertMessage(messageToDisplay: "Empty monogram text field not allowed")
         }
         
-        if (self.monoStyle?.isEmpty)! {
+        if (self.monoStyle == nil) {
             
             async.displayAlertMessage(messageToDisplay: "Choose your style")
 
         }
         
-        if(self.threadCode?.isEmpty)!{
+        if(self.threadCode == nil){
             
             async.displayAlertMessage(messageToDisplay: "Choose thread color")
 
             
         }
         
-        if ((monoText?.isEmpty)! && (self.monoStyle?.isEmpty)! && (self.threadCode?.isEmpty)!) {
+        if ((monoText?.isEmpty)! && (self.monoStyle == nil) && (self.threadCode == nil)) {
             
-            print("Not selected")
+            async.displayAlertMessage(messageToDisplay: "select all options")
+       
         }else{
             
             
-            print("Ok")
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "AdditionalOptionsViewController") as! AdditionalOptionsViewController
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            
+            
 
             
         }

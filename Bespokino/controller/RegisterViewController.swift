@@ -25,6 +25,9 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        self.navigationItem.title = "BESPOKINO"
+
         picker.delegate = self
         picker.dataSource = self
         

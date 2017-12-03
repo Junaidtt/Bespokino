@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Thread {
+class Thread :NSObject{
 
     var name:String?
     var imageCode:Int?
@@ -21,7 +21,7 @@ class Thread {
         
     }
     
-    init() {
+    override init() {
         
     }
     
@@ -45,6 +45,79 @@ class Thread {
             ["Image" : "t1717", "code" : "36"]
                      ]
 
+    
+    var contrast = [Thread]()
+    
+    
+    func fetchContrastFabric(completion:@escaping (Bool,Any?,Error?) -> Void) {
+    
+      
+        DispatchQueue.main.async {
+            
+            
+            guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=populateFabrics&categoryID=5") else { return }
+            
+            let session = URLSession.shared
+            session.dataTask(with: url) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                
+                if let data = data {
+                    print(data)
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print(json)
+                    guard let array = json as? [Any] else { return }
+                        
+                        for t in array{
+                            guard let threadDic = t as?[String:AnyObject] else {return}
+                            guard let fabid  = threadDic["fabricID"] as? Int else {return}
+                            guard let fabImage = threadDic["image"] as? String else {return}
+                            let c = Thread(name: fabImage, imgCode: fabid)
+                            self.contrast.append(c)
+                        }
+                      
+
+                       
+                        DispatchQueue.main.async {
+                            completion(true,self.contrast,nil)
+
+                        }
+                        
+                        
+                    } catch {
+                        completion(true,nil,error)
+
+                        print(error)
+                    }
+                    
+                }
+                }.resume()
+            
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
 }
 

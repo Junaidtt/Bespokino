@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D9581E1ACE8EA04837553DF5 /* Pods_Bespokino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A976263D5193EF018595AC1F /* Pods_Bespokino.framework */; };
+		DE032D9D1FC36AB0000C9274 /* TuxedoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032D9C1FC36AB0000C9274 /* TuxedoViewController.swift */; };
+		DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032D9E1FC387D8000C9274 /* ContrastViewController.swift */; };
+		DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032DA01FC388D9000C9274 /* ContrastCollectionViewCell.swift */; };
+		DE20BB3B1FC4BCFE00D75311 /* FitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */; };
+		DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */; };
 		DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */; };
 		DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFF1FC20AEF00432688 /* StylingTask.swift */; };
+		DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */; };
 		DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */; };
 		DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */; };
 		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
@@ -20,16 +26,26 @@
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
 		DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D41FB51003005A369C /* MenuViewController.swift */; };
 		DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D61FB51197005A369C /* MenuTableViewCell.swift */; };
+		DE801EF01FCF38DC008FBB98 /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE801EEF1FCF38DC008FBB98 /* InvoiceViewController.swift */; };
+		DE801EF41FCF6541008FBB98 /* InvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */; };
 		DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8659581FB0EF4F00A35877 /* Fabric.swift */; };
 		DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */; };
 		DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */; };
 		DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */; };
+		DE944F211FCE05A100DEB256 /* PayTwentyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE944F201FCE05A100DEB256 /* PayTwentyViewController.swift */; };
+		DE944F231FCE0B7900DEB256 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE944F221FCE0B7900DEB256 /* TransactionViewController.swift */; };
 		DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97448E1FB373A50095A22B /* CollarViewController.swift */; };
 		DE9744911FB374A20095A22B /* CollarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9744901FB374A20095A22B /* CollarCollectionViewCell.swift */; };
 		DE9744931FB38E160095A22B /* CuffCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9744921FB38E160095A22B /* CuffCollectionViewCell.swift */; };
 		DE9744971FB38EF00095A22B /* CuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9744961FB38EF00095A22B /* CuffViewController.swift */; };
 		DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9744981FB39BCC0095A22B /* MonogramViewController.swift */; };
 		DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */; };
+		DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F88671FD0680100F8E33B /* InvoiceTask.swift */; };
+		DEB4A7331FD48B5100913B0F /* InnerContrastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */; };
+		DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */; };
+		DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */; };
+		DEC1F29E1FD0BF3300BC0155 /* BillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1F29D1FD0BF3300BC0155 /* BillingViewController.swift */; };
+		DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1F29F1FD0C4EF00BC0155 /* ShippingAddressViewController.swift */; };
 		DEC2A5D41FAF884E00B77BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */; };
 		DEC2A5D91FAF884E00B77BC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A5D71FAF884E00B77BC6 /* Main.storyboard */; };
 		DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5DA1FAF884E00B77BC6 /* Bespokino.xcdatamodeld */; };
@@ -39,17 +55,28 @@
 		DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5EE1FAFB2F900B77BC6 /* IncludedViewController.swift */; };
 		DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5F01FAFB31D00B77BC6 /* PremiumViewController.swift */; };
 		DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5F21FAFB62500B77BC6 /* LuxuryViewController.swift */; };
+		DED9FBA21FD4B1E80044D866 /* ButtonHoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9FBA11FD4B1E80044D866 /* ButtonHoleViewController.swift */; };
+		DED9FBA41FD4B3890044D866 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9FBA31FD4B3890044D866 /* ButtonCollectionViewCell.swift */; };
 		DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */; };
 		DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */; };
 		DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */; };
+		DEFBD5761FD3285A0022F161 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5751FD3285A0022F161 /* CartViewController.swift */; };
+		DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */; };
+		DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5791FD32B580022F161 /* CartModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		24A2EEA40EDE2F14CF992EB3 /* Pods-Bespokino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.debug.xcconfig"; sourceTree = "<group>"; };
 		8D2D05CEDF15ACB60D2BD9AE /* Pods-Bespokino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bespokino.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino.release.xcconfig"; sourceTree = "<group>"; };
 		A976263D5193EF018595AC1F /* Pods_Bespokino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bespokino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE032D9C1FC36AB0000C9274 /* TuxedoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuxedoViewController.swift; sourceTree = "<group>"; };
+		DE032D9E1FC387D8000C9274 /* ContrastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrastViewController.swift; sourceTree = "<group>"; };
+		DE032DA01FC388D9000C9274 /* ContrastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrastCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitViewController.swift; sourceTree = "<group>"; };
+		DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPosturesViewController.swift; sourceTree = "<group>"; };
 		DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplay.swift; sourceTree = "<group>"; };
 		DE213EFF1FC20AEF00432688 /* StylingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingTask.swift; sourceTree = "<group>"; };
+		DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureTableViewCell.swift; sourceTree = "<group>"; };
 		DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalOptionsViewController.swift; sourceTree = "<group>"; };
 		DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -62,16 +89,26 @@
 		DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bespokino-Bridging-Header.h"; sourceTree = "<group>"; };
 		DE7329D41FB51003005A369C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DE7329D61FB51197005A369C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		DE801EEF1FCF38DC008FBB98 /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
+		DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableViewCell.swift; sourceTree = "<group>"; };
 		DE8659581FB0EF4F00A35877 /* Fabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fabric.swift; sourceTree = "<group>"; };
 		DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxuryCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE944F201FCE05A100DEB256 /* PayTwentyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTwentyViewController.swift; sourceTree = "<group>"; };
+		DE944F221FCE0B7900DEB256 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		DE97448E1FB373A50095A22B /* CollarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollarViewController.swift; sourceTree = "<group>"; };
 		DE9744901FB374A20095A22B /* CollarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollarCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE9744921FB38E160095A22B /* CuffCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuffCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE9744961FB38EF00095A22B /* CuffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuffViewController.swift; sourceTree = "<group>"; };
 		DE9744981FB39BCC0095A22B /* MonogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramViewController.swift; sourceTree = "<group>"; };
 		DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE9F88671FD0680100F8E33B /* InvoiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTask.swift; sourceTree = "<group>"; };
+		DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastTableViewCell.swift; sourceTree = "<group>"; };
+		DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastViewController.swift; sourceTree = "<group>"; };
+		DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPayViewController.swift; sourceTree = "<group>"; };
+		DEC1F29D1FD0BF3300BC0155 /* BillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingViewController.swift; sourceTree = "<group>"; };
+		DEC1F29F1FD0C4EF00BC0155 /* ShippingAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewController.swift; sourceTree = "<group>"; };
 		DEC2A5D01FAF884E00B77BC6 /* Bespokino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bespokino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEC2A5D81FAF884E00B77BC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,9 +120,14 @@
 		DEC2A5EE1FAFB2F900B77BC6 /* IncludedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludedViewController.swift; sourceTree = "<group>"; };
 		DEC2A5F01FAFB31D00B77BC6 /* PremiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
 		DEC2A5F21FAFB62500B77BC6 /* LuxuryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxuryViewController.swift; sourceTree = "<group>"; };
+		DED9FBA11FD4B1E80044D866 /* ButtonHoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHoleViewController.swift; sourceTree = "<group>"; };
+		DED9FBA31FD4B3890044D866 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramPadViewController.swift; sourceTree = "<group>"; };
 		DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEFBD5751FD3285A0022F161 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		DEFBD5791FD32B580022F161 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +194,6 @@
 				DEC2A5E81FAF8B1800B77BC6 /* view */,
 				DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */,
 				DEC2A5D71FAF884E00B77BC6 /* Main.storyboard */,
-				DEC2A5DD1FAF884E00B77BC6 /* Assets.xcassets */,
 				DEC2A5DF1FAF884E00B77BC6 /* LaunchScreen.storyboard */,
 				DEC2A5E21FAF884E00B77BC6 /* Info.plist */,
 				DEC2A5DA1FAF884E00B77BC6 /* Bespokino.xcdatamodeld */,
@@ -168,6 +209,11 @@
 				DE7329D61FB51197005A369C /* MenuTableViewCell.swift */,
 				DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */,
 				DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */,
+				DE032DA01FC388D9000C9274 /* ContrastCollectionViewCell.swift */,
+				DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */,
+				DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */,
+				DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */,
+				DED9FBA31FD4B3890044D866 /* ButtonCollectionViewCell.swift */,
 			);
 			path = Bespokino;
 			sourceTree = "<group>";
@@ -175,6 +221,7 @@
 		DEC2A5E81FAF8B1800B77BC6 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2A5DD1FAF884E00B77BC6 /* Assets.xcassets */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -188,6 +235,8 @@
 				DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */,
 				DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */,
 				DE213EFF1FC20AEF00432688 /* StylingTask.swift */,
+				DE9F88671FD0680100F8E33B /* InvoiceTask.swift */,
+				DEFBD5791FD32B580022F161 /* CartModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -208,6 +257,20 @@
 				DE456A501FB6524500566237 /* RegisterViewController.swift */,
 				DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */,
 				DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */,
+				DE032D9C1FC36AB0000C9274 /* TuxedoViewController.swift */,
+				DE032D9E1FC387D8000C9274 /* ContrastViewController.swift */,
+				DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */,
+				DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */,
+				DE944F201FCE05A100DEB256 /* PayTwentyViewController.swift */,
+				DE944F221FCE0B7900DEB256 /* TransactionViewController.swift */,
+				DE801EEF1FCF38DC008FBB98 /* InvoiceViewController.swift */,
+				DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */,
+				DEC1F29D1FD0BF3300BC0155 /* BillingViewController.swift */,
+				DEC1F29F1FD0C4EF00BC0155 /* ShippingAddressViewController.swift */,
+				DEFBD5751FD3285A0022F161 /* CartViewController.swift */,
+				DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */,
+				DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */,
+				DED9FBA11FD4B1E80044D866 /* ButtonHoleViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -332,6 +395,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/AuthorizeNetAccept/AcceptSDK-Framework/AcceptSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -340,6 +406,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcceptSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -362,22 +431,38 @@
 				DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */,
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
 				DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */,
+				DE20BB3B1FC4BCFE00D75311 /* FitViewController.swift in Sources */,
+				DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
 				DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
+				DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */,
+				DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */,
+				DED9FBA41FD4B3890044D866 /* ButtonCollectionViewCell.swift in Sources */,
+				DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */,
+				DED9FBA21FD4B1E80044D866 /* ButtonHoleViewController.swift in Sources */,
 				DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */,
+				DEB4A7331FD48B5100913B0F /* InnerContrastTableViewCell.swift in Sources */,
 				DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */,
+				DEFBD5761FD3285A0022F161 /* CartViewController.swift in Sources */,
 				DE9744931FB38E160095A22B /* CuffCollectionViewCell.swift in Sources */,
 				DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */,
+				DE801EF41FCF6541008FBB98 /* InvoiceTableViewCell.swift in Sources */,
 				DE9744971FB38EF00095A22B /* CuffViewController.swift in Sources */,
+				DE032D9D1FC36AB0000C9274 /* TuxedoViewController.swift in Sources */,
+				DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */,
 				DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */,
 				DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */,
 				DEC2A5ED1FAFA39C00B77BC6 /* ParentViewController.swift in Sources */,
+				DE944F211FCE05A100DEB256 /* PayTwentyViewController.swift in Sources */,
+				DEC1F29E1FD0BF3300BC0155 /* BillingViewController.swift in Sources */,
 				DE9744911FB374A20095A22B /* CollarCollectionViewCell.swift in Sources */,
 				DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */,
 				DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */,
 				DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */,
 				DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */,
+				DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */,
+				DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */,
 				DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */,
 				DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */,
 				DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */,
@@ -385,9 +470,14 @@
 				DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */,
 				DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */,
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
+				DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,
+				DE801EF01FCF38DC008FBB98 /* InvoiceViewController.swift in Sources */,
 				DE456A491FB62D2100566237 /* User.swift in Sources */,
+				DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */,
+				DE944F231FCE0B7900DEB256 /* TransactionViewController.swift in Sources */,
 				DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */,
+				DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,7 +618,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HB9J2P536Y;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -550,7 +640,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HB9J2P536Y;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

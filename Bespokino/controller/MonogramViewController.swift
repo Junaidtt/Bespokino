@@ -10,6 +10,7 @@ import UIKit
 
 class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
     
+    @IBOutlet weak var iamOnLowKey: UIButton!
     @IBOutlet weak var monogramCollectionView: UICollectionView!
     
     var name = ["POCKET","CUFF","BACK OF COLLAR","INSIDE COLLAR","BODY"]
@@ -18,7 +19,7 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+        iamOnLowKey.layer.cornerRadius  =  6
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         self.navigationItem.title = "BESPOKINO"
@@ -83,4 +84,15 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
         cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cell?.layer.borderWidth = 0
     }
+    
+    @IBAction func iamOnLowKeyDidTap(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "AdditionalOptionsViewController") as! AdditionalOptionsViewController
+        // self.present(newViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
+    
+    
 }

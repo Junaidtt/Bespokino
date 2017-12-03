@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import IQKeyboardManagerSwift
 
 @available(iOS 10.0, *)
 @available(iOS 10.0, *)
@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         UINavigationBar.appearance().isTranslucent = false
         
+         IQKeyboardManager.sharedManager().enable = true
         
         
         // Override point for customization after application launch.

@@ -68,9 +68,8 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let cell = tableView.cellForRow(at: indexPath)
 
+        cell?.contentView.backgroundColor =  #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         
-        cell?.contentView.backgroundColor =
-            #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         
     }
     

@@ -24,6 +24,36 @@ class StylingTask: NSObject {
     override init() {
         
     }
+    
+    /*
+     {"orderNo":"9120239","customerID":"1949","paperNo":"50460",
+     "trackingID":"9120239 - 1949 - 1", "placket":"160",
+     "backPleats":"158", "pocket":"188", "shortSleeve":"209",
+     "tuxedo":"528", "tuxedoPleat":"530", "collarContrastFabric":"549",
+     "cuffContrastFabric":"548", "placketContrastFabric":"151",
+     "sleeveVentContrastFabric":"149", "whiteCuffAndCollar":"207",
+     "contrastFabricCategory":"inner_collar", "contrastFabricID":"65",
+     "buttonholeColor":"", "btnType":"Save"}
+     */
+    static var pocket = ""
+    static var placket = ""
+    static var backpleats = ""
+    static var shortSleeve = ""
+    static var tuxedo = ""
+    static var tuxedoPleat = ""
+    static var collarContrastFabric = ""
+    static var cuffContrastFabric = ""
+    static var placketContrastFabric = ""
+    static var sleeveVentContrastFabric = ""
+    static var whiteCuffAndCollar = ""
+    static var contrastFabricCategory = "inner_collar"
+    static var contrastFabricID = ""
+    static var buttonholeColor = ""
+    static var btnType = ""
+    
+    
+    
+    
     func getCollarData(completion:([StylingTask])->Void)  {
         
          var item = [StylingTask]()
@@ -45,6 +75,37 @@ class StylingTask: NSObject {
         
     }
     
+    func getAddOptiondata(completion:([StylingTask]) -> Void) {
+        
+        var item = [StylingTask]()
+
+        let addOptiom1 = StylingTask(name: "POCKET", image: UIImage(named: "pocket")!, optionVal: 187)
+        let addOptiom2 = StylingTask(name: "TUXEDO", image: UIImage(named: "tuxedo_pleats")!, optionVal: 528)
+        let addOptiom3 = StylingTask(name: "CONTRAST", image: UIImage(named: "contrast_new")!, optionVal: 547)
+        let addOptiom4 = StylingTask(name: "BUTTON HOLE & THREAD", image: UIImage(named: "thread")!, optionVal: 547)
+        let addOptiom5 = StylingTask(name: "WHITE COLLAR & CUFF", image: UIImage(named: "whitec")!, optionVal: 206)
+        let addOptiom6 = StylingTask(name: "PLACKET", image: UIImage(named: "placketb")!, optionVal: 159)
+        let addOptiom7 = StylingTask(name: "PLEAT", image: UIImage(named: "twopleats")!, optionVal: 156)
+        let addOptiom8 = StylingTask(name: "SHORT", image:UIImage(named: "short_sleev")!, optionVal: 208)
+        
+        
+        
+        item.append(addOptiom1)
+        item.append(addOptiom2)
+        
+        item.append(addOptiom3)
+        
+        item.append(addOptiom4)
+        item.append(addOptiom5)
+        item.append(addOptiom6)
+        item.append(addOptiom7)
+        item.append(addOptiom8)
+
+        
+        completion(item)
+        
+        
+    }
     
     
     func getCuffData(completion:([StylingTask]) -> Void) {

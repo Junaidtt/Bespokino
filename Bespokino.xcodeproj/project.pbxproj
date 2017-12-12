@@ -11,17 +11,42 @@
 		DE032D9D1FC36AB0000C9274 /* TuxedoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032D9C1FC36AB0000C9274 /* TuxedoViewController.swift */; };
 		DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032D9E1FC387D8000C9274 /* ContrastViewController.swift */; };
 		DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE032DA01FC388D9000C9274 /* ContrastCollectionViewCell.swift */; };
+		DE087B801FD9AF370005615B /* NeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B7F1FD9AF370005615B /* NeckViewController.swift */; };
+		DE087B821FD9AF860005615B /* NeckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B811FD9AF860005615B /* NeckTableViewCell.swift */; };
+		DE087B841FD9BB6E0005615B /* CuffMeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B831FD9BB6E0005615B /* CuffMeasureTableViewCell.swift */; };
+		DE087B861FD9BB880005615B /* CuffMeasurmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B851FD9BB880005615B /* CuffMeasurmentViewController.swift */; };
+		DE087B881FD9BFB50005615B /* LengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B871FD9BFB50005615B /* LengthViewController.swift */; };
+		DE087B8A1FD9BFC90005615B /* LengthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */; };
+		DE087B8C1FD9CED90005615B /* MeasurmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */; };
+		DE087B8E1FD9F9C50005615B /* GetStartedViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */; };
+		DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */; };
+		DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */; };
+		DE19DC291FD8555900538B93 /* SleeveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC281FD8555900538B93 /* SleeveViewController.swift */; };
 		DE20BB3B1FC4BCFE00D75311 /* FitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */; };
 		DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */; };
 		DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */; };
 		DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFF1FC20AEF00432688 /* StylingTask.swift */; };
 		DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */; };
+		DE32D4231FD5E0EA004809A3 /* PlacketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE32D4221FD5E0EA004809A3 /* PlacketCollectionViewController.swift */; };
+		DE32D4251FD5E1B7004809A3 /* PlacketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE32D4241FD5E1B7004809A3 /* PlacketCollectionViewCell.swift */; };
 		DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */; };
 		DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */; };
 		DE456A491FB62D2100566237 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A481FB62D2100566237 /* User.swift */; };
 		DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4A1FB62F0900566237 /* AsyncTask.swift */; };
 		DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A4C1FB6307B00566237 /* LoginViewController.swift */; };
 		DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE456A501FB6524500566237 /* RegisterViewController.swift */; };
+		DE4817DA1FD87284001EACA3 /* ShulderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817D91FD87284001EACA3 /* ShulderTableViewCell.swift */; };
+		DE4817DC1FD8762F001EACA3 /* SleeveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817DB1FD8762F001EACA3 /* SleeveTableViewCell.swift */; };
+		DE4817DE1FD89377001EACA3 /* ChestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817DD1FD89377001EACA3 /* ChestViewController.swift */; };
+		DE4817E01FD893A3001EACA3 /* ChestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817DF1FD893A3001EACA3 /* ChestTableViewCell.swift */; };
+		DE4817E21FD893BD001EACA3 /* WaistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817E11FD893BD001EACA3 /* WaistTableViewCell.swift */; };
+		DE4817E41FD893D7001EACA3 /* WaistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817E31FD893D7001EACA3 /* WaistViewController.swift */; };
+		DE4817E61FD893F0001EACA3 /* HipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817E51FD893F0001EACA3 /* HipsViewController.swift */; };
+		DE4817E81FD893FE001EACA3 /* HipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817E71FD893FE001EACA3 /* HipsTableViewCell.swift */; };
+		DE4817EA1FD8B02A001EACA3 /* BicepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817E91FD8B02A001EACA3 /* BicepsViewController.swift */; };
+		DE4817EC1FD8B056001EACA3 /* BicepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */; };
+		DE49016B1FD5ECCE0003B888 /* PleatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49016A1FD5ECCE0003B888 /* PleatViewController.swift */; };
+		DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49016C1FD5ED010003B888 /* PleatCollectionViewCell.swift */; };
 		DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */; };
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
 		DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D41FB51003005A369C /* MenuViewController.swift */; };
@@ -60,6 +85,8 @@
 		DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */; };
 		DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */; };
 		DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */; };
+		DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527B1FDB36E000A82C19 /* Body.swift */; };
+		DEE8527E1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */; };
 		DEFBD5761FD3285A0022F161 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5751FD3285A0022F161 /* CartViewController.swift */; };
 		DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */; };
 		DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5791FD32B580022F161 /* CartModel.swift */; };
@@ -72,17 +99,42 @@
 		DE032D9C1FC36AB0000C9274 /* TuxedoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuxedoViewController.swift; sourceTree = "<group>"; };
 		DE032D9E1FC387D8000C9274 /* ContrastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrastViewController.swift; sourceTree = "<group>"; };
 		DE032DA01FC388D9000C9274 /* ContrastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrastCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE087B7F1FD9AF370005615B /* NeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeckViewController.swift; sourceTree = "<group>"; };
+		DE087B811FD9AF860005615B /* NeckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeckTableViewCell.swift; sourceTree = "<group>"; };
+		DE087B831FD9BB6E0005615B /* CuffMeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuffMeasureTableViewCell.swift; sourceTree = "<group>"; };
+		DE087B851FD9BB880005615B /* CuffMeasurmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuffMeasurmentViewController.swift; sourceTree = "<group>"; };
+		DE087B871FD9BFB50005615B /* LengthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthViewController.swift; sourceTree = "<group>"; };
+		DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthTableViewCell.swift; sourceTree = "<group>"; };
+		DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentValue.swift; sourceTree = "<group>"; };
+		DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewControllerViewController.swift; sourceTree = "<group>"; };
+		DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentParentViewController.swift; sourceTree = "<group>"; };
+		DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoulderMeasureViewController.swift; sourceTree = "<group>"; };
+		DE19DC281FD8555900538B93 /* SleeveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveViewController.swift; sourceTree = "<group>"; };
 		DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitViewController.swift; sourceTree = "<group>"; };
 		DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPosturesViewController.swift; sourceTree = "<group>"; };
 		DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplay.swift; sourceTree = "<group>"; };
 		DE213EFF1FC20AEF00432688 /* StylingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingTask.swift; sourceTree = "<group>"; };
 		DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureTableViewCell.swift; sourceTree = "<group>"; };
+		DE32D4221FD5E0EA004809A3 /* PlacketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacketCollectionViewController.swift; sourceTree = "<group>"; };
+		DE32D4241FD5E1B7004809A3 /* PlacketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacketCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE410C261FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalOptionsViewController.swift; sourceTree = "<group>"; };
 		DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE456A481FB62D2100566237 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE456A4A1FB62F0900566237 /* AsyncTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
 		DE456A4C1FB6307B00566237 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DE456A501FB6524500566237 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DE4817D91FD87284001EACA3 /* ShulderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShulderTableViewCell.swift; sourceTree = "<group>"; };
+		DE4817DB1FD8762F001EACA3 /* SleeveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveTableViewCell.swift; sourceTree = "<group>"; };
+		DE4817DD1FD89377001EACA3 /* ChestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestViewController.swift; sourceTree = "<group>"; };
+		DE4817DF1FD893A3001EACA3 /* ChestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChestTableViewCell.swift; sourceTree = "<group>"; };
+		DE4817E11FD893BD001EACA3 /* WaistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaistTableViewCell.swift; sourceTree = "<group>"; };
+		DE4817E31FD893D7001EACA3 /* WaistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaistViewController.swift; sourceTree = "<group>"; };
+		DE4817E51FD893F0001EACA3 /* HipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipsViewController.swift; sourceTree = "<group>"; };
+		DE4817E71FD893FE001EACA3 /* HipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HipsTableViewCell.swift; sourceTree = "<group>"; };
+		DE4817E91FD8B02A001EACA3 /* BicepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicepsViewController.swift; sourceTree = "<group>"; };
+		DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicepsTableViewCell.swift; sourceTree = "<group>"; };
+		DE49016A1FD5ECCE0003B888 /* PleatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleatViewController.swift; sourceTree = "<group>"; };
+		DE49016C1FD5ED010003B888 /* PleatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleatCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplayViewController.swift; sourceTree = "<group>"; };
 		DE7329D01FB50D46005A369C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DE7329D11FB50D46005A369C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -125,6 +177,8 @@
 		DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramPadViewController.swift; sourceTree = "<group>"; };
 		DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEE8527B1FDB36E000A82C19 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEFBD5751FD3285A0022F161 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		DEFBD5791FD32B580022F161 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -199,7 +253,9 @@
 				DEC2A5DA1FAF884E00B77BC6 /* Bespokino.xcdatamodeld */,
 				DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */,
 				DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */,
+				DE4817DB1FD8762F001EACA3 /* SleeveTableViewCell.swift */,
 				DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */,
+				DE4817E11FD893BD001EACA3 /* WaistTableViewCell.swift */,
 				DE9744901FB374A20095A22B /* CollarCollectionViewCell.swift */,
 				DE9744921FB38E160095A22B /* CuffCollectionViewCell.swift */,
 				DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */,
@@ -214,6 +270,16 @@
 				DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */,
 				DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */,
 				DED9FBA31FD4B3890044D866 /* ButtonCollectionViewCell.swift */,
+				DE32D4241FD5E1B7004809A3 /* PlacketCollectionViewCell.swift */,
+				DE49016C1FD5ED010003B888 /* PleatCollectionViewCell.swift */,
+				DE4817D91FD87284001EACA3 /* ShulderTableViewCell.swift */,
+				DE4817DF1FD893A3001EACA3 /* ChestTableViewCell.swift */,
+				DE4817E71FD893FE001EACA3 /* HipsTableViewCell.swift */,
+				DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */,
+				DE087B811FD9AF860005615B /* NeckTableViewCell.swift */,
+				DE087B831FD9BB6E0005615B /* CuffMeasureTableViewCell.swift */,
+				DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */,
+				DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */,
 			);
 			path = Bespokino;
 			sourceTree = "<group>";
@@ -237,6 +303,8 @@
 				DE213EFF1FC20AEF00432688 /* StylingTask.swift */,
 				DE9F88671FD0680100F8E33B /* InvoiceTask.swift */,
 				DEFBD5791FD32B580022F161 /* CartModel.swift */,
+				DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */,
+				DEE8527B1FDB36E000A82C19 /* Body.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -271,6 +339,19 @@
 				DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */,
 				DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */,
 				DED9FBA11FD4B1E80044D866 /* ButtonHoleViewController.swift */,
+				DE32D4221FD5E0EA004809A3 /* PlacketCollectionViewController.swift */,
+				DE49016A1FD5ECCE0003B888 /* PleatViewController.swift */,
+				DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */,
+				DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */,
+				DE19DC281FD8555900538B93 /* SleeveViewController.swift */,
+				DE4817DD1FD89377001EACA3 /* ChestViewController.swift */,
+				DE4817E31FD893D7001EACA3 /* WaistViewController.swift */,
+				DE4817E51FD893F0001EACA3 /* HipsViewController.swift */,
+				DE4817E91FD8B02A001EACA3 /* BicepsViewController.swift */,
+				DE087B7F1FD9AF370005615B /* NeckViewController.swift */,
+				DE087B851FD9BB880005615B /* CuffMeasurmentViewController.swift */,
+				DE087B871FD9BFB50005615B /* LengthViewController.swift */,
+				DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -318,7 +399,7 @@
 					DEC2A5CF1FAF884E00B77BC6 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -427,20 +508,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */,
+				DE4817E81FD893FE001EACA3 /* HipsTableViewCell.swift in Sources */,
 				DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */,
 				DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */,
 				DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */,
 				DE410C271FBF85DC006C9BD8 /* AdditionalOptionsViewController.swift in Sources */,
+				DE087B861FD9BB880005615B /* CuffMeasurmentViewController.swift in Sources */,
+				DE32D4231FD5E0EA004809A3 /* PlacketCollectionViewController.swift in Sources */,
 				DE20BB3B1FC4BCFE00D75311 /* FitViewController.swift in Sources */,
 				DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */,
 				DEC2A5DC1FAF884E00B77BC6 /* Bespokino.xcdatamodeld in Sources */,
+				DE087B841FD9BB6E0005615B /* CuffMeasureTableViewCell.swift in Sources */,
 				DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
 				DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */,
 				DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */,
+				DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */,
 				DED9FBA41FD4B3890044D866 /* ButtonCollectionViewCell.swift in Sources */,
+				DE087B8E1FD9F9C50005615B /* GetStartedViewControllerViewController.swift in Sources */,
 				DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */,
 				DED9FBA21FD4B1E80044D866 /* ButtonHoleViewController.swift in Sources */,
+				DE087B881FD9BFB50005615B /* LengthViewController.swift in Sources */,
 				DEC2A5F11FAFB31D00B77BC6 /* PremiumViewController.swift in Sources */,
 				DEB4A7331FD48B5100913B0F /* InnerContrastTableViewCell.swift in Sources */,
 				DE410C291FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift in Sources */,
@@ -452,19 +540,31 @@
 				DE032D9D1FC36AB0000C9274 /* TuxedoViewController.swift in Sources */,
 				DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */,
 				DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */,
+				DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */,
+				DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */,
 				DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */,
 				DEC2A5ED1FAFA39C00B77BC6 /* ParentViewController.swift in Sources */,
 				DE944F211FCE05A100DEB256 /* PayTwentyViewController.swift in Sources */,
 				DEC1F29E1FD0BF3300BC0155 /* BillingViewController.swift in Sources */,
 				DE9744911FB374A20095A22B /* CollarCollectionViewCell.swift in Sources */,
 				DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */,
+				DE32D4251FD5E1B7004809A3 /* PlacketCollectionViewCell.swift in Sources */,
 				DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */,
+				DE4817E41FD893D7001EACA3 /* WaistViewController.swift in Sources */,
 				DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */,
 				DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */,
+				DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */,
 				DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */,
+				DE087B8A1FD9BFC90005615B /* LengthTableViewCell.swift in Sources */,
 				DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */,
+				DE4817EC1FD8B056001EACA3 /* BicepsTableViewCell.swift in Sources */,
 				DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */,
+				DEE8527E1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift in Sources */,
+				DE087B8C1FD9CED90005615B /* MeasurmentValue.swift in Sources */,
+				DE19DC291FD8555900538B93 /* SleeveViewController.swift in Sources */,
 				DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */,
+				DE4817E01FD893A3001EACA3 /* ChestTableViewCell.swift in Sources */,
+				DE087B801FD9AF370005615B /* NeckViewController.swift in Sources */,
 				DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */,
 				DEC2A5D41FAF884E00B77BC6 /* AppDelegate.swift in Sources */,
 				DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */,
@@ -472,11 +572,19 @@
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
 				DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,
+				DE4817E61FD893F0001EACA3 /* HipsViewController.swift in Sources */,
 				DE801EF01FCF38DC008FBB98 /* InvoiceViewController.swift in Sources */,
 				DE456A491FB62D2100566237 /* User.swift in Sources */,
+				DE4817EA1FD8B02A001EACA3 /* BicepsViewController.swift in Sources */,
+				DE4817DC1FD8762F001EACA3 /* SleeveTableViewCell.swift in Sources */,
+				DE087B821FD9AF860005615B /* NeckTableViewCell.swift in Sources */,
 				DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */,
+				DE4817DA1FD87284001EACA3 /* ShulderTableViewCell.swift in Sources */,
 				DE944F231FCE0B7900DEB256 /* TransactionViewController.swift in Sources */,
+				DE4817DE1FD89377001EACA3 /* ChestViewController.swift in Sources */,
 				DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */,
+				DE49016B1FD5ECCE0003B888 /* PleatViewController.swift in Sources */,
+				DE4817E21FD893BD001EACA3 /* WaistTableViewCell.swift in Sources */,
 				DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,14 +725,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HB9J2P536Y;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 454G2VG97B;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6edfac02-6682-496e-af09-a442db433025";
+				PROVISIONING_PROFILE_SPECIFIER = Bespokino;
 				SWIFT_OBJC_BRIDGING_HEADER = "Bespokino/Bespokino-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -639,14 +748,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HB9J2P536Y;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 454G2VG97B;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6edfac02-6682-496e-af09-a442db433025";
+				PROVISIONING_PROFILE_SPECIFIER = Bespokino;
 				SWIFT_OBJC_BRIDGING_HEADER = "Bespokino/Bespokino-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

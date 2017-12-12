@@ -96,7 +96,14 @@ class AsyncTask: NSObject {
                         
                         
                         DispatchQueue.main.async {
-                            self.displayAlertMessage(messageToDisplay: message)
+                           // self.displayAlertMessage(messageToDisplay: message)
+                            
+                            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
+                            // self.present(newViewController, animated: true, completion: nil)
+                            self.view?.navigationController??.pushViewController(newViewController, animated: true)
+                            
+                            
                         }
                     }else{
                         DispatchQueue.main.async {

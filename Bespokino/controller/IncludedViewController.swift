@@ -27,6 +27,8 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
         
         // Fetch Fabric
         self.populateFabric()
+        
+        
 
     }
 
@@ -59,7 +61,7 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
     }
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 5), height: CGFloat(170))
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 5), height: CGFloat(160))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -74,6 +76,7 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
+        newViewController.shirtType = "INCLUDED"
 
         newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
         self.navigationController?.pushViewController(newViewController, animated: true)
@@ -117,6 +120,15 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
         
     }
     
+    @IBAction func cartButtonDidTap(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+  
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
+        
+    }
     
 
 }

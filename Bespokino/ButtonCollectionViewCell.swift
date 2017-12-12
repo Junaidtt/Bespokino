@@ -10,4 +10,5 @@ import UIKit
 
 class ButtonCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var holeImage: UIImageView!
 }

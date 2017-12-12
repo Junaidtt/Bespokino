@@ -16,7 +16,7 @@ class ShirtDisplayViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     var shirtURL:String? = nil
-    let shirtType:String? = nil
+    var shirtType:String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,17 @@ class ShirtDisplayViewController: UIViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         self.navigationItem.title = "BESPOKINO"
-        addButton.layer.cornerRadius = 6
+        addButton.layer.cornerRadius = 3.0
         addButton.layer.shadowRadius = 3
         addButton.layer.shadowColor = #colorLiteral(red: 0.4078193307, green: 0.4078193307, blue: 0.4078193307, alpha: 1)
+        addButton.layer.masksToBounds = true
+        
+        self.typeLabel.text = shirtType
        
         SVProgressHUD.show()
         let url = NSURL(string: shirtURL!)
         
-        self.shirtImage.sd_setImage(with: url as URL!, placeholderImage: UIImage(named: "white_bg"), options: .transformAnimatedImage, progress: nil, completed: nil)
+        self.shirtImage.sd_setImage(with: url as URL!, placeholderImage: UIImage(named: ""), options: .transformAnimatedImage, progress: nil, completed: nil)
         
         SVProgressHUD.dismiss()
     

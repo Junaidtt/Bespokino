@@ -23,14 +23,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         UIImage(named: "measure")!
        ]
  
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
-    
         
     }
     
@@ -68,16 +63,14 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         let cell = tableView.cellForRow(at: indexPath)
 
-        cell?.contentView.backgroundColor =  #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        
+        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell?.layer.borderWidth = 2
         
     }
-    
-    
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.contentView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    cell?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    cell?.layer.borderWidth = 2
     
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

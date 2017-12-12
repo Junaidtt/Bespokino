@@ -25,7 +25,7 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         
         self.navigationItem.title = "BESPOKINO"
         self.addOptionCollectionView?.allowsMultipleSelection = true
-        images = [UIImage(named: "pocket")!,UIImage(named: "tuxedo_pleats")!,UIImage(named: "contrast_new")!,UIImage(named: "thread")!,UIImage(named: "whitec")!,UIImage(named: "placketb")!,UIImage(named: "twopleats")!,UIImage(named: "short_sleev")!]
+        images = [UIImage(named: "pocket")!,UIImage(named: "tuxedo_pleats")!,UIImage(named: "contrast_new")!,UIImage(named: "thread")!,UIImage(named: "whitec")!,UIImage(named: "placket")!,UIImage(named: "twopleats")!,UIImage(named: "short_sleev")!]
   
         stylingTask.getAddOptiondata { (result) in
             
@@ -77,7 +77,9 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         
         if   (cell.name.text == "POCKET"){
             print("pocket selected")
-            StylingTask.pocket = String(describing: item[indexPath.row].optionvalue)
+            StylingTask.pocket = "187"
+            AdditionalOptions.pocket = "187"
+             print(StylingTask.pocket)
         }
         else if (cell.name.text == "TUXEDO"){
             
@@ -92,8 +94,8 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ContrastViewController") as! ContrastViewController
-            // self.present(newViewController, animated: true, completion: nil)
-            self.navigationController?.pushViewController(newViewController, animated: true)
+            self.present(newViewController, animated: true, completion: nil)
+           // self.navigationController?.pushViewController(newViewController, animated: true)
 
             
             
@@ -101,28 +103,37 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         }else if (cell.name.text == "BUTTON HOLE & THREAD"){
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ContrastViewController") as! ContrastViewController
-            // self.present(newViewController, animated: true, completion: nil)
-            self.navigationController?.pushViewController(newViewController, animated: true)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ButtonHoleViewController") as! ButtonHoleViewController
+             self.present(newViewController, animated: true, completion: nil)
+           // self.navigationController?.pushViewController(newViewController, animated: true)
             
             
             
         }else if (cell.name.text == "WHITE COLLAR & CUFF"){
             
-            StylingTask.whiteCuffAndCollar = String(describing: item[indexPath.row].optionvalue)
+            StylingTask.whiteCuffAndCollar = "206"
+            
+                AdditionalOptions.whiteCuffAndCollar = "206"
 
             
         }else if (cell.name.text == "PLACKET"){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacketCollectionViewController") as! PlacketCollectionViewController
+             self.present(newViewController, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(newViewController, animated: true)
             
-        }else if (cell.name.text == "BACK PLEAT"){
-            
+        }else if (cell.name.text == "PLEAT"){
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "PleatViewController") as! PleatViewController
+             self.present(newViewController, animated: true, completion: nil)
+            //self.navigationController?.pushViewController(newViewController, animated: true)
         }else if (cell.name.text == "SHORT SLEEVE")
         {
-            StylingTask.shortSleeve = String(describing: item[indexPath.row].optionvalue)
+            StylingTask.shortSleeve = "208"
+             AdditionalOptions.shortSleeve = "208"
+            print( AdditionalOptions.shortSleeve)
 
         }
-        
-        
         print("cliked")
         
     }
@@ -141,14 +152,103 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell1 = collectionView.cellForItem(at: indexPath)
         
-        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let cell:AddOptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! AddOptionCollectionViewCell
+
+        
+        if   (cell.name.text == "POCKET"){
+            print("pocket selected")
+            StylingTask.pocket = ""
+            AdditionalOptions.pocket = ""
+            print(StylingTask.pocket)
+        }else if (cell.name.text == "TUXEDO"){
+            
+            StylingTask.tuxedo = ""
+            StylingTask.tuxedoPleat = ""
+            AdditionalOptions.tuxedo = ""
+            AdditionalOptions.tuxedoPleat = ""
+            
+            
+        }else if (cell.name.text == "CONTRAST"){
+    
+            StylingTask.collarContrastFabric = ""
+            StylingTask.shortSleeve = ""
+            
+            
+            AdditionalOptions.collarContrastFabric = ""
+            AdditionalOptions.shortSleeve = ""
+      
+        }else if (cell.name.text == "BUTTON HOLE & THREAD"){
+            
+            StylingTask.buttonholeColor = ""
+            
+              AdditionalOptions.buttonholeColor = ""
+            
+        }else if (cell.name.text == "WHITE COLLAR & CUFF"){
+            
+          StylingTask.whiteCuffAndCollar = ""
+            
+                AdditionalOptions.whiteCuffAndCollar = ""
+            
+        }else if (cell.name.text == "PLACKET"){
+            
+            StylingTask.placket = ""
+            
+                  AdditionalOptions.placket = ""
+            
+        }else if (cell.name.text == "PLEAT"){
+            
+            StylingTask.backpleats = ""
+            
+            AdditionalOptions.backpleats = ""
+            
+        }else if (cell.name.text == "SHORT SLEEVE"){
+            
+            StylingTask.shortSleeve = ""
+            
+              AdditionalOptions.shortSleeve = ""
+            
+        }
+        
+        cell1?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         
-       cell?.layer.borderWidth = 0
+       cell1?.layer.borderWidth = 0
     }
     
+    @IBAction func addToCartButtonDidTap(_ sender: Any) {
+   
+    
+        stylingTask.postAdditionalOptins { (success, result, Error) in
+            
+            if success {
+                
+                print(result)
+            }
+        }
+   
+        print(AdditionalOptions.pocket)
+        print(AdditionalOptions.tuxedo)
+        print(AdditionalOptions.tuxedoPleat)
+    
+//        var add_json = """
+//        {"orderNo":"9120239","customerID":"1949","paperNo":"50460",
+//        "trackingID":"9120239 - 1949 - 1", "placket":"\(AdditionalOptions.placket)",
+//        "backPleats":"\(AdditionalOptions.backpleats)", "pocket":"\(AdditionalOptions.pocket)", "shortSleeve":"\(AdditionalOptions.shortSleeve)",
+//        "tuxedo":"\(AdditionalOptions.tuxedo)", "tuxedoPleat":"\(AdditionalOptions.tuxedoPleat)", "collarContrastFabric":"\(AdditionalOptions.collarContrastFabric)",
+//        "cuffContrastFabric":"\(AdditionalOptions.cuffContrastFabric)", "placketContrastFabric":"\(AdditionalOptions.placketContrastFabric)",
+//        "sleeveVentContrastFabric":"\(AdditionalOptions.sleeveVentContrastFabric)", "whiteCuffAndCollar":"\(AdditionalOptions.whiteCuffAndCollar)",
+//        "contrastFabricCategory":"inner_collar", "contrastFabricID":"\(AdditionalOptions.contrastFabricID)",
+//        "buttonholeColor":"\(AdditionalOptions.buttonholeColor)", "btnType":"Save"}
+//        """
+    
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
+//
+//        self.navigationController?.pushViewController(newViewController, animated: true)
+        //print(add_json)
+    }
     
     
 }

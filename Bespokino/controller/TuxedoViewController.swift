@@ -47,6 +47,15 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
         yesTuxedoView.layer.shadowRadius = 3
         yesTuxedoView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
+        
+        StylingTask.tuxedo  = "527"
+        StylingTask.tuxedoPleat = ""
+        
+        AdditionalOptions.tuxedo  = "527"
+        AdditionalOptions.tuxedoPleat = ""
+        
+  
+
     }
     
     
@@ -61,14 +70,20 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
         withPleatsView.layer.shadowRadius = 3
         withPleatsView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
+        StylingTask.tuxedo = "527"
+        StylingTask.tuxedoPleat = "544"
         
+        AdditionalOptions.tuxedo = "527"
+        AdditionalOptions.tuxedoPleat = "544"
+        
+ 
+
+
         
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
-    
+        dismiss(animated: true, completion: nil)
+
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-   
-    }
 }

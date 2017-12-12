@@ -11,7 +11,6 @@ import XLPagerTabStrip
 
 class ParentViewController: ButtonBarPagerTabStripViewController {
 
-    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let purpleInspireColor = UIColor(red:0.13, green:0.03, blue:0.25, alpha:1.0)
@@ -48,8 +47,7 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
         }
 
     }
-
-    
+ 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let included = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IncludedViewController")
         let premium = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PremiumViewController")

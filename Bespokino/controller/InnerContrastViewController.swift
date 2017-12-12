@@ -53,25 +53,73 @@ class InnerContrastViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundView?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        cell?.layer.borderWidth = 2
-    }
-
-    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-
-        cell?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
+        let cell1 = tableView.cellForRow(at: indexPath)
+      
+        cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell1?.layer.borderWidth = 2
         
-        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        let cell:InnerContrastTableViewCell = tableView.cellForRow(at: indexPath) as! InnerContrastTableViewCell
+
+        
+        if cell.innerContrastLabel.text == "INNER COLLAR"{
+            
+            StylingTask.collarContrastFabric = "547"
+               AdditionalOptions.collarContrastFabric = "547"
+            
+        }else if cell.innerContrastLabel.text == "INNER CUFF" {
+            
+            StylingTask.cuffContrastFabric = "549"
+              AdditionalOptions.cuffContrastFabric = "549"
+            
+        }else if cell.innerContrastLabel.text ==  "INNER PLACKET"{
+            
+            StylingTask.placketContrastFabric = "150"
+               AdditionalOptions.placketContrastFabric = "150"
+            
+        }else if cell.innerContrastLabel.text == "SLEEVE VENTE"{
+            
+            StylingTask.sleeveVentContrastFabric = "148"
+               AdditionalOptions.sleeveVentContrastFabric = "148"
+        }
+        
+        
+        
+    }
+
+  
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell1 = tableView.cellForRow(at: indexPath)
+        
+        cell1?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "inner", for: indexPath) as! InnerContrastTableViewCell
+
+        
+        if cell.innerContrastLabel.text == "INNER COLLAR"{
+            
+            StylingTask.collarContrastFabric = ""
+            
+        }else if cell.innerContrastLabel.text == "INNER CUFF" {
+            
+            StylingTask.cuffContrastFabric = ""
+            
+        }else if cell.innerContrastLabel.text ==  "INNER PLACKET"{
+            
+            StylingTask.placketContrastFabric = ""
+            
+        }else if cell.innerContrastLabel.text == "SLEEVE VENTE"{
+            
+            StylingTask.sleeveVentContrastFabric = ""
+        }
+        
     }
     
     @IBAction func saveButtonDidTap(_ sender: Any) {
+        
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
+        
     }
  
     

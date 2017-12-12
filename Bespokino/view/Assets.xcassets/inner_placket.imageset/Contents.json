@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "inner_placket.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "inner_placket.png",
       "scale" : "2x"
     },
     {

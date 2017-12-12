@@ -85,11 +85,15 @@ class ContrastViewController: UIViewController,UICollectionViewDelegateFlowLayou
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
         
+       StylingTask.contrastFabricID = String(describing: thread.imageCode)
+        
+        AdditionalOptions.contrastFabricID = String(describing: thread.imageCode)
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "InnerContrastViewController") as! InnerContrastViewController
-        // self.present(newViewController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(newViewController, animated: true)
-        
+
+        self.present(newViewController, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(newViewController, animated: true)
         
     }
     

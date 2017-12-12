@@ -25,16 +25,9 @@ class StylingTask: NSObject {
         
     }
     
-    /*
-     {"orderNo":"9120239","customerID":"1949","paperNo":"50460",
-     "trackingID":"9120239 - 1949 - 1", "placket":"160",
-     "backPleats":"158", "pocket":"188", "shortSleeve":"209",
-     "tuxedo":"528", "tuxedoPleat":"530", "collarContrastFabric":"549",
-     "cuffContrastFabric":"548", "placketContrastFabric":"151",
-     "sleeveVentContrastFabric":"149", "whiteCuffAndCollar":"207",
-     "contrastFabricCategory":"inner_collar", "contrastFabricID":"65",
-     "buttonholeColor":"", "btnType":"Save"}
-     */
+    
+
+    
     static var pocket = ""
     static var placket = ""
     static var backpleats = ""
@@ -84,9 +77,9 @@ class StylingTask: NSObject {
         let addOptiom3 = StylingTask(name: "CONTRAST", image: UIImage(named: "contrast_new")!, optionVal: 547)
         let addOptiom4 = StylingTask(name: "BUTTON HOLE & THREAD", image: UIImage(named: "thread")!, optionVal: 547)
         let addOptiom5 = StylingTask(name: "WHITE COLLAR & CUFF", image: UIImage(named: "whitec")!, optionVal: 206)
-        let addOptiom6 = StylingTask(name: "PLACKET", image: UIImage(named: "placketb")!, optionVal: 159)
+        let addOptiom6 = StylingTask(name: "PLACKET", image: UIImage(named: "placket")!, optionVal: 159)
         let addOptiom7 = StylingTask(name: "PLEAT", image: UIImage(named: "twopleats")!, optionVal: 156)
-        let addOptiom8 = StylingTask(name: "SHORT", image:UIImage(named: "short_sleev")!, optionVal: 208)
+        let addOptiom8 = StylingTask(name: "SHORT SLEEVE", image:UIImage(named: "short_sleev")!, optionVal: 208)
         
         
         
@@ -184,8 +177,53 @@ class StylingTask: NSObject {
         
     }
     
-    
-    
+    //monoText,self.monoStyle,self.threadCode,self.positionSelected
+    func monogramInserttask(monoTxt:String,style:String,threadCode:String,position:String,completion:@escaping (Bool,Any?,Error?) -> Void) {
+        
+        DispatchQueue.global().async {
+       
+      let parameters = ["orderNo": "9120239", "customerID": "1949","paperNo": "50460", "trackingID": "09120239 - 1949 - 1","mgLine":monoTxt,"mgColor":threadCode,"mgPosition":position,"mgStyle":style]
+            
+            print(parameters)
+            
+            guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertMonogramStylingInfo") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+            request.httpBody = httpBody
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        
+                        DispatchQueue.main.async {
+                            completion(true,json,nil)
+                            
+                        }
+                        
+                    } catch {
+                        print(error)
+                        
+                        DispatchQueue.main.async {
+                            completion(false,nil,error)
+                            
+                        }
+                        
+                        
+                    }
+                }
+                
+                }.resume()
+            
+            
+        }
+        
+    }
     
     
     func collarInsertionTask(completion:@escaping (Bool,Any?,Error?) -> Void) {
@@ -231,8 +269,108 @@ class StylingTask: NSObject {
         
     }
     
+    struct AddOption {
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+   static var add_json = """
+{"orderNo":"9120239","customerID":"1949","paperNo":"50460",
+     "trackingID":"9120239 - 1949 - 1", "placket":"\(StylingTask.placket)",
+     "backPleats":"\(StylingTask.backpleats)", "pocket":"\(StylingTask.pocket)", "shortSleeve":"\(StylingTask.shortSleeve)",
+     "tuxedo":"\(StylingTask.tuxedo)", "tuxedoPleat":"\(StylingTask.tuxedoPleat)", "collarContrastFabric":"\(StylingTask.collarContrastFabric)",
+     "cuffContrastFabric":"\(StylingTask.cuffContrastFabric)", "placketContrastFabric":"\(StylingTask.placketContrastFabric)",
+     "sleeveVentContrastFabric":"\(StylingTask.sleeveVentContrastFabric)", "whiteCuffAndCollar":"\(StylingTask.whiteCuffAndCollar)",
+     "contrastFabricCategory":"inner_collar", "contrastFabricID":"\(StylingTask.contrastFabricID)",
+     "buttonholeColor":"\(StylingTask.buttonholeColor)", "btnType":"Save"}
+"""
+    
+    
+    
+    func postAdditionalOptins(completion:@escaping (Bool,Any?,Error?)->Void)  {
+
+        print(StylingTask.add_json)
+        DispatchQueue.global().async {
+           var data: Data { return Data(StylingTask.add_json.utf8) }
+            
+            print(data)
+            
+           guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertAdditionalOptionStylingInfo") else { return }
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+           // guard let httpBody = try? JSONSerialization.data(withJSONObject: data, options: []) else { return }
+           
+            
+            do {
+                
+                request.httpBody = data
+            }
+ 
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        
+                        DispatchQueue.main.async {
+                            completion(true,json,nil)
+                            
+                        }
+                        
+                    } catch {
+                        print(error)
+                        
+                        DispatchQueue.main.async {
+                            completion(false,nil,error)
+                            
+                        }
+                        
+                        
+                    }
+                }
+                
+                }.resume()
+        }
+        
+    }
+   
     
 }
+
+struct AdditionalOptions {
+    
+    static var pocket = ""
+    static var placket = ""
+    static var backpleats = ""
+    static var shortSleeve = ""
+    static var tuxedo = ""
+    static var tuxedoPleat = ""
+    static var collarContrastFabric = ""
+    static var cuffContrastFabric = ""
+    static var placketContrastFabric = ""
+    static var sleeveVentContrastFabric = ""
+    static var whiteCuffAndCollar = ""
+    static var contrastFabricCategory = "inner_collar"
+    static var contrastFabricID = ""
+    static var buttonholeColor = ""
+    static var btnType = ""
+    
+}
+
+
 
 
 

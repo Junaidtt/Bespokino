@@ -14,6 +14,7 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var monogramCollectionView: UICollectionView!
     
     var name = ["POCKET","CUFF","BACK OF COLLAR","INSIDE COLLAR","BODY"]
+    var optionValue = ["172","171","174","173","170"]
     var images = [UIImage]()
 
     
@@ -56,9 +57,10 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
         
+    
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramPadViewController") as! MonogramPadViewController
-        
+        newViewController.positionSelected = optionValue[indexPath.row]
         self.navigationController?.pushViewController(newViewController, animated: true)
         
         

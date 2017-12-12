@@ -60,7 +60,7 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 5), height: CGFloat(170))
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 2) - 5), height: CGFloat(160))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -69,17 +69,18 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-       // var cell = collectionView.cellForItem(at: indexPath)
-        let url = fabric[indexPath.row].fabricCode
-        print("\(String(describing: url))")
+        // var cell = collectionView.cellForItem(at: indexPath)
+        let url = fabric[indexPath.row].fabricImage
+        print("\(String(describing: url!))")
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
-       // self.present(newViewController, animated: true, completion: nil)
+        newViewController.shirtType = "LUXURY"
+
+        newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
         self.navigationController?.pushViewController(newViewController, animated: true)
         
     }
-    
     
     
     

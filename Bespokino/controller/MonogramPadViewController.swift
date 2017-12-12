@@ -19,7 +19,8 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
     var thread:Thread = Thread()
     var monoStyle:String!
     var threadCode:String!
-    
+    let stylingtask = StylingTask()
+    var positionSelected:String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +131,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
     @IBAction func applyButtonTapped(_ sender: Any) {
         
         let async = AsyncTask(view:self)
-        let monoText = monoTextField.text
+        var monoText = monoTextField.text
         
         if (monoText?.isEmpty)! {
         async.displayAlertMessage(messageToDisplay: "Empty monogram text field not allowed")
@@ -155,13 +156,24 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
        
         }else{
             
+ 
             
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "AdditionalOptionsViewController") as! AdditionalOptionsViewController
-            self.navigationController?.pushViewController(newViewController, animated: true)
-            
-            
+            stylingtask.monogramInserttask(monoTxt: monoText!, style: self.monoStyle, threadCode: self.threadCode, position: self.positionSelected!, completion: { (success, result, Error) in
+                if success {
+                    
+                    print(result!)
+                    
+                    
+         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "AdditionalOptionsViewController") as! AdditionalOptionsViewController
+         self.navigationController?.pushViewController(newViewController, animated: true)
+                    
+                    
+                    
+                }
+            })
+         
 
             
         }

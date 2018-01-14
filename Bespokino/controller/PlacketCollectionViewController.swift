@@ -17,8 +17,8 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
     let optionValue = ["160","159","161"]
     var placket = ["PLACKET","NO PLACKET","HIDDEN PLACKET"]
     var image:[UIImage] = [
-        UIImage(named: "noplacket")!,
         UIImage(named: "placket_yes")!,
+        UIImage(named: "noplacket")!,
         UIImage(named: "hiddenplacketc")!
     ]
     override func viewDidLoad() {
@@ -69,6 +69,10 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
         cell?.layer.borderWidth = 2
     }
     
+    @IBAction func cloaseButtonDidTap(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func saveButtonDidTap(_ sender: Any) {

@@ -20,18 +20,19 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.title = "BESPOKINO"
         addNewButton.layer.cornerRadius = 5
         checkOutButton.layer.cornerRadius = 5
         
-        
+    
+        self.cartTableView.tableFooterView = UIView()
         cartmodel.fetchCartItems { (success, result, error) in
             
             if success{
-                
-                
+  
                 self.cart = result!
+                Order.cartCount = self.cart.count
                 if self.cart.count>0{
                   
                     DispatchQueue.main.async {
@@ -42,10 +43,7 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 }
                 
             }
-                
-     
-            
-            
+          
         }
         
         
@@ -60,27 +58,58 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cart", for: indexPath) as! CartTableViewCell
         
         if cart.count>0{
-            cell.shirtPrice.text = "SHIRT PRICE: \(cart[indexPath.row].shirtPrice)"
+            
+            //"$"+String(format: "%.2f",cart[indexPath.row].shirtPrice)
+            cell.shirtPrice.text = "SHIRT PRICE: $"+String(format: "%.2f",cart[indexPath.row].shirtPrice)
             
             cell.shirtNameCount.text = "SHIRT \(indexPath.row+1)"
             
+            print(cart)
+            
             let cartImage = cart[indexPath.row].image
             
+            print(cartImage)
+            
             let url = NSURL(string: "http://www.bespokino.com/images/fabric/"+cartImage)!
+
+            print(url)
+            cell.cartImageView.sd_setImage(with:url as URL)
+
+       // cell.cartImageView.sd_setImage(with: url as URL!, placeholderImage: UIImage(named: ""), options: .transformAnimatedImage, progress: nil, completed: nil)
             
-            
-                    print(url)
-            
-                    cell.cartImageView.sd_setImage(with: url as URL!, placeholderImage: UIImage(named: "default_logo"), options: .transformAnimatedImage, progress: nil, completed: nil)
         }
        
         return cell
         
     }
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        let trackingID = cart[indexPath.row].trackingID
+    
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+
+    
+        newViewController.trackingid = trackingID
+        newViewController.count = indexPath.row + 1
+        
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle,forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            print(cart[indexPath.row].trackingID)
+            
+            cartmodel.deleteCartItemtask(trackingID: cart[indexPath.row].trackingID)
+
             cart.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }

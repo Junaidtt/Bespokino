@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct Payment {
+
+   static var ccPay :Double?
+
+}
+
+
+
 struct Invoice{
     
     var totalPrice:Double
@@ -36,9 +44,8 @@ struct Invoice{
 class InvoiceTask: NSObject {
     
     var invoiceArray = [Invoice]()
-    let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=4380179&customerID=51818"
+    let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=\(Order.orderNo)&customerID=\(Order.customerID)"
 
-    
     
     func getInvoiceTask(completion:@escaping (Bool,[Invoice]?,Error?)->Void){
     
@@ -113,23 +120,6 @@ class InvoiceTask: NSObject {
         
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     

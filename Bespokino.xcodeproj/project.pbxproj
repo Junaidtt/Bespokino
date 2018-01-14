@@ -19,6 +19,9 @@
 		DE087B8A1FD9BFC90005615B /* LengthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */; };
 		DE087B8C1FD9CED90005615B /* MeasurmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */; };
 		DE087B8E1FD9F9C50005615B /* GetStartedViewControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */; };
+		DE17D66E1FE984680072356B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE17D66D1FE984680072356B /* Reachability.swift */; };
+		DE17D6701FE989580072356B /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE17D66F1FE989580072356B /* NoInternetViewController.swift */; };
+		DE17D6721FE9AFD00072356B /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE17D6711FE9AFD00072356B /* CheckInternet.swift */; };
 		DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */; };
 		DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */; };
 		DE19DC291FD8555900538B93 /* SleeveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC281FD8555900538B93 /* SleeveViewController.swift */; };
@@ -26,6 +29,7 @@
 		DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */; };
 		DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */; };
 		DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFF1FC20AEF00432688 /* StylingTask.swift */; };
+		DE2496211FF2CA3600606863 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2496201FF2CA3600606863 /* SearchResultsController.swift */; };
 		DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */; };
 		DE32D4231FD5E0EA004809A3 /* PlacketCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE32D4221FD5E0EA004809A3 /* PlacketCollectionViewController.swift */; };
 		DE32D4251FD5E1B7004809A3 /* PlacketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE32D4241FD5E1B7004809A3 /* PlacketCollectionViewCell.swift */; };
@@ -47,10 +51,17 @@
 		DE4817EC1FD8B056001EACA3 /* BicepsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */; };
 		DE49016B1FD5ECCE0003B888 /* PleatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49016A1FD5ECCE0003B888 /* PleatViewController.swift */; };
 		DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE49016C1FD5ED010003B888 /* PleatCollectionViewCell.swift */; };
+		DE4F79661FE055D900591D60 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4F79651FE055D900591D60 /* OrderInfo.swift */; };
+		DE5226CD1FE3D15D00240745 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5226CC1FE3D15D00240745 /* AboutUsViewController.swift */; };
+		DE5226D21FE3E4DF00240745 /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5226CF1FE3E4DE00240745 /* YouTubePlayer.swift */; };
+		DE5226D31FE3E4DF00240745 /* YoutubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5226D01FE3E4DE00240745 /* YoutubePlayerViewController.swift */; };
+		DE5226D41FE3E4DF00240745 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = DE5226D11FE3E4DE00240745 /* YTPlayer.html */; };
+		DE5454391FF591E00067523A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5454381FF591E00067523A /* DetailViewController.swift */; };
 		DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */; };
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
 		DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D41FB51003005A369C /* MenuViewController.swift */; };
 		DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D61FB51197005A369C /* MenuTableViewCell.swift */; };
+		DE801C4C1FFAD18A00416571 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE801C4B1FFAD18A00416571 /* DetailCollectionViewCell.swift */; };
 		DE801EF01FCF38DC008FBB98 /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE801EEF1FCF38DC008FBB98 /* InvoiceViewController.swift */; };
 		DE801EF41FCF6541008FBB98 /* InvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */; };
 		DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8659581FB0EF4F00A35877 /* Fabric.swift */; };
@@ -87,6 +98,11 @@
 		DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */; };
 		DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527B1FDB36E000A82C19 /* Body.swift */; };
 		DEE8527E1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */; };
+		DEF3F6ED1FE326AD003270C1 /* BEMCheckBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */; };
+		DEF3F6EE1FE326AD003270C1 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F31FE326AD003270C1 /* IQKeyboardManagerSwift.framework */; };
+		DEF3F6EF1FE326AD003270C1 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F41FE326AD003270C1 /* SDWebImage.framework */; };
+		DEF3F6F01FE326AD003270C1 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F51FE326AD003270C1 /* SVProgressHUD.framework */; };
+		DEF3F6F11FE326AD003270C1 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F61FE326AD003270C1 /* XLPagerTabStrip.framework */; };
 		DEFBD5761FD3285A0022F161 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5751FD3285A0022F161 /* CartViewController.swift */; };
 		DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */; };
 		DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFBD5791FD32B580022F161 /* CartModel.swift */; };
@@ -107,6 +123,9 @@
 		DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthTableViewCell.swift; sourceTree = "<group>"; };
 		DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentValue.swift; sourceTree = "<group>"; };
 		DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewControllerViewController.swift; sourceTree = "<group>"; };
+		DE17D66D1FE984680072356B /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		DE17D66F1FE989580072356B /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		DE17D6711FE9AFD00072356B /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 		DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentParentViewController.swift; sourceTree = "<group>"; };
 		DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoulderMeasureViewController.swift; sourceTree = "<group>"; };
 		DE19DC281FD8555900538B93 /* SleeveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +133,7 @@
 		DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPosturesViewController.swift; sourceTree = "<group>"; };
 		DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplay.swift; sourceTree = "<group>"; };
 		DE213EFF1FC20AEF00432688 /* StylingTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingTask.swift; sourceTree = "<group>"; };
+		DE2496201FF2CA3600606863 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		DE2A9F361FC6334300F5F989 /* BodyPostureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureTableViewCell.swift; sourceTree = "<group>"; };
 		DE32D4221FD5E0EA004809A3 /* PlacketCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacketCollectionViewController.swift; sourceTree = "<group>"; };
 		DE32D4241FD5E1B7004809A3 /* PlacketCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacketCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -135,12 +155,20 @@
 		DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BicepsTableViewCell.swift; sourceTree = "<group>"; };
 		DE49016A1FD5ECCE0003B888 /* PleatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleatViewController.swift; sourceTree = "<group>"; };
 		DE49016C1FD5ED010003B888 /* PleatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleatCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE49F8AE1FFC315A00BD2D77 /* Bespokino.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bespokino.entitlements; sourceTree = "<group>"; };
+		DE4F79651FE055D900591D60 /* OrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfo.swift; sourceTree = "<group>"; };
+		DE5226CC1FE3D15D00240745 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		DE5226CF1FE3E4DE00240745 /* YouTubePlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubePlayer.swift; sourceTree = "<group>"; };
+		DE5226D01FE3E4DE00240745 /* YoutubePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerViewController.swift; sourceTree = "<group>"; };
+		DE5226D11FE3E4DE00240745 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
+		DE5454381FF591E00067523A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplayViewController.swift; sourceTree = "<group>"; };
 		DE7329D01FB50D46005A369C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DE7329D11FB50D46005A369C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bespokino-Bridging-Header.h"; sourceTree = "<group>"; };
 		DE7329D41FB51003005A369C /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DE7329D61FB51197005A369C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		DE801C4B1FFAD18A00416571 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE801EEF1FCF38DC008FBB98 /* InvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
 		DE801EF31FCF6541008FBB98 /* InvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTableViewCell.swift; sourceTree = "<group>"; };
 		DE8659581FB0EF4F00A35877 /* Fabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fabric.swift; sourceTree = "<group>"; };
@@ -179,6 +207,11 @@
 		DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEE8527B1FDB36E000A82C19 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF3F6F31FE326AD003270C1 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IQKeyboardManagerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF3F6F41FE326AD003270C1 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF3F6F51FE326AD003270C1 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF3F6F61FE326AD003270C1 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFBD5751FD3285A0022F161 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		DEFBD5791FD32B580022F161 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -189,6 +222,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEF3F6ED1FE326AD003270C1 /* BEMCheckBox.framework in Frameworks */,
+				DEF3F6EE1FE326AD003270C1 /* IQKeyboardManagerSwift.framework in Frameworks */,
+				DEF3F6EF1FE326AD003270C1 /* SDWebImage.framework in Frameworks */,
+				DEF3F6F01FE326AD003270C1 /* SVProgressHUD.framework in Frameworks */,
+				DEF3F6F11FE326AD003270C1 /* XLPagerTabStrip.framework in Frameworks */,
 				D9581E1ACE8EA04837553DF5 /* Pods_Bespokino.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +237,11 @@
 		3CEF239DF0C965560B4E1480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */,
+				DEF3F6F31FE326AD003270C1 /* IQKeyboardManagerSwift.framework */,
+				DEF3F6F41FE326AD003270C1 /* SDWebImage.framework */,
+				DEF3F6F51FE326AD003270C1 /* SVProgressHUD.framework */,
+				DEF3F6F61FE326AD003270C1 /* XLPagerTabStrip.framework */,
 				A976263D5193EF018595AC1F /* Pods_Bespokino.framework */,
 			);
 			name = Frameworks;
@@ -211,6 +254,25 @@
 				8D2D05CEDF15ACB60D2BD9AE /* Pods-Bespokino.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DE17D66C1FE984540072356B /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				DE17D66D1FE984680072356B /* Reachability.swift */,
+				DE17D6711FE9AFD00072356B /* CheckInternet.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
+		DE5226CE1FE3E4DE00240745 /* YoutubePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				DE5226CF1FE3E4DE00240745 /* YouTubePlayer.swift */,
+				DE5226D01FE3E4DE00240745 /* YoutubePlayerViewController.swift */,
+				DE5226D11FE3E4DE00240745 /* YTPlayer.html */,
+			);
+			path = YoutubePlayer;
 			sourceTree = "<group>";
 		};
 		DE8659551FB0EEDD00A35877 /* supporting */ = {
@@ -241,27 +303,36 @@
 		DEC2A5D21FAF884E00B77BC6 /* Bespokino */ = {
 			isa = PBXGroup;
 			children = (
+				DE49F8AE1FFC315A00BD2D77 /* Bespokino.entitlements */,
+				DE17D66C1FE984540072356B /* helper */,
 				DE8659551FB0EEDD00A35877 /* supporting */,
 				DEC2A5EB1FAF8B2A00B77BC6 /* db */,
 				DEC2A5EA1FAF8B2400B77BC6 /* controller */,
 				DEC2A5E91FAF8B1E00B77BC6 /* model */,
 				DEC2A5E81FAF8B1800B77BC6 /* view */,
 				DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */,
-				DEC2A5D71FAF884E00B77BC6 /* Main.storyboard */,
 				DEC2A5DF1FAF884E00B77BC6 /* LaunchScreen.storyboard */,
 				DEC2A5E21FAF884E00B77BC6 /* Info.plist */,
 				DEC2A5DA1FAF884E00B77BC6 /* Bespokino.xcdatamodeld */,
-				DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */,
-				DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */,
-				DE4817DB1FD8762F001EACA3 /* SleeveTableViewCell.swift */,
-				DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */,
-				DE4817E11FD893BD001EACA3 /* WaistTableViewCell.swift */,
-				DE9744901FB374A20095A22B /* CollarCollectionViewCell.swift */,
-				DE9744921FB38E160095A22B /* CuffCollectionViewCell.swift */,
-				DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */,
 				DE7329D01FB50D46005A369C /* SWRevealViewController.h */,
 				DE7329D11FB50D46005A369C /* SWRevealViewController.m */,
 				DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */,
+			);
+			path = Bespokino;
+			sourceTree = "<group>";
+		};
+		DEC2A5E81FAF8B1800B77BC6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DEC2A5D71FAF884E00B77BC6 /* Main.storyboard */,
+				DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */,
+				DE4817DB1FD8762F001EACA3 /* SleeveTableViewCell.swift */,
+				DE9744901FB374A20095A22B /* CollarCollectionViewCell.swift */,
+				DE4817E11FD893BD001EACA3 /* WaistTableViewCell.swift */,
+				DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */,
+				DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */,
+				DE9744921FB38E160095A22B /* CuffCollectionViewCell.swift */,
+				DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */,
 				DE7329D61FB51197005A369C /* MenuTableViewCell.swift */,
 				DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */,
 				DE410C281FBF8D34006C9BD8 /* AddOptionCollectionViewCell.swift */,
@@ -275,18 +346,13 @@
 				DE4817D91FD87284001EACA3 /* ShulderTableViewCell.swift */,
 				DE4817DF1FD893A3001EACA3 /* ChestTableViewCell.swift */,
 				DE4817E71FD893FE001EACA3 /* HipsTableViewCell.swift */,
-				DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */,
 				DE087B811FD9AF860005615B /* NeckTableViewCell.swift */,
-				DE087B831FD9BB6E0005615B /* CuffMeasureTableViewCell.swift */,
+				DE4817EB1FD8B056001EACA3 /* BicepsTableViewCell.swift */,
 				DE087B891FD9BFC90005615B /* LengthTableViewCell.swift */,
 				DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */,
-			);
-			path = Bespokino;
-			sourceTree = "<group>";
-		};
-		DEC2A5E81FAF8B1800B77BC6 /* view */ = {
-			isa = PBXGroup;
-			children = (
+				DE087B831FD9BB6E0005615B /* CuffMeasureTableViewCell.swift */,
+				DE801C4B1FFAD18A00416571 /* DetailCollectionViewCell.swift */,
+				DE5226CE1FE3E4DE00240745 /* YoutubePlayer */,
 				DEC2A5DD1FAF884E00B77BC6 /* Assets.xcassets */,
 			);
 			path = view;
@@ -305,6 +371,7 @@
 				DEFBD5791FD32B580022F161 /* CartModel.swift */,
 				DE087B8B1FD9CED90005615B /* MeasurmentValue.swift */,
 				DEE8527B1FDB36E000A82C19 /* Body.swift */,
+				DE4F79651FE055D900591D60 /* OrderInfo.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -352,6 +419,10 @@
 				DE087B851FD9BB880005615B /* CuffMeasurmentViewController.swift */,
 				DE087B871FD9BFB50005615B /* LengthViewController.swift */,
 				DE087B8D1FD9F9C50005615B /* GetStartedViewControllerViewController.swift */,
+				DE5226CC1FE3D15D00240745 /* AboutUsViewController.swift */,
+				DE17D66F1FE989580072356B /* NoInternetViewController.swift */,
+				DE5454381FF591E00067523A /* DetailViewController.swift */,
+				DE2496201FF2CA3600606863 /* SearchResultsController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -399,7 +470,12 @@
 					DEC2A5CF1FAF884E00B77BC6 = {
 						CreatedOnToolsVersion = 9.1;
 						LastSwiftMigration = 0910;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -428,6 +504,7 @@
 			files = (
 				DEC2A5E11FAF884E00B77BC6 /* LaunchScreen.storyboard in Resources */,
 				DEC2A5DE1FAF884E00B77BC6 /* Assets.xcassets in Resources */,
+				DE5226D41FE3E4DF00240745 /* YTPlayer.html in Resources */,
 				DEC2A5D91FAF884E00B77BC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,9 +518,15 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -475,25 +558,29 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${PODS_ROOT}/AuthorizeNetAccept/AcceptSDK-Framework/AcceptSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcceptSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -521,6 +608,7 @@
 				DE087B841FD9BB6E0005615B /* CuffMeasureTableViewCell.swift in Sources */,
 				DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
+				DE17D66E1FE984680072356B /* Reachability.swift in Sources */,
 				DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */,
 				DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */,
 				DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */,
@@ -541,9 +629,11 @@
 				DEFBD57A1FD32B580022F161 /* CartModel.swift in Sources */,
 				DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */,
 				DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */,
+				DE4F79661FE055D900591D60 /* OrderInfo.swift in Sources */,
 				DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */,
 				DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */,
 				DEC2A5ED1FAFA39C00B77BC6 /* ParentViewController.swift in Sources */,
+				DE801C4C1FFAD18A00416571 /* DetailCollectionViewCell.swift in Sources */,
 				DE944F211FCE05A100DEB256 /* PayTwentyViewController.swift in Sources */,
 				DEC1F29E1FD0BF3300BC0155 /* BillingViewController.swift in Sources */,
 				DE9744911FB374A20095A22B /* CollarCollectionViewCell.swift in Sources */,
@@ -553,16 +643,21 @@
 				DE4817E41FD893D7001EACA3 /* WaistViewController.swift in Sources */,
 				DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */,
 				DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */,
+				DE5226D31FE3E4DF00240745 /* YoutubePlayerViewController.swift in Sources */,
 				DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */,
 				DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */,
 				DE087B8A1FD9BFC90005615B /* LengthTableViewCell.swift in Sources */,
+				DE2496211FF2CA3600606863 /* SearchResultsController.swift in Sources */,
 				DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */,
 				DE4817EC1FD8B056001EACA3 /* BicepsTableViewCell.swift in Sources */,
+				DE5454391FF591E00067523A /* DetailViewController.swift in Sources */,
 				DE456A511FB6524600566237 /* RegisterViewController.swift in Sources */,
 				DEE8527E1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift in Sources */,
 				DE087B8C1FD9CED90005615B /* MeasurmentValue.swift in Sources */,
+				DE5226CD1FE3D15D00240745 /* AboutUsViewController.swift in Sources */,
 				DE19DC291FD8555900538B93 /* SleeveViewController.swift in Sources */,
 				DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */,
+				DE5226D21FE3E4DF00240745 /* YouTubePlayer.swift in Sources */,
 				DE4817E01FD893A3001EACA3 /* ChestTableViewCell.swift in Sources */,
 				DE087B801FD9AF370005615B /* NeckViewController.swift in Sources */,
 				DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */,
@@ -580,6 +675,8 @@
 				DE087B821FD9AF860005615B /* NeckTableViewCell.swift in Sources */,
 				DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */,
 				DE4817DA1FD87284001EACA3 /* ShulderTableViewCell.swift in Sources */,
+				DE17D6701FE989580072356B /* NoInternetViewController.swift in Sources */,
+				DE17D6721FE9AFD00072356B /* CheckInternet.swift in Sources */,
 				DE944F231FCE0B7900DEB256 /* TransactionViewController.swift in Sources */,
 				DE4817DE1FD89377001EACA3 /* ChestViewController.swift in Sources */,
 				DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */,
@@ -643,6 +740,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -700,6 +798,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -724,20 +823,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 454G2VG97B;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6edfac02-6682-496e-af09-a442db433025";
-				PROVISIONING_PROFILE_SPECIFIER = Bespokino;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bespokino/Bespokino-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -747,19 +848,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 454G2VG97B;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Bespokino/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bespokino.com.Bespokino;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6edfac02-6682-496e-af09-a442db433025";
-				PROVISIONING_PROFILE_SPECIFIER = Bespokino;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bespokino/Bespokino-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -135,12 +135,12 @@ class StylingTask: NSObject {
         
     }
     
-    func cuffInsertionTask(completion:@escaping (Bool,Any?,Error?) -> Void) {
+    func cuffInsertionTask(code:Int,completion:@escaping (Bool,Any?,Error?) -> Void) {
         
         DispatchQueue.global().async {
             
             
-            let parameters = ["orderNo": "@0", "customerID": "0","paperNo": "0", "trackingID": "0","optionValue":"201"]
+            let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"optionValue":"\(code)"]
             guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertCuffStylingInfo") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -182,7 +182,7 @@ class StylingTask: NSObject {
         
         DispatchQueue.global().async {
        
-      let parameters = ["orderNo": "9120239", "customerID": "1949","paperNo": "50460", "trackingID": "09120239 - 1949 - 1","mgLine":monoTxt,"mgColor":threadCode,"mgPosition":position,"mgStyle":style]
+      let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"mgLine":monoTxt,"mgColor":threadCode,"mgPosition":position,"mgStyle":style]
             
             print(parameters)
             
@@ -219,19 +219,16 @@ class StylingTask: NSObject {
                 }
                 
                 }.resume()
-            
-            
         }
         
     }
-    
-    
-    func collarInsertionTask(completion:@escaping (Bool,Any?,Error?) -> Void) {
+
+    func collarInsertionTask(code:Int,completion:@escaping (Bool,Any?,Error?) -> Void) {
         
         DispatchQueue.global().async {
             
             
-            let parameters = ["orderNo": "@0", "customerID": "0","paperNo": "0", "trackingID": "0","optionValue":"191"]
+            let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": "\(Order.trackingID)","optionValue":"\(code)"]
             guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertCollarStylingInfo") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -284,8 +281,8 @@ class StylingTask: NSObject {
     
     
    static var add_json = """
-{"orderNo":"9120239","customerID":"1949","paperNo":"50460",
-     "trackingID":"9120239 - 1949 - 1", "placket":"\(StylingTask.placket)",
+{"orderNo":"\(Order.orderNo)","customerID":"\(Order.customerID)","paperNo":"\(Order.paperNo)",
+     "trackingID": "\(Order.trackingID)", "placket":"\(StylingTask.placket)",
      "backPleats":"\(StylingTask.backpleats)", "pocket":"\(StylingTask.pocket)", "shortSleeve":"\(StylingTask.shortSleeve)",
      "tuxedo":"\(StylingTask.tuxedo)", "tuxedoPleat":"\(StylingTask.tuxedoPleat)", "collarContrastFabric":"\(StylingTask.collarContrastFabric)",
      "cuffContrastFabric":"\(StylingTask.cuffContrastFabric)", "placketContrastFabric":"\(StylingTask.placketContrastFabric)",

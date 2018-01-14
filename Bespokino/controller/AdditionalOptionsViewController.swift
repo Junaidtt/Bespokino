@@ -219,36 +219,52 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
     
     @IBAction func addToCartButtonDidTap(_ sender: Any) {
    
-    
-        stylingTask.postAdditionalOptins { (success, result, Error) in
+        
+        let checkInternet = CheckInternetConnection()
+       
+        
+        
+        if checkInternet.isConnectedToNetwork(){
             
-            if success {
+            stylingTask.postAdditionalOptins { (success, result, Error) in
                 
-                print(result)
+                if success {
+                    
+                    print(result!)
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+                    
+                    self.navigationController?.pushViewController(newViewController, animated: true)
+                }
             }
+            
+            
+        }else {
+
+            displayAlert()
+        
         }
-   
-        print(AdditionalOptions.pocket)
-        print(AdditionalOptions.tuxedo)
-        print(AdditionalOptions.tuxedoPleat)
+        
     
-//        var add_json = """
-//        {"orderNo":"9120239","customerID":"1949","paperNo":"50460",
-//        "trackingID":"9120239 - 1949 - 1", "placket":"\(AdditionalOptions.placket)",
-//        "backPleats":"\(AdditionalOptions.backpleats)", "pocket":"\(AdditionalOptions.pocket)", "shortSleeve":"\(AdditionalOptions.shortSleeve)",
-//        "tuxedo":"\(AdditionalOptions.tuxedo)", "tuxedoPleat":"\(AdditionalOptions.tuxedoPleat)", "collarContrastFabric":"\(AdditionalOptions.collarContrastFabric)",
-//        "cuffContrastFabric":"\(AdditionalOptions.cuffContrastFabric)", "placketContrastFabric":"\(AdditionalOptions.placketContrastFabric)",
-//        "sleeveVentContrastFabric":"\(AdditionalOptions.sleeveVentContrastFabric)", "whiteCuffAndCollar":"\(AdditionalOptions.whiteCuffAndCollar)",
-//        "contrastFabricCategory":"inner_collar", "contrastFabricID":"\(AdditionalOptions.contrastFabricID)",
-//        "buttonholeColor":"\(AdditionalOptions.buttonholeColor)", "btnType":"Save"}
-//        """
     
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
-//
-//        self.navigationController?.pushViewController(newViewController, animated: true)
-        //print(add_json)
+
+
     }
     
     
+    func displayAlert()  {
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        let alert = UIAlertController(title: "info", message: "please check your internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            // continue your work
+            // important to hide the window after work completed.
+            // this also keeps a reference to the window until the action is invoked.
+            topWindow.isHidden = true
+        }))
+        topWindow.makeKeyAndVisible()
+        topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+    }
 }

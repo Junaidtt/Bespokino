@@ -62,11 +62,11 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
                 
                 let value  = result as Measurement!
                 
-                let cuffvalue = value?.cuffMaster
+                let cuffvalue:Double = (value?.cuffMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+cuffvalue!)
-                
+                print(code+cuffvalue)
+                SelectedValues.cuffMaster = code + cuffvalue
             }
             
         }

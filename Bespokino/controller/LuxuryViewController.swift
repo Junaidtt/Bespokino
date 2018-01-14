@@ -8,10 +8,8 @@
 
 import UIKit
 import XLPagerTabStrip
-import Alamofire
 import SDWebImage
-import SwiftyJSON
-
+import SVProgressHUD
 class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate {
     
     
@@ -23,7 +21,8 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        populateFabric()
+        SVProgressHUD.show()
+        self.popoulateFabricData()
         // Do any additional setup after loading the view.
     }
 
@@ -72,11 +71,11 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
         // var cell = collectionView.cellForItem(at: indexPath)
         let url = fabric[indexPath.row].fabricImage
         print("\(String(describing: url!))")
-        
+        Order.fabid = String(describing: fabric[indexPath.row].fabricCode!)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
         newViewController.shirtType = "LUXURY"
-
+        newViewController.shirtPrice = "$40"
         newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
         self.navigationController?.pushViewController(newViewController, animated: true)
         
@@ -84,42 +83,58 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
     
     
     
-    func populateFabric(){
+    
+    func popoulateFabricData() {
         
-        Alamofire.request("http://www.bespokino.com/cfc/app.cfc?wsdl&method=populateFabrics&categoryID=3").responseJSON { (responseData) -> Void in
-            if((responseData.result.value) != nil) {
-                let fabricResult = JSON(responseData.result.value!)
-                print(fabricResult)
-                
-                if let resData = fabricResult.arrayObject {
-                    self.fetchResult = resData as! [[String:AnyObject]]
+        
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=populateFabrics&categoryID=3") else { return }
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                print(data)
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    SVProgressHUD.dismiss()
                     
-                    print(resData)
+                    guard  let fabricArr = json as?[Any] else {return}
                     
-                    print(self.fetchResult)
-                }
-                
-                for item in self.fetchResult {
+                    for fabric in fabricArr{
+                        guard let dic = fabric as?[String:Any] else {return}
+                        guard let addUpprice = dic["addupPrice"] as? Int else {return}
+                        guard let fabricId = dic["fabricID"] as? Int else {return}
+                        
+                        guard let image = dic["image"] as? String else {return}
+                        
+                        let f:Fabric = Fabric(image: image , price: addUpprice, code: fabricId)
+                        self.fabric.append(f)
+                        
+                    }
                     
-                    print(item)
+                    DispatchQueue.main.async {
+                        
+                        
+                        if self.fabric.count>0{
+                            self.luxuryCollectionView.reloadData()
+
+                        }
+                        
+                        
+                    }
                     
-                    let addUpprice = item["addupPrice"] as! Int
-                    let fabricId = item["fabricID"] as! Int
-                    let image = item["image"] as! String
-                    
-                    let f:Fabric = Fabric(image: image , price: addUpprice, code: fabricId)
-                    self.fabric.append(f)
+                } catch {
+                    print(error)
                 }
                 
             }
-            if self.fabric.count>0{
-                self.luxuryCollectionView.reloadData()
-                
-            }
-        }
+            }.resume()
         
         
     }
-    
     
 }

@@ -58,10 +58,12 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 
                 let value  = result as Measurement!
                 
-                let chestvalue = value?.chestMaster
+                let chestvalue:Double = (value?.chestMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+chestvalue!)
+                print(code+chestvalue)
+                
+                SelectedValues.chestMaster = code + chestvalue
                 
             }
             

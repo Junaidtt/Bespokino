@@ -9,6 +9,12 @@
 import Foundation
 
 
+struct ThreadCode {
+    
+    static var selectedThreadCode = ""
+    static var selectedIndex:Int?
+}
+
 class Thread :NSObject{
 
     var name:String?

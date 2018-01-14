@@ -14,6 +14,11 @@ class FitViewController: UIViewController {
     @IBOutlet weak var slimView: UIView!
     @IBOutlet weak var slimTicke: UIImageView!
     @IBOutlet weak var casualTick: UIImageView!
+    @IBOutlet weak var casualLabel: UILabel!
+    @IBOutlet weak var slimLabel: UILabel!
+    
+    var slim:Int = 0
+    var fit:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +33,15 @@ class FitViewController: UIViewController {
         self.casualView.addGestureRecognizer(casualGesture)
         self.slimView.addGestureRecognizer(slimGesture)
     
+        self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is:\(Order.modelNo)"
+         self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is:\(Order.modelNo+1)"
     
     }
     @objc func casualAction(sender:UITapGestureRecognizer){
        print("casual view selected")
         
+        self.fit = 1
+        self.slim = 0
         casualView.layer.borderWidth = 2
         casualView.layer.borderColor = #colorLiteral(red: 1, green: 0.8000000119, blue: 0.400000006, alpha: 1)
         
@@ -44,7 +53,8 @@ class FitViewController: UIViewController {
     }
     @objc func slimAction(sender:UITapGestureRecognizer){
         print("slim view selected")
-        
+        self.fit = 0
+        self.slim = 1
         slimView.layer.borderWidth = 2
         slimView.layer.borderColor = #colorLiteral(red: 1, green: 0.8000000119, blue: 0.400000006, alpha: 1)
         
@@ -58,30 +68,52 @@ class FitViewController: UIViewController {
 
     @IBAction func measuringToolPresent(_ sender: Any) {
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MeasurmentParentViewController") as! MeasurmentParentViewController
         
-        self.navigationController?.pushViewController(newViewController, animated: true)
+        if self.slim != 0 || self.fit != 0{
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "MeasurmentParentViewController") as! MeasurmentParentViewController
+            
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }else{
+            
+            self.displayAlertMessage(messageToDisplay: "please select your preffered fit")
+        }
         
-        
-        
+      
         
     }
     
     
     @IBAction func sendMeMeasuringTool(_ sender: Any) {
         
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayTwentyViewController") as! PayTwentyViewController
-        
-        self.navigationController?.pushViewController(newViewController, animated: true)
-        
-        
-        
+        if self.slim != 0 || self.fit != 0{
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayTwentyViewController") as! PayTwentyViewController
+            
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }else{
+            self.displayAlertMessage(messageToDisplay: "please select your preffered fit")
+
+            
+        }
+
         
     }
-    
+    func displayAlertMessage(messageToDisplay: String)
+    {
+        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            
+            // Code in this block will trigger when OK button tapped.
+            print("Ok button tapped");
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
+    }
   
 
 }

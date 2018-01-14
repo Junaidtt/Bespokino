@@ -21,6 +21,12 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
         
         self.navigationItem.title = "BESPOKINO"
         
+        if self.revealViewController() != nil {
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        }
+        
         menuButton.target = revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
@@ -55,5 +61,13 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
         return [included,premium,luxury]
     }
   
-
+    
+    @IBAction func cartButtonDidTap(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
+        
+    }
 }

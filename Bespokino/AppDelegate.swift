@@ -9,16 +9,23 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
+import GooglePlaces
+import StoreKit
 
-@available(iOS 10.0, *)
-@available(iOS 10.0, *)
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let reachability = Reachability();
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        GMSPlacesClient.provideAPIKey("AIzaSyB7pl3-VkABUpwFs60eGCFoh7gtEWBikT4")
+
         
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         UINavigationBar.appearance().tintColor = .black
@@ -28,10 +35,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          IQKeyboardManager.sharedManager().enable = true
         
         
-        // Override point for customization after application launch.
+        NotificationCenter.default.addObserver(self, selector: #selector(internetChanged), name: Notification.Name.reachabilityChanged , object: reachability)
+        do{
+            
+            try reachability?.startNotifier()
+        }catch{
+            print("Could not start notifier:\(error)")
+        }
+      
+        let defaults = UserDefaults.standard
+        defaults.set(false, forKey: "isRegIn")
+        defaults.set(false, forKey: "isLoggedIn")
+        defaults.synchronize()
         return true
     }
+    @objc func internetChanged(note:Notification)  {
+        let reachability  = note.object as! Reachability
+        
+        if reachability.connection != .none {
+            print("Yes, internet connection")
 
+            if reachability.connection == .wifi{
+                print("Wifi connection")
+
+            }else if reachability.connection == .cellular{
+                 print("cellular connection")
+            }
+        }else{
+            print("No internet connection")
+            
+
+            self.displayAlert()
+            
+        }
+    }
+    
+    func requestReview()   {
+        
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+
+            print("Rating disabled")
+        
+        }
+        
+    }
+    
+    func displayAlert()  {
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        let alert = UIAlertController(title: "No Internet", message: "please check your internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            // continue your work
+            // important to hide the window after work completed.
+            // this also keeps a reference to the window until the action is invoked.
+            topWindow.isHidden = true
+        }))
+        topWindow.makeKeyAndVisible()
+        topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -53,6 +117,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        print("Application terminated")
+        let defaults = UserDefaults.standard
+        defaults.set(false, forKey: "isRegIn")
+        defaults.synchronize()
         self.saveContext()
     }
 

@@ -63,11 +63,11 @@ class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDa
                 
                 let value  = result as Measurement!
                 
-                let sleevevalue = value?.sleeveMaster
+                let sleevevalue:Double = (value?.sleeveMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+sleevevalue!)
-                
+                print(code + sleevevalue)
+                SelectedValues.sleeveMaster = code + sleevevalue
             }
             
         }

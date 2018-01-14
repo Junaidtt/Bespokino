@@ -12,6 +12,7 @@ import Foundation
 struct Cart {
     var shirtPrice:Double
     var image:String
+    var trackingID:String
 }
 
 
@@ -22,8 +23,8 @@ class CartModel {
     func fetchCartItems(completion:@escaping (Bool,[Cart]?,Error?) -> Void) {
         DispatchQueue.global().async {
             
-            guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=listOrderItem&customerID=8939&orderNo=7580638") else { return }
-            
+            guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=listOrderItem&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)") else { return }
+           print(url)
             let session = URLSession.shared
             session.dataTask(with: url) { (data, response, error) in
                 if let response = response {
@@ -35,24 +36,23 @@ class CartModel {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
              
+                        print(json)
                         guard let array = json as?[Any] else {return}
-                        
+                        print(array)
                         for cart in array{
                             guard let cartDic = cart as? [String:Any] else {return}
                             guard let price = cartDic["shirtPrice"] as? Double else {return}
                             guard let image = cartDic["image"] as? String else {return}
-
-                            let c = Cart(shirtPrice: price, image: image)
+                            guard let trackinfid = cartDic["trackingID"] as? String else {return}
+                            let c = Cart(shirtPrice: price, image: image,trackingID:trackinfid)
                             self.cartArray.append(c)
-                            
                         }
                         DispatchQueue.main.async {
+                            
                             completion(true, self.cartArray, error)
 
                         }
-                        
-                        
-                        
+       
                     } catch {
                         completion(false, nil, error)
 
@@ -66,6 +66,37 @@ class CartModel {
         }
     }
     
+    
+    func deleteCartItemtask(trackingID:String) {
+        
+        let endpoint = trackingID
+        print(endpoint)
+        let tid = endpoint.replacingOccurrences(of: " ", with: "%20")
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=deleteOrderItem&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)&trackingID=\(tid)") else { return }
+        
+        print(url)
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                print(data)
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+                
+            }
+            }.resume()
+        
+        
+        
+    }
     
     
     

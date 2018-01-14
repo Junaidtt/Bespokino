@@ -89,19 +89,47 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UIPickerView
                 async.displayAlertMessage(messageToDisplay: "Invalied email")
             }else{
                 
-                let regUser = User(firstname: firstname!, lastname: lastname!, email: email!, phonenumber: cellnumber!, pass: password!,size:pantwaistsize!)
                 
-                let regTask = AsyncTask(view:self)
                 
-                regTask.regUserTask(view: self, user: regUser)
+                let checkInternet = CheckInternetConnection()
                 
-            }
+                
+                if checkInternet.isConnectedToNetwork(){
+                
+                    let regUser = User(firstname: firstname!, lastname: lastname!, email: email!, phonenumber: cellnumber!, pass: password!,size:pantwaistsize!)
+                    
+                    let regTask = AsyncTask(view:self)
+                    
+                    regTask.regUserTask(view: self, user: regUser)
+                    
+                }else{
+ 
+                    displayAlert()
+              
+                }
+                
+ }
 
         }
         
         
         
     }
+    func displayAlert()  {
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        let alert = UIAlertController(title: "No Internet", message: "please check your internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            // continue your work
+            // important to hide the window after work completed.
+            // this also keeps a reference to the window until the action is invoked.
+            topWindow.isHidden = true
+        }))
+        topWindow.makeKeyAndVisible()
+        topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

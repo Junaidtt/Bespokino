@@ -67,6 +67,10 @@ class PleatViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell?.layer.borderWidth = 2
     }
     
+    @IBAction func closeButtonDidTap(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func saveButtonDIdTap(_ sender: Any) {
         

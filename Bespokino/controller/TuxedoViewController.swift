@@ -81,6 +81,16 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
 
         
     }
+    
+    
+    @IBAction func closeButtonDidTap(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
 

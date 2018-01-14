@@ -10,8 +10,8 @@ import UIKit
 import XLPagerTabStrip
 
 class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITableViewDelegate,UITableViewDataSource {
-   
-    
+
+
     let m = MeasurementValue()
        var codeValue = [0,-1,-2]
     var shoulder:[UIImage] = [
@@ -23,11 +23,10 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
- 
-        
         
     }
 
+  
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "SHOULDER")
         
@@ -61,16 +60,28 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
                 
                 let value  = result as Measurement!
                 
-                let shouldervalue = value?.shoulderMaster
+                let shouldervalue:Double = (value?.shoulderMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+shouldervalue!)
+                print(code + shouldervalue)
                 
+                SelectedValues.shoulderMaster = code + shouldervalue
+                
+                print(SelectedValues.shoulderMaster!)
             }
-            
         }
+        //UserDefaults.standard.set(1, forKey: "check")
+        Control.pointer = 1
+        let center = storyboard?.instantiateViewController(withIdentifier: "MeasurmentParentViewController") as? MeasurmentParentViewController
+       // center?.moveToViewcontroller(at: 1)
+        center?.moveToViewControllerAtIndex(1)
         
+        //self.navigationController?.pushViewController(center!, animated: true)
+
+      //  self.present(center!, animated: true, completion: nil)
+      
         
+       
         
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

@@ -117,6 +117,11 @@ class ContrastViewController: UIViewController,UICollectionViewDelegateFlowLayou
     
 
     
+    @IBAction func closeButtonDip(_ sender: Any) {
+   
+        self.dismiss(animated: true, completion: nil)
+    
+    }
     
     
     

@@ -51,7 +51,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
 
     @IBAction func simpleButtonTapped(_ sender: Any) {
         
-        simpleMonogramButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        simpleMonogramButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         scriptMonogramButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         fancyMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.monoStyle = "simple"
@@ -61,7 +61,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
     @IBAction func scriptButtonTapped(_ sender: Any) {
         
         simpleMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        scriptMonogramButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        scriptMonogramButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         fancyMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.monoStyle = "script"
 
@@ -73,7 +73,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         
         simpleMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         scriptMonogramButton.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        fancyMonogramButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        fancyMonogramButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         self.monoStyle = "fancy"
 
@@ -115,6 +115,9 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         let item = thread.menuItems[indexPath.row]
 
         self.threadCode = item["code"]!
+    
+        ThreadCode.selectedThreadCode =  self.threadCode
+        ThreadCode.selectedIndex = indexPath.row
         
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
@@ -150,7 +153,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
             
         }
         
-        if ((monoText?.isEmpty)! && (self.monoStyle == nil) && (self.threadCode == nil)) {
+        if ((monoText?.isEmpty)! || (self.monoStyle == nil) || (self.threadCode == nil)) {
             
             async.displayAlertMessage(messageToDisplay: "select all options")
        

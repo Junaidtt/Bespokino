@@ -31,13 +31,11 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
     @IBOutlet weak var invoiceTableView: UITableView!
     @IBOutlet weak var payButton: UIButton!
     
-    
-    
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
         self.navigationItem.title = "BESPOKINO"
         payButton.layer.cornerRadius = 5
@@ -45,8 +43,7 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
         invoiceTask.getInvoiceTask { (success, result, error) in
             
-          
-            
+       
             if success{
                 self.data = result!
                 DispatchQueue.main.async {
@@ -63,6 +60,7 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.paidByCC.text = "$\(String(format: "%.2f",self.data[0].paidByCCAmount))"
                         self.totalSalesAmount.text = "$\(String(format: "%.2f",self.data[0].totalSalesAmount))"
                         self.invoiceTableView.reloadData()
+                        Payment.ccPay = self.data[0].paidByCCAmount
                     }
                 }
                 
@@ -98,6 +96,15 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     @IBAction func payButtonDidTap(_ sender: Any) {
+        
+        
+      
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "BillingViewController") as! BillingViewController
+        newViewController.customer = self.data
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
     }
     func getCurrentDate()->String{
         let date = Date()
@@ -105,5 +112,20 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         formatter.dateFormat = "dd.MM.yyyy"
         let result = formatter.string(from: date)
         return result
+    }
+    
+    func displayAlert()  {
+        let topWindow = UIWindow(frame: UIScreen.main.bounds)
+        topWindow.rootViewController = UIViewController()
+        topWindow.windowLevel = UIWindowLevelAlert + 1
+        let alert = UIAlertController(title: "No Internet", message: "please check your internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "confirm"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
+            // continue your work
+            // important to hide the window after work completed.
+            // this also keeps a reference to the window until the action is invoked.
+            topWindow.isHidden = true
+        }))
+        topWindow.makeKeyAndVisible()
+        topWindow.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }

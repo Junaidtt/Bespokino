@@ -35,7 +35,7 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
             
         })
         
-        
+        print(Order.customerID)
    
     }
 
@@ -68,8 +68,7 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
         
         return cell
-        
-        
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -80,27 +79,28 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell?.layer.borderWidth = 2
 
-        
+        let value = item[indexPath.row].optionvalue
       
-        collar.collarInsertionTask { (success, response, error) in
+  
+        collar.collarInsertionTask(code: value!) { (success, response, Error) in
             
-            
-            if success{
-               
-                guard let result = response as? [String:Any] else {return}
+            if success {
+                
+                guard  let result   =  response as? [String:Any] else {return}
                 
                 print(result)
-                
+              
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
                 self.navigationController?.pushViewController(newViewController, animated: true)
-                
-                
             }
             
+            
+            
         }
-     
+    
+      
         
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -126,8 +126,6 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         
         cell?.layer.borderWidth = 0
-        
 
-    
     }
 }

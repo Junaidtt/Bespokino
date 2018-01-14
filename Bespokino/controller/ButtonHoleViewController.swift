@@ -10,6 +10,7 @@ import UIKit
 
 class ButtonHoleViewController: UIViewController,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
   
+    @IBOutlet weak var buttonCollectionView: UICollectionView!
     
     let color = Thread()
     
@@ -21,6 +22,24 @@ class ButtonHoleViewController: UIViewController,UICollectionViewDelegateFlowLay
         
         self.navigationItem.title = "BESPOKINO"
         
+        print(ThreadCode.selectedThreadCode)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        if ThreadCode.selectedIndex != nil{
+            let indexPathForFirstRow = IndexPath(row: ThreadCode.selectedIndex!, section: 0)
+            self.buttonCollectionView?.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .top)
+            
+            let cell = self.buttonCollectionView.cellForItem(at: indexPathForFirstRow)
+            
+            cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+            cell?.layer.borderWidth = 2
+        }
+      
     }
 
     
@@ -65,13 +84,17 @@ class ButtonHoleViewController: UIViewController,UICollectionViewDelegateFlowLay
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: CGFloat((collectionView.frame.size.width / 5) - 5), height: CGFloat(90))
+        return CGSize(width: CGFloat((collectionView.frame.size.width / 5) - 5), height: CGFloat(80))
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
     
+    @IBAction func closeButtonDidTap(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func saveButtonDidtap(_ sender: Any) {

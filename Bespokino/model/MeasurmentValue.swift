@@ -147,11 +147,22 @@ class MeasurementValue {
         
     }
     
-    
+  
     
 }
 
-
+struct SelectedValues {
+    static var model:String?
+    static var shoulderMaster:Double?
+    static var sleeveMaster:Double?
+    static var chestMaster:Double?
+    static var waistMaster:Double?
+    static var hipsMaster:Double?
+    static var lengthMaster:Double?
+    static var bicepsMaster:Double?
+    static var cuffMaster:Double?
+    static var neckMaster:Double?
+}
 
 
 

@@ -55,11 +55,11 @@ class WaistViewController: UIViewController,IndicatorInfoProvider,UITableViewDat
                 
                 let value  = result as Measurement!
                 
-                let waistvalue = value?.waistMaster
+                let waistvalue:Double = (value?.waistMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+waistvalue!)
-                
+                print(code+waistvalue)
+                SelectedValues.waistMaster = code + waistvalue
             }
             
         }

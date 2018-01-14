@@ -12,7 +12,7 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
   
 
     var names = ["1 BUTTON SQUARE","1 BUTTON CURVEDD","1 BUTTON ANGLED","2 BUTTONS SQUARE","2 BUTTONS CURVED","2 BUTTONS ANGLE","FRENCH SQUARED","FRENCH CURVED","FRENCH ANGLED"]
-    
+    var value:Int?
     var images = [UIImage]()
     var cuff = [StylingTask]()
     let stylingTask = StylingTask()
@@ -29,7 +29,14 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
       
         stylingTask.getCuffData { (result) in
             
-            self.cuff = result
+            
+            print(result)
+             self.cuff = result
+            if (self.cuff.count>0){
+                self.cuffCollectionView.reloadData()
+
+            }
+            
             
         }
         
@@ -44,13 +51,16 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cuff", for: indexPath) as! CuffCollectionViewCell
        
-        
-        cell.cuffLabel.text = names[indexPath.row]
-        cell.cuffImage.image = images[indexPath.row]
-        cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        cell.layer.shadowRadius = 5
-        cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        if self.cuff.count>0{
+            cell.cuffLabel.text = cuff[indexPath.row].itemname
+            cell.cuffImage.image = cuff[indexPath.row].itemImage
+            
+            cell.layer.borderWidth = 0.5
+            cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            cell.layer.shadowRadius = 5
+            cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        }
+
         return cell
         
     }
@@ -63,21 +73,22 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell1?.layer.borderWidth = 2
         
+        value = cuff[indexPath.row].optionvalue
         
       let cell:CuffCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CuffCollectionViewCell
         if  cell.cuffLabel.text == "FRENCH SQUARED"{
-           self.displayAlertMessage(messageToDisplay: "Additional $ 10")
+           self.displayAlertMessage(messageToDisplay: " ")
         }else if cell.cuffLabel.text == "FRENCH CURVED"{
            
-            self.displayAlertMessage(messageToDisplay: "Additional $ 10")
+            self.displayAlertMessage(messageToDisplay: " ")
 
         }else if cell.cuffLabel.text == "FRENCH ANGLED"{
            
-            self.displayAlertMessage(messageToDisplay: "Additional $ 10")
+            self.displayAlertMessage(messageToDisplay: " ")
 
         }else {
             
-            stylingTask.cuffInsertionTask { (success, response, error) in
+            stylingTask.cuffInsertionTask(code:value!) { (success, response, error) in
                 
                 
                 if success{
@@ -122,11 +133,11 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func displayAlertMessage(messageToDisplay: String)
     {
-        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "+$10", message: messageToDisplay, preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
             
-            self.stylingTask.cuffInsertionTask { (success, response, error) in
+            self.stylingTask.cuffInsertionTask(code: self.value!) { (success, response, error) in
                 
                 
                 if success{
@@ -134,6 +145,8 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
                     guard let result = response as? [String:Any] else{return}
                     
                     print(result)
+                    
+                
                     
                     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramViewController") as! MonogramViewController

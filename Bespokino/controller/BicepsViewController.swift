@@ -45,7 +45,7 @@ class BicepsViewController: UIViewController,IndicatorInfoProvider,UITableViewDe
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "BICEPTS")
+        return IndicatorInfo(title: "BICEPS")
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
@@ -59,11 +59,12 @@ class BicepsViewController: UIViewController,IndicatorInfoProvider,UITableViewDe
                 
                 let value  = result as Measurement!
                 
-                let bicepsvalue = value?.bicepsMaster
+                let bicepsvalue:Double = (value?.bicepsMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+bicepsvalue!)
+                print(code + bicepsvalue)
                 
+                SelectedValues.bicepsMaster = code + bicepsvalue
             }
             
         }

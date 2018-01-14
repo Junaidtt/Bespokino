@@ -45,7 +45,7 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "NECK")
+        return IndicatorInfo(title: "COLLAR")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -61,10 +61,12 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
                 
                 let value  = result as Measurement!
                 
-                let neckvalue = value?.neckMaster
+                let neckvalue:Double = (value?.neckMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+neckvalue!)
+                print(code+neckvalue)
+                
+                SelectedValues.neckMaster = code + neckvalue
                 
             }
             

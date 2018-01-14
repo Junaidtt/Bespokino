@@ -54,10 +54,12 @@ class HipsViewController: UIViewController,IndicatorInfoProvider,UITableViewDele
                 
                 let value  = result as Measurement!
                 
-                let hipsvalue = value?.hipsMaster
+                let hipsvalue:Double = (value?.hipsMaster)!
                 let code  = Double(codeValue[indexPath.row])
                 
-                print(code+hipsvalue!)
+                print(code+hipsvalue)
+                
+                SelectedValues.hipsMaster = code + hipsvalue
                 
             }
             

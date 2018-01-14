@@ -10,16 +10,30 @@ import UIKit
 import XLPagerTabStrip
 import CoreData
 
+protocol MyDelegate {
+    func selectChildControllerAtIndex(toIndex: Int!)
+    func selectViewController(viewController: UIViewController)
+}
+
+struct Control {
+    
+    static var pointer:Int? = nil
+    
+}
 
 class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
 
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var model:String?
     let purpleInspireColor = UIColor(red:0.13, green:0.03, blue:0.25, alpha:1.0)
+    
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-        self.navigationItem.title = "BESPOKINO"
+       // self.navigationItem.title = "BESPOKINO"
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
         
@@ -55,6 +69,34 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
      
     
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+      //  containerView.isScrollEnabled = false
+        
+        
+        
+//        if UserDefaults.standard.object(forKey: "check") != nil{
+//
+//            let check =  UserDefaults.standard.object(forKey: "check") as! Int
+//            if check == 1{
+//                moveToViewControllerAtIndex(check)
+//               // moveToViewcontroller(at: 1)
+//            }
+//
+//
+//        }
+  
+        
+//                    if Control.pointer != nil{
+//
+//                       self.moveToViewControllerAtIndex(Control.pointer!)
+//
+//                    }
+    }
+    
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let sleeve = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SleeveViewController")
         let shoulder = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ShoulderMeasureViewController")
@@ -71,7 +113,20 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
                 let length = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LengthViewController")
         return [shoulder,sleeve,chest,waist,hips,biceps,neck,cuff,length]
     }
+   
+//    func moveToViewcontroller(at index: Int){
+//
+//        print("\(index)")
+//
+//
+//            if Control.pointer != nil{
+//
+//               self.moveToViewControllerAtIndex(Control.pointer!)
+//
+//            }
+//
+//    }
+
     
-    func moveToViewController(at index: Int){}
 
 }

@@ -275,11 +275,13 @@
 			path = YoutubePlayer;
 			sourceTree = "<group>";
 		};
-		DE8659551FB0EEDD00A35877 /* supporting */ = {
+		DE8659551FB0EEDD00A35877 /* globel */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2A5DF1FAF884E00B77BC6 /* LaunchScreen.storyboard */,
+				DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */,
 			);
-			path = supporting;
+			path = globel;
 			sourceTree = "<group>";
 		};
 		DEC2A5C71FAF884E00B77BC6 = {
@@ -305,18 +307,16 @@
 			children = (
 				DE49F8AE1FFC315A00BD2D77 /* Bespokino.entitlements */,
 				DE17D66C1FE984540072356B /* helper */,
-				DE8659551FB0EEDD00A35877 /* supporting */,
+				DE8659551FB0EEDD00A35877 /* globel */,
 				DEC2A5EB1FAF8B2A00B77BC6 /* db */,
 				DEC2A5EA1FAF8B2400B77BC6 /* controller */,
 				DEC2A5E91FAF8B1E00B77BC6 /* model */,
 				DEC2A5E81FAF8B1800B77BC6 /* view */,
-				DEC2A5D31FAF884E00B77BC6 /* AppDelegate.swift */,
-				DEC2A5DF1FAF884E00B77BC6 /* LaunchScreen.storyboard */,
-				DEC2A5E21FAF884E00B77BC6 /* Info.plist */,
 				DEC2A5DA1FAF884E00B77BC6 /* Bespokino.xcdatamodeld */,
 				DE7329D01FB50D46005A369C /* SWRevealViewController.h */,
 				DE7329D11FB50D46005A369C /* SWRevealViewController.m */,
 				DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */,
+				DEC2A5E21FAF884E00B77BC6 /* Info.plist */,
 			);
 			path = Bespokino;
 			sourceTree = "<group>";

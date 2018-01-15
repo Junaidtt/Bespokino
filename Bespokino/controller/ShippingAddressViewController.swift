@@ -10,26 +10,53 @@ import UIKit
 
 class ShippingAddressViewController: UIViewController {
 
+    @IBOutlet weak var continueButton: UIButton!
+    
+    
+    @IBOutlet weak var firstNameText: UITextField!
+    @IBOutlet weak var lastNameText: UITextField!
+    @IBOutlet weak var streetAddressText: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var zipTextField: UITextField!
+    @IBOutlet weak var countryTextField: UITextField!
+    
+    var shipping = [Invoice]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+    
+        self.navigationItem.title = "BESPOKINO"
+    
+        self.setDataInTextField()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setDataInTextField()  {
+       
+        if shipping.count>0 {
+            self.firstNameText.text = shipping[0].firstName
+            self.lastNameText.text = shipping[0].lastName
+            self.streetAddressText.text = shipping[0].address
+            self.cityTextField.text = shipping[0].city
+            self.stateTextField.text = shipping[0].state
+            self.zipTextField.text = shipping[0].zip
+            self.countryTextField.text = shipping[0].country
+            
+        }
+       
+        
+        
+    }
+    @IBAction func continueButtonDidTap(_ sender: Any) {
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

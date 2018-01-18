@@ -30,6 +30,18 @@ struct User {
         
     }
     
+ 
+    init(firstname:String,email:String,pass:String) {
+        
+        self.firstName = firstname
+
+        self.email = email
+ 
+        self.password = pass
+   
+        
+    }
+    
     init(email:String,pass:String) {
         self.email = email
         self.password = pass

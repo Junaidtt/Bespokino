@@ -109,8 +109,8 @@ class AsyncTask: NSObject {
         
        
         
-        let parameters = ["FirstName":user.firstName,"LastName":user.lastName,"Email":user.email,"Password":user.password,"PhoneNo":user.phoneNumber, "pantsWaist":user.pantWaistSize]
-        
+        let parameters = ["FullName":user.firstName!,"Email":user.email!,"Password":user.password!]
+        print(parameters)
         guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -138,10 +138,10 @@ class AsyncTask: NSObject {
                         Customer.lastName = user.lastName
                       //  guard let message = regResult["Message"] as? String else {return}
                         guard let userid  = regResult["UserId"] as? Int else {return}
-                        guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        //guard let modelNo = regResult["modelNo"] as? Int else {return}
                         
                         Order.userId = userid
-                        Order.modelNo = modelNo
+                       // Order.modelNo = modelNo
                         
                         DispatchQueue.main.async {
                            // self.displayAlertMessage(messageToDisplay: message)
@@ -202,7 +202,7 @@ class AsyncTask: NSObject {
     
     func displayAlertMessage(messageToDisplay: String)
     {
-        let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "info", message: messageToDisplay, preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
             

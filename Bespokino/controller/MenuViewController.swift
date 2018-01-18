@@ -31,7 +31,13 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-      UIApplication.shared.statusBarStyle = .lightContent
+      UIApplication.shared.statusBarStyle = .default
+        
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+         statusBar.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+//        if statusBar.respondsToSelector("setBackgroundColor:") {
+//            statusBar.backgroundColor = UIColor.red
+//        }
 
     }
     

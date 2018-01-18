@@ -11,11 +11,13 @@ import CoreData
 import IQKeyboardManagerSwift
 import GooglePlaces
 import StoreKit
-
+import GoogleSignIn
+import Firebase
+import SVProgressHUD
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
 
@@ -25,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         GMSPlacesClient.provideAPIKey("AIzaSyB7pl3-VkABUpwFs60eGCFoh7gtEWBikT4")
+        FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
 
         
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
@@ -153,7 +159,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    // Google Sign In
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error) != nil {
+            print("An error occured during Google Authentication")
+            return
+        }
+        SVProgressHUD.show()
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if (error) != nil {
+                print("Google Authentification Fail")
+            } else {
+                print("Google Authentification Success")
+                print(GIDSignIn.sharedInstance().currentUser.profile.email)
+                print(GIDSignIn.sharedInstance().currentUser.profile.name)
+                print(GIDSignIn.sharedInstance().currentUser.profile.familyName)
+                print(GIDSignIn.sharedInstance().currentUser.profile.givenName)
+                
 
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                
+                self.window?.rootViewController = sw
+                
+                let destinationController = storyboard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
+                
+                let navigationController = UINavigationController(rootViewController: destinationController)
+                SVProgressHUD.dismiss()
+                sw.pushFrontViewController(navigationController, animated: true)
+ 
+            }
+        }
+    }
     // MARK: - Core Data Saving support
 
     func saveContext () {

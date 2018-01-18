@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import GoogleSignIn
+import Firebase
 class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 {
     
@@ -49,6 +51,15 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
         self.navigationItem.title = "BESPOKINO"
         
         self.titleLabel.text = "POSTURE"
+        
+        
+        let rightBarButton = UIBarButtonItem(title: "logout", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BodyPosturesViewController.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        
+        let leftBarButton = UIBarButtonItem(title: "back", style: UIBarButtonItemStyle.done, target: self, action: #selector(BodyPosturesViewController.myLeftSideBarButtonItemTapped(_:)))
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
 //
 //        continueButton.layer.cornerRadius = 3.0
 //        continueButton.layer.masksToBounds = true
@@ -203,5 +214,39 @@ self.bodyTableView.reloadData()
         
     }
 
+    
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        print("myRightSideBarButtonItemTapped")
+        
+        do {
+            try Auth.auth().signOut()
+            
+//            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+//            let appDelegate = UIApplication.shared.delegate
+//            appDelegate?.window??.rootViewController = signInPage
+            
+                //self.dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            
+            self.view.window?.rootViewController = sw
+            
+            let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+            
+            let navigationController = UINavigationController(rootViewController: destinationController)
+            
+            sw.pushFrontViewController(navigationController, animated: true)
+ 
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    @objc func myLeftSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        print("myLeftSideBarButtonItemTapped")
+    }
     
 }

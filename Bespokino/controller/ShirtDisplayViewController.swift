@@ -81,27 +81,7 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
         if Order.cartCount == 0{
             
             
-            s.getCustomerDetailsTask(completion: { (success, response, error) in
-                
-                if success{
-                    
-                    guard let userDetails = response as? [String:Any]  else {return}
-                    
-                    if userDetails["Error"] as! Bool{
-                        let  async = AsyncTask()
-                        async.displayAlertMessage(messageToDisplay: "Error")
-                    }else{
-                        
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CollarViewController") as! CollarViewController
-                        
-                        self.navigationController?.pushViewController(newViewController, animated: true)
-                    }
-                    
-                }
-                
-                
-            })
+            self.CallgetCustomerDetailsTask()
             
             
         }else{
@@ -118,10 +98,13 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
                         async.displayAlertMessage(messageToDisplay: "Error")
                     }else{
                         
-                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CollarViewController") as! CollarViewController
+                        self.CallgetCustomerDetailsTask()
                         
-                        self.navigationController?.pushViewController(newViewController, animated: true)
+                        
+//                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CollarViewController") as! CollarViewController
+//                        
+//                        self.navigationController?.pushViewController(newViewController, animated: true)
                     }
 
                 }
@@ -133,5 +116,33 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
    
 
     }
+    
+    func CallgetCustomerDetailsTask()  {
+       
+        let s:ShirtDisplay = ShirtDisplay()
+        s.getCustomerDetailsTask(completion: { (success, response, error) in
+            
+            if success{
+                
+                guard let userDetails = response as? [String:Any]  else {return}
+                
+                if userDetails["Error"] as! Bool{
+                    let  async = AsyncTask()
+                    async.displayAlertMessage(messageToDisplay: "Error")
+                }else{
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "CollarViewController") as! CollarViewController
+                    
+                    self.navigationController?.pushViewController(newViewController, animated: true)
+                }
+                
+            }
+            
+            
+        })
+        
+    }
+    
     
 }

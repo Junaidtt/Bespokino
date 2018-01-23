@@ -23,12 +23,28 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.18660756230-rvddb686rq9nu91hu78mcli2j4e46up7</string>
+				<string>com.googleusercontent.apps.18660756230-kecc74dr7a7flhjlcvgq4jn5iudlir3e</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb185835588680215</string>
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleVersion</key>
-	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>185835588680215</string>
+	<key>FacebookDisplayName</key>
+	<string>Bespokino</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbauth2</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

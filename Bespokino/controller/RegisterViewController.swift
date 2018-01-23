@@ -9,9 +9,16 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 
-class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldDelegate,GIDSignInUIDelegate {
+class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate  {
    
+    
+    
+    @IBOutlet weak var facebookSignInButton: FBSDKLoginButton!
+    
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -20,6 +27,8 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
 
     @IBOutlet weak var passwordTextField: UITextField!
     var activeTextField = UITextField()
+    
+    let btnSize : CGFloat = 100
    // var size = ["27","28","29","30","31","32","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49"]
     
     
@@ -33,11 +42,16 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
        // picker.delegate = self
       //  picker.dataSource = self
         
+        facebookSignInButton.layer.cornerRadius = 3.0
+        facebookSignInButton.layer.masksToBounds = true
+        facebookSignInButton.layer.borderColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+        facebookSignInButton.layer.borderWidth = 0.3
+        facebookSignInButton.layer.shadowColor = UIColor.black.cgColor
+        facebookSignInButton.layer.shadowOpacity = 1
+        facebookSignInButton.layer.shadowOffset = CGSize.zero
+        facebookSignInButton.layer.shadowRadius = 10
         
-       // pantWaistSize.inputView = picker
-        
-     //   pantWaistSize.layer.borderWidth = 0.5
-      //  pantWaistSize.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+ 
         
         firstNameTextField.layer.borderWidth = 0.5
         firstNameTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -54,16 +68,6 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
         passwordTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
 
-        
-//        let toolbarDone = UIToolbar.init()
-//        toolbarDone.sizeToFit()
-//        let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.done,
-//                                              target: self, action: #selector(doneButton_Clicked))
-//
-//
-//        toolbarDone.items = [barBtnDone] // You can even add cancel button too
-//        cellNumberTextField.inputAccessoryView = toolbarDone
-//        pantWaistSize.inputAccessoryView = toolbarDone
         
     }
 
@@ -181,8 +185,36 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
             return true
         }
     }
+    //FBSDKLoginButton delegate methods
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error == nil {
+            print("User just logged in via Facebook")
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if (error != nil) {
+                    print("Facebook authentication failed")
+                } else {
+                    print("Facebook authentication succeed")
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
+         
+                    self.navigationController?.pushViewController(newViewController, animated: true)
+                }
+            })
+        } else {
+            print("An error occured the user couldn't log in")
+        }
+    }
     
-
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("User just logged out from his Facebook account")
+    }
+    fileprivate func configureFacebookSignInButton() {
+       // let facebookSignInButton = FBSDKLoginButton()
+     
+        facebookSignInButton.delegate = self
+    }
     
     fileprivate func configureGoogleSignInButton() {
 //        let googleSignInButton = GIDSignInButton()

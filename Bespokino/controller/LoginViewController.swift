@@ -97,7 +97,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
        
-            self.navigationController?.pushViewController(newViewController, animated: true)
+            self.present(newViewController, animated: true, completion: nil)
+            
+           // self.navigationController?.pushViewController(newViewController, animated: true)
             
         }else{
             performSegue(withIdentifier: "reg", sender: self)

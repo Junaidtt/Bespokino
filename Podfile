@@ -16,4 +16,7 @@ target 'Bespokino' do
   pod 'GoogleSignIn'
  pod 'GooglePlaces'
   pod 'GooglePlacePicker'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
 end

@@ -14,6 +14,7 @@ import StoreKit
 import GoogleSignIn
 import Firebase
 import SVProgressHUD
+import FBSDKCoreKit
 
 
 @UIApplicationMain
@@ -25,9 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
-        GMSPlacesClient.provideAPIKey("AIzaSyB7pl3-VkABUpwFs60eGCFoh7gtEWBikT4")
         FirebaseApp.configure()
+
+        //facebook login
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        //Google login
+        GMSPlacesClient.provideAPIKey("AIzaSyB7pl3-VkABUpwFs60eGCFoh7gtEWBikT4")
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -102,6 +107,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         topWindow.makeKeyAndVisible()
         topWindow.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let googleAuthentication = GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+        
+        let facebookAuthentication = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        return facebookAuthentication || googleAuthentication
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -129,7 +141,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         defaults.synchronize()
         self.saveContext()
     }
-
+   
     // MARK: - Core Data stack
 
     @available(iOS 10.0, *)
@@ -172,6 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         Auth.auth().signIn(with: credential) { (user, error) in
             if (error) != nil {
                 print("Google Authentification Fail")
+                SVProgressHUD.dismiss()
             } else {
                 print("Google Authentification Success")
                 print(GIDSignIn.sharedInstance().currentUser.profile.email)

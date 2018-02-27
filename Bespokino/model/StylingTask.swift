@@ -49,20 +49,19 @@ class StylingTask: NSObject {
     
     func getCollarData(completion:([StylingTask])->Void)  {
         
-         var item = [StylingTask]()
-        
+        var item = [StylingTask]()
         let collar1 = StylingTask(name: "NORMAL", image: UIImage(named: "Collar_a")!, optionVal: 191)
-        let collar2 = StylingTask(name: "WIDE SPREAD", image: UIImage(named: "Collar_b")!, optionVal: 192)
-        let collar3 = StylingTask(name: "ROUND EDGE", image: UIImage(named: "Collar_c")!, optionVal: 193)
-        let collar4 = StylingTask(name: "BUTTON DOWN", image: UIImage(named: "Collar_d")!, optionVal: 194)
-        let collar5 = StylingTask(name: "MANDARIN", image: UIImage(named: "Collar_e")!, optionVal: 195)
-        
+        let collar2 = StylingTask(name: "SEMI WIDE SPREAD", image: UIImage(named: "Collar_b")!, optionVal: 192)
+        let collar3 = StylingTask(name: "WIDE SPREAD", image: UIImage(named: "collar_wide")!, optionVal: 192)
+        let collar4 = StylingTask(name: "ROUND EDGE", image: UIImage(named: "Collar_c")!, optionVal: 193)
+        let collar5 = StylingTask(name: "BUTTON DOWN", image: UIImage(named: "Collar_d")!, optionVal: 194)
+        let collar6 = StylingTask(name: "MANDARIN", image: UIImage(named: "Collar_e")!, optionVal: 195)
         item.append(collar1)
         item.append(collar2)
         item.append(collar3)
         item.append(collar4)
         item.append(collar5)
-        
+        item.append(collar6)
         completion(item)
         
         
@@ -80,7 +79,6 @@ class StylingTask: NSObject {
         let addOptiom6 = StylingTask(name: "PLACKET", image: UIImage(named: "placket")!, optionVal: 159)
         let addOptiom7 = StylingTask(name: "PLEAT", image: UIImage(named: "twopleats")!, optionVal: 156)
         let addOptiom8 = StylingTask(name: "SHORT SLEEVE", image:UIImage(named: "short_sleev")!, optionVal: 208)
-        
         
         
         item.append(addOptiom1)

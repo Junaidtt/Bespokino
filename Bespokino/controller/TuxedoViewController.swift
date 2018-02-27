@@ -12,11 +12,14 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
 
     @IBOutlet weak var yesTuxedoView: UIView!
     @IBOutlet weak var withPleatsView: UIView!
-   
+    @IBOutlet weak var yesTick: UIImageView!
+    @IBOutlet weak var pleatTuxedoTick: UIImageView!
+    
 
     override func viewDidLoad() {
     
-       
+       yesTick.isHidden = true
+        pleatTuxedoTick.isHidden = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.yesTuxedoViewTap(_:)))
         
         yesTuxedoView.addGestureRecognizer(tap)
@@ -39,6 +42,8 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
 
     @objc func yesTuxedoViewTap(_ sender: UITapGestureRecognizer) {
 
+        self.yesTick.isHidden = false
+        pleatTuxedoTick.isHidden = true
         yesTuxedoView.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         withPleatsView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
@@ -60,6 +65,9 @@ class TuxedoViewController: UIViewController,UIGestureRecognizerDelegate {
     
     
     @objc func withPleatsViewTap(_ sender: UITapGestureRecognizer) {
+        
+        self.pleatTuxedoTick.isHidden = false
+        self.yesTick.isHidden = false
         
         withPleatsView.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         yesTuxedoView.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)

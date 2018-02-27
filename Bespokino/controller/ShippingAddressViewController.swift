@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ShippingAddressViewController: UIViewController {
+class ShippingAddressViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var continueButton: UIButton!
-    
-    
+
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var streetAddressText: UITextField!
@@ -20,9 +19,9 @@ class ShippingAddressViewController: UIViewController {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipTextField: UITextField!
     @IBOutlet weak var countryTextField: UITextField!
-    
+     var activeTextField = UITextField()
     var shipping = [Invoice]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -49,8 +48,35 @@ class ShippingAddressViewController: UIViewController {
         
         
     }
-    @IBAction func continueButtonDidTap(_ sender: Any) {
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+        activeTextField = textField
+        
+        
+        switch activeTextField {
+        case firstNameText:
+            lastNameText.becomeFirstResponder()
+        case lastNameText:
+            streetAddressText.becomeFirstResponder()
+        case streetAddressText:
+            cityTextField.becomeFirstResponder()
+        case cityTextField:
+            zipTextField.becomeFirstResponder()
+        case zipTextField:
+            countryTextField.becomeFirstResponder()
+        case countryTextField:
+            firstNameText.becomeFirstResponder()
+            
+            
+        default:
+            print("No textfield selected :")
+        }
+        return false
+    }
+    @IBAction func continueButtonDidTap(_ sender: Any) {
+
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController

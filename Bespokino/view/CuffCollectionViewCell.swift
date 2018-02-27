@@ -15,5 +15,6 @@ class CuffCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cuffLabel: UILabel!
     
+    @IBOutlet weak var marker: UIImageView!
     
 }

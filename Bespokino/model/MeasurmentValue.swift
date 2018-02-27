@@ -132,9 +132,9 @@ class MeasurementValue {
             
             let loopModel = i.model
             
-            if loopModel == m{
+            if loopModel == m {
                 
-              //  print(i)
+                print(i)
                
                 completion(true, i, nil)
                 break

@@ -13,6 +13,7 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var menulabel: UILabel!
     
+    @IBOutlet weak var bespokeProfileImage: UIImageView!
     
     
     override func awakeFromNib() {

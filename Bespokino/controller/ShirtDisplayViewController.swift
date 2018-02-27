@@ -49,11 +49,17 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
         
         print(shirtType!)
         
-        self.typeLabel.text = shirtType
-        if shirtType! == "INCLUDED"{
-           self.priceTextField.text = shirtPrice!
+        if self.shirtType == "SHIRT"{
+        
+        self.typeLabel.text = ""
         }else{
-            self.priceTextField.text = "+\(String(describing: shirtPrice!))"
+            self.typeLabel.text = shirtType
+        }
+        
+        if shirtType! == "SHIRT"{
+           self.priceTextField.text = "$79"
+        }else{
+            self.priceTextField.text = "+ \(String(describing: shirtPrice!))"
 
         }
        

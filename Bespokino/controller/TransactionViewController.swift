@@ -113,13 +113,13 @@ class TransactionViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         super.viewDidLoad()
         ccPayAmt = Payment.ccPay!
         print(ccPayAmt!)
-        print(Customer.firstName!)
-        print(Customer.lastName!)
+       // print(Customer.firstName!)
+       // print(Customer.lastName!)
         picker.delegate = self
         picker.dataSource = self
         
 
-        cardNameTextField.text = "\(String(describing: Customer.firstName!)) \(String(describing: Customer.lastName!))"
+       // cardNameTextField.text = "\(String(describing: Customer.firstName!)) \(String(describing: Customer.lastName!))"
         
         
         
@@ -671,18 +671,7 @@ class TransactionViewController: UIViewController,UITextFieldDelegate,UIPickerVi
 
         }
 
-        /*
-         billTo:{
-         "firstName": "Ellen",
-         "lastName": "Johnson",
-         "company": "Souveniropolis",
-         "address": "14 Main Street",
-         "city": "Pecan Springs",
-         "state": "TX",
-         "zip": "44628",
-         "country": "USA"
-         }
-         */
+      
 
         struct billTo:Codable{
             let firstName:String
@@ -710,11 +699,6 @@ class TransactionViewController: UIViewController,UITextFieldDelegate,UIPickerVi
 
         let transaction = Transaction(createTransactionRequest: createTransactionRequest)
 
-
-        //        let encodedData = try? JSONEncoder().encode(transaction)
-        //
-        //        let jsonString = String(data: encodedData!, encoding: .utf8)
-        //        print(jsonString!)
 
 
         var postData: String {

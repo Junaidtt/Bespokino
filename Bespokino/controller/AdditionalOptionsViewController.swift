@@ -24,7 +24,9 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
         self.navigationItem.title = "BESPOKINO"
+        
         self.addOptionCollectionView?.allowsMultipleSelection = true
+        
         images = [UIImage(named: "pocket")!,UIImage(named: "tuxedo_pleats")!,UIImage(named: "contrast_new")!,UIImage(named: "thread")!,UIImage(named: "whitec")!,UIImage(named: "placket")!,UIImage(named: "twopleats")!,UIImage(named: "short_sleev")!]
   
         stylingTask.getAddOptiondata { (result) in
@@ -38,12 +40,6 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         
     }
 
-  
- 
-    
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return item.count
     }
@@ -59,6 +55,8 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         cell.layer.shadowRadius = 5
         cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+      //  cell.marker.isHidden = true
+
         return cell
         
         
@@ -72,7 +70,10 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         cell1?.layer.borderWidth = 2
 
         let cell:AddOptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! AddOptionCollectionViewCell
-
+    
+        
+        cell.marker.isHidden = false
+        cell.marker.image = UIImage(named:"tick")!
         print(cell.name.text!)
         
         if   (cell.name.text == "POCKET"){
@@ -117,6 +118,7 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
 
             
         }else if (cell.name.text == "PLACKET"){
+
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "PlacketCollectionViewController") as! PlacketCollectionViewController
              self.present(newViewController, animated: true, completion: nil)
@@ -156,6 +158,9 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         
         let cell:AddOptionCollectionViewCell = collectionView.cellForItem(at: indexPath) as! AddOptionCollectionViewCell
 
+     
+        
+        cell.marker.isHidden = true
         
         if   (cell.name.text == "POCKET"){
             print("pocket selected")

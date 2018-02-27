@@ -33,7 +33,7 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
     
 
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "LUXURY")
+        return IndicatorInfo(title: "LUXURY +$40")
 
     }
     
@@ -74,16 +74,14 @@ class LuxuryViewController: UIViewController,IndicatorInfoProvider,UICollectionV
         Order.fabid = String(describing: fabric[indexPath.row].fabricCode!)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
-        newViewController.shirtType = "LUXURY"
+        newViewController.shirtType = "LUXURY SHIRT"
         newViewController.shirtPrice = "$40"
         newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
         self.navigationController?.pushViewController(newViewController, animated: true)
         
     }
     
-    
-    
-    
+
     func popoulateFabricData() {
         
         

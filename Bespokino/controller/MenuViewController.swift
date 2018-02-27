@@ -7,37 +7,46 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
 class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
 
     @IBOutlet weak var menuTableView: UITableView!
 
+    @IBOutlet weak var userTitle: UILabel!
     
-    var menu = ["HOME","ABOUT US","LOGOUT","RATE ME"]
+    let defaults = UserDefaults.standard
+    var menu = ["HOME","ABOUT US","RATE ME","BESPOKE PROFILE","LOGOUT"]
     
     var picture:[UIImage] = [
         UIImage(named: "home")!,
         UIImage(named: "info")!,
-         UIImage(named: "ordering")!,
-        UIImage(named: "star")!
+        UIImage(named: "star")!,
+        UIImage(named: "measure")!,
+        UIImage(named: "ordering")!
+        
        ]
  
     override func viewDidLoad() {
         super.viewDidLoad()
    
         self.menuTableView.tableFooterView = UIView()
+        
+        userTitle.text = "\(String(describing: defaults.string(forKey: "FULLNAME")!))"
+
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
       UIApplication.shared.statusBarStyle = .default
         
         let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
          statusBar.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-//        if statusBar.respondsToSelector("setBackgroundColor:") {
-//            statusBar.backgroundColor = UIColor.red
-//        }
+        
+        self.menuTableView.reloadData()
 
     }
     
@@ -59,6 +68,19 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.menuImage.image = picture[indexPath.row]
         
+        
+        
+        let yesBody = defaults.bool(forKey: "YESBODY")
+        
+        if yesBody{
+            if cell.menulabel.text == "BESPOKE PROFILE"{
+                
+                cell.bespokeProfileImage.image = UIImage(named:"verified")
+
+            }
+
+        }
+        
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.yellow
         cell.selectedBackgroundView = backgroundView
@@ -67,16 +89,13 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let cell1 = tableView.cellForRow(at: indexPath)
-
-        //cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-       // cell1?.layer.borderWidth = 2
-        
+  
         //SELECT ACTION
           let revealViewController:SWRevealViewController = self.revealViewController()
          let cell:MenuTableViewCell = tableView.cellForRow(at: indexPath) as! MenuTableViewCell
       //  cell.menulabel.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+
         if cell.menulabel.text == "HOME"{
             
             print("Home")
@@ -97,18 +116,46 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let defaults = UserDefaults.standard
             defaults.set(false, forKey: "isRegIn")
             defaults.set(false, forKey: "isLoggedIn")
+  
+            defaults.removeObject(forKey: "FULLNAME")
+            defaults.removeObject(forKey: "EMAIL")
 
             defaults.synchronize()
+            
+            GIDSignIn.sharedInstance().signOut()
+
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                FBSDKLoginManager().logOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            
+            //Remove USER DEFAULT VALUES
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ParentViewController") as! ParentViewController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            self.present(newViewController, animated: true, completion: nil)
+            
+            
+            
+        }else if cell.menulabel.text == "BESPOKE PROFILE"{
+           
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BaseMeasurmentViewController") as! BaseMeasurmentViewController
             let newFrontViewController = UINavigationController.init(rootViewController: newViewController)
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
+            
+
         }
-        
         else if cell.menulabel.text == "RATE ME"{
 
-            
-  
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ParentViewController") as! ParentViewController
             let newFrontViewController = UINavigationController.init(rootViewController: newViewController)
@@ -140,6 +187,6 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return CGFloat(40)
     }
     
-    
+   
     
 }

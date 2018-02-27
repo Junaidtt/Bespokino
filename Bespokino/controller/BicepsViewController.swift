@@ -19,6 +19,9 @@ class BicepsViewController: UIViewController,IndicatorInfoProvider,UITableViewDe
         UIImage(named: "yellow")!,
          UIImage(named: "green")!
         ]
+    var bicepsImages = ["hook","red","yellow","green"]
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -63,7 +66,8 @@ class BicepsViewController: UIViewController,IndicatorInfoProvider,UITableViewDe
                 let code  = Double(codeValue[indexPath.row])
                 
                 print(code + bicepsvalue)
-                
+                defaults.set(bicepsImages[indexPath.row], forKey: "BICEPS")
+
                 SelectedValues.bicepsMaster = code + bicepsvalue
             }
             

@@ -46,8 +46,11 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
        
             if success{
                 self.data = result!
+                print(self.data[0].firstName)
                 DispatchQueue.main.async {
                     if (self.data.count>0){
+                       // self.nameTextField.text = "Junaid"
+                       // self.addressTextField.text = "TT"
                         self.nameTextField.text = "\(self.data[0].firstName) \(self.data[0].lastName)"
                         self.addressTextField.text = "\(self.data[0].address)"
                         self.addressTextField2.text = "\(self.data[0].state) \(self.data[0].zip) \(self.data[0].country)"
@@ -56,7 +59,7 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.orderNoTextField.text = "Order Number: \(self.data[0].orderNo)"
                         self.subTotalPrice.text = "$\(String(format: "%.2f",self.data[0].subTotalAmount))"
                         self.salesTaxPrice.text = "$\(String(format: "%.2f",self.data[0].salesTaxAmount))"
-                        self.shipmentPrice.text = "$\(String(format: "%.2f",self.data[0].shippingCost))"
+                        //self.shipmentPrice.text = "$\(String(format: "%.2f",self.data[0].shippingCost))"
                         self.paidByCC.text = "$\(String(format: "%.2f",self.data[0].paidByCCAmount))"
                         self.totalSalesAmount.text = "$\(String(format: "%.2f",self.data[0].totalSalesAmount))"
                         self.invoiceTableView.reloadData()
@@ -69,7 +72,8 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
        
         
-      //  print(data[0].firstName)
+        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
     
     }
 
@@ -95,6 +99,10 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     @IBAction func payButtonDidTap(_ sender: Any) {
         
         
@@ -113,7 +121,15 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let result = formatter.string(from: date)
         return result
     }
-    
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        
+        self.present(newViewController, animated: true, completion: nil)
+        //  self.navigationController?.pushViewController(newViewController, animated: true)
+    }
     func displayAlert()  {
         let topWindow = UIWindow(frame: UIScreen.main.bounds)
         topWindow.rootViewController = UIViewController()

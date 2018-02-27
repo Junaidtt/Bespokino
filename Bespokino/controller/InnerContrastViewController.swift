@@ -43,7 +43,7 @@ class InnerContrastViewController: UIViewController,UITableViewDelegate,UITableV
         let backgroundView = UIView()
         backgroundView.backgroundColor = UIColor.white
         cell.selectedBackgroundView = backgroundView
-        
+        cell.marker.isHidden = true
         return cell
     }
     
@@ -60,6 +60,8 @@ class InnerContrastViewController: UIViewController,UITableViewDelegate,UITableV
         
         
         let cell:InnerContrastTableViewCell = tableView.cellForRow(at: indexPath) as! InnerContrastTableViewCell
+        
+        cell.marker.isHidden = false
 
         
         if cell.innerContrastLabel.text == "INNER COLLAR"{
@@ -94,6 +96,8 @@ class InnerContrastViewController: UIViewController,UITableViewDelegate,UITableV
         cell1?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "inner", for: indexPath) as! InnerContrastTableViewCell
+
+        cell.marker.isHidden = true
 
         
         if cell.innerContrastLabel.text == "INNER COLLAR"{

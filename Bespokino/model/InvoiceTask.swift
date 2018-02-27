@@ -10,8 +10,24 @@ import Foundation
 
 struct Payment {
 
-   static var ccPay :Double?
+    static var ccPay :Double?
+    static var shippingCost:Double?
+    static var salesTaxAmount:Double?
+    static var totalSalesAmount:Double?
+    static var subTotalAmount:Double?
 
+
+}
+
+struct ApplepayInfo {
+    
+    static var ccPay :NSDecimalNumber?
+    static var shippingCost:NSDecimalNumber?
+    static var salesTaxAmount:NSDecimalNumber?
+    static var totalSalesAmount:NSDecimalNumber?
+    static var subTotalAmount:NSDecimalNumber?
+    
+    
 }
 
 
@@ -44,15 +60,15 @@ struct Invoice{
 class InvoiceTask: NSObject {
     
     var invoiceArray = [Invoice]()
+    
+  //let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=4380179&customerID=51818"
     let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=\(Order.orderNo)&customerID=\(Order.customerID)"
 
-    
+
     func getInvoiceTask(completion:@escaping (Bool,[Invoice]?,Error?)->Void){
-    
-        
-        
+  
         guard let url = URL(string: url) else { return }
-        
+        print(url)
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
             if let response = response {
@@ -94,7 +110,16 @@ class InvoiceTask: NSObject {
                         guard let orderNo = invoiceDic["orderNo"] as? Int32 else {return}
                         guard let StylingAddup = invoiceDic["StylingAddup"] as? Double else {return}
                         guard let country = invoiceDic["country"] as? String else {return}
-                        
+                        Payment.ccPay = paidByCCAmount
+                        ApplepayInfo.ccPay = NSDecimalNumber(decimal:Decimal(paidByCCAmount))
+                        ApplepayInfo.salesTaxAmount = NSDecimalNumber(decimal:Decimal(salesTaxAmount))
+                        ApplepayInfo.shippingCost = NSDecimalNumber(decimal:Decimal(shippingCost))
+                        ApplepayInfo.totalSalesAmount = NSDecimalNumber(decimal:Decimal(totalSalesAmount))
+                        ApplepayInfo.subTotalAmount = NSDecimalNumber(decimal:Decimal(subTotalAmount))
+
+//                        Payment.shippingCost = shippingCost
+//                        Payment.totalSalesAmount = totalSalesAmount
+//                        Payment.subTotalAmount = subTotalAmount
                         let invoiceData = Invoice(totalPrice: TotalPrice, country: country, paperNo: paperNo, zip: zip, StylingAddup: StylingAddup, firstName: firstName, lastName: lastName, city: city, subTotalAmount: subTotalAmount, orderNo: orderNo, state: state, totalSalesAmount: totalSalesAmount, paidByCCAmount: paidByCCAmount, customerID: customerID, salesTaxAmount: salesTaxAmount, Description: description, address: address, BasicPrice: BasicPrice, shippingCost: shippingCost, FabricUpgrade: FabricUpgrade)
                         
                         print(invoiceData)

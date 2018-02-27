@@ -18,6 +18,9 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
     let stylingTask = StylingTask()
     let asynctask = AsyncTask()
     @IBOutlet weak var cuffCollectionView: UICollectionView!
+    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,26 +28,22 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         self.navigationItem.title = "BESPOKINO"
 
-        images = [UIImage(named: "button1square")!,UIImage(named: "button1curved")!,UIImage(named: "button1angled")!,UIImage(named: "button2squared")!,UIImage(named: "buttons2curved")!,UIImage(named: "buttons2angled")!,UIImage(named: "frenchsquared")!,UIImage(named: "frenchcurved")!,UIImage(named: "frenchangled")!]
+      //  images = [UIImage(named: "button1square")!,UIImage(named: "button1curved")!,UIImage(named: "button1angled")!,UIImage(named: "button2squared")!,UIImage(named: "buttons2curved")!,UIImage(named: "buttons2angled")!,UIImage(named: "frenchsquared")!,UIImage(named: "frenchcurved")!,UIImage(named: "frenchangled")!]
       
         stylingTask.getCuffData { (result) in
-            
-            
-            print(result)
-             self.cuff = result
-            if (self.cuff.count>0){
-                self.cuffCollectionView.reloadData()
 
-            }
+             self.cuff = result
+
             
             
         }
         
        
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return names.count
+        return cuff.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,6 +51,7 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cuff", for: indexPath) as! CuffCollectionViewCell
        
         if self.cuff.count>0{
+            
             cell.cuffLabel.text = cuff[indexPath.row].itemname
             cell.cuffImage.image = cuff[indexPath.row].itemImage
             
@@ -59,7 +59,9 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
             cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.layer.shadowRadius = 5
             cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+            cell.marker.isHidden = true
         }
+      
 
         return cell
         
@@ -72,10 +74,15 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         
         cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell1?.layer.borderWidth = 2
-        
+   
         value = cuff[indexPath.row].optionvalue
         
+        
+        
       let cell:CuffCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CuffCollectionViewCell
+   
+        cell.marker.isHidden = false
+        cell.marker.image = UIImage(named:"tick")!
         if  cell.cuffLabel.text == "FRENCH SQUARED"{
            self.displayAlertMessage(messageToDisplay: " ")
         }else if cell.cuffLabel.text == "FRENCH CURVED"{
@@ -87,9 +94,8 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
             self.displayAlertMessage(messageToDisplay: " ")
 
         }else {
-            
+        
             stylingTask.cuffInsertionTask(code:value!) { (success, response, error) in
-                
                 
                 if success{
                     
@@ -124,10 +130,16 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
         
-        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell?.layer.borderWidth = 0
+        let cell:CuffCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CuffCollectionViewCell
+        cell.marker.isHidden = true
+        
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell1?.layer.borderWidth = 0
+
+       
+      
     }
     
     

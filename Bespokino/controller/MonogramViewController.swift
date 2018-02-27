@@ -47,17 +47,21 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         cell.layer.shadowRadius = 5
         cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        
+        cell.marker.isHidden = true
+
         return cell
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell1 = collectionView.cellForItem(at: indexPath)
         
-        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        cell?.layer.borderWidth = 2
+        cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell1?.layer.borderWidth = 2
         
-    
+        let cell:MonogramCollectionViewCell = collectionView.cellForItem(at: indexPath) as! MonogramCollectionViewCell
+        
+        cell.marker.isHidden = false
+        cell.marker.image = UIImage(named:"tick")!
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramPadViewController") as! MonogramPadViewController
         newViewController.positionSelected = optionValue[indexPath.row]
@@ -81,10 +85,13 @@ class MonogramViewController: UIViewController,UICollectionViewDelegate,UICollec
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        let cell1 = collectionView.cellForItem(at: indexPath)
         
-        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell?.layer.borderWidth = 0
+        cell1?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell1?.layer.borderWidth = 0
+        let cell:MonogramCollectionViewCell = collectionView.cellForItem(at: indexPath) as! MonogramCollectionViewCell
+        
+        cell.marker.isHidden = true
     }
     
     @IBAction func iamOnLowKeyDidTap(_ sender: Any) {

@@ -26,6 +26,8 @@ class AsyncTask: NSObject {
     
     var view:AnyObject?
     var user:User?
+    let defaults = UserDefaults.standard
+
     
     init(view:AnyObject,user:User) {
         
@@ -40,12 +42,11 @@ class AsyncTask: NSObject {
     override init() {
         
     }
-    
-    
-    
- 
+
     func loginTask(view:AnyObject,user:User)  {
-        let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getUserLoginInfo&Email=\(user.email!)&Password=\(user.password!)&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)"
+        
+        let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getUserLoginInfo&Email=\(user.email!)&Password=\(user.password!)&customerID=&orderNo=&paperNo="
+      //  let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getUserLoginInfo&Email=\(user.email!)&Password=\(user.password!)&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)"
         
         guard let url = URL(string: urls) else { return }
         
@@ -64,25 +65,34 @@ class AsyncTask: NSObject {
                     guard let loginResult = json as? [String:Any] else {return}
                     guard let err = loginResult["Error"] as? Bool else {return}
                     guard let email = loginResult["Email"] as? String else {return}
-                     guard let customerid = loginResult["customerID"] as? Int else {return}
+                    guard let customerid = loginResult["customerID"] as? Int else {return}
+                    guard let firstName = loginResult["firstName"] as? String else {return}
+                    guard let lastName = loginResult["lastName"] as? String else {return}
+               
+                    self.defaults.synchronize()
+
                     Order.customerID = customerid
                     print(customerid)
-                    
+                    print(err)
                     if (!err){
+                        
+                        self.defaults.set("\(firstName+" "+lastName)", forKey: "FULLNAME")
+                        self.defaults.set(lastName, forKey: "LASTNAME")
+                        self.defaults.set(email, forKey: "EMAIL")
+                        self.defaults.set(customerid, forKey: "CUSTOMERID")
+                        
                         DispatchQueue.main.async {
                             
                             if Order.customerID > 50000{
-                            
-                            
-                                let defaults = UserDefaults.standard
-                                defaults.set(true, forKey: "isLoggedIn")
-                                defaults.synchronize()
-                                
-                                
+             
+                                self.defaults.set(true, forKey: "isRegIn")
+                                self.defaults.synchronize()
+        
                             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
-                            // self.present(newViewController, animated: true, completion: nil)
-                            self.view?.navigationController??.pushViewController(newViewController, animated: true)
+                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                             self.view?.present(newViewController, animated: true, completion: nil)
+
+                            //self.view?.navigationController??.pushViewController(newViewController, animated: true)
                             }else{
                                 
                                 self.displayAlertMessage(messageToDisplay: "SignUp and take measurment")
@@ -134,8 +144,18 @@ class AsyncTask: NSObject {
                     guard let err = regResult["Error"] as? Bool else {return}
                     
                     if (!err){
+                        
+                        let defaults = UserDefaults.standard
+                        defaults.set(true, forKey: "isRegIn")
+                        defaults.synchronize()
+                        
                         Customer.firstName = user.firstName
                         Customer.lastName = user.lastName
+
+                        defaults.set(user.firstName, forKey: "FULLNAME")
+                        defaults.set(user.email, forKey: "EMAIL")
+                        defaults.synchronize()
+                        
                       //  guard let message = regResult["Message"] as? String else {return}
                         guard let userid  = regResult["UserId"] as? Int else {return}
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
@@ -144,15 +164,16 @@ class AsyncTask: NSObject {
                        // Order.modelNo = modelNo
                         
                         DispatchQueue.main.async {
-                           // self.displayAlertMessage(messageToDisplay: message)
-                            let defaults = UserDefaults.standard
-                            defaults.set(true, forKey: "isRegIn")
-                            defaults.synchronize()
-                            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
-                            // self.present(newViewController, animated: true, completion: nil)
-                            self.view?.navigationController??.pushViewController(newViewController, animated: true)
-                            
+                    
+                    
+                            self.view?.dismiss(animated: true, completion: nil)
+
+                     // self.view?.dismiss(animated: true)
+                     // self.displayAlertMessage(messageToDisplay: message)
+                     // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                     // let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                     // self.view?.present(newViewController, animated: true, completion: nil)
+                     // self.view?.navigationController??.pushViewController(newViewController, animated: true)
                             
                         }
                     }else{
@@ -171,6 +192,58 @@ class AsyncTask: NSObject {
         
     }
     
+    
+    static func socialRegister(){
+        
+        let pass = "xxx"
+        let parameters = ["FullName":Customer.firstName!,"Email":Customer.email!,"Password":pass]
+        print(parameters)
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    
+                    guard let regResult = json as? [String:Any] else {return}
+                    
+                    guard let err = regResult["Error"] as? Bool else {return}
+                    
+                    if (!err){
+                        
+                        let defaults = UserDefaults.standard
+                        defaults.set(true, forKey: "isRegIn")
+                        defaults.synchronize()
+                        
+                       // Customer.firstName = user.firstName
+                       // Customer.lastName = user.lastName
+                        //  guard let message = regResult["Message"] as? String else {return}
+                        guard let userid  = regResult["UserId"] as? Int else {return}
+                        //guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        
+                        Order.userId = userid
+                        // Order.modelNo = modelNo
+                 
+                    }
+                    
+                } catch {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+    }
 
     //Email validation
     
@@ -224,9 +297,6 @@ class AsyncTask: NSObject {
         let result =  phoneTest.evaluate(with: value)
         return result
     }
-    
-    
-   
     
     
 }

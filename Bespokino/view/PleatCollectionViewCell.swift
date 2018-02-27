@@ -12,4 +12,7 @@ class PleatCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pleatImage: UIImageView!
     
     @IBOutlet weak var pleatlabel: UILabel!
+    
+    @IBOutlet weak var marker: UIImageView!
+    
 }

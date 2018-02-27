@@ -9,9 +9,10 @@
 import UIKit
 import GooglePlaces
 
-class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocompleteViewControllerDelegate {
+class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocompleteViewControllerDelegate,UITextFieldDelegate {
 
 
+    @IBOutlet weak var suiteTextField: UITextField!
     @IBOutlet weak var creditCardButton: UIButton!
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
@@ -20,7 +21,7 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
     @IBOutlet weak var addressText: UITextField!
     @IBOutlet weak var stateText: UITextField!
     @IBOutlet weak var zipText: UITextField!
-    
+    var activeTextField = UITextField()
     var searchResultController:SearchResultsController!
     var resultsArray = [String]()
     
@@ -32,7 +33,8 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
     var country = ""
     var postal_code = ""
     var postal_code_suffix = ""
-    
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +49,31 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
         creditCardButton.layer.masksToBounds = true
         creditCardButton.titleLabel?.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         
+        let yesData = defaults.bool(forKey: "USERINFO")
+        if yesData{
+            self.firstNameText.text = defaults.string(forKey: "FIRSTNAME")
+            self.lastNameText.text = defaults.string(forKey: "LASTNAME")
+            self.cellNumberText.text = defaults.string(forKey: "CELLNUMBER")
+            self.addressText.text = defaults.string(forKey: "ADDRESS")
+            self.stateText.text = defaults.string(forKey: "STATE")
+            self.zipText.text = defaults.string(forKey: "ZIP")
+        }else{
+            self.firstNameText.text = defaults.string(forKey: "FIRSTNAME")
+            self.lastNameText.text = defaults.string(forKey: "LASTNAME")
+        }
+        
+
+        
         getUserInfo()
 
     }
 
     @IBAction func creditCardButtonDidTap(_ sender: Any) {
+        
+        
+        
+        
+        
         
         
         print(addressText.text!)
@@ -66,6 +88,14 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
         self.displayAlertMessage(messageToDisplay: "All fields are necessary")
         }else{
             
+            defaults.set(self.cellNumberText.text!, forKey: "CELLNUMBER")
+            defaults.set(self.emailText.text!, forKey: "EMAIL")
+            defaults.set(self.addressText.text!, forKey: "ADDRESS")
+            defaults.set(self.stateText.text!, forKey: "STATE")
+            defaults.set(self.zipText.text!, forKey: "ZIP")
+            defaults.set(true, forKey: "USERINFO")
+
+      
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
             
@@ -126,7 +156,35 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
             }.resume()
     }
     
+       func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+                let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        
+               if textField == firstNameText{
+            
+                       let allowedCharacters = CharacterSet.letters
+                        let characterSet = CharacterSet(charactersIn:string)
+                        return allowedCharacters.isSuperset(of: characterSet)
+            
+                    }else if textField == lastNameText{
+            
+                        let allowedCharacters = CharacterSet.letters
+                        let characterSet = CharacterSet(charactersIn:string)
+                        return allowedCharacters.isSuperset(of: characterSet)
+            
+                    }
+               else if textField == cellNumberText{
+                
+                            return checkUSPhoneNumberFormat(string: string, str: str)
+                
+                        }else{
+                
+                            return true
+                        }
+    }
     @IBAction func getYourAddressDidTap(_ sender: Any) {
+        
+        
         
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -226,6 +284,32 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
         postal_code = ""
         postal_code_suffix = ""
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       
+        activeTextField = textField
+        
+        switch activeTextField {
+        case firstNameText:
+            lastNameText.becomeFirstResponder()
+        case lastNameText:
+            cellNumberText.becomeFirstResponder()
+        case cellNumberText:
+            emailText.becomeFirstResponder()
+        case emailText:
+            addressText.becomeFirstResponder()
+        case addressText:
+            stateText.becomeFirstResponder()
+        case stateText:
+            zipText.becomeFirstResponder()
+        case zipText:
+            firstNameText.becomeFirstResponder()
+        default:
+            print("No item Selected")
+        }
+        
+        return false
+    }
     func displayAlertMessage(messageToDisplay: String)
     {
         let alertController = UIAlertController(title: "info", message: messageToDisplay, preferredStyle: .alert)
@@ -241,5 +325,32 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
         
         self.present(alertController, animated: true, completion:nil)
     }
-    
+    func checkUSPhoneNumberFormat(string: String?, str: String?) -> Bool{
+        
+                if string == ""{ //BackSpace
+            
+                        return true
+            
+                    }else if str!.count < 3{
+            
+                        if str!.count == 1{
+                
+                                   cellNumberText.text = "("
+                            }
+            
+                    }else if str!.count == 5{
+            
+                            cellNumberText.text = cellNumberText.text! + ") "
+                
+                    }else if str!.count == 10{
+            
+                            cellNumberText.text = cellNumberText.text! + "-"
+                
+                    }else if str!.count > 14{
+            
+                        return false
+                    }
+        
+               return true
+            }
 }

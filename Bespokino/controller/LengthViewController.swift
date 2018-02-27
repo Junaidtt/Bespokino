@@ -23,6 +23,9 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
         UIImage(named: "twoinch")!,
         ]
     
+    var lengthImages = ["blue-line","green-line","yellow-line","red-line","Length_isgood","oneinch","twoinch"]
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,6 +65,8 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
                 
                 print(code + lengthvalue)
                 
+                defaults.set(lengthImages[indexPath.row], forKey: "LENGTH")
+
                 SelectedValues.lengthMaster = code + lengthvalue
                 
             }
@@ -84,7 +89,7 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
             self.displayAlert(message: "Make sure that all values are selected")
         }else{
             
-            
+            defaults.set(true, forKey: "MEASURMENT")
             let checkInternet  = CheckInternetConnection()
             
             if checkInternet.isConnectedToNetwork(){
@@ -162,15 +167,12 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
                                 self.navigationController?.pushViewController(newViewController, animated: true)
                             }else{
                                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
                                 
                                 self.navigationController?.pushViewController(newViewController, animated: true)
                             }
-                            
-                            
-                            
+                          
                         }
-                      
 
                     }
                     

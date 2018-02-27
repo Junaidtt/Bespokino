@@ -32,7 +32,7 @@ class PremiumViewController: UIViewController,IndicatorInfoProvider,UICollection
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "PREMIUM")
+        return IndicatorInfo(title: "PREMIUM +$25")
     }
     
    
@@ -76,8 +76,8 @@ class PremiumViewController: UIViewController,IndicatorInfoProvider,UICollection
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
         
         newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
-        newViewController.shirtType = "PREMIUM"
-        newViewController.shirtPrice = "$20"
+        newViewController.shirtType = "PREMIUM SHIRT"
+        newViewController.shirtPrice = "$25"
         self.navigationController?.pushViewController(newViewController, animated: true)
         
     }

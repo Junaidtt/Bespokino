@@ -10,8 +10,7 @@ import UIKit
 
 class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource {
   
-    
-   
+
     @IBOutlet weak var placketCollectionView: UICollectionView!
     
     let optionValue = ["160","159","161"]
@@ -21,6 +20,7 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
         UIImage(named: "noplacket")!,
         UIImage(named: "hiddenplacketc")!
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +41,7 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
         
         cell.placketLabel.text = placket[indexPath.row]
         cell.placketImage.image = image[indexPath.row]
-        
+        cell.marker.isHidden = true
         StylingTask.placket = optionValue[indexPath.row]
         AdditionalOptions.placket = optionValue[indexPath.row]
 
@@ -49,10 +49,23 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)        
-        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        cell?.layer.borderWidth = 2
-        StylingTask.placket = ""
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell1?.layer.borderWidth = 2
+
+        let cell:PlacketCollectionViewCell = collectionView.cellForItem(at: indexPath) as! PlacketCollectionViewCell
+        cell.marker.isHidden = false
+
+       if  cell.placketLabel.text == "PLACKET"{
+             StylingTask.placket = "160"
+       }else if cell.placketLabel.text == "NO PLACKET"{
+         StylingTask.placket = "159"
+       }else if cell.placketLabel.text == "HIDDEN PLACKET"{
+         StylingTask.placket = "161"
+        }
+      
+       
+        
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "placketHeader", for: indexPath as IndexPath)
@@ -64,9 +77,23 @@ class PlacketCollectionViewController:UIViewController ,UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        cell?.layer.borderWidth = 2
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell1?.layer.borderWidth = 2
+        
+        let cell:PlacketCollectionViewCell = collectionView.cellForItem(at: indexPath) as! PlacketCollectionViewCell
+        cell.marker.isHidden = true
+
+        if  cell.placketLabel.text == "PLACKET"{
+            StylingTask.placket = ""
+        }else if cell.placketLabel.text == "NO PLACKET"{
+            StylingTask.placket = ""
+        }else if cell.placketLabel.text == "HIDDEN PLACKET"{
+            StylingTask.placket = ""
+        }
+    
+        
+        
     }
     
     @IBAction func cloaseButtonDidTap(_ sender: Any) {

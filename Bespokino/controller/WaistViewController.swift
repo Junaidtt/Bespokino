@@ -11,6 +11,7 @@ import XLPagerTabStrip
 class WaistViewController: UIViewController,IndicatorInfoProvider,UITableViewDataSource,UITableViewDelegate {
   
     
+    let defaults = UserDefaults.standard
 
     let m = MeasurementValue()
     var codeValue = [0,-1,-2,-3,-4]
@@ -23,6 +24,8 @@ class WaistViewController: UIViewController,IndicatorInfoProvider,UITableViewDat
         UIImage(named: "blue")!
         
     ]
+    var waistImages = ["hook","red","yellow","green","blue"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +62,9 @@ class WaistViewController: UIViewController,IndicatorInfoProvider,UITableViewDat
                 let code  = Double(codeValue[indexPath.row])
                 
                 print(code+waistvalue)
+               
+                defaults.set(waistImages[indexPath.row], forKey: "WAIST")
+
                 SelectedValues.waistMaster = code + waistvalue
             }
             

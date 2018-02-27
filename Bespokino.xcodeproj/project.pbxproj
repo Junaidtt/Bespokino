@@ -25,6 +25,8 @@
 		DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */; };
 		DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */; };
 		DE19DC291FD8555900538B93 /* SleeveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE19DC281FD8555900538B93 /* SleeveViewController.swift */; };
+		DE1C60E9203E00DD006B2944 /* BaseMeasurmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C60E8203E00DD006B2944 /* BaseMeasurmentViewController.swift */; };
+		DE1C60EB203E01DD006B2944 /* MeasurmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1C60EA203E01DD006B2944 /* MeasurmentTableViewCell.swift */; };
 		DE20BB3B1FC4BCFE00D75311 /* FitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */; };
 		DE20BB3D1FC4C17500D75311 /* BodyPosturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */; };
 		DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */; };
@@ -59,6 +61,7 @@
 		DE5226D41FE3E4DF00240745 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = DE5226D11FE3E4DE00240745 /* YTPlayer.html */; };
 		DE5454391FF591E00067523A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5454381FF591E00067523A /* DetailViewController.swift */; };
 		DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */; };
+		DE5F2D39201B91CE00776228 /* MonoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5F2D38201B91CE00776228 /* MonoDetailViewController.swift */; };
 		DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D11FB50D46005A369C /* SWRevealViewController.m */; };
 		DE7329D51FB51003005A369C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D41FB51003005A369C /* MenuViewController.swift */; };
 		DE7329D71FB51197005A369C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7329D61FB51197005A369C /* MenuTableViewCell.swift */; };
@@ -69,6 +72,8 @@
 		DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */; };
 		DE86595D1FB10C6000A35877 /* PremiumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */; };
 		DE86595F1FB10C7100A35877 /* LuxuryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */; };
+		DE886D20203F55460042B9A3 /* PostureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE886D1F203F55460042B9A3 /* PostureTableViewCell.swift */; };
+		DE886D26203F68430042B9A3 /* SelectedPostureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE886D25203F68430042B9A3 /* SelectedPostureViewController.swift */; };
 		DE944F211FCE05A100DEB256 /* PayTwentyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE944F201FCE05A100DEB256 /* PayTwentyViewController.swift */; };
 		DE944F231FCE0B7900DEB256 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE944F221FCE0B7900DEB256 /* TransactionViewController.swift */; };
 		DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97448E1FB373A50095A22B /* CollarViewController.swift */; };
@@ -78,6 +83,7 @@
 		DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9744981FB39BCC0095A22B /* MonogramViewController.swift */; };
 		DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */; };
 		DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F88671FD0680100F8E33B /* InvoiceTask.swift */; };
+		DEAF7EA1203A140D00450EA9 /* ToolStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF7EA0203A140D00450EA9 /* ToolStatusViewController.swift */; };
 		DEB4A7331FD48B5100913B0F /* InnerContrastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */; };
 		DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */; };
 		DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */; };
@@ -130,6 +136,8 @@
 		DE19DC241FD84DFE00538B93 /* MeasurmentParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentParentViewController.swift; sourceTree = "<group>"; };
 		DE19DC261FD8555100538B93 /* ShoulderMeasureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoulderMeasureViewController.swift; sourceTree = "<group>"; };
 		DE19DC281FD8555900538B93 /* SleeveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleeveViewController.swift; sourceTree = "<group>"; };
+		DE1C60E8203E00DD006B2944 /* BaseMeasurmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMeasurmentViewController.swift; sourceTree = "<group>"; };
+		DE1C60EA203E01DD006B2944 /* MeasurmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurmentTableViewCell.swift; sourceTree = "<group>"; };
 		DE20BB3A1FC4BCFE00D75311 /* FitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitViewController.swift; sourceTree = "<group>"; };
 		DE20BB3C1FC4C17500D75311 /* BodyPosturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPosturesViewController.swift; sourceTree = "<group>"; };
 		DE213EFB1FC1FE9100432688 /* ShirtDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplay.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 		DE5226D11FE3E4DE00240745 /* YTPlayer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YTPlayer.html; sourceTree = "<group>"; };
 		DE5454381FF591E00067523A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DE55CAE41FB355E20066F45D /* ShirtDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShirtDisplayViewController.swift; sourceTree = "<group>"; };
+		DE5F2D38201B91CE00776228 /* MonoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoDetailViewController.swift; sourceTree = "<group>"; };
 		DE7329D01FB50D46005A369C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		DE7329D11FB50D46005A369C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		DE7329D31FB50DB3005A369C /* Bespokino-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bespokino-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -177,6 +186,8 @@
 		DE86595A1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludeCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE86595C1FB10C6000A35877 /* PremiumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE86595E1FB10C7100A35877 /* LuxuryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxuryCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE886D1F203F55460042B9A3 /* PostureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostureTableViewCell.swift; sourceTree = "<group>"; };
+		DE886D25203F68430042B9A3 /* SelectedPostureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPostureViewController.swift; sourceTree = "<group>"; };
 		DE944F201FCE05A100DEB256 /* PayTwentyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTwentyViewController.swift; sourceTree = "<group>"; };
 		DE944F221FCE0B7900DEB256 /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		DE97448E1FB373A50095A22B /* CollarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollarViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +197,7 @@
 		DE9744981FB39BCC0095A22B /* MonogramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramViewController.swift; sourceTree = "<group>"; };
 		DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE9F88671FD0680100F8E33B /* InvoiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTask.swift; sourceTree = "<group>"; };
+		DEAF7EA0203A140D00450EA9 /* ToolStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolStatusViewController.swift; sourceTree = "<group>"; };
 		DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastTableViewCell.swift; sourceTree = "<group>"; };
 		DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastViewController.swift; sourceTree = "<group>"; };
 		DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPayViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +226,7 @@
 		DEF3F6F41FE326AD003270C1 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF3F6F51FE326AD003270C1 /* SVProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SVProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF3F6F61FE326AD003270C1 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XLPagerTabStrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF6E27B202902F900E1D359 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		DEFBD5751FD3285A0022F161 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DEFBD5771FD32A580022F161 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		DEFBD5791FD32B580022F161 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
@@ -239,6 +252,7 @@
 		3CEF239DF0C965560B4E1480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEF6E27B202902F900E1D359 /* PassKit.framework */,
 				DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */,
 				DEF3F6F31FE326AD003270C1 /* IQKeyboardManagerSwift.framework */,
 				DEF3F6F41FE326AD003270C1 /* SDWebImage.framework */,
@@ -426,6 +440,12 @@
 				DE17D66F1FE989580072356B /* NoInternetViewController.swift */,
 				DE5454381FF591E00067523A /* DetailViewController.swift */,
 				DE2496201FF2CA3600606863 /* SearchResultsController.swift */,
+				DE5F2D38201B91CE00776228 /* MonoDetailViewController.swift */,
+				DEAF7EA0203A140D00450EA9 /* ToolStatusViewController.swift */,
+				DE1C60E8203E00DD006B2944 /* BaseMeasurmentViewController.swift */,
+				DE1C60EA203E01DD006B2944 /* MeasurmentTableViewCell.swift */,
+				DE886D1F203F55460042B9A3 /* PostureTableViewCell.swift */,
+				DE886D25203F68430042B9A3 /* SelectedPostureViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -627,6 +647,7 @@
 				DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */,
 				DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */,
 				DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */,
+				DE5F2D39201B91CE00776228 /* MonoDetailViewController.swift in Sources */,
 				DED9FBA41FD4B3890044D866 /* ButtonCollectionViewCell.swift in Sources */,
 				DE087B8E1FD9F9C50005615B /* GetStartedViewControllerViewController.swift in Sources */,
 				DEFBD5781FD32A580022F161 /* CartTableViewCell.swift in Sources */,
@@ -638,6 +659,7 @@
 				DEFBD5761FD3285A0022F161 /* CartViewController.swift in Sources */,
 				DE9744931FB38E160095A22B /* CuffCollectionViewCell.swift in Sources */,
 				DE7329D21FB50D46005A369C /* SWRevealViewController.m in Sources */,
+				DEAF7EA1203A140D00450EA9 /* ToolStatusViewController.swift in Sources */,
 				DE801EF41FCF6541008FBB98 /* InvoiceTableViewCell.swift in Sources */,
 				DE9744971FB38EF00095A22B /* CuffViewController.swift in Sources */,
 				DE032D9D1FC36AB0000C9274 /* TuxedoViewController.swift in Sources */,
@@ -645,6 +667,7 @@
 				DE9744991FB39BCC0095A22B /* MonogramViewController.swift in Sources */,
 				DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */,
 				DE4F79661FE055D900591D60 /* OrderInfo.swift in Sources */,
+				DE886D20203F55460042B9A3 /* PostureTableViewCell.swift in Sources */,
 				DE19DC251FD84DFE00538B93 /* MeasurmentParentViewController.swift in Sources */,
 				DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */,
 				DEC2A5ED1FAFA39C00B77BC6 /* ParentViewController.swift in Sources */,
@@ -655,12 +678,14 @@
 				DE456A4B1FB62F0900566237 /* AsyncTask.swift in Sources */,
 				DE32D4251FD5E1B7004809A3 /* PlacketCollectionViewCell.swift in Sources */,
 				DE55CAE51FB355E20066F45D /* ShirtDisplayViewController.swift in Sources */,
+				DE1C60E9203E00DD006B2944 /* BaseMeasurmentViewController.swift in Sources */,
 				DE4817E41FD893D7001EACA3 /* WaistViewController.swift in Sources */,
 				DE86595B1FB0FB4E00A35877 /* IncludeCollectionViewCell.swift in Sources */,
 				DEC2A5EF1FAFB2F900B77BC6 /* IncludedViewController.swift in Sources */,
 				DE5226D31FE3E4DF00240745 /* YoutubePlayerViewController.swift in Sources */,
 				DE19DC271FD8555100538B93 /* ShoulderMeasureViewController.swift in Sources */,
 				DE032D9F1FC387D8000C9274 /* ContrastViewController.swift in Sources */,
+				DE886D26203F68430042B9A3 /* SelectedPostureViewController.swift in Sources */,
 				DE087B8A1FD9BFC90005615B /* LengthTableViewCell.swift in Sources */,
 				DE2496211FF2CA3600606863 /* SearchResultsController.swift in Sources */,
 				DE2A9F371FC6334300F5F989 /* BodyPostureTableViewCell.swift in Sources */,
@@ -696,6 +721,7 @@
 				DE4817DE1FD89377001EACA3 /* ChestViewController.swift in Sources */,
 				DE213EFC1FC1FE9100432688 /* ShirtDisplay.swift in Sources */,
 				DE49016B1FD5ECCE0003B888 /* PleatViewController.swift in Sources */,
+				DE1C60EB203E01DD006B2944 /* MeasurmentTableViewCell.swift in Sources */,
 				DE4817E21FD893BD001EACA3 /* WaistTableViewCell.swift in Sources */,
 				DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */,
 			);

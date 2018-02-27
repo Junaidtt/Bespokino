@@ -24,6 +24,11 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         UIImage(named: "neck9")!,
         UIImage(named: "neck10")!
     ]
+    
+    var neckImages = ["neck1","neck2","neck3","neck4","neck5","neck6","neck7","neck8","neck9","neck10"]
+    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,6 +71,8 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
                 
                 print(code+neckvalue)
                 
+                defaults.set(neckImages[indexPath.row], forKey: "NECK")
+
                 SelectedValues.neckMaster = code + neckvalue
                 
             }

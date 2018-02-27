@@ -11,23 +11,47 @@ import XLPagerTabStrip
 
 class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITableViewDataSource,UITableViewDelegate {
 
+    @IBOutlet weak var shirtImage: UIImageView!
     
     let m = MeasurementValue()
     var codeValue = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
     var cuff:[UIImage] = [
-        UIImage(named: "cuff1")!,
-        UIImage(named: "cuff2")!,
-        UIImage(named: "cuff3")!,
-        UIImage(named: "cuff3")!,
-        UIImage(named: "cuff5")!,
-        UIImage(named: "cuff6")!,
-        UIImage(named: "cuff6")!,
-        UIImage(named: "cuff7")!,
-        UIImage(named: "cuff8")!,
-        UIImage(named: "cuff9")!
+        UIImage(named: "cuff8_1")!,
+        UIImage(named: "cuff8_2")!,
+        UIImage(named: "cuff8_3")!,
+        UIImage(named: "cuff8_3")!,
+        UIImage(named: "cuff8_5")!,
+        UIImage(named: "cuff8_6")!,
+        UIImage(named: "cuff8_7")!,
+        UIImage(named: "cuff8_8")!,
+        UIImage(named: "cuff8_9")!,
+ 
     ]
+    var cuffImages9 = ["cuff9_1","cuff9_2","cuff9_3","cuff9_4","cuff9_5","cuff9_6","cuff9_7","cuff9_8","9cuff8_9"]
+    var cuffImages8 = ["cuff8_1","cuff8_2","cuff8_3","cuff8_4","cuff8_5","cuff8_6","cuff8_7","cuff8_8","cuff8_9"]
+    var cuffImages = [String]()
+    
+    
+    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         let modelNo = defaults.string(forKey: "MODELNO")
+
+        print(Int(modelNo!)!)
+        
+        if Int(modelNo!)! >= 9 {
+            self.cuffImages = self.cuffImages9
+            self.shirtImage.image = UIImage(named:"cuff_guide9")
+        }else{
+            self.cuffImages = self.cuffImages8
+            self.shirtImage.image = UIImage(named:"cuff_guide8")
+            
+        }
+            
+     
 
         // Do any additional setup after loading the view.
     }
@@ -66,6 +90,9 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
                 let code  = Double(codeValue[indexPath.row])
                 
                 print(code+cuffvalue)
+                
+                defaults.set(cuffImages[indexPath.row], forKey: "CUFF")
+
                 SelectedValues.cuffMaster = code + cuffvalue
             }
             

@@ -20,6 +20,9 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
         UIImage(named: "blue")!
 
         ]
+    var chestImages = ["hook","red","yellow","green","blue"]
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +65,8 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
                 let code  = Double(codeValue[indexPath.row])
                 
                 print(code+chestvalue)
-                
+                defaults.set(chestImages[indexPath.row], forKey: "CHEST")
+
                 SelectedValues.chestMaster = code + chestvalue
                 
             }

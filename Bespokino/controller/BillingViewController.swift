@@ -9,7 +9,7 @@
 import UIKit
 import BEMCheckBox
 import GooglePlaces
-class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocompleteViewControllerDelegate{
+class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocompleteViewControllerDelegate,UITextFieldDelegate{
   
   
     
@@ -35,9 +35,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     var country = ""
     var postal_code = ""
     var postal_code_suffix = ""
-    
+    var activeTextField = UITextField()
     @IBOutlet weak var getYourAddressButton: UIButton!
-    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,10 +47,24 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         continueButton.layer.cornerRadius = 5
         continueButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         checkmark.delegate = self
-       self.setDataInTextField()
+       //self.setDataInTextField()
         
         getYourAddressButton.layer.borderWidth = 1.0
         getYourAddressButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8000000119, blue: 0.400000006, alpha: 1)
+        
+        
+        let yesData = defaults.bool(forKey: "USERINFO")
+        if yesData{
+            self.firstNameText.text = defaults.string(forKey: "FIRSTNAME")
+            self.lastNameText.text = defaults.string(forKey: "LASTNAME")
+//            self.cellNumberText.text = defaults.string(forKey: "CELLNUMBER")
+            self.streetAddressText.text = defaults.string(forKey: "ADDRESS")
+            self.stateTextField.text = defaults.string(forKey: "STATE")
+            self.zipTextField.text = defaults.string(forKey: "ZIP")
+//
+        }
+        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
         
     
     }
@@ -71,8 +86,12 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     func setDataInTextField()  {
         
+        //print(Customer.firstName!)
+        //print(Customer.lastName!)
+       // self.firstNameText.text = Customer.firstName!
         self.firstNameText.text = customer[0].firstName
         self.lastNameText.text = customer[0].lastName
+        // self.lastNameText.text = Customer.lastName!
         self.streetAddressText.text = customer[0].address
         self.cityTextField.text = customer[0].city
        // self.stateTextField.text = customer[0].state
@@ -95,20 +114,37 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         if checkmarkSelected{
             
+//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
+//            //newViewController.shipping = self.customer
+//            self.navigationController?.pushViewController(newViewController, animated: true)
+            
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
-            newViewController.shipping = self.customer
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
+            //  newViewController.shipping = self.customer
+           // self.present(newViewController, animated: true, completion: nil)
             self.navigationController?.pushViewController(newViewController, animated: true)
         }else{
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
           //  newViewController.shipping = self.customer
+          //  self.present(newViewController, animated: true, completion: nil)
+
             self.navigationController?.pushViewController(newViewController, animated: true)
         
         }
     }
     
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        
+        self.present(newViewController, animated: true, completion: nil)
+      //  self.navigationController?.pushViewController(newViewController, animated: true)
+    }
 
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -171,7 +207,28 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        activeTextField = textField
+        
+        switch activeTextField {
+        case firstNameText:
+            lastNameText.becomeFirstResponder()
+        case lastNameText:
+            streetAddressText.becomeFirstResponder()
+        case streetAddressText:
+            cityTextField.becomeFirstResponder()
+        case cityTextField:
+            zipTextField.becomeFirstResponder()
+        case zipTextField:
+            stateTextField.becomeFirstResponder()
+        default:
+            print("No text field selected")
+        }
+        
+        
+        return false
+    }
     
     // Populate the address form fields.
     func fillAddressForm() {

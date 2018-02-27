@@ -20,6 +20,8 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     var item = [StylingTask]()
     var collar:StylingTask = StylingTask()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,48 +58,48 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
    
         cell.collarImage.image = item[indexPath.row].itemImage
 
-     //   cell.collarImage.image = images[indexPath.row]
         
         cell.collarLabel.text = item[indexPath.row].itemname
 
-        //cell.collarLabel.text = names[indexPath.row]
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         cell.layer.shadowRadius = 5
         cell.layer.shadowColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-
+        cell.marker.isHidden = true
         
         return cell
 
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
-       
-        let cell = collectionView.cellForItem(at: indexPath)
-
-        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        cell?.layer.borderWidth = 2
-
-        let value = item[indexPath.row].optionvalue
-      
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell1?.layer.borderWidth = 2
+        let cell:CollarCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CollarCollectionViewCell
   
+        cell.marker.isHidden = false
+        cell.marker.image = UIImage(named:"tick")!
+      let value = item[indexPath.row].optionvalue
+        
+       
+        
         collar.collarInsertionTask(code: value!) { (success, response, Error) in
-            
+
             if success {
-                
+
                 guard  let result   =  response as? [String:Any] else {return}
-                
+
                 print(result)
-              
+
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                
+
                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "CuffViewController") as! CuffViewController
                 self.navigationController?.pushViewController(newViewController, animated: true)
             }
-            
-            
-            
+
         }
     
       
@@ -120,12 +122,11 @@ class CollarViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        
-        cell?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-        
-        cell?.layer.borderWidth = 0
+        let cell:CollarCollectionViewCell = collectionView.cellForItem(at: indexPath) as! CollarCollectionViewCell
+          cell.marker.isHidden = true
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell1?.layer.borderWidth = 2
 
     }
 }

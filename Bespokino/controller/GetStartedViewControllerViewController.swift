@@ -15,8 +15,8 @@ class GetStartedViewControllerViewController: UIViewController,UIPickerViewDeleg
     @IBOutlet weak var getStartedButton: UIButton!
     @IBOutlet weak var modelTextField: UITextField!
    var modelNumber:String?
-   var model = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","1L","2L","3L","4L","5L","6L","7L","8L","9L","10L","11L","12L","13L","14L"]
-    
+    var model =  ["27","28","29","30","31","32","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49"]
+
     let picker = UIPickerView()
     
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -47,14 +47,7 @@ class GetStartedViewControllerViewController: UIViewController,UIPickerViewDeleg
     
      self.modelNumber = modelTextField.text!
     
-//    let  newModel = NSEntityDescription.insertNewObject(forEntityName: "Model", into: context)
-//        newModel.setValue(Double(self.modelNumber!), forKey: "modelNumber")
-//    do{
-//        try context.save()
-//    }catch{
-//        print(error)
-//    }
-//
+
     
     }
     
@@ -73,12 +66,12 @@ class GetStartedViewControllerViewController: UIViewController,UIPickerViewDeleg
         return model[row]
         
     }
-    
-  
+ 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         modelTextField.text = model[row]
         self.view.endEditing(false)
+        print(model[row])
         
     }
 

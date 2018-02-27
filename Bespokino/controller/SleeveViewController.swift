@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDataSource,UITableViewDelegate {
    
+    
     let m = MeasurementValue()
     var codeValue = [-4,-3,-2,-1,0,1,2]
     var sleeve:[UIImage] = [
@@ -21,8 +22,9 @@ class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDa
         UIImage(named: "oneinch")!,
         UIImage(named: "twoinch")!,
         ]
-    
-    
+    var sleeveImages = ["blue-line","green-line","yellow-line","red-line","Length_isgood","Length_isgood","oneinch","twoinch"]
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,8 @@ class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDa
                 let code  = Double(codeValue[indexPath.row])
                 
                 print(code + sleevevalue)
+                defaults.set(sleeveImages[indexPath.row], forKey: "SLEEVE")
+
                 SelectedValues.sleeveMaster = code + sleevevalue
             }
             

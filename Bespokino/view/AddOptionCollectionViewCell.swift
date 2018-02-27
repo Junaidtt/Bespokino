@@ -12,4 +12,5 @@ class AddOptionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var marker: UIImageView!
 }

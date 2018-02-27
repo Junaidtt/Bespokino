@@ -15,6 +15,7 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
     var data = [StylingTask]()
     var shirtImg:String = ""
     var trackingid:String = ""
+    var TRACKINGID:String = ""
     @IBOutlet weak var shirtCountLabel: UILabel!
     
     @IBOutlet weak var shirtImage: UIImageView!
@@ -24,6 +25,7 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
         super.viewDidLoad()
  
     
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.title = "BESPOKINO"
         
         shirtCountLabel.text = "SHIRT \(count!)"
@@ -36,7 +38,7 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
 
     func fetchItemDetail() {
         
-       print(Order.customerID)
+        print(Order.customerID)
         print(Order.orderNo)
         print(Order.paperNo)
         print(trackingid)
@@ -44,6 +46,7 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
         print(endpoint)
         let tid = endpoint.replacingOccurrences(of: " ", with: "%20")
         print(tid)
+        self.TRACKINGID = tid
         
         guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getCartListItem&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)&trackingID="+tid) else {return}
         
@@ -75,12 +78,15 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
                             guard let collar  = detailDic["collar"] as? Int else {return}
                             guard let shirtImage = detailDic["image"] as? String else {return}
                             guard let cuff  = detailDic["cuff"] as? Int else {return}
-                            guard let monogram  = detailDic["monogram"] as? Int else { return }
-                           // self.getMonogram()
-                           // guard let Yesmonogram:Int  = detailDic["monogram"] as? Int else {return }
+                            guard let monogram  = detailDic["monogramStatus"] as? Bool else { return }
+
                             guard let additionalOption  = detailDic["additionalOptions"] as? Bool else {return}
                             if (additionalOption){
                                 self.getAddOption()
+                                self.fetchAddOptionDetail()
+                            }
+                            if monogram{
+                                self.getMonogram()
                             }
                             self.shirtImg = shirtImage
                             print(cuff)
@@ -138,6 +144,26 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(data[indexPath.row].itemname!)
+        if data[indexPath.row].itemname! == "Monogram"{
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonoDetailViewController") as! MonoDetailViewController
+            newViewController.trackid = self.TRACKINGID
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            
+        }else if data[indexPath.row].itemname! == "Additional Options"{
+            
+            
+            
+            
+            
+        }
+        
     }
     func getCollar(optionValue:Int) {
         
@@ -211,7 +237,220 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     func getAddOption()  {
         
-        self.data.append(StylingTask(name: "Additional Options", image: UIImage(named: "placket")!, optionVal: 1))
+       // self.data.append(StylingTask(name: "Additional Options", image: UIImage(named: "placket")!, optionVal: 1))
         
     }
+    
+    func fetchAddOptionDetail(){
+        
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getAdditionalOptionsInfo&customerID=\(Order.customerID)%20&orderNo=\(Order.orderNo)%20&paperNo=\(Order.paperNo)&trackingID=\(self.TRACKINGID)") else { return }
+        
+        let session = URLSession.shared
+        session.dataTask(with: url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                print(data)
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                    
+                    guard let addOptionDic = json as? [String:Any] else {return}
+                    
+                    guard let whiteCuffAndCollar = addOptionDic["whiteCuffAndCollar"] as? Double else {return}
+                    
+                    guard let pocket = addOptionDic["pocket"] as? Double else {return}
+                    
+                    guard let collarFabricContrast = addOptionDic["collarFabricContrast"] as? Double else {return}
+                    
+                    guard let cuffFabricContrast = addOptionDic["cuffFabricContrast"] as? Double else {return}
+                    
+                    guard let placketFabricContrast = addOptionDic["placketFabricContrast"] as? Double else {return}
+                    
+                      guard let placket = addOptionDic["placket"] as? Double else {return}
+                    
+                     guard let shortSleeve = addOptionDic["shortSleeve"] as? Double else {return}
+                    
+                      guard let backPleats = addOptionDic["backPleats"] as? Double else {return}
+                    
+                    //   guard let buttonholeThreadColor = addOptionDic["buttonholeThreadColor"] as? Double else {return}
+                    
+                    if shortSleeve == 208 {
+                        
+                        self.data.append(StylingTask(name: "SHORT SLEEVE", image: UIImage(named: "short_sleev")!, optionVal: 208))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }
+                    
+                    if backPleats == 156{
+                        self.data.append(StylingTask(name: "NO PLEATS", image: UIImage(named: "nopleats")!, optionVal: 156))
+
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                    }else if backPleats == 157{
+                        self.data.append(StylingTask(name: "ONE PlEAT", image: UIImage(named: "onepleats")!, optionVal: 157))
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                        
+                    }else if backPleats == 158{
+                        self.data.append(StylingTask(name: "TWO PLEATS", image: UIImage(named: "twopleats")!, optionVal: 158))
+
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+
+                    }
+
+                    if placket  == 159{
+                        self.data.append(StylingTask(name: "NO PLACKET", image: UIImage(named: "noplacket")!, optionVal: 159))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }else if placket == 160{
+                             self.data.append(StylingTask(name: "PLACKET", image: UIImage(named: "placket_yes")!, optionVal: 160))
+                        
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }else if placket == 161{
+                        
+                        self.data.append(StylingTask(name: "HIDDEN PLACKET", image: UIImage(named: "hiddenplacketc")!, optionVal: 161))
+
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                    }
+       
+                    if pocket == 187{
+                        
+                        // let addOptiom2 = StylingTask(name: "TUXEDO", image: UIImage(named: "tuxedo_pleats")!, optionVal: 528)
+                        
+                        
+                        self.data.append(StylingTask(name: "POCKET", image: UIImage(named: "pocket")!, optionVal: 187))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                    }
+                    guard let tuxedo = addOptionDic["tuxedo"] as? Double else {return}
+                    
+                    guard let sleeveVentFabricContrast = addOptionDic["sleeveVentFabricContrast"] as? Double else {return}
+                    
+                    print(tuxedo)
+                    print(sleeveVentFabricContrast)
+                    print(whiteCuffAndCollar)
+                    
+                    if sleeveVentFabricContrast == 148 {
+                        
+                        self.data.append(StylingTask(name: "SLEEVE VENT CONTRAST", image: UIImage(named: "sleeve_vent")!, optionVal: 528))
+
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                    }
+                    
+                    
+                    if tuxedo == 528{
+                        
+                        self.data.append(StylingTask(name: "TEXEDO", image: UIImage(named: "tuxedo_pleats")!, optionVal: 528))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                        
+                        
+                    }else if tuxedo == 527{
+                        
+                        self.data.append(StylingTask(name: "TEXEDO", image: UIImage(named: "yes_tuxedo_pleats")!, optionVal: 527))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                        
+                        
+                    }
+ 
+                    if whiteCuffAndCollar == 206{
+                        
+                        
+                        self.data.append(StylingTask(name: "WHITE COLLAR & CUFF", image: UIImage(named: "whitec")!, optionVal: 206))
+
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                        
+                    }
+                    
+                    
+                    if  collarFabricContrast == 547{
+                        
+                        self.data.append(StylingTask(name: "INNER COLLAR", image: UIImage(named: "inner_c")!, optionVal: 547))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }
+                    
+                    
+                    if cuffFabricContrast == 549 {
+                        
+                        self.data.append(StylingTask(name: "INNER CUFF", image: UIImage(named: "inner_cuff")!, optionVal: 549))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }
+                    
+                    if placketFabricContrast == 150{
+                        
+                        self.data.append(StylingTask(name: "INNER PLACKET", image: UIImage(named: "inner_placket")!, optionVal: 150))
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.detailCollectionView.reloadData()
+                        }
+                    }
+                    
+                    
+          
+                } catch {
+                    print(error)
+                }
+                
+            }
+            }.resume()
+        
+    }
+    
+    
+    
 }

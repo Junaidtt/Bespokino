@@ -10,6 +10,7 @@ import UIKit
 
 class InnerContrastTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var marker: UIImageView!
     @IBOutlet weak var innerContrastImage: UIImageView!
     @IBOutlet weak var innerContrastLabel: UILabel!
     override func awakeFromNib() {

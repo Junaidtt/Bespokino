@@ -14,4 +14,5 @@ class PlacketCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var placketLabel: UILabel!
     
+    @IBOutlet weak var marker: UIImageView!
 }

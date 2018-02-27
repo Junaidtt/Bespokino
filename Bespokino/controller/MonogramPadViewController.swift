@@ -30,6 +30,7 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         
         self.navigationItem.title = "BESPOKINO"
         
+        self.monoTextField.becomeFirstResponder()
         monoTextField.layer.borderWidth = 0.5
         monoTextField.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
@@ -44,8 +45,11 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         fancyMonogramButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         
-        
-        
+        simpleMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        scriptMonogramButton.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        fancyMonogramButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.monoStyle = "script"
+    
         // Do any additional setup after loading the view.
     }
 
@@ -131,10 +135,15 @@ class MonogramPadViewController: UIViewController,UITextFieldDelegate,UICollecti
         cell?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         cell?.layer.borderWidth = 2
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
+    }
     @IBAction func applyButtonTapped(_ sender: Any) {
         
         let async = AsyncTask(view:self)
-        var monoText = monoTextField.text
+        let monoText = monoTextField.text
         
         if (monoText?.isEmpty)! {
         async.displayAlertMessage(messageToDisplay: "Empty monogram text field not allowed")

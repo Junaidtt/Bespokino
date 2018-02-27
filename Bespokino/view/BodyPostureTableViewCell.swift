@@ -17,7 +17,8 @@ class BodyPostureTableViewCell: UITableViewCell
     
     @IBOutlet weak var bodyView: UIView!
     
-//
+    @IBOutlet weak var marker: UIImageView!
+    //
 //    let simpleDataSource: [[UIImage]] = [
 //
 //        [UIImage(named: "posture_erect")!,UIImage(named: "posture_leaning")!,UIImage(named: "posture_normal")!],

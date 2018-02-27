@@ -20,6 +20,11 @@ class HipsViewController: UIViewController,IndicatorInfoProvider,UITableViewDele
         UIImage(named: "blue")!
         
     ]
+    
+    var hipsMessages = ["hook","red","yellow","green","blue"]
+    
+    let defaults = UserDefaults.standard
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +64,8 @@ class HipsViewController: UIViewController,IndicatorInfoProvider,UITableViewDele
                 
                 print(code+hipsvalue)
                 
+                defaults.set(hipsMessages[indexPath.row], forKey: "HIPS")
+
                 SelectedValues.hipsMaster = code + hipsvalue
                 
             }

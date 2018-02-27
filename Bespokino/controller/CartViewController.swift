@@ -14,7 +14,8 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var addNewButton: UIButton!
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var checkOutButton: UIButton!
-    
+    let defaults = UserDefaults.standard
+
     var cart = [Cart]()
     var cartmodel = CartModel()
     override func viewDidLoad() {
@@ -24,8 +25,7 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.navigationItem.title = "BESPOKINO"
         addNewButton.layer.cornerRadius = 5
         checkOutButton.layer.cornerRadius = 5
-        
-    
+
         self.cartTableView.tableFooterView = UIView()
         cartmodel.fetchCartItems { (success, result, error) in
             
@@ -46,9 +46,16 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
           
         }
         
+        let yesBody =  defaults.bool(forKey: "YESBODY")
+        let measurment = defaults.bool(forKey: "MEASURMENT")
+        
+        if (yesBody && measurment){
+            checkOutButton.setTitle("CHECKOUT", for: .normal)
+        }
         
     }
 
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cart.count
     }
@@ -129,11 +136,26 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func checkOutButtonDidTap(_ sender: Any) {
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        // self.present(newViewController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(newViewController, animated: true)
         
+        let yesBody =  defaults.bool(forKey: "YESBODY")
+        
+        if yesBody{
+          
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "FitViewController") as! FitViewController
+            // self.present(newViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }else{
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
+            // self.present(newViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(newViewController, animated: true)
+            
+            
+        }
+
+       
         
         
     }

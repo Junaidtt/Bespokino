@@ -39,15 +39,31 @@ class PleatViewController: UIViewController,UICollectionViewDataSource,UICollect
         
         cell.pleatImage.image = image[indexPath.row]
         
+        cell.marker.isHidden = true
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        cell?.layer.borderWidth = 2
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        cell1?.layer.borderWidth = 2
         
-        StylingTask.backpleats = optionValue[indexPath.row]
-        AdditionalOptions.backpleats = optionValue[indexPath.row]
+        let cell:PleatCollectionViewCell = collectionView.cellForItem(at: indexPath) as! PleatCollectionViewCell
+
+        cell.marker.isHidden = false
+
+        if cell.pleatlabel.text == "NO PLEAT"{
+            StylingTask.backpleats = optionValue[indexPath.row]
+            AdditionalOptions.backpleats = optionValue[indexPath.row]
+        }else if cell.pleatlabel.text == "ONE PLEAT"{
+            StylingTask.backpleats = optionValue[indexPath.row]
+            AdditionalOptions.backpleats = optionValue[indexPath.row]
+        }else if cell.pleatlabel.text == "TWO PLEAT"{
+            StylingTask.backpleats = optionValue[indexPath.row]
+            AdditionalOptions.backpleats = optionValue[indexPath.row]
+        }
+        
+     
 
 
         
@@ -62,9 +78,25 @@ class PleatViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        cell?.layer.borderWidth = 2
+        let cell1 = collectionView.cellForItem(at: indexPath)
+        cell1?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell1?.layer.borderWidth = 2
+        
+        let cell:PleatCollectionViewCell = collectionView.cellForItem(at: indexPath) as! PleatCollectionViewCell
+        
+        cell.marker.isHidden = true
+
+        if cell.pleatlabel.text == "NO PLEAT"{
+            StylingTask.backpleats = ""
+            AdditionalOptions.backpleats = "'"
+        }else if cell.pleatlabel.text == "ONE PLEAT"{
+            StylingTask.backpleats = ""
+            AdditionalOptions.backpleats = "'"
+        }else if cell.pleatlabel.text == "TWO PLEAT"{
+            StylingTask.backpleats = ""
+            AdditionalOptions.backpleats = "'"
+        }
+        
     }
     
     @IBAction func closeButtonDidTap(_ sender: Any) {

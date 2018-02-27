@@ -51,9 +51,12 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = .black
             newCell?.label.textColor = self?.purpleInspireColor
         }
+        
+        
+     
 
     }
- 
+  
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let included = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "IncludedViewController")
         let premium = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PremiumViewController")

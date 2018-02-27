@@ -31,33 +31,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         //facebook login
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        //Google login
         GMSPlacesClient.provideAPIKey("AIzaSyB7pl3-VkABUpwFs60eGCFoh7gtEWBikT4")
         
+        //Google login
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-
         
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         UINavigationBar.appearance().tintColor = .black
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
         UINavigationBar.appearance().isTranslucent = false
         
-         IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enable = true
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(internetChanged), name: Notification.Name.reachabilityChanged , object: reachability)
+       
         do{
-            
             try reachability?.startNotifier()
         }catch{
             print("Could not start notifier:\(error)")
         }
-      
+
         let defaults = UserDefaults.standard
-        defaults.set(false, forKey: "isRegIn")
-        defaults.set(false, forKey: "isLoggedIn")
-        defaults.synchronize()
+        
+        let check = defaults.bool(forKey: "isRegIn")
+        print(check)
+        if check{
+            
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+            let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = protectedPage
+            
+        }else{
+            defaults.set(false, forKey: "isRegIn")
+            
+            defaults.synchronize()
+        }
+   
         return true
     }
     @objc func internetChanged(note:Notification)  {
@@ -107,6 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         topWindow.makeKeyAndVisible()
         topWindow.rootViewController?.present(alert, animated: true, completion: nil)
     }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let googleAuthentication = GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
         
@@ -186,24 +199,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 print("Google Authentification Fail")
                 SVProgressHUD.dismiss()
             } else {
+                
                 print("Google Authentification Success")
+                print(GIDSignIn.sharedInstance().currentUser.profile.description)
                 print(GIDSignIn.sharedInstance().currentUser.profile.email)
                 print(GIDSignIn.sharedInstance().currentUser.profile.name)
+                Customer.firstName = GIDSignIn.sharedInstance().currentUser.profile.givenName
+                Customer.lastName = GIDSignIn.sharedInstance().currentUser.profile.familyName
+                Customer.email = GIDSignIn.sharedInstance().currentUser.profile.email
                 print(GIDSignIn.sharedInstance().currentUser.profile.familyName)
                 print(GIDSignIn.sharedInstance().currentUser.profile.givenName)
+               let fullname = Customer.firstName! + " " + Customer.lastName!
+                AsyncTask.socialRegister()
                 
+                let defaults = UserDefaults.standard
+                defaults.set(Customer.firstName!, forKey: "FISRTNAME")
+                defaults.set(Customer.lastName!, forKey: "LASTNAME")
 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                defaults.set(fullname, forKey: "FULLNAME")
+                defaults.set(Customer.email, forKey: "EMAIL")
+                defaults.synchronize()
                 
-                let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                
-                self.window?.rootViewController = sw
-                
-                let destinationController = storyboard.instantiateViewController(withIdentifier: "BodyPosturesViewController") as! BodyPosturesViewController
-                
-                let navigationController = UINavigationController(rootViewController: destinationController)
-                SVProgressHUD.dismiss()
-                sw.pushFrontViewController(navigationController, animated: true)
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = protectedPage
+
+
+
  
             }
         }

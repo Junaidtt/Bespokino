@@ -33,7 +33,8 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         
-        return IndicatorInfo(title: "INCLUDED")
+        return IndicatorInfo(title: "SHIRT $79")
+      
         
     }
 
@@ -75,7 +76,7 @@ class IncludedViewController: UIViewController,IndicatorInfoProvider,UICollectio
 
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShirtDisplayViewController") as! ShirtDisplayViewController
-        newViewController.shirtType = "INCLUDED"
+        newViewController.shirtType = "SHIRT"
         newViewController.shirtPrice = " "
         newViewController.shirtURL = "http://www.bespokino.com/images/fabric/"+url!
         self.navigationController?.pushViewController(newViewController, animated: true)

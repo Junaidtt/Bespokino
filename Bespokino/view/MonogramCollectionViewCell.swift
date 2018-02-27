@@ -14,6 +14,7 @@ class MonogramCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var monogramImage: UIImageView!
     @IBOutlet weak var monogramLabel: UILabel!
     
+    @IBOutlet weak var marker: UIImageView!
     
     
 }

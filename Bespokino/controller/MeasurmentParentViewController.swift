@@ -33,7 +33,7 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-       // self.navigationItem.title = "BESPOKINO"
+        self.navigationItem.title = "BESPOKINO"
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
         
@@ -66,7 +66,8 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = .black
             newCell?.label.textColor = self?.purpleInspireColor
         }
-     
+        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
     
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -114,19 +115,15 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
         return [shoulder,sleeve,chest,waist,hips,biceps,neck,cuff,length]
     }
    
-//    func moveToViewcontroller(at index: Int){
-//
-//        print("\(index)")
-//
-//
-//            if Control.pointer != nil{
-//
-//               self.moveToViewControllerAtIndex(Control.pointer!)
-//
-//            }
-//
-//    }
-
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        
+        
+        self.present(newViewController, animated: true, completion: nil)
+        //  self.navigationController?.pushViewController(newViewController, animated: true)
+    }
     
 
 }

@@ -28,12 +28,20 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
     
     @IBOutlet weak var prefferedFit: UILabel!
         let defaults = UserDefaults.standard
+   
+      let alertVC = UIAlertController(title: "Enter Pants Waist Size", message: "", preferredStyle: .alert)
     override func viewDidLoad() {
         super.viewDidLoad()
 
 
         self.navigationItem.title = "BESPOKINO"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        
+     
+        
+        
+        
+        
         
         let casualGesture = UITapGestureRecognizer(target: self, action: #selector(casualAction))
         let slimGesture = UITapGestureRecognizer(target: self, action: #selector(slimAction))
@@ -71,6 +79,34 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         }
 
    
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+   
+        let yesPantWaitSize = defaults.bool(forKey: "YESPANT")
+        if (!yesPantWaitSize){
+            
+          
+            alertVC.addTextField { (textField) in
+                textField.placeholder = "PANT WAIST SIZE"
+                textField.inputView = self.picker
+            }
+            let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
+                (alert) -> Void in
+                
+                let pantWaistSize = self.alertVC.textFields![0] as UITextField
+                
+                print("pantsize -- \(pantWaistSize.text!)")
+            })
+            alertVC.addAction(submitAction)
+            alertVC.view.tintColor = UIColor.black
+            present(alertVC, animated: true)
+        }
+
+        
+    
+      
     }
     @objc func casualAction(sender:UITapGestureRecognizer){
        print("casual view selected")
@@ -197,16 +233,18 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         
         
         modelTextField.text = model[row]
+    
         self.view.endEditing(false)
         print(model[row])
         self.pantWaistSize = model[row]
         BodyPosture.pantWaistSize = model[row]
         
-    
-        defaults.set(model[row], forKey: "PANTWAISTSIZE")
         
+        defaults.set(model[row], forKey: "PANTWAISTSIZE")
+        defaults.set(true,forKey:"YESPANT")
         Body.postBodyPosture { (result) in
             DispatchQueue.main.async {
+                print(Order.modelNo)
                 self.defaults.set(Order.modelNo, forKey: "MODELNO")
                 self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Order.modelNo)"
                 self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Order.modelNo-1)"

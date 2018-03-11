@@ -7,13 +7,13 @@
 //
 
 import Foundation
-
+import CoreData
 class StylingTask: NSObject {
 
     var itemname:String?
     var itemImage:UIImage?
     var optionvalue:Int?
-    
+
     init(name:String,image:UIImage,optionVal:Int) {
         
         self.itemname = name
@@ -24,10 +24,7 @@ class StylingTask: NSObject {
     override init() {
         
     }
-    
-    
-
-    
+ 
     static var pocket = ""
     static var placket = ""
     static var backpleats = ""
@@ -48,6 +45,7 @@ class StylingTask: NSObject {
     
     
     func getCollarData(completion:([StylingTask])->Void)  {
+        
         
         var item = [StylingTask]()
         let collar1 = StylingTask(name: "NORMAL", image: UIImage(named: "Collar_a")!, optionVal: 191)
@@ -102,6 +100,7 @@ class StylingTask: NSObject {
     func getCuffData(completion:([StylingTask]) -> Void) {
         
         
+        
         var item = [StylingTask]()
         
         let cuff1 = StylingTask(name: "1 BUTTON SQUARE", image:UIImage(named: "button1square")!, optionVal: 200)
@@ -135,10 +134,22 @@ class StylingTask: NSObject {
     
     func cuffInsertionTask(code:Int,completion:@escaping (Bool,Any?,Error?) -> Void) {
         
+        let defaults = UserDefaults.standard
+        let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        print(currentTrackingID!)
+        print(currentOrderNo)
+        print(currentCustomerID)
+        print(currentPaperNo)
+        
+        
         DispatchQueue.global().async {
             
             
-            let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"optionValue":"\(code)"]
+            let parameters = ["orderNo": "\(currentOrderNo)", "customerID": "\(currentCustomerID)","paperNo": "\(currentPaperNo)", "trackingID": currentTrackingID!,"optionValue":"\(code)"]
             guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertCuffStylingInfo") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -178,9 +189,20 @@ class StylingTask: NSObject {
     //monoText,self.monoStyle,self.threadCode,self.positionSelected
     func monogramInserttask(monoTxt:String,style:String,threadCode:String,position:String,completion:@escaping (Bool,Any?,Error?) -> Void) {
         
+        
+        let defaults = UserDefaults.standard
+        let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentpaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        print(currentTrackingID!)
+        print(currentOrderNo)
+        print(currentCustomerID)
+        print(currentpaperNo)
         DispatchQueue.global().async {
        
-      let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"mgLine":monoTxt,"mgColor":threadCode,"mgPosition":position,"mgStyle":style]
+      let parameters = ["orderNo": "\(currentOrderNo)", "customerID": "\(currentCustomerID)","paperNo": "\(currentpaperNo)", "trackingID": currentTrackingID!,"mgLine":monoTxt,"mgColor":threadCode,"mgPosition":position,"mgStyle":style]
             
             print(parameters)
             
@@ -222,11 +244,24 @@ class StylingTask: NSObject {
     }
 
     func collarInsertionTask(code:Int,completion:@escaping (Bool,Any?,Error?) -> Void) {
+   
+        let defaults = UserDefaults.standard
+        let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentpaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        print(currentTrackingID!)
+        print(currentOrderNo)
+        print(currentCustomerID)
+        print(currentpaperNo)
+        
+        
         
         DispatchQueue.global().async {
             
-            
-            let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": "\(Order.trackingID)","optionValue":"\(code)"]
+            let parameters = ["orderNo": "\(currentOrderNo)", "customerID": "\(currentCustomerID)","paperNo": "\(currentpaperNo)", "trackingID": "\(currentTrackingID!)","optionValue":"\(code)"]
+          //  let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": "\(Order.trackingID)","optionValue":"\(code)"]
             guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=insertCollarStylingInfo") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -263,17 +298,8 @@ class StylingTask: NSObject {
         }
         
     }
-    
-    struct AddOption {
-        
-        
-        
-        
-    }
-    
-    
-    
-    
+
+
     
     
     
@@ -290,9 +316,31 @@ class StylingTask: NSObject {
 """
     
     
+    func setCurrentOrder(){
+        
+        let defaults = UserDefaults.standard
+        let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        print(currentTrackingID!)
+        print(currentOrderNo)
+        print(currentCustomerID)
+        print(currentPaperNo)
+        
+        Order.orderNo = currentOrderNo
+        Order.customerID = currentCustomerID
+        Order.paperNo = currentPaperNo
+        Order.trackingID = currentTrackingID!
+        
+        
+    }
+    
     
     func postAdditionalOptins(completion:@escaping (Bool,Any?,Error?)->Void)  {
 
+        setCurrentOrder()
         print(StylingTask.add_json)
         DispatchQueue.global().async {
            var data: Data { return Data(StylingTask.add_json.utf8) }
@@ -344,7 +392,33 @@ class StylingTask: NSObject {
    
     
 }
+func getShirtInfo()  {
 
+    var shirtArray:[Shirt] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    do{
+        shirtArray = try context.fetch(Shirt.fetchRequest()) as! [Shirt]
+        
+        print(shirtArray.count)
+        
+        for shirt in shirtArray{
+                  print(shirt.trackingid!)
+        }
+        
+        print(shirtArray[0].customerid)
+        print(shirtArray[0].orderno)
+        print(shirtArray[0].trackingid!)
+        
+        
+        
+        
+    }catch{
+        
+        print(error)
+        
+    }
+}
 struct AdditionalOptions {
     
     static var pocket = ""

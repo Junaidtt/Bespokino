@@ -8,9 +8,17 @@
 
 import UIKit
 import GooglePlaces
+import CoreData
+import AcceptSDK
+import SVProgressHUD
+import PassKit
+
+
+
 
 class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocompleteViewControllerDelegate,UITextFieldDelegate {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     @IBOutlet weak var suiteTextField: UITextField!
     @IBOutlet weak var creditCardButton: UIButton!
@@ -62,32 +70,27 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
             self.lastNameText.text = defaults.string(forKey: "LASTNAME")
         }
         
-
-        
-        getUserInfo()
+        deleteAllRecords()
+       // getUserInformation()
+      // getUserInfo()
 
     }
 
     @IBAction func creditCardButtonDidTap(_ sender: Any) {
         
-        
-        
-        
-        
-        
-        
+      
         print(addressText.text!)
         print(stateText.text!)
         print(zipText.text!)
         Customer.address = addressText.text!
         Customer.state = stateText.text!
         Customer.zip = zipText.text!
-      
+        
+   
         if (Customer.address!.isEmpty || Customer.state!.isEmpty || Customer.zip!.isEmpty)
         {
         self.displayAlertMessage(messageToDisplay: "All fields are necessary")
         }else{
-            
             defaults.set(self.cellNumberText.text!, forKey: "CELLNUMBER")
             defaults.set(self.emailText.text!, forKey: "EMAIL")
             defaults.set(self.addressText.text!, forKey: "ADDRESS")
@@ -95,6 +98,7 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
             defaults.set(self.zipText.text!, forKey: "ZIP")
             defaults.set(true, forKey: "USERINFO")
 
+            userLocalStorage(firstName: self.firstNameText.text, lastName: self.lastNameText.text, email: self.emailText.text, cellNumber: self.cellNumberText.text, address: self.addressText.text, state: self.stateText.text, zip: self.zipText.text, suit: self.suiteTextField.text!)
       
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
@@ -118,6 +122,7 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
     
     func getUserInfo()  {
         
+        print(Order.userId)
         guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getSignupInfo&userID=\(Order.userId)") else { return }
         
         let session = URLSession.shared
@@ -183,8 +188,7 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
                         }
     }
     @IBAction func getYourAddressDidTap(_ sender: Any) {
-        
-        
+
         
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -353,4 +357,70 @@ class PayTwentyViewController: UIViewController,UISearchBarDelegate ,GMSAutocomp
         
                return true
             }
+    
+    
+    
+    func getUserInformation(){
+        var userArray:[CustomerInfo] = []
+        
+        do{
+            userArray = try context.fetch(CustomerInfo.fetchRequest())
+            print(userArray[0].firstName!)
+            print(userArray[0].lastName!)
+            print(userArray[0].email!)
+            print(userArray[0].customerID)
+            print(userArray[0].shippingAddress!)
+          //  print(userArray[0].state)
+            print(userArray[0].shippingPostalcode)
+          //  print(userArray[0].cellNumber)
+            
+        }catch{
+            
+            print(error)
+            
+        }
+    }
+    
+    
+    
+    func userLocalStorage(firstName:String?,lastName:String?,email:String?,cellNumber:String?,address:String?,state:String?,zip:String?,suit:String){
+        
+        print(firstName!)
+        print(lastName!)
+        print(email!)
+      
+        
+        let  newCustomer = NSEntityDescription.insertNewObject(forEntityName: "CustomerInfo", into: context)
+        newCustomer.setValue(firstName!, forKey: "firstName")
+        newCustomer.setValue(lastName!, forKey: "lastName")
+        newCustomer.setValue(email!, forKey: "email")
+        newCustomer.setValue(cellNumber!, forKey: "cellNumber")
+        newCustomer.setValue(address!, forKey: "shippingAddress")
+        newCustomer.setValue(state!, forKey: "state")
+        newCustomer.setValue(zip!, forKey: "shippingPostalcode")
+   
+        do{
+            try context.save()
+            print("saved")
+        }catch{
+            print(error)
+        }
+        
+        
+        
+    }
+    func deleteAllRecords() {
+        //delete all data
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CustomerInfo")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("removed user information")
+        } catch {
+            print ("There was an error")
+        }
+    }
 }

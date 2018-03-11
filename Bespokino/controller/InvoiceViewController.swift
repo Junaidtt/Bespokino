@@ -91,7 +91,7 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
             //String(format: "%.2f", myDouble)
         cell.shirtPrice.text = "$"+String(format: "%.2f",data[indexPath.row].BasicPrice)
         cell.fabricUpgradePrice.text = "$"+String(format: "%.2f",data[indexPath.row].FabricUpgrade)
-        cell.shirtCount.text = "\(data.count) Custome made shirt"
+        cell.shirtCount.text = "\(data.count) Custom made shirt"
         cell.stylingPrice.text = "$"+String(format: "%.2f",data[indexPath.row].StylingAddup)
         
         }

@@ -10,6 +10,7 @@ import UIKit
 
 class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    @IBOutlet weak var emptyView: UIView!
     
     @IBOutlet weak var addNewButton: UIButton!
     @IBOutlet weak var cartTableView: UITableView!
@@ -21,11 +22,11 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.title = "BESPOKINO"
         addNewButton.layer.cornerRadius = 5
         checkOutButton.layer.cornerRadius = 5
-
+        self.emptyView.isHidden = true
         self.cartTableView.tableFooterView = UIView()
         cartmodel.fetchCartItems { (success, result, error) in
             

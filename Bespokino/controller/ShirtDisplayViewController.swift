@@ -9,9 +9,10 @@
 import UIKit
 import SDWebImage
 import SVProgressHUD
+import CoreData
 class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UIScrollViewDelegate {
    
-    
+       let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let data = [String]()
     
     
@@ -72,7 +73,7 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
              SVProgressHUD.dismiss()
         }
         
-    
+    getUserInformation()
     }
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -150,5 +151,26 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
         
     }
     
-    
+    func getUserInformation()  {
+        
+        let defaults = UserDefaults.standard
+         var userArray:[CustomerInfo] = []
+   
+        do{
+            userArray = try context.fetch(CustomerInfo.fetchRequest())
+            print(userArray[0].fullName!)
+            print(userArray[0].email!)
+            print(userArray[0].customerID)
+            defaults.set(userArray[0].userId, forKey: "USERID")
+            defaults.synchronize()
+            
+            
+            
+        }catch{
+            
+            print(error)
+            
+        }
+    }
+
 }

@@ -256,39 +256,6 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
        // cell.marker.image = UIImage(named:"")
         cell.marker.isHidden = true
     }
-    
-//    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
-//    {
-//        print("myRightSideBarButtonItemTapped")
-//
-//        do {
-//            try Auth.auth().signOut()
-//
-////            let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-////            let appDelegate = UIApplication.shared.delegate
-////            appDelegate?.window??.rootViewController = signInPage
-//
-//                //self.dismiss(animated: true, completion: nil)
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//
-//            let sw = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-//
-//            self.view.window?.rootViewController = sw
-//
-//            let destinationController = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-//
-//            let navigationController = UINavigationController(rootViewController: destinationController)
-//
-//            sw.pushFrontViewController(navigationController, animated: true)
-//
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//    }
-    
-//    @objc func myLeftSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
-//    {
-//        print("myLeftSideBarButtonItemTapped")
-//    }
+   
     
 }

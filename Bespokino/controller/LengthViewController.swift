@@ -98,27 +98,21 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
             }else {
                 displayAlert(message: "Check your internet connection")
             }
-            
-          
 
         }
-        
-        
-        
-        
+    
     }
     
     
     func postMeasurment() {
         
-      
+      print(Order.userId)
         let parameters = """
         {"userID":"\(Order.userId)", "modelNo":"\(Order.modelNo)", "Neck":"\(SelectedValues.neckMaster!)", "Cuff":"\(SelectedValues.cuffMaster!)", "Biceps":"\(SelectedValues.bicepsMaster!)",
                       "Sleeve":"\(SelectedValues.sleeveMaster!)", "Length":"\(SelectedValues.lengthMaster!)", "Shoulder":"\(SelectedValues.shoulderMaster!)", "Chest":"\(SelectedValues.chestMaster!)", "Waist":"\(SelectedValues.waistMaster!)",
         "Hips":"\(SelectedValues.hipsMaster!)", "SleeveAddup":"0.0", "LengthAddup":"0"}
     """
-        
-        
+
         print(parameters)
         var data: Data { return Data(parameters.utf8) }
         print(data)
@@ -127,10 +121,11 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         //guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-      
+        
         do {
             
             request.httpBody = data
+            
         }
         
         let session = URLSession.shared

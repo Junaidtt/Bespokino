@@ -84,6 +84,7 @@
 		DE97449B1FB39BE60095A22B /* MonogramCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */; };
 		DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9F88671FD0680100F8E33B /* InvoiceTask.swift */; };
 		DEAF7EA1203A140D00450EA9 /* ToolStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAF7EA0203A140D00450EA9 /* ToolStatusViewController.swift */; };
+		DEAFE5C32049EEF600F725FB /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAFE5C22049EEF600F725FB /* ContainerVC.swift */; };
 		DEB4A7331FD48B5100913B0F /* InnerContrastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */; };
 		DEB4A7351FD48C1900913B0F /* InnerContrastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */; };
 		DEC1F29C1FD0BBB900BC0155 /* ConfirmPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */; };
@@ -103,6 +104,7 @@
 		DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */; };
 		DEE58BDC1FBE18D6008F6BC8 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */; };
 		DEE58BDE1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */; };
+		DEE7BB9620486216001FB50D /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE7BB9520486216001FB50D /* CheckoutViewController.swift */; };
 		DEE8527C1FDB36E000A82C19 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527B1FDB36E000A82C19 /* Body.swift */; };
 		DEE8527E1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */; };
 		DEF3F6ED1FE326AD003270C1 /* BEMCheckBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */; };
@@ -198,6 +200,7 @@
 		DE97449A1FB39BE60095A22B /* MonogramCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE9F88671FD0680100F8E33B /* InvoiceTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceTask.swift; sourceTree = "<group>"; };
 		DEAF7EA0203A140D00450EA9 /* ToolStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolStatusViewController.swift; sourceTree = "<group>"; };
+		DEAFE5C22049EEF600F725FB /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		DEB4A7321FD48B5100913B0F /* InnerContrastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastTableViewCell.swift; sourceTree = "<group>"; };
 		DEB4A7341FD48C1900913B0F /* InnerContrastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerContrastViewController.swift; sourceTree = "<group>"; };
 		DEC1F29B1FD0BBB900BC0155 /* ConfirmPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPayViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 		DEE58BD91FBE057C008F6BC8 /* MonogramPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonogramPadViewController.swift; sourceTree = "<group>"; };
 		DEE58BDB1FBE18D6008F6BC8 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		DEE58BDD1FBE285B008F6BC8 /* ThreadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEE7BB9520486216001FB50D /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		DEE8527B1FDB36E000A82C19 /* Body.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		DEE8527D1FDD95D400A82C19 /* BodyPostureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPostureCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEF3F6F21FE326AD003270C1 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -446,6 +450,8 @@
 				DE1C60EA203E01DD006B2944 /* MeasurmentTableViewCell.swift */,
 				DE886D1F203F55460042B9A3 /* PostureTableViewCell.swift */,
 				DE886D25203F68430042B9A3 /* SelectedPostureViewController.swift */,
+				DEE7BB9520486216001FB50D /* CheckoutViewController.swift */,
+				DEAFE5C22049EEF600F725FB /* ContainerVC.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				DE213F001FC20AEF00432688 /* StylingTask.swift in Sources */,
 				DE456A4D1FB6307B00566237 /* LoginViewController.swift in Sources */,
 				DE17D66E1FE984680072356B /* Reachability.swift in Sources */,
+				DEAFE5C32049EEF600F725FB /* ContainerVC.swift in Sources */,
 				DE032DA11FC388D9000C9274 /* ContrastCollectionViewCell.swift in Sources */,
 				DEC1F2A01FD0C4EF00BC0155 /* ShippingAddressViewController.swift in Sources */,
 				DE49016D1FD5ED010003B888 /* PleatCollectionViewCell.swift in Sources */,
@@ -705,6 +712,7 @@
 				DEE58BDA1FBE057C008F6BC8 /* MonogramPadViewController.swift in Sources */,
 				DE97448F1FB373A50095A22B /* CollarViewController.swift in Sources */,
 				DE8659591FB0EF4F00A35877 /* Fabric.swift in Sources */,
+				DEE7BB9620486216001FB50D /* CheckoutViewController.swift in Sources */,
 				DE9F88681FD0680100F8E33B /* InvoiceTask.swift in Sources */,
 				DEC2A5F31FAFB62500B77BC6 /* LuxuryViewController.swift in Sources */,
 				DE4817E61FD893F0001EACA3 /* HipsViewController.swift in Sources */,

@@ -41,8 +41,7 @@ class ShirtDisplay {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         print(json)
-                        
-                        
+
                         guard let result = json as? [String:Any] else {return}
                         
                         guard let err = result["Error"] as? Bool else {return}
@@ -56,25 +55,30 @@ class ShirtDisplay {
                             guard let paperNO = result["paperNo"] as? Int else{return}
                             
                             guard let trackingID = result["trackingID"] as? String else {return}
+                            print(trackingID)
+                            
+                            self.shirtItemCode(customerid: customerID, orderno: orderNO, paperno: paperNO, trackingid: trackingID)
                             
                             Order.customerID = customerID
                             Order.orderNo = orderNO
                             Order.paperNo = paperNO
                             Order.trackingID = trackingID
                             
-   
+                            let defaults = UserDefaults.standard
+                            defaults.set(customerID, forKey: "CUSTOMERID")
+                            defaults.set(orderNO, forKey: "ORDERNO")
+                            defaults.set(paperNO, forKey: "PAPERNO")
+                            defaults.set(trackingID, forKey: "TRACKINGID")
                             
+                            defaults.synchronize()
+
                         }
-                        
-                        
-                        
+    
                         print(err)
-                        
-                        
-                        
+
                         DispatchQueue.main.async {
                             
-                            completion(true, json, nil)
+                        completion(true, json, nil)
                             
                         }
                    } catch {
@@ -87,12 +91,28 @@ class ShirtDisplay {
 
                     }
                 }
-                
-                }.resume()
+           }.resume()
         }
        
     }
+
+    func shirtItemCode(customerid:Int,orderno:Int,paperno:Int,trackingid:String)  {
+        
+        let  newShirt = NSEntityDescription.insertNewObject(forEntityName: "Shirt", into: context)
+
+        newShirt.setValue(trackingid, forKey: "trackingid")
+        newShirt.setValue(orderno, forKey: "orderno")
+        newShirt.setValue(paperno, forKey: "paperno")
+        newShirt.setValue(customerid, forKey: "customerid")
+ 
+        do{
+            try context.save()
+            print("saved")
+        }catch{
+            print(error)
+        }
     
+    }
     
     
     
@@ -142,7 +162,13 @@ class ShirtDisplay {
                             Order.paperNo = paperNO
                             Order.trackingID = trackingID
                             
-                            
+                            let defaults = UserDefaults.standard
+                            defaults.set(customerID, forKey: "CUSTOMERID")
+                            defaults.set(orderNO, forKey: "ORDERNO")
+                            defaults.set(paperNO, forKey: "PAPERNO")
+                            defaults.set(trackingID, forKey: "TRACKINGID")
+
+                            defaults.synchronize()
                             
                         }
                         

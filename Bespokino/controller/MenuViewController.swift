@@ -35,7 +35,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
    
         self.menuTableView.tableFooterView = UIView()
         
-        userTitle.text = "\(String(describing: defaults.string(forKey: "FULLNAME")!))"
+      //  userTitle.text = "\(String(describing: defaults.string(forKey: "FULLNAME")!))"
 
     }
 

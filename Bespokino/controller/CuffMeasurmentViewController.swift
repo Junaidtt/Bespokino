@@ -37,12 +37,12 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-         let modelNo = defaults.string(forKey: "MODELNO")
+        let modelNo = 9
+        // let modelNo = defaults.string(forKey: "MODELNO")
 
-        print(Int(modelNo!)!)
+     //   print(Int(modelNo!)!)
         
-        if Int(modelNo!)! >= 9 {
+        if Int(modelNo) >= 9 {
             self.cuffImages = self.cuffImages9
             self.shirtImage.image = UIImage(named:"cuff_guide9")
         }else{

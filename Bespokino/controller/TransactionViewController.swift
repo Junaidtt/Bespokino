@@ -10,7 +10,6 @@ import UIKit
 import AcceptSDK
 import SVProgressHUD
 
-
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
@@ -49,31 +48,31 @@ fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-let reachability = Reachability();
-
-var ccPayAmt = Payment.ccPay
-var desc:String?
-var tocken:String?
-
-let kClientName = "785d4yCQ47"
-let kClientKey  = "93v555Vx94fahCX2HTe5WrWb4ebT9xqt97DP3CZ5qszVH533xq9AGdn9vuBmyUGL"
-
-let kAcceptSDKDemoCreditCardLength:Int = 16
-let kAcceptSDKDemoCreditCardLengthPlusSpaces:Int = (kAcceptSDKDemoCreditCardLength + 3)
-let kAcceptSDKDemoExpirationLength:Int = 4
-let kAcceptSDKDemoExpirationMonthLength:Int = 2
-let kAcceptSDKDemoExpirationYearLength:Int = 2
-let kAcceptSDKDemoExpirationLengthPlusSlash:Int = kAcceptSDKDemoExpirationLength + 1
-let kAcceptSDKDemoCVV2Length:Int = 4
-
-let kAcceptSDKDemoCreditCardObscureLength:Int = (kAcceptSDKDemoCreditCardLength - 4)
-
-let kAcceptSDKDemoSpace:String = " "
-let kAcceptSDKDemoSlash:String = "/"
-
-var activeTextField = UITextField()
-let asyncTask  = AsyncTask()
-var customer = [Invoice]()
+//let reachabilitya = Reachability();
+//
+//var ccPayAmt = Payment.ccPay
+//var desc:String?
+//var tocken:String?
+//
+//let kClientName = "785d4yCQ47"
+//let kClientKey  = "93v555Vx94fahCX2HTe5WrWb4ebT9xqt97DP3CZ5qszVH533xq9AGdn9vuBmyUGL"
+//
+//let kAcceptSDKDemoCreditCardLength:Int = 16
+//let kAcceptSDKDemoCreditCardLengthPlusSpaces:Int = (kAcceptSDKDemoCreditCardLength + 3)
+//let kAcceptSDKDemoExpirationLength:Int = 4
+//let kAcceptSDKDemoExpirationMonthLength:Int = 2
+//let kAcceptSDKDemoExpirationYearLength:Int = 2
+//let kAcceptSDKDemoExpirationLengthPlusSlash:Int = kAcceptSDKDemoExpirationLength + 1
+//let kAcceptSDKDemoCVV2Length:Int = 4
+//
+//let kAcceptSDKDemoCreditCardObscureLength:Int = (kAcceptSDKDemoCreditCardLength - 4)
+//
+//let kAcceptSDKDemoSpace:String = " "
+//let kAcceptSDKDemoSlash:String = "/"
+//
+//var activeTextField = UITextField()
+//let asyncTask  = AsyncTask()
+//var customer = [Invoice]()
 
 
 class TransactionViewController: UIViewController,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate{
@@ -195,7 +194,7 @@ class TransactionViewController: UIViewController,UITextFieldDelegate,UIPickerVi
 
         if checkInternet.isConnectedToNetwork(){
              SVProgressHUD.show()
-            self.updateTokenButton(false)
+           // self.updateTokenButton(false)
 
             self.getToken()
 

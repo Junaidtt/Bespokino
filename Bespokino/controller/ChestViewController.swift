@@ -20,9 +20,8 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
         UIImage(named: "blue")!
 
         ]
-    var chestImages = ["hook","red","yellow","green","blue"]
+        var chestImages = ["hook","red","yellow","green","blue"]
     let defaults = UserDefaults.standard
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

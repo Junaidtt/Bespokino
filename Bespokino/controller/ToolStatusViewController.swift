@@ -17,13 +17,15 @@ class ToolStatusViewController: UIViewController {
     @IBOutlet weak var sendMarker: UIImageView!
     let defaults = UserDefaults.standard
 
-     var modelNumber:String?
+    @IBOutlet weak var modelNumberLabel: UILabel!
+    var modelNumber:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "BESPOKINO"
 
+        print(modelNumber!)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
 
         let toolPresentView = UITapGestureRecognizer(target: self, action: #selector(toolPresentAction))

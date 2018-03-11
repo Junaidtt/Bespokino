@@ -199,12 +199,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
                         
                         let user = Auth.auth().currentUser
                         if let user = user {
-                            
-                            
-                              //guard let email:String = user.email! else {return}
-                            guard let username:String = user.displayName! else {return}
-                            
+    
+                            guard let username:String = user.displayName else {return}
+
                             Customer.firstName = username
+                            
                             let defaults = UserDefaults.standard
                             
                             defaults.set(username, forKey: "FULLNAME")
@@ -245,8 +244,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
     
     fileprivate func configureGoogleSignInButton() {
   
-        
         GIDSignIn.sharedInstance().uiDelegate = self
+      //  GIDSignIn.sharedInstance().signIn()
+
    
     }
 }

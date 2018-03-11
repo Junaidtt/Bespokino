@@ -7,13 +7,13 @@
 //
 
 import Foundation
-
+import CoreData
 
 struct Customer {
     
     static var firstName:String?
     static var lastName:String?
-    static  var email:String?
+    static var email:String?
     static var phoneNumber:String?
     static var address:String?
     static var state:String?
@@ -38,7 +38,8 @@ class AsyncTask: NSObject {
     init(view:AnyObject) {
         self.view = view
     }
-   
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     override init() {
         
     }
@@ -65,10 +66,16 @@ class AsyncTask: NSObject {
                     guard let loginResult = json as? [String:Any] else {return}
                     guard let err = loginResult["Error"] as? Bool else {return}
                     guard let email = loginResult["Email"] as? String else {return}
-                    guard let customerid = loginResult["customerID"] as? Int else {return}
-                    guard let firstName = loginResult["firstName"] as? String else {return}
-                    guard let lastName = loginResult["lastName"] as? String else {return}
-               
+                    guard let customerid = loginResult["UserId"] as? Int else {return}
+                    guard let fullname = loginResult["FullName"] as? String else {return}
+                    guard let phoneNumber = loginResult["PhoneNo"] as? String else {return}
+                    guard let state = loginResult["State"] as? String else {return}
+                    guard let zip = loginResult["Zip"] as? String else {return}
+                    guard let address = loginResult["Address"] as? String else {return}
+                    guard let city = loginResult["City"] as? String else {return}
+
+                    
+                    self.defaults.set(customerid, forKey: "USERID")
                     self.defaults.synchronize()
 
                     Order.customerID = customerid
@@ -76,10 +83,17 @@ class AsyncTask: NSObject {
                     print(err)
                     if (!err){
                         
-                        self.defaults.set("\(firstName+" "+lastName)", forKey: "FULLNAME")
-                        self.defaults.set(lastName, forKey: "LASTNAME")
-                        self.defaults.set(email, forKey: "EMAIL")
-                        self.defaults.set(customerid, forKey: "CUSTOMERID")
+//                        self.defaults.set(firstName, forKey: "FULLNAME")
+//                        //self.defaults.set(lastName, forKey: "LASTNAME")
+//                        self.defaults.set(email, forKey: "EMAIL")
+//                        self.defaults.set(customerid, forKey: "CUSTOMERID")
+                        
+                        
+                        self.deleteAllRecords()
+                        
+                        self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
+                        
+                        
                         
                         DispatchQueue.main.async {
                             
@@ -92,19 +106,21 @@ class AsyncTask: NSObject {
                             let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                              self.view?.present(newViewController, animated: true, completion: nil)
 
-                            //self.view?.navigationController??.pushViewController(newViewController, animated: true)
+                          
                             }else{
                                 
                                 self.displayAlertMessage(messageToDisplay: "SignUp and take measurment")
-                                
                             }
                             
                         }
-                 
+           
+                    }else{
                         
+                        DispatchQueue.main.async {
+                            self.displayAlertMessage(messageToDisplay: "Login credentials are wrong. Please try again")
+
+                        }
                     }
-                    
-                    
                 } catch {
                     print(error)
                 }
@@ -116,9 +132,7 @@ class AsyncTask: NSObject {
     
     
     func regUserTask(view:AnyObject,user:User)   {
-        
-       
-        
+   
         let parameters = ["FullName":user.firstName!,"Email":user.email!,"Password":user.password!]
         print(parameters)
         guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
@@ -154,26 +168,38 @@ class AsyncTask: NSObject {
 
                         defaults.set(user.firstName, forKey: "FULLNAME")
                         defaults.set(user.email, forKey: "EMAIL")
-                        defaults.synchronize()
                         
-                      //  guard let message = regResult["Message"] as? String else {return}
+                        
+                        guard let message = regResult["Message"] as? String else {return}
                         guard let userid  = regResult["UserId"] as? Int else {return}
+                        
+                        guard let email = regResult["Email"] as? String else {return}
+                        guard let customerid = regResult["UserId"] as? Int else {return}
+                        guard let fullname = regResult["FullName"] as? String else {return}
+                        guard let phoneNumber = regResult["PhoneNo"] as? String else {return}
+                        guard let state = regResult["State"] as? String else {return}
+                        guard let zip = regResult["Zip"] as? String else {return}
+                        guard let address = regResult["Address"] as? String else {return}
+                        guard let city = regResult["City"] as? String else {return}
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        self.defaults.set(customerid, forKey: "USERID")
+                        defaults.synchronize()
+                        self.deleteAllRecords()
+                        self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
                         
                         Order.userId = userid
-                       // Order.modelNo = modelNo
+                        // Order.modelNo = modelNo
                         
                         DispatchQueue.main.async {
-                    
-                    
-                            self.view?.dismiss(animated: true, completion: nil)
 
-                     // self.view?.dismiss(animated: true)
-                     // self.displayAlertMessage(messageToDisplay: message)
-                     // let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                     // let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                     // self.view?.present(newViewController, animated: true, completion: nil)
-                     // self.view?.navigationController??.pushViewController(newViewController, animated: true)
+                           // self.view?.dismiss(animated: true, completion: nil)
+
+                            // self.view?.dismiss(animated: true)
+                             self.displayAlertMessage(messageToDisplay: message)
+                             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                             let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                             self.view?.present(newViewController, animated: true, completion: nil)
+                         //    self.view?.navigationController??.pushViewController(newViewController, animated: true)
                             
                         }
                     }else{
@@ -298,7 +324,51 @@ class AsyncTask: NSObject {
         return result
     }
     
-    
+
+    func userLocalStorage(fullName:String?,email:String?,customerID:Int?,phoneNumber:String?,address:String?,city:String?,state:String?,zip:String?){
+
+ 
+        print(email!)
+       
+        
+        let  newCustomer = NSEntityDescription.insertNewObject(forEntityName: "CustomerInfo", into: context)
+      
+        
+        newCustomer.setValue(fullName, forKey: "fullName")
+        newCustomer.setValue(email!, forKey: "email")
+        newCustomer.setValue(customerID!, forKey: "customerID")
+        newCustomer.setValue(phoneNumber, forKey: "cellNumber")
+        newCustomer.setValue(address, forKey: "shippingAddress")
+        newCustomer.setValue(city, forKey: "shippingCity")
+        newCustomer.setValue(zip, forKey: "shippingPostalcode")
+        newCustomer.setValue(state, forKey: "state")
+        newCustomer.setValue(customerID, forKey: "userId")
+
+        
+        do{
+            try context.save()
+            print("saved")
+        }catch{
+            print(error)
+        }
+        
+        
+        
+    }
+   func deleteAllRecords() {
+        //delete all data
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CustomerInfo")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("removed user information")
+        } catch {
+            print ("There was an error")
+        }
+    }
 }
 
 

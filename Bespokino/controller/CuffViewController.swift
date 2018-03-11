@@ -71,7 +71,6 @@ class CuffViewController: UIViewController,UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
         let cell1 = collectionView.cellForItem(at: indexPath)
-        
         cell1?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         cell1?.layer.borderWidth = 2
    

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CustomerInfo" representedClassName="CustomerInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="billingAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="billingCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="billingPostalCode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="cellNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customerID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modelNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shippingAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingPostalcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Measurment" representedClassName="Measurment" syncable="YES" codeGenerationType="class">
@@ -24,10 +37,17 @@
         <attribute name="paperNo" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="trackingID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Shirt" representedClassName="Shirt" syncable="YES" codeGenerationType="class">
+        <attribute name="customerid" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderno" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="paperno" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="trackingid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="CustomerInfo" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="OrderInfo" positionX="-63" positionY="0" width="128" height="105"/>
+        <element name="CustomerInfo" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="Measurment" positionX="-63" positionY="18" width="128" height="180"/>
         <element name="Model" positionX="-54" positionY="81" width="128" height="60"/>
+        <element name="OrderInfo" positionX="-63" positionY="0" width="128" height="105"/>
+        <element name="Shirt" positionX="-54" positionY="99" width="128" height="105"/>
     </elements>
 </model>

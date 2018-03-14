@@ -19,4 +19,5 @@ target 'Bespokino' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+  pod 'AES256CBC'
 end

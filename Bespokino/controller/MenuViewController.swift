@@ -12,6 +12,7 @@ import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
+import CoreData
 class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var menuTableView: UITableView!
@@ -35,7 +36,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
    
         self.menuTableView.tableFooterView = UIView()
         
-      //  userTitle.text = "\(String(describing: defaults.string(forKey: "FULLNAME")!))"
+        userTitle.text = "\(String(describing: defaults.string(forKey: "FULLNAME")!))"
 
     }
 
@@ -121,7 +122,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             defaults.removeObject(forKey: "EMAIL")
 
             defaults.synchronize()
-            
+            self.deleteAllRecords()
             GIDSignIn.sharedInstance().signOut()
 
             let firebaseAuth = Auth.auth()
@@ -187,6 +188,20 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return CGFloat(40)
     }
     
-   
+    func deleteAllRecords() {
+        //delete all data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirt")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("removed shirt information")
+        } catch {
+            print ("There was an error")
+        }
+    }
     
 }

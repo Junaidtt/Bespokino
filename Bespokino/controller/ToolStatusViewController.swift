@@ -39,8 +39,19 @@ class ToolStatusViewController: UIViewController {
         
         let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
+
+        let modelnumber = defaults.string(forKey: "MODELNO")
+        self.modelNumberLabel.text = "BESPOKINO SHIRT MODEL NUMBER : \(modelnumber!)"
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let modelnumber = defaults.string(forKey: "MODELNO")
+        self.modelNumberLabel.text = "BESPOKINO SHIRT MODEL NUMBER : \(modelnumber!)"
+    }
+    
     @objc func toolPresentAction(sender:UITapGestureRecognizer){
         
         let yesMeasure = defaults.bool(forKey: "MEASURMENT")
@@ -58,22 +69,18 @@ class ToolStatusViewController: UIViewController {
             self.sendMarker.isHidden = true
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "MeasurmentParentViewController") as! MeasurmentParentViewController
-            
-            
-            
+      
             self.navigationController?.pushViewController(newViewController, animated: true)
         }
-      
-     
     }
-
     @objc func sendMetoolAction(sender:UITapGestureRecognizer){
         print("send me tool")
         self.presentMarker.isHidden = true
         self.sendMarker.isHidden = false
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "PayTwentyViewController") as! PayTwentyViewController
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "BillingViewController") as! BillingViewController
 
+        newViewController.PAY_TAG = "TWENTY"
         self.navigationController?.pushViewController(newViewController, animated: true)
         
 

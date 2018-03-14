@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     let reachability = Reachability();
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
@@ -153,8 +154,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         defaults.set(false, forKey: "isRegIn")
         defaults.synchronize()
         self.saveContext()
+        
+        deleteAllRecords()
+        
+        
     }
-   
+    func deleteAllRecords() {
+        //delete all data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirt")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+            print("removed shirt information")
+        } catch {
+            print ("There was an error")
+        }
+    }
     // MARK: - Core Data stack
 
     @available(iOS 10.0, *)

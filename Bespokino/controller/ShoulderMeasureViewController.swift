@@ -77,7 +77,6 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
         
         cell?.layer.borderWidth = 2
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-       // print(self.modelNumber!)
         if(self.modelNumber != nil){
             
             m.setMeasurment(m: self.modelNumber! ) { (success, result, Error) in

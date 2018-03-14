@@ -25,9 +25,8 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
     var fit:Int = 0
     
     @IBOutlet weak var topViewLength: NSLayoutConstraint!
-    
+    let defaults = UserDefaults.standard
     @IBOutlet weak var prefferedFit: UILabel!
-        let defaults = UserDefaults.standard
    
       let alertVC = UIAlertController(title: "Enter Pants Waist Size", message: "", preferredStyle: .alert)
     override func viewDidLoad() {
@@ -38,10 +37,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
      
-        
-        
-        
-        
+ 
         
         let casualGesture = UITapGestureRecognizer(target: self, action: #selector(casualAction))
         let slimGesture = UITapGestureRecognizer(target: self, action: #selector(slimAction))
@@ -86,22 +82,28 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
    
         let yesPantWaitSize = defaults.bool(forKey: "YESPANT")
         if (!yesPantWaitSize){
-            
-          
+
+
             alertVC.addTextField { (textField) in
                 textField.placeholder = "PANT WAIST SIZE"
                 textField.inputView = self.picker
             }
             let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
                 (alert) -> Void in
-                
+
                 let pantWaistSize = self.alertVC.textFields![0] as UITextField
-                
+
                 print("pantsize -- \(pantWaistSize.text!)")
             })
             alertVC.addAction(submitAction)
             alertVC.view.tintColor = UIColor.black
             present(alertVC, animated: true)
+        }else{
+            
+            self.modelNumber = defaults.string(forKey: "MODELNO")!
+            Order.modelNo = Int(self.modelNumber)!
+            
+            
         }
 
         
@@ -119,9 +121,8 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         slimView.layer.borderWidth = 2
         slimView.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         slimTicke.image = UIImage(named: "")
-
+        self.defaults.set(Order.modelNo, forKey: "MODELNO")
         casualTick.image = UIImage(named: "tick")
-        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ToolStatusViewController") as! ToolStatusViewController
         newViewController.modelNumber = String(Order.modelNo)
@@ -139,7 +140,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         casualTick.image = UIImage(named: "")
 
         slimTicke.image = UIImage(named: "tick")
-        
+         self.defaults.set(Order.modelNo-1, forKey: "MODELNO")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ToolStatusViewController") as! ToolStatusViewController
         
@@ -168,6 +169,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
     
     
     @IBAction func sendMeMeasuringTool(_ sender: Any) {
+        
         
         if self.slim != 0 || self.fit != 0{
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -245,6 +247,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         Body.postBodyPosture { (result) in
             DispatchQueue.main.async {
                 print(Order.modelNo)
+                
                 self.defaults.set(Order.modelNo, forKey: "MODELNO")
                 self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Order.modelNo)"
                 self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Order.modelNo-1)"
@@ -252,7 +255,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
             }
        
         }
-        
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

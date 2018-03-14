@@ -17,9 +17,12 @@ class ShirtDisplay {
 
     func getCustomerDetailsTask(completion:@escaping (Bool,Any?,Error?) -> Void ) {
         
-        print("GET CUSTOMER DETAILS")
+    
         
+
         DispatchQueue.global().async() {
+            
+ 
             let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"fabricID":Order.fabid]
             
             print(parameters)

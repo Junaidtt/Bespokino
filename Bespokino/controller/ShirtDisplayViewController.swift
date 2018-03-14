@@ -133,6 +133,8 @@ class ShirtDisplayViewController: UIViewController,UICollectionViewDelegateFlowL
                 
                 guard let userDetails = response as? [String:Any]  else {return}
                 
+                print(userDetails)
+                
                 if userDetails["Error"] as! Bool{
                     let  async = AsyncTask()
                     async.displayAlertMessage(messageToDisplay: "Error")

@@ -591,6 +591,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bespokino/Pods-Bespokino-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AES256CBC/AES256CBC.framework",
 				"${PODS_ROOT}/AuthorizeNetAccept/AcceptSDK-Framework/AcceptSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -608,6 +609,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AES256CBC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcceptSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",

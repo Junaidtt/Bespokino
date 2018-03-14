@@ -105,12 +105,12 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     @IBAction func payButtonDidTap(_ sender: Any) {
         
-        
-      
-        
+
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "BillingViewController") as! BillingViewController
         newViewController.customer = self.data
+        newViewController.PAY_TAG = "ANY"
+    
         self.navigationController?.pushViewController(newViewController, animated: true)
         
     }

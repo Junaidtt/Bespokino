@@ -13,7 +13,7 @@
         <attribute name="modelNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="shippingAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shippingCity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="shippingPostalcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shippingPostalcode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>

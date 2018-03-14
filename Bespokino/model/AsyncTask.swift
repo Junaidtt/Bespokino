@@ -62,7 +62,7 @@ class AsyncTask: NSObject {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
-                    
+
                     guard let loginResult = json as? [String:Any] else {return}
                     guard let err = loginResult["Error"] as? Bool else {return}
                     guard let email = loginResult["Email"] as? String else {return}
@@ -70,31 +70,26 @@ class AsyncTask: NSObject {
                     guard let fullname = loginResult["FullName"] as? String else {return}
                     guard let phoneNumber = loginResult["PhoneNo"] as? String else {return}
                     guard let state = loginResult["State"] as? String else {return}
-                    guard let zip = loginResult["Zip"] as? String else {return}
+                
+                    guard let zip = loginResult["Zip"] as? Int else {return}
                     guard let address = loginResult["Address"] as? String else {return}
+                  
                     guard let city = loginResult["City"] as? String else {return}
-
+                    
                     
                     self.defaults.set(customerid, forKey: "USERID")
+                    self.defaults.set(fullname, forKey: "FULLNAME")
                     self.defaults.synchronize()
 
                     Order.customerID = customerid
                     print(customerid)
                     print(err)
                     if (!err){
-                        
-//                        self.defaults.set(firstName, forKey: "FULLNAME")
-//                        //self.defaults.set(lastName, forKey: "LASTNAME")
-//                        self.defaults.set(email, forKey: "EMAIL")
-//                        self.defaults.set(customerid, forKey: "CUSTOMERID")
-                        
-                        
+ 
                         self.deleteAllRecords()
                         
                         self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
-                        
-                        
-                        
+    
                         DispatchQueue.main.async {
                             
                             if Order.customerID > 50000{
@@ -170,7 +165,7 @@ class AsyncTask: NSObject {
                         defaults.set(user.email, forKey: "EMAIL")
                         
                         
-                        guard let message = regResult["Message"] as? String else {return}
+                        //guard let message = regResult["Message"] as? String else {return}
                         guard let userid  = regResult["UserId"] as? Int else {return}
                         
                         guard let email = regResult["Email"] as? String else {return}
@@ -178,7 +173,8 @@ class AsyncTask: NSObject {
                         guard let fullname = regResult["FullName"] as? String else {return}
                         guard let phoneNumber = regResult["PhoneNo"] as? String else {return}
                         guard let state = regResult["State"] as? String else {return}
-                        guard let zip = regResult["Zip"] as? String else {return}
+                  
+                        guard let zip = regResult["Zip"] as? Int else {return}
                         guard let address = regResult["Address"] as? String else {return}
                         guard let city = regResult["City"] as? String else {return}
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
@@ -192,10 +188,8 @@ class AsyncTask: NSObject {
                         
                         DispatchQueue.main.async {
 
-                           // self.view?.dismiss(animated: true, completion: nil)
-
                             // self.view?.dismiss(animated: true)
-                             self.displayAlertMessage(messageToDisplay: message)
+                            // self.displayAlertMessage(messageToDisplay: message)
                              let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                              let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                              self.view?.present(newViewController, animated: true, completion: nil)
@@ -207,15 +201,13 @@ class AsyncTask: NSObject {
                             self.displayAlertMessage(messageToDisplay: "Registration failed !")
                         }
                     }
-                    
-                    
-                } catch {
-                    print(error)
+
                 }
-            }
-            
+                catch{
+                    print(error)
+                    }
+                }
             }.resume()
-        
     }
     
     
@@ -249,17 +241,29 @@ class AsyncTask: NSObject {
                     if (!err){
                         
                         let defaults = UserDefaults.standard
+                       
+                        
+            
+                        guard let userid  = regResult["UserId"] as? Int else {return}
+                        
+                        guard let email = regResult["Email"] as? String else {return}
+                        guard let customerid = regResult["UserId"] as? Int else {return}
+                        guard let fullname = regResult["FullName"] as? String else {return}
+                        guard let phoneNumber = regResult["PhoneNo"] as? String else {return}
+                        guard let state = regResult["State"] as? String else {return}
+                        guard let zip = regResult["Zip"] as? Int else {return}
+                        guard let address = regResult["Address"] as? String else {return}
+                        guard let city = regResult["City"] as? String else {return}
+                        //guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        defaults.set(customerid, forKey: "USERID")
                         defaults.set(true, forKey: "isRegIn")
                         defaults.synchronize()
-                        
-                       // Customer.firstName = user.firstName
-                       // Customer.lastName = user.lastName
-                        //  guard let message = regResult["Message"] as? String else {return}
-                        guard let userid  = regResult["UserId"] as? Int else {return}
-                        //guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        defaults.synchronize()
+                     
+                       // deleteAllRecords(self)
+                        //self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
                         
                         Order.userId = userid
-                        // Order.modelNo = modelNo
                  
                     }
                     
@@ -325,7 +329,7 @@ class AsyncTask: NSObject {
     }
     
 
-    func userLocalStorage(fullName:String?,email:String?,customerID:Int?,phoneNumber:String?,address:String?,city:String?,state:String?,zip:String?){
+    func userLocalStorage(fullName:String?,email:String?,customerID:Int?,phoneNumber:String?,address:String?,city:String?,state:String?,zip:Int?){
 
  
         print(email!)

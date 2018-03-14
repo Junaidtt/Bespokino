@@ -70,33 +70,7 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
     
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        
-      //  containerView.isScrollEnabled = false
-        
-        
-        
-//        if UserDefaults.standard.object(forKey: "check") != nil{
-//
-//            let check =  UserDefaults.standard.object(forKey: "check") as! Int
-//            if check == 1{
-//                moveToViewControllerAtIndex(check)
-//               // moveToViewcontroller(at: 1)
-//            }
-//
-//
-//        }
-  
-        
-//                    if Control.pointer != nil{
-//
-//                       self.moveToViewControllerAtIndex(Control.pointer!)
-//
-//                    }
-    }
-    
+
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let sleeve = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SleeveViewController")

@@ -21,6 +21,8 @@ class StylingTask: NSObject {
         self.optionvalue = optionVal
         
     }
+    
+    
     override init() {
         
     }
@@ -137,7 +139,7 @@ class StylingTask: NSObject {
         let defaults = UserDefaults.standard
         let currentTrackingID = defaults.string(forKey: "TRACKINGID")
         let currentOrderNo = defaults.integer(forKey: "ORDERNO")
-        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
         let currentPaperNo = defaults.integer(forKey: "PAPERNO")
         
         print(currentTrackingID!)
@@ -193,7 +195,7 @@ class StylingTask: NSObject {
         let defaults = UserDefaults.standard
         let currentTrackingID = defaults.string(forKey: "TRACKINGID")
         let currentOrderNo = defaults.integer(forKey: "ORDERNO")
-        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
         let currentpaperNo = defaults.integer(forKey: "PAPERNO")
         
         print(currentTrackingID!)
@@ -248,7 +250,7 @@ class StylingTask: NSObject {
         let defaults = UserDefaults.standard
         let currentTrackingID = defaults.string(forKey: "TRACKINGID")
         let currentOrderNo = defaults.integer(forKey: "ORDERNO")
-        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
         let currentpaperNo = defaults.integer(forKey: "PAPERNO")
         
         print(currentTrackingID!)
@@ -304,16 +306,7 @@ class StylingTask: NSObject {
     
     
     
-   static var add_json = """
-{"orderNo":"\(Order.orderNo)","customerID":"\(Order.customerID)","paperNo":"\(Order.paperNo)",
-     "trackingID": "\(Order.trackingID)", "placket":"\(StylingTask.placket)",
-     "backPleats":"\(StylingTask.backpleats)", "pocket":"\(StylingTask.pocket)", "shortSleeve":"\(StylingTask.shortSleeve)",
-     "tuxedo":"\(StylingTask.tuxedo)", "tuxedoPleat":"\(StylingTask.tuxedoPleat)", "collarContrastFabric":"\(StylingTask.collarContrastFabric)",
-     "cuffContrastFabric":"\(StylingTask.cuffContrastFabric)", "placketContrastFabric":"\(StylingTask.placketContrastFabric)",
-     "sleeveVentContrastFabric":"\(StylingTask.sleeveVentContrastFabric)", "whiteCuffAndCollar":"\(StylingTask.whiteCuffAndCollar)",
-     "contrastFabricCategory":"inner_collar", "contrastFabricID":"\(StylingTask.contrastFabricID)",
-     "buttonholeColor":"\(StylingTask.buttonholeColor)", "btnType":"Save"}
-"""
+
     
     
     func setCurrentOrder(){
@@ -321,7 +314,7 @@ class StylingTask: NSObject {
         let defaults = UserDefaults.standard
         let currentTrackingID = defaults.string(forKey: "TRACKINGID")
         let currentOrderNo = defaults.integer(forKey: "ORDERNO")
-        let currentCustomerID = defaults.integer(forKey: "USERID")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
         let currentPaperNo = defaults.integer(forKey: "PAPERNO")
         
         print(currentTrackingID!)
@@ -340,10 +333,29 @@ class StylingTask: NSObject {
     
     func postAdditionalOptins(completion:@escaping (Bool,Any?,Error?)->Void)  {
 
-        setCurrentOrder()
-        print(StylingTask.add_json)
+      //  setCurrentOrder()
+      //  print(StylingTask.add_json)
+        
+        let defaults = UserDefaults.standard
+        let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        var add_json = """
+        {"orderNo":"\(currentOrderNo)","customerID":"\(currentCustomerID)","paperNo":"\(currentPaperNo)",
+        "trackingID": "\(currentTrackingID!)", "placket":"\(StylingTask.placket)",
+        "backPleats":"\(StylingTask.backpleats)", "pocket":"\(StylingTask.pocket)", "shortSleeve":"\(StylingTask.shortSleeve)",
+        "tuxedo":"\(StylingTask.tuxedo)", "tuxedoPleat":"\(StylingTask.tuxedoPleat)", "collarContrastFabric":"\(StylingTask.collarContrastFabric)",
+        "cuffContrastFabric":"\(StylingTask.cuffContrastFabric)", "placketContrastFabric":"\(StylingTask.placketContrastFabric)",
+        "sleeveVentContrastFabric":"\(StylingTask.sleeveVentContrastFabric)", "whiteCuffAndCollar":"\(StylingTask.whiteCuffAndCollar)",
+        "contrastFabricCategory":"inner_collar", "contrastFabricID":"\(StylingTask.contrastFabricID)",
+        "buttonholeColor":"\(StylingTask.buttonholeColor)", "btnType":"Save"}
+        """
+        
+        print(add_json)
         DispatchQueue.global().async {
-           var data: Data { return Data(StylingTask.add_json.utf8) }
+           var data: Data { return Data(add_json.utf8) }
             
             print(data)
             

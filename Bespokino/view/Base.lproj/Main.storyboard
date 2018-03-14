@@ -1220,8 +1220,11 @@
                                                 <action selector="cloaseButtonDidTap:" destination="D6P-Wb-E9v" eventType="touchUpInside" id="4Od-BE-Lwg"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PLACKET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix6-PV-gKm">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PLACKET" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix6-PV-gKm">
                                             <rect key="frame" x="128" y="16" width="86" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="86" id="NsO-Rf-RUq"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1229,11 +1232,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="ix6-PV-gKm" firstAttribute="centerY" secondItem="uWc-jn-WC5" secondAttribute="centerY" id="6Ey-2U-QSM"/>
                                         <constraint firstItem="uWc-jn-WC5" firstAttribute="top" secondItem="kBD-pb-6aZ" secondAttribute="topMargin" constant="6" id="6Sx-Fn-uXB"/>
-                                        <constraint firstItem="ix6-PV-gKm" firstAttribute="centerX" secondItem="kBD-pb-6aZ" secondAttribute="centerX" constant="11" id="72z-3b-0Vr"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="uWc-jn-WC5" secondAttribute="bottom" constant="6" id="G7k-6d-aVZ"/>
-                                        <constraint firstItem="ix6-PV-gKm" firstAttribute="centerY" secondItem="kBD-pb-6aZ" secondAttribute="centerY" id="hOC-c2-2aI"/>
+                                        <constraint firstItem="ix6-PV-gKm" firstAttribute="leading" secondItem="kBD-pb-6aZ" secondAttribute="leading" constant="128" id="mf3-OQ-v1a"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="uWc-jn-WC5" secondAttribute="trailing" constant="6" id="pgd-D3-eSU"/>
+                                        <constraint firstItem="uWc-jn-WC5" firstAttribute="leading" secondItem="ix6-PV-gKm" secondAttribute="trailing" constant="77" id="sKZ-wJ-M1z"/>
                                     </constraints>
                                 </collectionReusableView>
                                 <connections>
@@ -1511,7 +1515,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua9-VX-pcG">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="44"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <state key="normal" title="SAVE">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -2913,6 +2917,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yEx-K0-WV9"/>
                     </view>
+                    <connections>
+                        <outlet property="neckTB" destination="Qtr-hZ-Ho3" id="Fs6-tz-UbH"/>
+                        <outlet property="shirtImage" destination="RkF-f5-WBm" id="WQ1-R9-ouK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4R8-9G-cBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2926,7 +2934,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-zj-21E">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuff_guide8" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-zj-21E">
                                 <rect key="frame" x="50" y="42" width="221" height="301"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RiX-W9-muH">
@@ -3001,6 +3009,7 @@
                         <viewLayoutGuide key="safeArea" id="xqC-vz-FOw"/>
                     </view>
                     <connections>
+                        <outlet property="cuffTB" destination="RiX-W9-muH" id="2Sz-0q-pH1"/>
                         <outlet property="shirtImage" destination="SZo-zj-21E" id="9Nk-4y-7nE"/>
                     </connections>
                 </viewController>
@@ -3063,7 +3072,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="itG-8M-bT2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <state key="normal" title="All Done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -4236,20 +4245,20 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or sign up with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-H7-PjQ">
-                                <rect key="frame" x="109.5" y="447" width="101.5" height="20"/>
+                                <rect key="frame" x="109" y="447" width="101.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfr-Gg-Dc4">
-                                <rect key="frame" x="16" y="457" width="94.5" height="1"/>
+                                <rect key="frame" x="16" y="457" width="94" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="IMU-1O-SMY"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdE-yF-CP8">
-                                <rect key="frame" x="210" y="456" width="94" height="1"/>
+                                <rect key="frame" x="209.5" y="456" width="94.5" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="4YQ-LX-2Da"/>
@@ -4795,22 +4804,10 @@ The deposit will be applied to your first order.</string>
                                     <constraint firstAttribute="height" constant="44" id="lqG-aO-awp"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="80E-fs-FAC">
-                                <rect key="frame" x="168.5" y="76" width="135.5" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FULLNAME" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eMD-m3-vHP">
+                                <rect key="frame" x="16" y="76" width="288" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="aI6-HK-Wgw"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="namePhonePad" returnKeyType="next" textContentType="name"/>
-                                <connections>
-                                    <outlet property="delegate" destination="de6-5A-0gv" id="fZc-bG-DvJ"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eMD-m3-vHP">
-                                <rect key="frame" x="16" y="76" width="135.5" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="htb-8I-8XX"/>
+                                    <constraint firstAttribute="height" constant="36" id="NUa-BY-ixF"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4820,9 +4817,9 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lar-3r-9l6">
-                                <rect key="frame" x="16" y="120" width="288" height="30"/>
+                                <rect key="frame" x="16" y="170" width="288" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ecw-1v-p3t"/>
+                                    <constraint firstAttribute="height" constant="30" id="a7j-7o-PPo"/>
                                 </constraints>
                                 <state key="normal" title="Get your address">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4831,10 +4828,10 @@ The deposit will be applied to your first order.</string>
                                     <action selector="getYourAddressDidTap:" destination="de6-5A-0gv" eventType="touchUpInside" id="8Hb-sU-6c0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="street address" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B1O-w6-LKd">
-                                <rect key="frame" x="16" y="158" width="288" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="STREET ADDRESS" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B1O-w6-LKd">
+                                <rect key="frame" x="16" y="210" width="288" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="gHt-1W-BWS"/>
+                                    <constraint firstAttribute="height" constant="36" id="nqE-Yc-6GV"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4843,10 +4840,10 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="om1-JQ-NQJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-FM-bvC">
-                                <rect key="frame" x="16" y="202" width="135.5" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-FM-bvC">
+                                <rect key="frame" x="16" y="256" width="140" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="XPA-N1-9wi"/>
+                                    <constraint firstAttribute="height" constant="36" id="eKJ-LG-eGK"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4855,10 +4852,10 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="2Os-J3-ktt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="zipcode" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-u2-MC5">
-                                <rect key="frame" x="168.5" y="202" width="135.5" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ZIP CODE" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-u2-MC5">
+                                <rect key="frame" x="164" y="256" width="140" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="L2k-Ya-jb5"/>
+                                    <constraint firstAttribute="height" constant="36" id="g38-l5-w8b"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4867,84 +4864,32 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="Ox6-ox-PmT"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3iP-X9-B2J">
-                                <rect key="frame" x="16" y="246" width="288" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE SAME ADDRESS FOR SHIPPING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-6j-aA0">
+                                <rect key="frame" x="62" y="487" width="242" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="9iI-fB-0Uq"/>
+                                    <constraint firstAttribute="height" constant="21" id="fDA-iB-kbT"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="address-level1"/>
-                                <connections>
-                                    <outlet property="delegate" destination="de6-5A-0gv" id="Yjs-IF-pBa"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use same address for shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-6j-aA0">
-                                <rect key="frame" x="62" y="489" width="242" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="1S3-wu-4eO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-j4-7re">
-                                <rect key="frame" x="16" y="298" width="288" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="304" width="288" height="1"/>
+                                <color key="backgroundColor" red="0.83638036039274954" green="0.83638036039274954" blue="0.83638036039274954" alpha="0.8552547089041096" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="QNC-5m-fat"/>
+                                    <constraint firstAttribute="height" constant="1" id="MCt-RQ-OMf"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CARD NUMBER" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Pw2-wS-dj0">
                                 <rect key="frame" x="16" y="315" width="288" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Uqn-9b-hIA"/>
+                                    <constraint firstAttribute="height" constant="36" id="eCX-Uh-d71"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="sNj-Gg-HDe"/>
-                                </connections>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-ks-yRi">
-                                <rect key="frame" x="16" y="359" width="120" height="36"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-Pc-YIV">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="36"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="de6-5A-0gv" id="rD0-wk-Y7z"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-xh-yue">
-                                        <rect key="frame" x="66" y="0.0" width="54" height="36"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="de6-5A-0gv" id="LPS-h0-YgG"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Cls-wh-s1g"/>
-                                    <constraint firstAttribute="height" constant="36" id="R6s-Hr-enQ"/>
-                                </constraints>
-                            </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIV-jx-WVO">
-                                <rect key="frame" x="244" y="359" width="60" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="SLq-2x-y3C"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Vnh-we-3S2"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="de6-5A-0gv" id="n91-uX-Khu"/>
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kKU-jc-c6C">
@@ -4976,7 +4921,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNS-vI-v0D" customClass="BEMCheckBox">
-                                <rect key="frame" x="16" y="484" width="22" height="22"/>
+                                <rect key="frame" x="16" y="482" width="22" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="4I6-Pt-eDJ"/>
@@ -4991,67 +4936,132 @@ The deposit will be applied to your first order.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textField opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CELL NUMBER" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-X3-lZT">
+                                <rect key="frame" x="16" y="124" width="136" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="roR-C2-eSo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="next" textContentType="name"/>
+                                <connections>
+                                    <outlet property="delegate" destination="de6-5A-0gv" id="8J3-g9-1iL"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qQw-pb-eXP">
+                                <rect key="frame" x="160" y="124" width="144" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="9RA-f7-KhN"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <connections>
+                                    <outlet property="delegate" destination="de6-5A-0gv" id="jzT-Jp-O6V"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-ks-yRi">
+                                <rect key="frame" x="16" y="359" width="103" height="36"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-Pc-YIV">
+                                        <rect key="frame" x="0.0" y="0.0" width="45.5" height="36"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="de6-5A-0gv" id="rD0-wk-Y7z"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYS-xh-yue">
+                                        <rect key="frame" x="57.5" y="0.0" width="45.5" height="36"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="de6-5A-0gv" id="LPS-h0-YgG"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="xgS-8C-2pr"/>
+                                </constraints>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIV-jx-WVO">
+                                <rect key="frame" x="234" y="359" width="70" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="OfB-rI-WEl"/>
+                                    <constraint firstAttribute="height" constant="36" id="r1p-2u-tA2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="yzW-7I-QZd"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="de6-5A-0gv" id="n91-uX-Khu"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e9y-u2-MC5" firstAttribute="leading" secondItem="Gn6-FM-bvC" secondAttribute="trailing" constant="17" id="1Q7-n0-n6t"/>
-                            <constraint firstItem="e9y-u2-MC5" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="8" id="2dv-qs-LEm"/>
-                            <constraint firstItem="eMD-m3-vHP" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="8H5-8t-ehx"/>
-                            <constraint firstItem="3iP-X9-B2J" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="8mb-Pf-VPk"/>
-                            <constraint firstItem="QfN-j4-7re" firstAttribute="top" secondItem="3iP-X9-B2J" secondAttribute="bottom" constant="16" id="8ot-DW-Epy"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="lar-3r-9l6" secondAttribute="trailing" constant="16" id="CSG-PU-AbI"/>
-                            <constraint firstItem="B1O-w6-LKd" firstAttribute="top" secondItem="lar-3r-9l6" secondAttribute="bottom" constant="8" id="DhG-Gy-0Hn"/>
-                            <constraint firstItem="QfN-j4-7re" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="Dzy-5K-X6a"/>
-                            <constraint firstItem="eMD-m3-vHP" firstAttribute="top" secondItem="NP6-vY-KhA" secondAttribute="bottom" constant="12" id="G56-Ga-JAO"/>
+                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="wRn-6j-aA0" secondAttribute="bottom" constant="6" id="0E1-35-ayb"/>
+                            <constraint firstItem="lar-3r-9l6" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="0YI-jl-LuK"/>
+                            <constraint firstItem="qQw-pb-eXP" firstAttribute="leading" secondItem="5Mr-X3-lZT" secondAttribute="trailing" constant="8" id="15s-WA-wW7"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="eMD-m3-vHP" secondAttribute="trailing" constant="16" id="3zs-0k-qPi"/>
+                            <constraint firstItem="wRn-6j-aA0" firstAttribute="leading" secondItem="ZNS-vI-v0D" secondAttribute="trailing" constant="24" id="64K-Ch-vSc"/>
+                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="6HB-Iv-vTp"/>
+                            <constraint firstItem="fTe-ks-yRi" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="9dh-R3-79q"/>
+                            <constraint firstItem="B1O-w6-LKd" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="AuB-HG-0By"/>
+                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="top" secondItem="QfN-j4-7re" secondAttribute="bottom" constant="10" id="Dym-uO-vdC"/>
+                            <constraint firstItem="QfN-j4-7re" firstAttribute="top" secondItem="Gn6-FM-bvC" secondAttribute="bottom" constant="12" id="FUu-DB-21n"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="trailing" secondItem="kfr-ru-Vpv" secondAttribute="trailing" id="Hi4-S5-YE6"/>
-                            <constraint firstItem="3iP-X9-B2J" firstAttribute="top" secondItem="Gn6-FM-bvC" secondAttribute="bottom" constant="8" id="Nr8-Dd-Ye0"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="B1O-w6-LKd" secondAttribute="trailing" constant="16" id="OAt-UV-1OL"/>
-                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="top" secondItem="QfN-j4-7re" secondAttribute="bottom" constant="16" id="Obt-Ir-kG3"/>
+                            <constraint firstItem="LIV-jx-WVO" firstAttribute="leading" secondItem="fTe-ks-yRi" secondAttribute="trailing" constant="115" id="JC3-jc-UQ8"/>
+                            <constraint firstItem="eMD-m3-vHP" firstAttribute="top" secondItem="NP6-vY-KhA" secondAttribute="bottom" constant="12" id="KPY-HT-KRW"/>
+                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="10" id="KQa-3K-V7P"/>
+                            <constraint firstItem="e9y-u2-MC5" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="10" id="LHF-ur-waP"/>
                             <constraint firstItem="ZNS-vI-v0D" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="Ogt-1c-MRU"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="LIV-jx-WVO" secondAttribute="trailing" constant="16" id="Oo3-Pg-710"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="QfN-j4-7re" secondAttribute="trailing" constant="16" id="Pva-5Q-HsX"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="80E-fs-FAC" secondAttribute="trailing" constant="16" id="RET-Bk-TO5"/>
-                            <constraint firstItem="80E-fs-FAC" firstAttribute="leading" secondItem="eMD-m3-vHP" secondAttribute="trailing" constant="17" id="RrV-qV-Ulo"/>
-                            <constraint firstItem="80E-fs-FAC" firstAttribute="top" secondItem="NP6-vY-KhA" secondAttribute="bottom" constant="12" id="S3S-av-sVe"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="wRn-6j-aA0" secondAttribute="trailing" constant="16" id="VwB-DM-QYV"/>
-                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="wRn-6j-aA0" secondAttribute="bottom" constant="4" id="Yku-GH-9I6"/>
-                            <constraint firstItem="wRn-6j-aA0" firstAttribute="leading" secondItem="ZNS-vI-v0D" secondAttribute="trailing" constant="24" id="Zn4-rl-Xji"/>
-                            <constraint firstItem="LIV-jx-WVO" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="c3B-Wu-sAH"/>
-                            <constraint firstItem="lar-3r-9l6" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="dBt-KP-Okr"/>
+                            <constraint firstItem="5Mr-X3-lZT" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="12" id="Qh6-OQ-4To"/>
+                            <constraint firstItem="e9y-u2-MC5" firstAttribute="width" secondItem="Gn6-FM-bvC" secondAttribute="width" id="UOT-Cg-RRS"/>
+                            <constraint firstItem="fTe-ks-yRi" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="XIB-mw-lqI"/>
+                            <constraint firstItem="B1O-w6-LKd" firstAttribute="top" secondItem="lar-3r-9l6" secondAttribute="bottom" constant="10" id="aX2-Bi-163"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="B1O-w6-LKd" secondAttribute="trailing" constant="16" id="az9-2W-99n"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="qQw-pb-eXP" secondAttribute="trailing" constant="16" id="bXr-qA-8w0"/>
+                            <constraint firstItem="5Mr-X3-lZT" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="bn1-M5-L8I"/>
+                            <constraint firstItem="eMD-m3-vHP" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="c45-gF-Ums"/>
+                            <constraint firstItem="qQw-pb-eXP" firstAttribute="width" secondItem="5Mr-X3-lZT" secondAttribute="width" constant="8" id="dHs-9I-6Ej"/>
+                            <constraint firstItem="QfN-j4-7re" firstAttribute="trailing" secondItem="I4s-m5-Hv0" secondAttribute="trailingMargin" id="dYG-Gv-uJY"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="wRn-6j-aA0" secondAttribute="trailing" constant="16" id="dne-7e-MMi"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="e9y-u2-MC5" secondAttribute="trailing" constant="16" id="dxu-m3-RgI"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="top" secondItem="kfr-ru-Vpv" secondAttribute="top" id="eAu-Qw-9ok"/>
-                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="ZNS-vI-v0D" secondAttribute="bottom" constant="8" id="fnu-JZ-EWt"/>
-                            <constraint firstItem="B1O-w6-LKd" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="iCN-X8-2Rh"/>
-                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="iXh-Wd-IpW"/>
-                            <constraint firstItem="e9y-u2-MC5" firstAttribute="width" secondItem="Gn6-FM-bvC" secondAttribute="width" id="jGz-Ec-du4"/>
-                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="lIc-4x-0ky"/>
-                            <constraint firstItem="LIV-jx-WVO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I4s-m5-Hv0" secondAttribute="leading" constant="20" symbolic="YES" id="mbR-8f-bwa"/>
-                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="8" id="mph-6b-pjm"/>
-                            <constraint firstItem="80E-fs-FAC" firstAttribute="width" secondItem="eMD-m3-vHP" secondAttribute="width" id="qd0-TF-CCQ"/>
+                            <constraint firstItem="LIV-jx-WVO" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="f73-tx-XKD"/>
+                            <constraint firstItem="e9y-u2-MC5" firstAttribute="leading" secondItem="Gn6-FM-bvC" secondAttribute="trailing" constant="8" id="fMg-O3-Y6r"/>
+                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="ZNS-vI-v0D" secondAttribute="bottom" constant="10" id="fnu-JZ-EWt"/>
+                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="gCA-YQ-dGQ"/>
+                            <constraint firstItem="lar-3r-9l6" firstAttribute="top" secondItem="5Mr-X3-lZT" secondAttribute="bottom" constant="10" id="gNC-BL-PLW"/>
+                            <constraint firstItem="qQw-pb-eXP" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="12" id="igL-rb-nAc"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="Pw2-wS-dj0" secondAttribute="trailing" constant="16" id="j4e-Ga-RYy"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="lar-3r-9l6" secondAttribute="trailing" constant="16" id="j66-pV-sTZ"/>
+                            <constraint firstItem="QfN-j4-7re" firstAttribute="leading" secondItem="I4s-m5-Hv0" secondAttribute="leadingMargin" id="js5-cX-S8I"/>
                             <constraint firstAttribute="bottom" secondItem="kKU-jc-c6C" secondAttribute="bottom" constant="10" id="rEq-65-ldE"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="Pw2-wS-dj0" secondAttribute="trailing" constant="16" id="rVJ-uU-PQG"/>
                             <constraint firstItem="kKU-jc-c6C" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="riA-8a-FDI"/>
-                            <constraint firstItem="lar-3r-9l6" firstAttribute="top" secondItem="80E-fs-FAC" secondAttribute="bottom" constant="8" id="rll-4y-2Ym"/>
-                            <constraint firstItem="fTe-ks-yRi" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="s9T-fO-FyK"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" id="sTp-Fu-m5M"/>
-                            <constraint firstItem="fTe-ks-yRi" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="tYm-R0-whr"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="3iP-X9-B2J" secondAttribute="trailing" constant="16" id="twL-PF-LVS"/>
+                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="LIV-jx-WVO" secondAttribute="trailing" constant="16" id="vP3-ho-bzs"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="kKU-jc-c6C" secondAttribute="trailing" constant="16" id="vzd-a5-GrS"/>
-                            <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="e9y-u2-MC5" secondAttribute="trailing" constant="16" id="wk6-sv-mVm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kfr-ru-Vpv"/>
                     </view>
                     <connections>
                         <outlet property="cardNumberTextField" destination="Pw2-wS-dj0" id="qSq-JZ-pMW"/>
                         <outlet property="cardVerificationCodeTextField" destination="LIV-jx-WVO" id="T95-Gr-4QW"/>
+                        <outlet property="cellNumberText" destination="5Mr-X3-lZT" id="qxR-KI-o6u"/>
                         <outlet property="checkmark" destination="ZNS-vI-v0D" id="IEv-bq-OaU"/>
                         <outlet property="cityTextField" destination="Gn6-FM-bvC" id="fzZ-Nd-89Y"/>
+                        <outlet property="emailTextField" destination="qQw-pb-eXP" id="vY8-Vl-6So"/>
                         <outlet property="expirationMonthTextField" destination="NXv-Pc-YIV" id="Lxb-Zy-p1W"/>
                         <outlet property="expirationYearTextField" destination="YYS-xh-yue" id="VIj-zg-ujz"/>
-                        <outlet property="firstNameText" destination="eMD-m3-vHP" id="YLk-ok-JRA"/>
+                        <outlet property="fullName" destination="eMD-m3-vHP" id="il0-eo-jtk"/>
                         <outlet property="getTokenButton" destination="oVl-UW-mZq" id="lbr-c9-zK7"/>
                         <outlet property="getYourAddressButton" destination="lar-3r-9l6" id="CXb-ii-atu"/>
-                        <outlet property="lastNameText" destination="80E-fs-FAC" id="cGL-c4-CJf"/>
-                        <outlet property="stateTextField" destination="3iP-X9-B2J" id="r2r-bB-Mcx"/>
+                        <outlet property="priceButton" destination="NYc-EX-WpP" id="3YF-lD-d5b"/>
                         <outlet property="streetAddressText" destination="B1O-w6-LKd" id="0IE-Bt-Q6t"/>
                         <outlet property="totalAmount" destination="NYc-EX-WpP" id="svr-04-87X"/>
                         <outlet property="zipTextField" destination="e9y-u2-MC5" id="ubc-pP-34O"/>
@@ -5059,7 +5069,7 @@ The deposit will be applied to your first order.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYe-rW-Lny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12043" y="-191"/>
+            <point key="canvasLocation" x="12041.25" y="-191.19718309859155"/>
         </scene>
         <!--Shipping Address View Controller-->
         <scene sceneID="cyw-od-KqH">
@@ -6068,6 +6078,7 @@ The deposit will be applied to your first order.</string>
         <image name="chest-guide" width="431" height="368"/>
         <image name="close" width="15" height="15"/>
         <image name="cuff_guide" width="431" height="368"/>
+        <image name="cuff_guide8" width="431" height="368"/>
         <image name="hipps-gauide" width="431" height="368"/>
         <image name="initials1" width="35" height="16"/>
         <image name="initials2" width="35" height="16"/>

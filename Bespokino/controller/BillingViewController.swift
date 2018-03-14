@@ -12,6 +12,8 @@ import GooglePlaces
 import AcceptSDK
 import SVProgressHUD
 import PassKit
+import AES256CBC
+import CoreData
 
 //payment properties
 
@@ -81,11 +83,13 @@ var customer = [Invoice]()
 
 class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocompleteViewControllerDelegate,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource,PKPaymentAuthorizationViewControllerDelegate{
   //apple pay properties
+    
     @objc let SupportedPaymentNetworks = [PKPaymentNetwork.visa, PKPaymentNetwork.masterCard, PKPaymentNetwork.amex]
     private let applePayMerchantId = "merchant.com.innovationm.applepaydemo"
    //Patment vairiables
     @IBOutlet weak var totalAmount: UILabel!
 
+    @IBOutlet weak var priceButton: UILabel!
     //@IBOutlet weak var cardNameTextField: UITextField!
     @IBOutlet weak var cardNumberTextField:UITextField!
     @IBOutlet weak var expirationMonthTextField:UITextField!
@@ -116,11 +120,11 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     
 
-    @IBOutlet weak var firstNameText: UITextField!
-    @IBOutlet weak var lastNameText: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var cellNumberText: UITextField!
+    @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var streetAddressText: UITextField!
     @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipTextField: UITextField!
    // @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var checkmark: BEMCheckBox!
@@ -140,14 +144,40 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     var activeTextField = UITextField()
     @IBOutlet weak var getYourAddressButton: UIButton!
     let defaults = UserDefaults.standard
-
+   
+    var PAY_TAG:String?
+    var firstName:String?
+    var lastName:String?
+    var cellNumber:String?
+    var email:String?
+    var address:String?
+    var state:String?
+    var zipcode:String?
+    var userID:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         self.navigationItem.title = "BESPOKINO"
-       // continueButton.layer.cornerRadius = 5
-       // continueButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+
+        print(PAY_TAG!)
+        
+        
+        if PAY_TAG! == "TWENTY"{
+
+        priceButton.text =  "$\(20)"
+           
+            ccPayAmt = 20.00
+            
+        }else{
+            ccPayAmt = Payment.ccPay
+            priceButton.text =  "$\(String(format: "%.2f",ccPayAmt!))"
+            
+        }
+        
+        getTokenButton.layer.cornerRadius = 5
+        getTokenButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         checkmark.delegate = self
        //self.setDataInTextField()
         
@@ -157,29 +187,21 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         let yesData = defaults.bool(forKey: "USERINFO")
         if yesData{
-            self.firstNameText.text = defaults.string(forKey: "FIRSTNAME")
-            self.lastNameText.text = defaults.string(forKey: "LASTNAME")
+            self.fullName.text = defaults.string(forKey: "FIRSTNAME")
 //            self.cellNumberText.text = defaults.string(forKey: "CELLNUMBER")
             self.streetAddressText.text = defaults.string(forKey: "ADDRESS")
-            self.stateTextField.text = defaults.string(forKey: "STATE")
+           // self.stateTextField.text = defaults.string(forKey: "STATE")
             self.zipTextField.text = defaults.string(forKey: "ZIP")
 //
         }
         let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
-        
-        //payment
-        
-      //  ccPayAmt = Payment.ccPay!
-       // print(ccPayAmt!)
-        // print(Customer.firstName!)
-        // print(Customer.lastName!)
+      
         picker.delegate = self
         picker.dataSource = self
         
         
-        // cardNameTextField.text = "\(String(describing: Customer.firstName!)) \(String(describing: Customer.lastName!))"
         
         
         
@@ -205,6 +227,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         expirationYearTextField.inputAccessoryView = toolbarDone
         
         //self.totalAmount.text = "$\(String(format: "%.2f", Payment.ccPay!))"
+        setData()
     
     }
     
@@ -223,22 +246,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
     }
     
-    func setDataInTextField()  {
-
-        
-       // self.firstNameText.text = Customer.firstName!
-        self.firstNameText.text = customer[0].firstName
-        self.lastNameText.text = customer[0].lastName
-        // self.lastNameText.text = Customer.lastName!
-        self.streetAddressText.text = customer[0].address
-        self.cityTextField.text = customer[0].city
-       // self.stateTextField.text = customer[0].state
-        self.zipTextField.text = customer[0].zip
-      //  self.countryTextField.text = customer[0].country
-        
-        
-        
-    }
+   
 
     func didTap(_ checkBox: BEMCheckBox) {
         
@@ -252,25 +260,13 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         if checkmarkSelected{
             
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
-//            //newViewController.shipping = self.customer
-//            self.navigationController?.pushViewController(newViewController, animated: true)
+
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
             //  newViewController.shipping = self.customer
            // self.present(newViewController, animated: true, completion: nil)
             self.navigationController?.pushViewController(newViewController, animated: true)
-        }else{
-            
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
-          //  newViewController.shipping = self.customer
-          //  self.present(newViewController, animated: true, completion: nil)
-
-            self.navigationController?.pushViewController(newViewController, animated: true)
-        
         }
     }
     
@@ -321,7 +317,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             }
         }
         
-        // Call custom function to populate the address form.
+        //Call custom function to populate the address form.
         fillAddressForm()
         // Close the autocomplete widget.
         dismiss(animated: true, completion: nil)
@@ -350,16 +346,19 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         activeTextField = textField
         
         switch activeTextField {
-        case firstNameText:
-            lastNameText.becomeFirstResponder()
-        case lastNameText:
+        case fullName:
+            cellNumberText.becomeFirstResponder()
+        case cellNumberText:
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
             streetAddressText.becomeFirstResponder()
         case streetAddressText:
             cityTextField.becomeFirstResponder()
         case cityTextField:
             zipTextField.becomeFirstResponder()
         case zipTextField:
-            stateTextField.becomeFirstResponder()
+            cardNumberTextField.becomeFirstResponder()
+            
         default:
             print("No text field selected")
         }
@@ -390,12 +389,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         postal_code = ""
         postal_code_suffix = ""
     }
-    
-    
-    
-    
-    
-    
+
     @objc func doneButton_Clicked() {
         expirationMonthTextField.resignFirstResponder()
         expirationYearTextField.becomeFirstResponder()
@@ -440,13 +434,18 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     @IBAction func getTokenButtonTapped(_ sender: AnyObject) {
         // self.activityIndicatorAcceptSDKDemo.startAnimating()
         let checkInternet = CheckInternetConnection()
-        
-        
-        
+ 
         if checkInternet.isConnectedToNetwork(){
             SVProgressHUD.show()
             self.updateTokenButton(false)
             
+            
+            if PAY_TAG! == "TWENTY"{
+                
+                self.postTwentyPayment()
+   
+            }
+    
             self.getToken()
             
         }else{
@@ -464,9 +463,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     func updateTokenButton(_ isEnable: Bool) {
         self.getTokenButton.isEnabled = isEnable
         if isEnable {
-            self.getTokenButton.backgroundColor = UIColor.init(red: 48.0/255.0, green: 85.0/255.0, blue: 112.0/255.0, alpha: 1.0)
+            self.getTokenButton.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         } else {
-            self.getTokenButton.backgroundColor = UIColor.init(red: 48.0/255.0, green: 85.0/255.0, blue: 112.0/255.0, alpha: 0.2)
+            //self.getTokenButton.backgroundColor = UIColor.init(red: 48.0/255.0, green: 85.0/255.0, blue: 112.0/255.0, alpha: 0.2)
+            self.getTokenButton.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         }
     }
     
@@ -623,16 +623,6 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         let result = true
         
         let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
-//
-//        if textField == cardNameTextField{
-//
-//            let allowedCharacters = CharacterSet.letters
-//            let characterSet = CharacterSet(charactersIn:string)
-//            return allowedCharacters.isSuperset(of: characterSet)
-//
-//        }
-        
         switch (textField.tag)
         {
         case 1:
@@ -687,8 +677,19 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
                 }
             }
             
+            
             break
             
+        case 11:
+
+            
+            return checkUSPhoneNumberFormat(string: string, str: str)
+        
+            
+        case 12:
+            
+            print("Email")
+        
         default:
             break
         }
@@ -708,7 +709,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         return inputsAreOKToProceed
     }
     
-    
+   
     func textFieldDidEndEditing(_ textField: UITextField) {
         let validator = AcceptSDKCardFieldsValidator()
         
@@ -1302,14 +1303,85 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             }.resume()
         
     }
+ 
+    
+    
+    func setData(){
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        var userArray:[CustomerInfo] = []
+        
+        do{
+            userArray = try context.fetch(CustomerInfo.fetchRequest())
+            
+          
+            let name = userArray[0].fullName!.components(separatedBy: " ")
+            self.firstName = name[0]
+            self.lastName  = name[1]
+            self.cellNumber = userArray[0].cellNumber
+            self.email = userArray[0].email
+            self.address = userArray[0].shippingAddress
+            self.state = userArray[0].state
+            self.zipcode = "\(userArray[0].shippingPostalcode)"
+            
+            
+            self.fullName.text = userArray[0].fullName!
+            self.cellNumberText.text = userArray[0].cellNumber!
+            self.emailTextField.text = userArray[0].email
+            self.streetAddressText.text = userArray[0].shippingAddress
+            self.cityTextField.text = userArray[0].shippingCity
+            if (userArray[0].shippingPostalcode == 0){
+                 self.zipTextField.text = " "
+            }else{
+                self.zipTextField.text = "\(userArray[0].shippingPostalcode)"
+            }
+            
+            
+            
+     
+            
+        }catch{
+            
+            print(error)
+            
+        }
+        
+        
+        
+        
+    }
+    
     
     func postTwentyPayment(){
         
-        let ccLastNo = String(self.cardNumber.suffix(4))
+ 
+        let defaults = UserDefaults.standard
+        let userid = defaults.string(forKey: "USERID")
+        
+        let name = self.fullName.text!
+
+       
+        self.cellNumber = cellNumberText.text!
+        self.email = emailTextField.text!
+        self.address = streetAddressText.text
+        //self.state =
+        self.zipcode = zipTextField.text!
+        let city = self.cityTextField.text!
+        
+        
+        let ccLastNo:String = String(self.cardNumber.suffix(4))
         print(ccLastNo)
+        let password = AES256CBC.generatePassword()
+        
+        print(self.cardNumber)
+        
+        let encryptedCreditCard = AES256CBC.encryptString(self.cardNumberTextField.text!, password: password)
+        print(encryptedCreditCard!)
+      //  let encryptedCVV = AES256CBC.encryptString(self.cardVerificationCode, password: password)
         let parameters = """
-        {"firstName":\(Customer.firstName!),"lastName":\(Customer.lastName!),"email":\(Customer.email!),
-        "phoneNo":\(Customer.phoneNumber!),"userId":\(Order.userId), "ccType":"xxx","ccNo":\(self.cardNumber),  "ccExpMonth":\(self.cardExpirationMonth),"ccExpYear":\(self.cardExpirationYear),"ccCode":\(cardVerificationCode), "address":\(Customer.address!), "city":\(Customer.state),"state":\(Customer.state),"zip":\(Customer.zip!),"ccLastNo":\(ccLastNo)}
+        {"fullName":"\(name)","email":"\(self.email!)",
+        "phoneNo":"\(self.cellNumber!)","userId":"\(userid!)","ccType":"xxx","ccNo":"\(encryptedCreditCard!)","ccExpMonth":"\(self.cardExpirationMonth!)","ccExpYear":"\(self.cardExpirationYear!)","ccCode":"\(self.cardVerificationCode!)","address":"\(self.address!)","city":"\(city)","state":"NY","zip":"\(self.zipcode!)","ccLastNo":"\(ccLastNo)"}
         """
         
         
@@ -1379,8 +1451,19 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         let standard = PKShippingMethod(label: "Standard Delivery", amount: 0)
         standard.identifier = "standard"
+       
+        if PAY_TAG == "TWENTY"{
+            standard.detail = "A $20 deposit is required for your self-measuring tool.\nThe deposit will be applied to your first order."
+            
+        }else{
+
         standard.detail = "Delivery will be held within 4 - 6 days."
+       
+        }
         
+        
+        //A $20 deposit is required for your self-measuring tool.
+       // The deposit will be applied to your first order.
         //set the array of shipping methods to the shippingMethods property of payment request
         request.shippingMethods = [standard]
         
@@ -1396,26 +1479,44 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     func itemToSell(shipping: Double) -> [PKPaymentSummaryItem] {
         
         
-        print(ApplepayInfo.ccPay!)
-        print(ApplepayInfo.subTotalAmount!)
-        print(ApplepayInfo.shippingCost!)
-        print(ApplepayInfo.totalSalesAmount!)
-        print(ApplepayInfo.salesTaxAmount!)
-        print(ApplepayInfo.ccPay!)
-        let ccpay : NSDecimalNumber = ApplepayInfo.ccPay!
-        print(ccpay)
-        let stax: NSDecimalNumber = ApplepayInfo.salesTaxAmount!
-        //let shipping:NSDecimalNumber = ApplepayInfo.shippingCost!
-        //let totalSaleAmt:NSDecimalNumber = ApplepayInfo.totalSalesAmount!
-        let totCCpay:NSDecimalNumber = ApplepayInfo.ccPay!
-        let sTotal:NSDecimalNumber = ApplepayInfo.subTotalAmount!
-        let subtotal = PKPaymentSummaryItem(label: "Subtotal", amount: sTotal)
-        let salestax = PKPaymentSummaryItem(label: "Sales Tax", amount:stax)
-        let shippingCost = PKPaymentSummaryItem(label: "Shipping ", amount: 0)
-        //  let totalSaleAmount = PKPaymentSummaryItem(label: "Total Sales Amount ", amount: totalSaleAmt)
-        //let totalAmount = subtotal.amount.adding(discount.amount)
-        let total = PKPaymentSummaryItem(label: "Bespokino", amount: totCCpay)
-        return [subtotal, salestax, shippingCost,total]
+        if PAY_TAG == "TWENTY"{
+            
+            //ApplepayInfo.ccPay == 20.00
+  
+            let totCCpay:NSDecimalNumber = 20.00
+            //let sTotal:NSDecimalNumber = ApplepayInfo.subTotalAmount!
+            let tool = PKPaymentSummaryItem(label: "Bespokino Measuring Tool", amount: totCCpay)
+
+            let total = PKPaymentSummaryItem(label: "Bespokino", amount: totCCpay)
+            return [tool,total]
+            
+            
+            
+        }else{
+            
+            print(ApplepayInfo.ccPay!)
+            print(ApplepayInfo.subTotalAmount!)
+            print(ApplepayInfo.shippingCost!)
+            print(ApplepayInfo.totalSalesAmount!)
+            print(ApplepayInfo.salesTaxAmount!)
+            print(ApplepayInfo.ccPay!)
+            //ccPayAmt = Double(truncating: ApplepayInfo.ccPay!)
+            let ccpay : NSDecimalNumber = ApplepayInfo.ccPay!
+            print(ccpay)
+            let stax: NSDecimalNumber = ApplepayInfo.salesTaxAmount!
+            //let shipping:NSDecimalNumber = ApplepayInfo.shippingCost!
+            //let totalSaleAmt:NSDecimalNumber = ApplepayInfo.totalSalesAmount!
+            let totCCpay:NSDecimalNumber = ApplepayInfo.ccPay!
+            let sTotal:NSDecimalNumber = ApplepayInfo.subTotalAmount!
+            let subtotal = PKPaymentSummaryItem(label: "Subtotal", amount: sTotal)
+            let salestax = PKPaymentSummaryItem(label: "Sales Tax", amount:stax)
+            let shippingCost = PKPaymentSummaryItem(label: "Shipping ", amount: 0)
+            //  let totalSaleAmount = PKPaymentSummaryItem(label: "Total Sales Amount ", amount: totalSaleAmt)
+            //let totalAmount = subtotal.amount.adding(discount.amount)
+            let total = PKPaymentSummaryItem(label: "Bespokino", amount: totCCpay)
+            return [subtotal, salestax, shippingCost,total]
+        }
+    
         //  return [total]
         
     }
@@ -1429,7 +1530,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             let messsage = String(format: "Data Value: %@", base64str)
             print(base64str)
             print(messsage)
-           // self.postPaymentTask(base64str: base64str)
+            
+            tocken = base64str
+            desc = messsage
+            //self.postPaymentTask(base64str: base64str)
             let alert = UIAlertController(title: "Authorization Success", message: messsage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             return self.performApplePayCompletion(controller, alert: alert)
@@ -1460,5 +1564,33 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         return paymentString!
     }
     
+    func checkUSPhoneNumberFormat(string: String?, str: String?) -> Bool{
+        
+        if string == ""{ //BackSpace
+            
+            return true
+            
+        }else if str!.count < 3{
+            
+            if str!.count == 1{
+                
+                cellNumberText.text = "("
+            }
+            
+        }else if str!.count == 5{
+            
+            cellNumberText.text = cellNumberText.text! + ") "
+            
+        }else if str!.count == 10{
+            
+            cellNumberText.text = cellNumberText.text! + "-"
+            
+        }else if str!.count > 14{
+            
+            return false
+        }
+        
+        return true
+    }
     
 }

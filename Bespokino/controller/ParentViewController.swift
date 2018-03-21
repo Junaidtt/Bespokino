@@ -12,7 +12,7 @@ import XLPagerTabStrip
 class ParentViewController: ButtonBarPagerTabStripViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+    var badgeCount = Int()
     let purpleInspireColor = UIColor(red:0.13, green:0.03, blue:0.25, alpha:1.0)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,7 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
             
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
         }
         
         menuButton.target = revealViewController()
@@ -51,10 +52,19 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = .black
             newCell?.label.textColor = self?.purpleInspireColor
         }
-        
-        
+ 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
      
-
+        
+        // Call To Method
+        
+        self.badgeCount = Order.cartCount
+        self.setUpBadgeCountAndBarButton()
+        
+        
+        
     }
   
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -67,10 +77,47 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
     
     @IBAction func cartButtonDidTap(_ sender: Any) {
         
+        if Order.cartCount > 0 {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }
+ 
+        
+    }
+    
+    // Instance Method
+    
+    func setUpBadgeCountAndBarButton() {
+        // badge label
+        let label = UILabel(frame: CGRect(x: 10, y: -05, width: 20, height: 20))
+        label.layer.borderColor = UIColor.clear.cgColor
+        label.layer.borderWidth = 2
+        label.layer.cornerRadius = label.bounds.size.height / 2
+        label.textAlignment = .center
+        label.layer.masksToBounds = true
+        label.textColor = .white
+        label.font = label.font.withSize(12)
+        label.backgroundColor = .red
+        label.text = "\(self.badgeCount)"
+        
+        // button
+        let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        rightButton.setBackgroundImage(UIImage(named: "cart-icon"), for: .normal)
+        rightButton.addTarget(self, action: #selector(myRightSideBarButtonItemTapped), for: .touchUpInside)
+        rightButton.addSubview(label)
+        
+        // Bar button item
+        let rightBarButtomItem = UIBarButtonItem(customView: rightButton)
+        navigationItem.rightBarButtonItem = rightBarButtomItem
+    }
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+        
+        
+      //  self.present(newViewController, animated: true, completion: nil)
         self.navigationController?.pushViewController(newViewController, animated: true)
-        
-        
     }
 }

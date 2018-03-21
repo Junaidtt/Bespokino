@@ -17,7 +17,22 @@ class ShirtDisplay {
 
     func getCustomerDetailsTask(completion:@escaping (Bool,Any?,Error?) -> Void ) {
         
-    
+        StylingTask.pocket = ""
+        StylingTask.placket = ""
+        StylingTask.backpleats = ""
+        StylingTask.shortSleeve = ""
+        StylingTask.tuxedo = ""
+        StylingTask.tuxedoPleat = ""
+        StylingTask.collarContrastFabric = ""
+        StylingTask.cuffContrastFabric = ""
+        StylingTask.placketContrastFabric = ""
+        StylingTask.sleeveVentContrastFabric = ""
+        StylingTask.whiteCuffAndCollar = ""
+        StylingTask.contrastFabricCategory = "inner_collar"
+        StylingTask.contrastFabricID = ""
+        StylingTask.buttonholeColor = ""
+        StylingTask.btnType = ""
+        
         
 
         DispatchQueue.global().async() {
@@ -116,14 +131,59 @@ class ShirtDisplay {
         }
     
     }
-    
-    
+  
+//    func clearData(){
+//
+//        static var pocket = ""
+//        static var placket = ""
+//        static var backpleats = ""
+//        static var shortSleeve = ""
+//        static var tuxedo = ""
+//        static var tuxedoPleat = ""
+//        static var collarContrastFabric = ""
+//        static var cuffContrastFabric = ""
+//        static var placketContrastFabric = ""
+//        static var sleeveVentContrastFabric = ""
+//        static var whiteCuffAndCollar = ""
+//        static var contrastFabricCategory = "inner_collar"
+//        static var contrastFabricID = ""
+//        static var buttonholeColor = ""
+//        static var btnType = ""
+//
+//
+//
+//    }
     
     func addOnTask(completion:@escaping (Bool,Any?,Error?) -> Void) {
         
         
+        StylingTask.pocket = ""
+        StylingTask.placket = ""
+        StylingTask.backpleats = ""
+        StylingTask.shortSleeve = ""
+        StylingTask.tuxedo = ""
+        StylingTask.tuxedoPleat = ""
+        StylingTask.collarContrastFabric = ""
+        StylingTask.cuffContrastFabric = ""
+        StylingTask.placketContrastFabric = ""
+        StylingTask.sleeveVentContrastFabric = ""
+        StylingTask.whiteCuffAndCollar = ""
+        StylingTask.contrastFabricCategory = "inner_collar"
+        StylingTask.contrastFabricID = ""
+        StylingTask.buttonholeColor = ""
+        StylingTask.btnType = ""
+        
+        
         DispatchQueue.global().async() {
-            let parameters = ["orderNo": "\(Order.orderNo)", "customerID": "\(Order.customerID)","paperNo": "\(Order.paperNo)", "trackingID": Order.trackingID,"phoneNo":"9999999999"]
+            
+            let defaults = UserDefaults.standard
+            let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+            let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+            let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+            let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+            
+            
+            let parameters = ["orderNo": "\(currentOrderNo)", "customerID": "\(currentCustomerID)","paperNo": "\(currentPaperNo)", "trackingID": currentTrackingID,"phoneNo":"9999999999"]
             
             print(parameters)
             
@@ -170,7 +230,6 @@ class ShirtDisplay {
                             defaults.set(orderNO, forKey: "ORDERNO")
                             defaults.set(paperNO, forKey: "PAPERNO")
                             defaults.set(trackingID, forKey: "TRACKINGID")
-
                             defaults.synchronize()
                             
                         }
@@ -206,6 +265,10 @@ class ShirtDisplay {
         
         
     }
+    
+    
+
+    
     
 }
 

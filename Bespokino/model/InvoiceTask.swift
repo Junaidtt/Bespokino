@@ -61,13 +61,26 @@ class InvoiceTask: NSObject {
     
     var invoiceArray = [Invoice]()
     
+ 
+    
   //let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=4380179&customerID=51818"
-    let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=\(Order.orderNo)&customerID=\(Order.customerID)"
+   // let url = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=\(Order.orderNo)&customerID=\(Order.customerID)"
 
 
     func getInvoiceTask(completion:@escaping (Bool,[Invoice]?,Error?)->Void){
   
-        guard let url = URL(string: url) else { return }
+        
+        let defaults = UserDefaults.standard
+        //let userid = defaults.string(forKey: "USERID")
+        let orderno = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        //let userid = defaults.integer(forKey: "USERID")
+
+        
+        let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getInvoiceInfo&orderNo=\(orderno)&customerID=\(currentCustomerID)"
+
+        
+        guard let url = URL(string: urls) else { return }
         print(url)
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in

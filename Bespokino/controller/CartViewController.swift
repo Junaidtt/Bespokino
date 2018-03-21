@@ -54,9 +54,19 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             checkOutButton.setTitle("CHECKOUT", for: .normal)
         }
         
+        let rightBarButton = UIBarButtonItem(image: UIImage(named:"hme"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
     }
 
-  
+    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+      self.present(newViewController, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(newViewController, animated: true)
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cart.count
     }
@@ -137,15 +147,16 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBAction func checkOutButtonDidTap(_ sender: Any) {
         
-        
-        let yesBody =  defaults.bool(forKey: "YESBODY")
+       //   let yesBody = defaults.bool(forKey: "BESPOKE")
+        let yesBody =  defaults.bool(forKey: "BESPOKE")
         
         if yesBody{
           
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "FitViewController") as! FitViewController
-            // self.present(newViewController, animated: true, completion: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
+            //self.present(newViewController, animated: true, completion: nil)
             self.navigationController?.pushViewController(newViewController, animated: true)
+            
         }else{
             
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

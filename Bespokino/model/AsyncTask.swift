@@ -28,7 +28,7 @@ class AsyncTask: NSObject {
     var user:User?
     let defaults = UserDefaults.standard
 
-    
+  //  let db = Databasehandler()
     init(view:AnyObject,user:User) {
         
         self.view = view
@@ -38,16 +38,16 @@ class AsyncTask: NSObject {
     init(view:AnyObject) {
         self.view = view
     }
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override init() {
         
     }
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     func loginTask(view:AnyObject,user:User)  {
         
         let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getUserLoginInfo&Email=\(user.email!)&Password=\(user.password!)&customerID=&orderNo=&paperNo="
-      //  let urls = "http://www.bespokino.com/cfc/app.cfc?wsdl&method=getUserLoginInfo&Email=\(user.email!)&Password=\(user.password!)&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)"
+   
         
         guard let url = URL(string: urls) else { return }
         
@@ -70,15 +70,23 @@ class AsyncTask: NSObject {
                     guard let fullname = loginResult["FullName"] as? String else {return}
                     guard let phoneNumber = loginResult["PhoneNo"] as? String else {return}
                     guard let state = loginResult["State"] as? String else {return}
-                
+
                     guard let zip = loginResult["Zip"] as? Int else {return}
                     guard let address = loginResult["Address"] as? String else {return}
                   
                     guard let city = loginResult["City"] as? String else {return}
-                    
+                    guard let measurment = loginResult["Measurements"] as? Bool else {return}
+
                     
                     self.defaults.set(customerid, forKey: "USERID")
                     self.defaults.set(fullname, forKey: "FULLNAME")
+                    
+                    if measurment{
+                        self.defaults.set(true, forKey: "BESPOKE")
+                    }else{
+                        self.defaults.set(false, forKey: "BESPOKE")
+
+                    }
                     self.defaults.synchronize()
 
                     Order.customerID = customerid
@@ -128,9 +136,10 @@ class AsyncTask: NSObject {
     
     func regUserTask(view:AnyObject,user:User)   {
    
-        let parameters = ["FullName":user.firstName!,"Email":user.email!,"Password":user.password!]
+        let parameters = ["FullName":user.firstName!,"Email":user.email!,"Password":user.password!,"clientID": ""]
         print(parameters)
         guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -161,7 +170,7 @@ class AsyncTask: NSObject {
                         Customer.firstName = user.firstName
                         Customer.lastName = user.lastName
 
-                        defaults.set(user.firstName, forKey: "FULLNAME")
+                      // defaults.set(user.firstName, forKey: "FULLNAME")
                         defaults.set(user.email, forKey: "EMAIL")
                         
                         
@@ -177,8 +186,18 @@ class AsyncTask: NSObject {
                         guard let zip = regResult["Zip"] as? Int else {return}
                         guard let address = regResult["Address"] as? String else {return}
                         guard let city = regResult["City"] as? String else {return}
+                        guard let measurment = regResult["Measurements"] as? Bool else {return}
+
+                      
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
                         self.defaults.set(customerid, forKey: "USERID")
+                        self.defaults.set(fullname, forKey: "FULLNAME")
+                        if measurment{
+                            self.defaults.set(true, forKey: "BESPOKE")
+                        }else{
+                            self.defaults.set(false, forKey: "BESPOKE")
+                            
+                        }
                         defaults.synchronize()
                         self.deleteAllRecords()
                         self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
@@ -211,12 +230,11 @@ class AsyncTask: NSObject {
     }
     
     
-    static func socialRegister(){
+     func socialRegister(fullname:String,uniqueid:String){
         
-        let pass = "xxx"
-        let parameters = ["FullName":Customer.firstName!,"Email":Customer.email!,"Password":pass]
+            let parameters =    ["Password": "", "Email": "", "FullName": fullname,"clientID": uniqueid]
         print(parameters)
-        guard let url = URL(string: "http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
+        guard let url = URL(string:"http://www.bespokino.com/cfc/app.cfc?wsdl&method=CustomerSignup") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -241,9 +259,7 @@ class AsyncTask: NSObject {
                     if (!err){
                         
                         let defaults = UserDefaults.standard
-                       
-                        
-            
+
                         guard let userid  = regResult["UserId"] as? Int else {return}
                         
                         guard let email = regResult["Email"] as? String else {return}
@@ -255,13 +271,21 @@ class AsyncTask: NSObject {
                         guard let address = regResult["Address"] as? String else {return}
                         guard let city = regResult["City"] as? String else {return}
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
+                        guard let measurment = regResult["Measurements"] as? Bool else {return}
+
                         defaults.set(customerid, forKey: "USERID")
                         defaults.set(true, forKey: "isRegIn")
+                        if measurment{
+                            self.defaults.set(true, forKey: "BESPOKE")
+                        }else{
+                            self.defaults.set(false, forKey: "BESPOKE")
+                            
+                        }
                         defaults.synchronize()
-                        defaults.synchronize()
+        
+                        self.deleteAllRecords()
                      
-                       // deleteAllRecords(self)
-                        //self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
+                        self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
                         
                         Order.userId = userid
                  
@@ -309,7 +333,6 @@ class AsyncTask: NSObject {
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
             
-            // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
             
         }
@@ -328,16 +351,14 @@ class AsyncTask: NSObject {
         return result
     }
     
-
     func userLocalStorage(fullName:String?,email:String?,customerID:Int?,phoneNumber:String?,address:String?,city:String?,state:String?,zip:Int?){
-
- 
-        print(email!)
-       
+        
+        
+        print(email ?? "No email")
+        
         
         let  newCustomer = NSEntityDescription.insertNewObject(forEntityName: "CustomerInfo", into: context)
-      
-        
+
         newCustomer.setValue(fullName, forKey: "fullName")
         newCustomer.setValue(email!, forKey: "email")
         newCustomer.setValue(customerID!, forKey: "customerID")
@@ -347,21 +368,17 @@ class AsyncTask: NSObject {
         newCustomer.setValue(zip, forKey: "shippingPostalcode")
         newCustomer.setValue(state, forKey: "state")
         newCustomer.setValue(customerID, forKey: "userId")
-
-        
+  
         do{
             try context.save()
             print("saved")
         }catch{
             print(error)
         }
-        
-        
-        
+   
     }
-   func deleteAllRecords() {
+    func deleteAllRecords() {
         //delete all data
-        
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CustomerInfo")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
@@ -373,6 +390,7 @@ class AsyncTask: NSObject {
             print ("There was an error")
         }
     }
+    
 }
 
 

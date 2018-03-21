@@ -70,41 +70,42 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         modelTextField.inputView = picker
         let modelNo = defaults.string(forKey: "MODELNO")
         if modelNo != nil{
+            print(modelNo!)
             self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(modelNo!)"
             self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Int(modelNo!)! - 1)"
         }
 
-   
     }
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
    
         let yesPantWaitSize = defaults.bool(forKey: "YESPANT")
         if (!yesPantWaitSize){
-
-
+            
             alertVC.addTextField { (textField) in
                 textField.placeholder = "PANT WAIST SIZE"
                 textField.inputView = self.picker
             }
             let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
                 (alert) -> Void in
-
+                
                 let pantWaistSize = self.alertVC.textFields![0] as UITextField
-
+                
                 print("pantsize -- \(pantWaistSize.text!)")
             })
             alertVC.addAction(submitAction)
             alertVC.view.tintColor = UIColor.black
             present(alertVC, animated: true)
+
+
         }else{
-            
-            self.modelNumber = defaults.string(forKey: "MODELNO")!
-            Order.modelNo = Int(self.modelNumber)!
-            
-            
+
+           // self.modelNumber = defaults.string(forKey: "MODELNO")!
+           // Order.modelNo = Int(self.modelNumber)!
+
+
         }
+      
 
         
     

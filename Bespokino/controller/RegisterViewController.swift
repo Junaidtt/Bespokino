@@ -166,8 +166,8 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
             passwordTextField.becomeFirstResponder()
      
             
-//        case passwordTextField:
-//            pantWaistSize.becomeFirstResponder()
+        case passwordTextField:
+           firstNameTextField.becomeFirstResponder()
         default:
             print("No text field selected")
         }
@@ -187,16 +187,23 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
         
         
         if textField == firstNameTextField{
+
+            let maxLength = 60
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }else if textField == emailTextField{
             
-            let allowedCharacters = CharacterSet.letters
-            let characterSet = CharacterSet(charactersIn:string)
-            return allowedCharacters.isSuperset(of: characterSet)
+            emailTextField.text = (textField.text as! NSString).replacingCharacters(in: range, with: string.lowercased())
+            return false
             
         }
        else{
-            
+
             return true
         }
+          return true
     }
     //FBSDKLoginButton delegate methods
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -216,22 +223,26 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
                     print("Facebook authentication succeed")
                     let user = Auth.auth().currentUser
                     if let user = user {
-                        _ = user.uid
-                     //   let ph:String? = user.phoneNumber
-                        let email:String? = user.email
                         
-                        let username:String = user.displayName!
+               
+                        let email:String? = user.email
+                        print(email ?? "No EMAIL")
+                        let uniqueid:String = user.uid
+                        let fullname:String = user.displayName!
+                        
+                        let async = AsyncTask()
+                        async.socialRegister(fullname: fullname, uniqueid: uniqueid+"fb")
+                      
                         let defaults = UserDefaults.standard
                         
-                        defaults.set(username, forKey: "FULLNAME")
+                        defaults.set(fullname, forKey: "FULLNAME")
                         defaults.set(email, forKey: "EMAIL")
                         defaults.synchronize()
-                        Customer.firstName = username
-                        
-                       // Customer.email = email
+                        Customer.firstName = fullname
+               
                     }
                     
-                    AsyncTask.socialRegister()
+                   // AsyncTask.socialRegister()
                     let defaults = UserDefaults.standard
                     defaults.set(true, forKey: "isRegIn")
                     defaults.synchronize()

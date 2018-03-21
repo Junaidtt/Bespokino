@@ -38,17 +38,19 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
 
     func fetchItemDetail() {
         
-        print(Order.customerID)
-        print(Order.orderNo)
-        print(Order.paperNo)
-        print(trackingid)
+        let defaults = UserDefaults.standard
+      //  let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+     
         let endpoint = trackingid
         print(endpoint)
         let tid = endpoint.replacingOccurrences(of: " ", with: "%20")
         print(tid)
         self.TRACKINGID = tid
         
-        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getCartListItem&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)&trackingID="+tid) else {return}
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getCartListItem&customerID=\(currentCustomerID)&orderNo=\(currentOrderNo)&paperNo=\(currentPaperNo)&trackingID="+tid) else {return}
         
        // let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getCartListItem&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)&trackingID=\(tid)")
         
@@ -131,7 +133,7 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detail", for: indexPath) as? DetailCollectionViewCell
         
         cell?.detailItemImage.image = data[indexPath.row].itemImage
-        cell?.detailItemLabel.text = data[indexPath.row].itemname?.capitalized
+        cell?.detailItemLabel.text = data[indexPath.row].itemname?.uppercased()
        // cell?.detailItemLabel.text?.capitalized
         
         cell?.layer.borderWidth = 0.5
@@ -243,7 +245,13 @@ class DetailViewController: UIViewController,UICollectionViewDataSource,UICollec
     
     func fetchAddOptionDetail(){
         
-        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getAdditionalOptionsInfo&customerID=\(Order.customerID)%20&orderNo=\(Order.orderNo)%20&paperNo=\(Order.paperNo)&trackingID=\(self.TRACKINGID)") else { return }
+        let defaults = UserDefaults.standard
+       // let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        let currentPaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getAdditionalOptionsInfo&customerID=\(currentCustomerID)%20&orderNo=\(currentOrderNo)%20&paperNo=\(currentPaperNo)&trackingID=\(self.TRACKINGID)") else { return }
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in

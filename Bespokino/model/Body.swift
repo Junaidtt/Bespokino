@@ -35,14 +35,17 @@ class Body {
             let chest = defaults.string(forKey: "CHESTCODE")
             let abdomen = defaults.string(forKey: "ABDOMENCODE")
             let pelvis = defaults.string(forKey: "PELVISCODE")
+            let userid = defaults.string(forKey: "USERID")
+            let pantWaistSize = defaults.string(forKey: "PANTWAISTSIZE")
             
             print(posture!)
             print(shoulder!)
             print(chest!)
             print(abdomen!)
             print(pelvis!)
+            print(userid!)
             
-        let parameters = ["abdomen":abdomen!, "chest":chest!,"pelvis":pelvis!,"shoulders":shoulder!,"posture":posture!, "userID":"\(Order.userId)","pantsWaist":"\(BodyPosture.pantWaistSize!)"]
+        let parameters = ["abdomen":abdomen!, "chest":chest!,"pelvis":pelvis!,"shoulders":shoulder!,"posture":posture!, "userID":"\(userid!)","pantsWaist":"\(pantWaistSize!)"]
             
         print(parameters)
         guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=updateBodyPostures") else { return }
@@ -62,6 +65,8 @@ class Body {
                     print(json)
                    guard let result = json as? [String: Any] else { return }
                     guard let modelNo = result["modelNo"] as? Int else {return}
+                    let defaults = UserDefaults.standard
+                    defaults.set(Order.modelNo, forKey: "MODELNO")
                     Order.modelNo = modelNo
                    completion(modelNo)
                 } catch {

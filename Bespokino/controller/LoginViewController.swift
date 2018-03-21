@@ -201,7 +201,15 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
                         if let user = user {
     
                             guard let username:String = user.displayName else {return}
-
+                            
+                            let email:String? = user.email
+                            print(email ?? "No EMAIL")
+                            let uniqueid:String = user.uid
+                            let fullname:String = user.displayName!
+                            
+                            let async = AsyncTask()
+                            async.socialRegister(fullname: fullname, uniqueid: uniqueid+"fb")
+                            
                             Customer.firstName = username
                             
                             let defaults = UserDefaults.standard
@@ -212,7 +220,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
                             //Customer.email = email
                         }
                         
-                        //  AsyncTask.socialRegister()
+                      
                         
                         
                         let defaults = UserDefaults.standard

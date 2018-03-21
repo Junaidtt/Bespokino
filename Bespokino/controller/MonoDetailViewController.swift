@@ -23,24 +23,18 @@ class MonoDetailViewController: UIViewController {
         
         self.navigationItem.title = "BESPOKINO"
         getMonoDetails()
-//        let rightBarButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(MonoDetailViewController.myRightSideBarButtonItemTapped(_:)))
-//        self.navigationItem.rightBarButtonItem = rightBarButton
-    }
 
-//    @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
-//    {
-//        print("myRightSideBarButtonItemTapped")
-//
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "MonogramPadViewController") as! MonogramPadViewController
-//        self.present(newViewController, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(newViewController, animated: true)
-//    }
+   }
     
     func getMonoDetails() {
         
         print(self.trackid)
-        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getOrderMonogramValue&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)&trackingID="+self.trackid) else { return }
+        let defaults = UserDefaults.standard
+      //  let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        let currentpaperNo = defaults.integer(forKey: "PAPERNO")
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app2.cfc?wsdl&method=getOrderMonogramValue&customerID=\(currentCustomerID)&orderNo=\(currentOrderNo)&paperNo=\(currentpaperNo)&trackingID="+self.trackid) else { return }
         print(url)
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in

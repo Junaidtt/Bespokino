@@ -29,9 +29,7 @@ class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         
-    
     }
 
    
@@ -58,8 +56,9 @@ class SleeveViewController: UIViewController,IndicatorInfoProvider,UITableViewDa
         
         cell?.layer.borderWidth = 2
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        
-        m.setMeasurment(m: "2") { (success, result, Error) in
+        let defaults =  UserDefaults.standard
+        let modelNumber = defaults.string(forKey: "MODELNO")
+        m.setMeasurment(m: modelNumber!) { (success, result, Error) in
             
             if success {
                 

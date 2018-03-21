@@ -301,14 +301,7 @@ class StylingTask: NSObject {
         
     }
 
-
-    
-    
-    
-    
-
-    
-    
+  
     func setCurrentOrder(){
         
         let defaults = UserDefaults.standard
@@ -430,6 +423,11 @@ func getShirtInfo()  {
         print(error)
         
     }
+    
+    
+
+    
+    
 }
 struct AdditionalOptions {
     

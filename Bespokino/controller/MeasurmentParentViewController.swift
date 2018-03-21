@@ -66,7 +66,7 @@ class MeasurmentParentViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = .black
             newCell?.label.textColor = self?.purpleInspireColor
         }
-        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        let rightBarButton = UIBarButtonItem(image: UIImage(named:"hme"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
     
     }

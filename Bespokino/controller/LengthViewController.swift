@@ -53,8 +53,10 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
         
         cell?.layer.borderWidth = 2
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+        let defaults =  UserDefaults.standard
+        let modelNumber = defaults.string(forKey: "MODELNO")
         
-        m.setMeasurment(m: "2") { (success, result, Error) in
+        m.setMeasurment(m: modelNumber!) { (success, result, Error) in
             
             if success {
                 
@@ -106,9 +108,13 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
     
     func postMeasurment() {
         
+        let defaults = UserDefaults.standard
+        let userid = defaults.string(forKey: "USERID")
+        let modelNo = defaults.integer(forKey: "MODELNO")
+        
       print(Order.userId)
         let parameters = """
-        {"userID":"\(Order.userId)", "modelNo":"\(Order.modelNo)", "Neck":"\(SelectedValues.neckMaster!)", "Cuff":"\(SelectedValues.cuffMaster!)", "Biceps":"\(SelectedValues.bicepsMaster!)",
+        {"userID":"\(userid!)", "modelNo":"\(modelNo)", "Neck":"\(SelectedValues.neckMaster!)", "Cuff":"\(SelectedValues.cuffMaster!)", "Biceps":"\(SelectedValues.bicepsMaster!)",
                       "Sleeve":"\(SelectedValues.sleeveMaster!)", "Length":"\(SelectedValues.lengthMaster!)", "Shoulder":"\(SelectedValues.shoulderMaster!)", "Chest":"\(SelectedValues.chestMaster!)", "Waist":"\(SelectedValues.waistMaster!)",
         "Hips":"\(SelectedValues.hipsMaster!)", "SleeveAddup":"0.0", "LengthAddup":"0"}
     """
@@ -153,19 +159,10 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
                         
                         DispatchQueue.main.async {
                             
-                            let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
-
-                            if isLoggedIn {
-                                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
-                                
-                                self.navigationController?.pushViewController(newViewController, animated: true)
-                            }else{
-                                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
-                                
-                                self.navigationController?.pushViewController(newViewController, animated: true)
-                            }
+                            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
+                            
+                            self.navigationController?.pushViewController(newViewController, animated: true)
                           
                         }
 

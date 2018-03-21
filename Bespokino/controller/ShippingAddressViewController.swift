@@ -28,7 +28,7 @@ class ShippingAddressViewController: UIViewController, UITextFieldDelegate{
     
         self.navigationItem.title = "BESPOKINO"
     
-        self.setDataInTextField()
+       // self.setDataInTextField()
     }
 
     
@@ -78,9 +78,11 @@ class ShippingAddressViewController: UIViewController, UITextFieldDelegate{
     @IBAction func continueButtonDidTap(_ sender: Any) {
 
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
-        self.navigationController?.pushViewController(newViewController, animated: true)
+        dismiss(animated: true, completion: nil)
+        
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController
+//        self.navigationController?.pushViewController(newViewController, animated: true)
         
     }
     

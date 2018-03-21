@@ -35,9 +35,7 @@ class AboutUsViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         }
-      
-
-        
+ 
         
         youtubePlayerView.layer.cornerRadius = 3.0
         youtubePlayerView.layer.masksToBounds = true

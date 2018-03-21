@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AEW-tw-eag">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -28,11 +28,11 @@
             <objects>
                 <viewController storyboardIdentifier="ParentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H72-un-hj6" customClass="ParentViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRm-7W-clQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UC0-Z4-wv1">
-                                <rect key="frame" x="12" y="140" width="292" height="428"/>
+                                <rect key="frame" x="12" y="140" width="292" height="340"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MIs-zV-Qj4" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="0.0" y="64" width="320" height="64"/>
@@ -91,11 +91,11 @@
             <objects>
                 <viewController storyboardIdentifier="IncludedViewController" id="xwE-of-W6H" customClass="IncludedViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lda-Ig-2cu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bor-5A-h5W">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tqg-vL-fwu">
                                     <size key="itemSize" width="160" height="160"/>
@@ -169,11 +169,11 @@
             <objects>
                 <viewController storyboardIdentifier="ShirtDisplayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ham-X3-uJR" customClass="ShirtDisplayViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YiZ-C8-MR5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfY-EU-eGZ">
-                                <rect key="frame" x="16" y="508" width="288" height="44"/>
+                                <rect key="frame" x="16" y="420" width="288" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="r6Q-uz-0fM"/>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5j-ac-aPM">
-                                <rect key="frame" x="140" y="438" width="40" height="18"/>
+                                <rect key="frame" x="140" y="350" width="40" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="7i2-az-nZb"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="j96-SG-eo5"/>
@@ -197,7 +197,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADx-jR-PNh">
-                                <rect key="frame" x="60" y="463" width="200" height="21"/>
+                                <rect key="frame" x="60" y="375" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="MR0-8Z-Vcv"/>
                                     <constraint firstAttribute="height" constant="21" id="btF-fp-mc1"/>
@@ -207,10 +207,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="10" translatesAutoresizingMaskIntoConstraints="NO" id="Coj-6x-Ch5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PjY-jJ-o98">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="405"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="317"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -256,11 +256,11 @@
             <objects>
                 <viewController storyboardIdentifier="CollarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jxC-7f-Gwq" customClass="CollarViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uz7-nU-Lhw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bsn-Qb-zma">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fcR-dk-AQp">
                                     <size key="itemSize" width="165" height="160"/>
@@ -361,11 +361,11 @@
             <objects>
                 <viewController storyboardIdentifier="CuffViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xyq-Hb-kef" customClass="CuffViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YfZ-0G-oPY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A1Z-4j-rFT">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3YV-c1-ibH">
                                     <size key="itemSize" width="169" height="165"/>
@@ -469,11 +469,11 @@
             <objects>
                 <viewController storyboardIdentifier="MonogramViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DJN-s1-zaQ" customClass="MonogramViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aBj-us-5eg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W5c-XX-GkQ">
-                                <rect key="frame" x="0.0" y="20" width="320" height="488"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jsI-Qp-DMc">
                                     <size key="itemSize" width="50" height="50"/>
@@ -552,7 +552,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ErM-qo-oQu">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nMx-8v-jNr"/>
@@ -592,7 +592,7 @@
             <objects>
                 <viewController storyboardIdentifier="MonogramPadViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UdK-s6-FZl" customClass="MonogramPadViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xMQ-b7-SdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dbx-ie-84m">
@@ -660,7 +660,7 @@
                                 </connections>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="waI-xB-4NI">
-                                <rect key="frame" x="16" y="225" width="288" height="236"/>
+                                <rect key="frame" x="16" y="225" width="288" height="148"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iko-5Z-MO0">
                                     <size key="itemSize" width="76" height="80"/>
@@ -707,7 +707,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-aE-3lc">
-                                <rect key="frame" x="145" y="479" width="31.5" height="21"/>
+                                <rect key="frame" x="145" y="391" width="31.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FuD-on-7oP"/>
                                 </constraints>
@@ -716,7 +716,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbm-fL-bAB">
-                                <rect key="frame" x="79" y="508" width="162" height="44"/>
+                                <rect key="frame" x="79" y="420" width="162" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2QZ-OL-9kh"/>
@@ -771,11 +771,11 @@
             <objects>
                 <viewController storyboardIdentifier="AdditionalOptionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kIK-x2-e3A" customClass="AdditionalOptionsViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sqq-e5-evF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fm3-1i-Ndl">
-                                <rect key="frame" x="0.0" y="20" width="320" height="488"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wzD-sR-aki">
                                     <size key="itemSize" width="164" height="158"/>
@@ -856,7 +856,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hs0-MY-ddv">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="apZ-aj-rgs"/>
@@ -895,11 +895,11 @@
             <objects>
                 <viewController storyboardIdentifier="ContrastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PaZ-0v-vIc" customClass="ContrastViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h2d-No-ILE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VRc-MH-Ich">
-                                <rect key="frame" x="0.0" y="20" width="320" height="487"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CMT-xr-Jew">
                                     <size key="itemSize" width="50" height="50"/>
@@ -968,7 +968,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGr-RR-jM9">
-                                <rect key="frame" x="16" y="516" width="288" height="40"/>
+                                <rect key="frame" x="16" y="428" width="288" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VRB-mf-zwC"/>
                                 </constraints>
@@ -1002,7 +1002,7 @@
             <objects>
                 <viewController storyboardIdentifier="ButtonHoleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m11-l4-Ffa" customClass="ButtonHoleViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Md9-il-uoc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgX-sb-hv8">
@@ -1037,7 +1037,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-mt-XxV">
-                                <rect key="frame" x="12" y="117" width="296" height="357"/>
+                                <rect key="frame" x="12" y="117" width="296" height="269"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H2E-0K-vc1">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1085,7 +1085,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxR-t2-Bqc">
-                                <rect key="frame" x="12" y="482" width="296" height="21"/>
+                                <rect key="frame" x="12" y="394" width="296" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="jcP-dS-IEQ"/>
                                 </constraints>
@@ -1094,7 +1094,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAs-rb-Rm4">
-                                <rect key="frame" x="12" y="511" width="296" height="44"/>
+                                <rect key="frame" x="12" y="423" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vbG-QT-oYx"/>
@@ -1142,11 +1142,11 @@
             <objects>
                 <viewController storyboardIdentifier="PlacketCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D6P-Wb-E9v" customClass="PlacketCollectionViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JJN-5z-RN4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vvN-wF-oax">
-                                <rect key="frame" x="0.0" y="20" width="320" height="488"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iOd-Lg-c4O">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1246,7 +1246,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52X-Z6-lrd">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="g2j-b2-AYf"/>
@@ -1285,11 +1285,11 @@
             <objects>
                 <viewController storyboardIdentifier="InnerContrastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b6s-Hb-qbK" customClass="InnerContrastViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aet-5f-83R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-Vr-YPl">
-                                <rect key="frame" x="0.0" y="20" width="320" height="488"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="inner" rowHeight="180" id="sgZ-F0-kvo" customClass="InnerContrastTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -1344,7 +1344,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-kK-faq">
-                                <rect key="frame" x="16" y="516" width="288" height="44"/>
+                                <rect key="frame" x="16" y="428" width="288" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2L-Ze-6cG">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
@@ -1389,7 +1389,7 @@
             <objects>
                 <viewController storyboardIdentifier="TuxedoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wtm-ab-KDL" customClass="TuxedoViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hkf-mc-iCw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6C-3f-I1L" userLabel="header">
@@ -1510,7 +1510,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="z7y-8r-h5P">
-                                <rect key="frame" x="12" y="512" width="296" height="44"/>
+                                <rect key="frame" x="12" y="424" width="296" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua9-VX-pcG">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="44"/>
@@ -1529,7 +1529,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTl-96-iEO">
-                                <rect key="frame" x="12" y="475" width="296" height="21"/>
+                                <rect key="frame" x="12" y="387" width="296" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="qHJ-8R-6PH"/>
                                 </constraints>
@@ -1571,7 +1571,7 @@
             <objects>
                 <viewController storyboardIdentifier="FitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N5y-VG-1kx" customClass="FitViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i7C-DX-8h9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUN-Jf-bFr" userLabel="header">
@@ -1598,10 +1598,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iFZ-0s-P4A">
-                                <rect key="frame" x="12" y="97" width="296" height="459"/>
+                                <rect key="frame" x="12" y="97" width="296" height="371"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5q-Uu-Dr2">
-                                        <rect key="frame" x="0.0" y="0.0" width="296" height="219.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="175.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SLIM FIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIu-aI-fsY">
                                                 <rect key="frame" x="12" y="8" width="272" height="21"/>
@@ -1613,7 +1613,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I11-OX-mxG">
-                                                <rect key="frame" x="12" y="194.5" width="272" height="25"/>
+                                                <rect key="frame" x="12" y="150.5" width="272" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="ubF-R4-BtN"/>
                                                 </constraints>
@@ -1622,7 +1622,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slim_fit" translatesAutoresizingMaskIntoConstraints="NO" id="Rh3-9M-tBG">
-                                                <rect key="frame" x="12" y="35" width="272" height="153.5"/>
+                                                <rect key="frame" x="12" y="35" width="272" height="109.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIz-qw-owA">
                                                 <rect key="frame" x="254" y="12" width="25" height="25"/>
@@ -1649,7 +1649,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-mf-p0T">
-                                        <rect key="frame" x="0.0" y="239.5" width="296" height="219.5"/>
+                                        <rect key="frame" x="0.0" y="195.5" width="296" height="175.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CASUAL FIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSt-Sz-r1c">
                                                 <rect key="frame" x="12" y="4" width="272" height="19"/>
@@ -1661,7 +1661,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-Wj-RCa">
-                                                <rect key="frame" x="12" y="194.5" width="272" height="25"/>
+                                                <rect key="frame" x="12" y="150.5" width="272" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="U9b-Xo-bCB"/>
                                                 </constraints>
@@ -1670,7 +1670,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="casual_fit" translatesAutoresizingMaskIntoConstraints="NO" id="U0I-bC-saW">
-                                                <rect key="frame" x="12" y="31" width="272" height="159.5"/>
+                                                <rect key="frame" x="12" y="31" width="272" height="115.5"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RnF-HK-DCm">
                                                 <rect key="frame" x="254" y="12" width="25" height="25"/>
@@ -1698,7 +1698,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT YOUR PREFERED FIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-U4-Oxy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT YOUR PREFERRED FIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-U4-Oxy">
                                 <rect key="frame" x="12" y="72" width="296" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tqp-OY-Gbx"/>
@@ -1745,14 +1745,14 @@
             <objects>
                 <viewController storyboardIdentifier="ToolStatusViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OBL-Vq-RQh" customClass="ToolStatusViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sC9-N1-UKd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="DH1-xs-B1w">
-                                <rect key="frame" x="24" y="64" width="272" height="480"/>
+                                <rect key="frame" x="24" y="64" width="272" height="392"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxc-4d-zUG">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="228"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="184"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEND ME MEASURING TOOL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PtB-80-5SB">
                                                 <rect key="frame" x="12" y="16" width="248" height="21"/>
@@ -1764,7 +1764,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="9NL-u5-wc8">
-                                                <rect key="frame" x="40" y="61" width="192" height="127"/>
+                                                <rect key="frame" x="40" y="61" width="192" height="83"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="YRb-Yd-r03">
                                                 <rect key="frame" x="240" y="8" width="24" height="24"/>
@@ -1788,7 +1788,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-jy-mjv">
-                                        <rect key="frame" x="0.0" y="252" width="272" height="228"/>
+                                        <rect key="frame" x="0.0" y="208" width="272" height="184"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEASURING TOOL PRESENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLs-WS-aoO">
                                                 <rect key="frame" x="12" y="16" width="248" height="21"/>
@@ -1800,7 +1800,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="present" translatesAutoresizingMaskIntoConstraints="NO" id="QvJ-uI-qEy">
-                                                <rect key="frame" x="40" y="61" width="192" height="127"/>
+                                                <rect key="frame" x="40" y="61" width="192" height="83"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tick" translatesAutoresizingMaskIntoConstraints="NO" id="41s-Ip-n9h">
                                                 <rect key="frame" x="240" y="8" width="24" height="24"/>
@@ -1866,11 +1866,11 @@
             <objects>
                 <viewController storyboardIdentifier="PleatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ofp-5s-YZi" customClass="PleatViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TO9-ms-pEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PJI-YT-BW5">
-                                <rect key="frame" x="0.0" y="20" width="320" height="488"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="w6t-d8-3Uq">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1966,7 +1966,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3H-yZ-gUH">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="fgt-Ip-Wwb"/>
@@ -2005,11 +2005,11 @@
             <objects>
                 <viewController storyboardIdentifier="CartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cix-5p-Yje" customClass="CartViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SoT-b9-YaD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QWC-CA-ffL">
-                                <rect key="frame" x="0.0" y="20" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cart" rowHeight="120" id="FY6-4l-K50" customClass="CartTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -2068,7 +2068,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFD-kQ-fQJ">
-                                <rect key="frame" x="12" y="464" width="296" height="44"/>
+                                <rect key="frame" x="12" y="376" width="296" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="4Pc-HR-cbr"/>
@@ -2082,7 +2082,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWz-p5-K0T">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Yvj-cN-gHV"/>
@@ -2096,7 +2096,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuR-xR-1Md">
-                                <rect key="frame" x="14" y="187.5" width="292" height="193"/>
+                                <rect key="frame" x="14" y="143.5" width="292" height="193"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_cart" translatesAutoresizingMaskIntoConstraints="NO" id="93y-Z0-mEU">
                                         <rect key="frame" x="96" y="8" width="100" height="100"/>
@@ -2160,11 +2160,11 @@
             <objects>
                 <viewController storyboardIdentifier="MeasurmentParentViewController" id="es6-jC-OSO" customClass="MeasurmentParentViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QPF-SE-P2g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZu-Ty-CC2">
-                                <rect key="frame" x="0.0" y="128" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="128" width="320" height="352"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v5m-sW-PxJ" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
@@ -2209,11 +2209,11 @@
             <objects>
                 <viewController storyboardIdentifier="ShoulderMeasureViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j02-Su-gv5" customClass="ShoulderMeasureViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b4D-Tj-vcc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HXT-dL-KvS">
-                                <rect key="frame" x="22" y="376" width="276" height="172"/>
+                                <rect key="frame" x="22" y="288" width="276" height="172"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="gFE-R7-5E2"/>
@@ -2251,7 +2251,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shoulder_gauide" translatesAutoresizingMaskIntoConstraints="NO" id="ctf-j9-gwb">
-                                <rect key="frame" x="50" y="80" width="221" height="288"/>
+                                <rect key="frame" x="50" y="80" width="221" height="200"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT1-Vk-m56">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -2276,7 +2276,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="2u9-ej-oU5">
-                                <rect key="frame" x="252" y="198" width="68" height="53"/>
+                                <rect key="frame" x="252" y="154" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="02s-Pj-D88"/>
                                     <constraint firstAttribute="width" constant="68" id="Ash-ih-I65"/>
@@ -2315,11 +2315,11 @@
             <objects>
                 <viewController storyboardIdentifier="SleeveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cjA-7e-VQQ" customClass="SleeveViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b84-zf-LmD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ash-XV-u8N">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="hUj-zt-RfL"/>
@@ -2357,17 +2357,17 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sleev_guide" translatesAutoresizingMaskIntoConstraints="NO" id="ygp-Xf-NhB">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="gy9-xJ-H9a">
-                                <rect key="frame" x="2" y="173" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="DuP-SI-kCw"/>
                                     <constraint firstAttribute="height" constant="53" id="Tnt-Hy-cd1"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="U1G-6w-Ble">
-                                <rect key="frame" x="254" y="173" width="68" height="53"/>
+                                <rect key="frame" x="254" y="129" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="NQn-pW-Jb1"/>
                                 </constraints>
@@ -2401,11 +2401,11 @@
             <objects>
                 <viewController storyboardIdentifier="ChestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xHS-rE-Wra" customClass="ChestViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="woe-wx-u97">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NQs-OI-JI1">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="tIp-7P-9aO"/>
@@ -2443,17 +2443,17 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chest-guide" translatesAutoresizingMaskIntoConstraints="NO" id="bRj-YY-oor">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-SI-eEJ">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="VeR-VW-hDZ"/>
                                     <constraint firstAttribute="height" constant="53" id="eiP-Zg-ODs"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="v9z-DH-4Pl">
-                                <rect key="frame" x="250" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="13V-tv-ys7"/>
                                     <constraint firstAttribute="height" constant="53" id="Vtb-bF-Su6"/>
@@ -2488,11 +2488,11 @@
             <objects>
                 <viewController storyboardIdentifier="WaistViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KFp-EL-eux" customClass="WaistViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JRl-5E-Evi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-QG-dsJ">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="orj-T3-xrg"/>
@@ -2530,17 +2530,17 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waist-gauide" translatesAutoresizingMaskIntoConstraints="NO" id="bl9-ho-ppG">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="gao-uf-rqd">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="iCR-Er-ziC"/>
                                     <constraint firstAttribute="width" constant="68" id="l6I-X8-CRA"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="Qnl-TQ-TYl">
-                                <rect key="frame" x="250" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="Qg8-sO-oxA"/>
                                     <constraint firstAttribute="height" constant="53" id="dHF-SY-iAP"/>
@@ -2575,14 +2575,14 @@
             <objects>
                 <viewController storyboardIdentifier="HipsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZDe-Vn-drm" customClass="HipsViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gfl-NP-44h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hipps-gauide" translatesAutoresizingMaskIntoConstraints="NO" id="3vp-bQ-eEz">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vlH-CQ-5AE">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="gX2-gb-vxm"/>
@@ -2620,14 +2620,14 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="ldL-Rc-m9q">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="I2T-kJ-lTh"/>
                                     <constraint firstAttribute="height" constant="53" id="MdP-3a-4Ht"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="9kr-Ie-A2U">
-                                <rect key="frame" x="250" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="DnW-CV-YyQ"/>
                                     <constraint firstAttribute="height" constant="53" id="HwV-Ge-wBc"/>
@@ -2662,14 +2662,14 @@
             <objects>
                 <viewController id="DjR-Fv-qz8" customClass="HipsViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HL3-vo-Th8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hipps-gauide" translatesAutoresizingMaskIntoConstraints="NO" id="tQy-eZ-jkr">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="guX-hE-tKm">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="Fwa-lR-Uhd"/>
@@ -2707,7 +2707,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="NfI-EW-YhM">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="LLz-nd-DTX"/>
                                     <constraint firstAttribute="height" constant="53" id="Ps3-EL-KtO"/>
@@ -2716,7 +2716,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-Dd-MLn">
-                                <rect key="frame" x="250" y="173" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="0qr-x1-qtO"/>
                                     <constraint firstAttribute="height" constant="53" id="3Ka-63-yhz"/>
@@ -2753,11 +2753,11 @@
             <objects>
                 <viewController storyboardIdentifier="BicepsViewController" id="5hd-gv-5Fr" customClass="BicepsViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Ho-1g-tz8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6eE-8R-IAN">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="C5Z-qa-O9A"/>
@@ -2795,17 +2795,17 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biceps_guide" translatesAutoresizingMaskIntoConstraints="NO" id="bqH-RI-KZ3">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="o0U-D2-FwC">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="DWO-iI-Zxp"/>
                                     <constraint firstAttribute="width" constant="68" id="znD-io-gpK"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="2fI-8W-Fbu">
-                                <rect key="frame" x="250" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="0rt-Ah-dnX"/>
                                     <constraint firstAttribute="width" constant="68" id="frc-UP-hOv"/>
@@ -2840,14 +2840,14 @@
             <objects>
                 <viewController storyboardIdentifier="NeckViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zDg-Eh-8Rm" customClass="NeckViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GCn-Fs-87D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neck_guide" translatesAutoresizingMaskIntoConstraints="NO" id="RkF-f5-WBm">
-                                <rect key="frame" x="50" y="42" width="221" height="315"/>
+                                <rect key="frame" x="50" y="42" width="221" height="227"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qtr-hZ-Ho3">
-                                <rect key="frame" x="22" y="365" width="276" height="183"/>
+                                <rect key="frame" x="22" y="277" width="276" height="183"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="p01-WS-DDZ"/>
@@ -2885,14 +2885,14 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="oQl-Gp-3LN">
-                                <rect key="frame" x="2" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="xwF-Fs-aSq"/>
                                     <constraint firstAttribute="width" constant="68" id="zyJ-1W-OMt"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="KPz-g7-84O">
-                                <rect key="frame" x="250" y="173.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="129.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="VKD-UL-hLn"/>
                                     <constraint firstAttribute="height" constant="53" id="gUn-WD-UFA"/>
@@ -2931,14 +2931,14 @@
             <objects>
                 <viewController storyboardIdentifier="CuffMeasurmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WSY-Rr-Z8I" customClass="CuffMeasurmentViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IV0-W0-NuP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuff_guide8" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-zj-21E">
-                                <rect key="frame" x="50" y="42" width="221" height="301"/>
+                                <rect key="frame" x="50" y="42" width="221" height="213"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RiX-W9-muH">
-                                <rect key="frame" x="22" y="351" width="276" height="197"/>
+                                <rect key="frame" x="22" y="263" width="276" height="197"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="197" id="9oq-kT-O42"/>
@@ -2976,14 +2976,14 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="m6y-wk-CEO">
-                                <rect key="frame" x="2" y="180.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="136.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="37U-t7-Ia8"/>
                                     <constraint firstAttribute="width" constant="68" id="mVO-Ol-qwB"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="HC0-0r-f64">
-                                <rect key="frame" x="254" y="180.5" width="68" height="53"/>
+                                <rect key="frame" x="254" y="136.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="kMK-GL-tCI"/>
                                     <constraint firstAttribute="width" constant="68" id="tbg-TF-UWH"/>
@@ -3022,14 +3022,14 @@
             <objects>
                 <viewController storyboardIdentifier="LengthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n9g-Xl-9BV" customClass="LengthViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tjb-ud-RSY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cuff_guide" translatesAutoresizingMaskIntoConstraints="NO" id="kZd-9y-d44">
-                                <rect key="frame" x="50" y="42" width="221" height="298"/>
+                                <rect key="frame" x="50" y="42" width="221" height="210"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CAC-uO-i4C">
-                                <rect key="frame" x="22" y="339" width="276" height="169"/>
+                                <rect key="frame" x="22" y="251" width="276" height="169"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="xJN-RZ-HgJ"/>
@@ -3067,7 +3067,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFN-hL-bXa">
-                                <rect key="frame" x="22" y="516" width="276" height="44"/>
+                                <rect key="frame" x="22" y="428" width="276" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="itG-8M-bT2"/>
@@ -3081,14 +3081,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="tuR-R2-CwZ">
-                                <rect key="frame" x="2" y="164.5" width="68" height="53"/>
+                                <rect key="frame" x="2" y="120.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="8RU-iJ-Oea"/>
                                     <constraint firstAttribute="width" constant="68" id="d6C-5k-utJ"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="JVi-MM-DnD">
-                                <rect key="frame" x="250" y="164.5" width="68" height="53"/>
+                                <rect key="frame" x="250" y="120.5" width="68" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="ihc-vv-9gf"/>
                                     <constraint firstAttribute="height" constant="53" id="mrz-xR-v5Y"/>
@@ -3122,12 +3122,111 @@
             </objects>
             <point key="canvasLocation" x="20520" y="525"/>
         </scene>
+        <!--Bespoke Profile View Controller-->
+        <scene sceneID="y0q-kx-xmv">
+            <objects>
+                <viewController storyboardIdentifier="BespokeProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m0q-LJ-zLG" customClass="BespokeProfileViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Mp-Ls-w8J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mMI-y1-jrF">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BESPOKE PROFILE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scE-Cu-PyB">
+                                        <rect key="frame" x="97.5" y="12.5" width="125" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
+                                        <color key="textColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6Hg-8V-t7d"/>
+                                    <constraint firstItem="scE-Cu-PyB" firstAttribute="centerX" secondItem="mMI-y1-jrF" secondAttribute="centerX" id="p6i-A0-qra"/>
+                                    <constraint firstItem="scE-Cu-PyB" firstAttribute="centerY" secondItem="mMI-y1-jrF" secondAttribute="centerY" id="wnv-UN-jYO"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ubb-Fr-Ufv">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bespokeProfile" rowHeight="67" id="JTd-YQ-bUu" customClass="BespokeProfileTableViewCell" customModule="Bespokino" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JTd-YQ-bUu" id="G5h-H7-v2q">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQs-Fc-7K5">
+                                                    <rect key="frame" x="19" y="23" width="204" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="3hu-Ly-hqs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tCA-Zz-6Bj" customClass="SLImageView" customModule="Bespokino" customModuleProvider="target">
+                                                    <rect key="frame" x="235" y="3" width="70" height="60.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="4z5-dO-yHt"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tCA-Zz-6Bj" firstAttribute="top" secondItem="G5h-H7-v2q" secondAttribute="top" constant="3" id="4kY-mn-jbF"/>
+                                                <constraint firstItem="tCA-Zz-6Bj" firstAttribute="leading" secondItem="EQs-Fc-7K5" secondAttribute="trailing" constant="12" id="IbD-nr-dC2"/>
+                                                <constraint firstItem="EQs-Fc-7K5" firstAttribute="top" secondItem="G5h-H7-v2q" secondAttribute="topMargin" constant="12" id="TsB-ej-P0U"/>
+                                                <constraint firstAttribute="bottom" secondItem="tCA-Zz-6Bj" secondAttribute="bottom" constant="3" id="WQ9-We-RHy"/>
+                                                <constraint firstItem="EQs-Fc-7K5" firstAttribute="leading" secondItem="G5h-H7-v2q" secondAttribute="leadingMargin" constant="4" id="Zif-49-Gh8"/>
+                                                <constraint firstAttribute="trailing" secondItem="tCA-Zz-6Bj" secondAttribute="trailing" constant="15" id="Zy1-ur-sUU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImage" destination="tCA-Zz-6Bj" id="PRI-3r-0yQ"/>
+                                            <outlet property="itemName" destination="EQs-Fc-7K5" id="kOo-dc-Fjk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="m0q-LJ-zLG" id="Z9T-AA-ExV"/>
+                                    <outlet property="delegate" destination="m0q-LJ-zLG" id="T3n-tk-aNs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ubb-Fr-Ufv" firstAttribute="bottom" secondItem="lAW-yA-aVA" secondAttribute="bottom" id="05Y-YX-L8B"/>
+                            <constraint firstItem="mMI-y1-jrF" firstAttribute="trailing" secondItem="lAW-yA-aVA" secondAttribute="trailing" id="D6T-PT-glR"/>
+                            <constraint firstItem="Ubb-Fr-Ufv" firstAttribute="top" secondItem="mMI-y1-jrF" secondAttribute="bottom" id="IVu-dT-Wyh"/>
+                            <constraint firstItem="Ubb-Fr-Ufv" firstAttribute="trailing" secondItem="lAW-yA-aVA" secondAttribute="trailing" id="L2Y-wK-QEh"/>
+                            <constraint firstItem="Ubb-Fr-Ufv" firstAttribute="leading" secondItem="lAW-yA-aVA" secondAttribute="leading" id="iDe-jP-c38"/>
+                            <constraint firstItem="mMI-y1-jrF" firstAttribute="top" secondItem="lAW-yA-aVA" secondAttribute="top" id="u5i-g3-gLf"/>
+                            <constraint firstItem="mMI-y1-jrF" firstAttribute="leading" secondItem="lAW-yA-aVA" secondAttribute="leading" id="v35-Vz-493"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lAW-yA-aVA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dhh-8h-yeJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="riP-T5-oMv">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bespokeTB" destination="Ubb-Fr-Ufv" id="qDG-Kx-xx4"/>
+                        <outlet property="btnMenuButton" destination="riP-T5-oMv" id="pDU-3p-1ul"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBi-xx-lsP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12564.375" y="-952.81690140845069"/>
+        </scene>
         <!--Pay Twenty View Controller-->
         <scene sceneID="D6t-Rg-cLJ">
             <objects>
                 <viewController storyboardIdentifier="PayTwentyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aGi-0a-Vl1" customClass="PayTwentyViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F1C-rB-0bE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNn-oS-5ld">
@@ -3406,7 +3505,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="TransactionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cBV-VK-B1w" customClass="TransactionViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Py3-4b-M49">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-Co-fsI">
@@ -3614,18 +3713,18 @@ The deposit will be applied to your first order.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Hj-jK-y9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12437" y="-1793"/>
+            <point key="canvasLocation" x="12834.375" y="-1793.661971830986"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="7uF-9d-oZ2">
             <objects>
                 <viewController storyboardIdentifier="CheckoutViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tDu-8G-dtE" customClass="CheckoutViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aR4-VG-d73">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-zA-MGd">
-                                <rect key="frame" x="16" y="512" width="288" height="44"/>
+                                <rect key="frame" x="16" y="424" width="288" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="QfF-e2-xRu"/>
@@ -3654,11 +3753,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="LuxuryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ec2-2r-Yt9" customClass="LuxuryViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ewt-ss-GU3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-ZO-2rq">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nar-sD-n63">
                                     <size key="itemSize" width="165" height="151"/>
@@ -3717,11 +3816,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController id="FwB-hj-5i9" customClass="MenuViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xNy-5B-5jw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z9h-tY-CeU">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="40" id="owY-TM-qED" customClass="MenuTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -3834,11 +3933,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="PremiumViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kUZ-hl-vMC" customClass="PremiumViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JUL-I7-iLE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Zj-kz-tkF">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oAk-hU-bhq">
                                     <size key="itemSize" width="165" height="151"/>
@@ -3899,11 +3998,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="AboutUsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Uwq-hO-fvw" customClass="AboutUsViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j0x-u7-iSr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_bg" translatesAutoresizingMaskIntoConstraints="NO" id="QqS-Yi-yfi">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT BESPOKINO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8e-4y-Fve">
                                 <rect key="frame" x="16" y="53" width="288" height="29"/>
@@ -3912,7 +4011,7 @@ The deposit will be applied to your first order.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAc-nX-dBB">
-                                <rect key="frame" x="16" y="298.5" width="288" height="249.5"/>
+                                <rect key="frame" x="16" y="298.5" width="288" height="161.5"/>
                                 <string key="text">Bespokino is an innovative pioneer in custom clothing, offering bespoke shirts for men. We offer the highest quality at the most affordable prices, which lie far below those of our competitors. We are independent in our production, which allows us to turnover our product and have our customer's shirts ready in four weeks or less (a significantly shorter time than the industry norm!). Each and every shirt we create is 100% bespoke and a new pattern is cut and crafted to the customer's exact styling options.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
@@ -3970,7 +4069,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AEW-tw-eag" customClass="LoginViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e9J-3V-AWi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7o6-gw-vpV">
@@ -4039,7 +4138,7 @@ The deposit will be applied to your first order.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or sign in with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCT-qx-EjZ">
-                                <rect key="frame" x="108" y="454" width="105" height="20"/>
+                                <rect key="frame" x="108" y="366" width="105" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="105" id="HRQ-WK-oYm"/>
                                     <constraint firstAttribute="height" constant="20" id="i4s-3y-Nzy"/>
@@ -4049,7 +4148,7 @@ The deposit will be applied to your first order.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wm-YG-Pw0">
-                                <rect key="frame" x="241" y="463" width="63" height="2"/>
+                                <rect key="frame" x="241" y="375" width="63" height="2"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="JB2-ay-riQ"/>
@@ -4057,7 +4156,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg4-XB-n3O">
-                                <rect key="frame" x="16" y="463" width="64" height="2"/>
+                                <rect key="frame" x="16" y="375" width="64" height="2"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="EAi-qb-Hoj"/>
@@ -4082,7 +4181,7 @@ The deposit will be applied to your first order.</string>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3da-4N-dnp" userLabel="layer">
-                                <rect key="frame" x="16" y="496" width="288" height="60"/>
+                                <rect key="frame" x="16" y="408" width="288" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aki-dw-xaw" customClass="GIDSignInButton">
                                         <rect key="frame" x="147" y="5" width="141" height="49"/>
@@ -4171,7 +4270,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MNo-g5-QkN" customClass="RegisterViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jA2-bB-NSn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoZ-jI-n3E">
@@ -4183,16 +4282,7 @@ The deposit will be applied to your first order.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sPn-vt-z5h">
-                                <rect key="frame" x="16" y="134" width="288" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="J6c-Yr-UHC"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="next" textContentType="name"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCd-VI-FA4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vCd-VI-FA4">
                                 <rect key="frame" x="16" y="182" width="288" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U19-x7-TIv"/>
@@ -4200,6 +4290,9 @@ The deposit will be applied to your first order.</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MNo-g5-QkN" id="8O6-GS-XDg"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcq-K1-kk2">
                                 <rect key="frame" x="60" y="291" width="200" height="40"/>
@@ -4217,7 +4310,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJX-Gj-5P2" userLabel="layer">
-                                <rect key="frame" x="16" y="488" width="288" height="60"/>
+                                <rect key="frame" x="16" y="400" width="288" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DyW-Eq-Yv8" customClass="GIDSignInButton">
                                         <rect key="frame" x="147" y="5" width="141" height="49"/>
@@ -4245,20 +4338,20 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or sign up with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-H7-PjQ">
-                                <rect key="frame" x="109" y="447" width="101.5" height="20"/>
+                                <rect key="frame" x="109" y="359" width="101.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfr-Gg-Dc4">
-                                <rect key="frame" x="16" y="457" width="94" height="1"/>
+                                <rect key="frame" x="16" y="369" width="94" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="IMU-1O-SMY"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdE-yF-CP8">
-                                <rect key="frame" x="209.5" y="456" width="94.5" height="1"/>
+                                <rect key="frame" x="209.5" y="368" width="94.5" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="4YQ-LX-2Da"/>
@@ -4281,7 +4374,7 @@ The deposit will be applied to your first order.</string>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-t0-Wwy">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PASSWORD" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-t0-Wwy">
                                 <rect key="frame" x="16" y="230" width="288" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="K1n-bQ-FkR"/>
@@ -4289,6 +4382,21 @@ The deposit will be applied to your first order.</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MNo-g5-QkN" id="9Oy-qg-2Vi"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FULL NAME" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="16" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sPn-vt-z5h">
+                                <rect key="frame" x="16" y="134" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="J6c-Yr-UHC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                <connections>
+                                    <outlet property="delegate" destination="MNo-g5-QkN" id="iBN-EW-pt8"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4343,7 +4451,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="SWRevealViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b24-Z1-YKm" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aUe-Zs-N8R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="FP6-1U-F5g"/>
@@ -4385,34 +4493,49 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="NoInternetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Fc-8T-v8x" customClass="NoInternetViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cuF-op-WVK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_internet" translatesAutoresizingMaskIntoConstraints="NO" id="4WE-Tq-u7q">
+                                <rect key="frame" x="40" y="170" width="240" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="CaZ-vF-IVm"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-oa-DhX">
-                                <rect key="frame" x="65.5" y="272.5" width="189" height="23"/>
+                                <rect key="frame" x="66" y="322" width="189" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="1et-1v-Abg"/>
+                                    <constraint firstAttribute="height" constant="23" id="Pta-kH-sNs"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oCw-oa-DhX" firstAttribute="centerY" secondItem="cuF-op-WVK" secondAttribute="centerY" id="gHo-vU-lbJ"/>
-                            <constraint firstItem="oCw-oa-DhX" firstAttribute="centerX" secondItem="cuF-op-WVK" secondAttribute="centerX" id="ns4-iy-oUA"/>
+                            <constraint firstItem="oCw-oa-DhX" firstAttribute="top" secondItem="4WE-Tq-u7q" secondAttribute="bottom" constant="12" id="1LD-iG-Z7z"/>
+                            <constraint firstItem="4WE-Tq-u7q" firstAttribute="centerY" secondItem="cuF-op-WVK" secondAttribute="centerY" id="Elf-y2-39p"/>
+                            <constraint firstItem="4WE-Tq-u7q" firstAttribute="leading" secondItem="eil-07-Zg6" secondAttribute="leading" constant="40" id="SE6-or-D2c"/>
+                            <constraint firstItem="4WE-Tq-u7q" firstAttribute="centerX" secondItem="cuF-op-WVK" secondAttribute="centerX" id="V1m-cD-Pv6"/>
+                            <constraint firstItem="oCw-oa-DhX" firstAttribute="centerX" secondItem="4WE-Tq-u7q" secondAttribute="centerX" id="W6N-Vx-dkY"/>
+                            <constraint firstItem="eil-07-Zg6" firstAttribute="trailing" secondItem="4WE-Tq-u7q" secondAttribute="trailing" constant="40" id="Xdg-Du-FzR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eil-07-Zg6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="W2M-il-5yq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELg-z9-GTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2535" y="-1669.0140845070423"/>
+            <point key="canvasLocation" x="2932.5" y="-1669.0140845070423"/>
         </scene>
         <!--Invoice View Controller-->
         <scene sceneID="AQL-dV-dEK">
             <objects>
                 <viewController storyboardIdentifier="InvoiceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5o4-es-LSl" customClass="InvoiceViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KVP-MI-D6t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBS-ZT-aCS">
@@ -4446,7 +4569,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H2y-lA-tHJ">
-                                <rect key="frame" x="8" y="172" width="304" height="203"/>
+                                <rect key="frame" x="8" y="172" width="304" height="115"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="invoice" rowHeight="80" id="DLE-At-0Di" customClass="InvoiceTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -4527,7 +4650,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btE-T3-zE6">
-                                <rect key="frame" x="12" y="516" width="296" height="44"/>
+                                <rect key="frame" x="12" y="428" width="296" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PK7-8l-v95"/>
@@ -4540,7 +4663,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G7m-Qm-ck3">
-                                <rect key="frame" x="80" y="377" width="232" height="106"/>
+                                <rect key="frame" x="80" y="289" width="232" height="106"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DD7-hR-XO1">
                                         <rect key="frame" x="0.0" y="0.0" width="224" height="106"/>
@@ -4637,7 +4760,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order will be delivered with in  4 weeks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO9-hj-X8Y">
-                                <rect key="frame" x="12" y="492" width="296" height="21"/>
+                                <rect key="frame" x="12" y="404" width="296" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="iYG-wN-G7f"/>
                                 </constraints>
@@ -4654,19 +4777,19 @@ The deposit will be applied to your first order.</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qqq-iY-5Pp">
                                                 <rect key="frame" x="4" y="4" width="140" height="88"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fS7-om-Esu">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fS7-om-Esu">
                                                         <rect key="frame" x="0.0" y="0.0" width="140" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-ll-yKG">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UG-ll-yKG">
                                                         <rect key="frame" x="0.0" y="29.5" width="140" height="29"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZV-BA-GpH">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZV-BA-GpH">
                                                         <rect key="frame" x="0.0" y="58.5" width="140" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -4746,7 +4869,6 @@ The deposit will be applied to your first order.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4TM-1w-cFC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IOo-80-BuX"/>
                     <connections>
                         <outlet property="addressTextField" destination="0UG-ll-yKG" id="GpJ-pc-foy"/>
                         <outlet property="addressTextField2" destination="OZV-BA-GpH" id="w3C-Be-AhD"/>
@@ -4771,7 +4893,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="BillingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="de6-5A-0gv" customClass="BillingViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4s-m5-Hv0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NP6-vY-KhA">
@@ -4817,11 +4939,12 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lar-3r-9l6">
-                                <rect key="frame" x="16" y="170" width="288" height="30"/>
+                                <rect key="frame" x="16" y="166" width="288" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="a7j-7o-PPo"/>
+                                    <constraint firstAttribute="height" constant="24" id="a7j-7o-PPo"/>
                                 </constraints>
-                                <state key="normal" title="Get your address">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="GOOGLE SEARCH ADDRESS">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -4829,7 +4952,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="STREET ADDRESS" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B1O-w6-LKd">
-                                <rect key="frame" x="16" y="210" width="288" height="36"/>
+                                <rect key="frame" x="16" y="200" width="288" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="nqE-Yc-6GV"/>
                                 </constraints>
@@ -4840,8 +4963,8 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="om1-JQ-NQJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CITY" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-FM-bvC">
-                                <rect key="frame" x="16" y="256" width="140" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="STATE" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gn6-FM-bvC">
+                                <rect key="frame" x="16" y="244" width="140" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="eKJ-LG-eGK"/>
                                 </constraints>
@@ -4852,8 +4975,8 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="2Os-J3-ktt"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ZIP CODE" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-u2-MC5">
-                                <rect key="frame" x="164" y="256" width="140" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ZIPCODE" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-u2-MC5">
+                                <rect key="frame" x="164" y="244" width="140" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="g38-l5-w8b"/>
                                 </constraints>
@@ -4864,8 +4987,8 @@ The deposit will be applied to your first order.</string>
                                     <outlet property="delegate" destination="de6-5A-0gv" id="Ox6-ox-PmT"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE SAME ADDRESS FOR SHIPPING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-6j-aA0">
-                                <rect key="frame" x="62" y="487" width="242" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE DIFFERENT ADDRESS FOR SHIPPING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRn-6j-aA0">
+                                <rect key="frame" x="62" y="404" width="242" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="fDA-iB-kbT"/>
                                 </constraints>
@@ -4874,14 +4997,14 @@ The deposit will be applied to your first order.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfN-j4-7re">
-                                <rect key="frame" x="16" y="304" width="288" height="1"/>
+                                <rect key="frame" x="16" y="292" width="288" height="1"/>
                                 <color key="backgroundColor" red="0.83638036039274954" green="0.83638036039274954" blue="0.83638036039274954" alpha="0.8552547089041096" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MCt-RQ-OMf"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CARD NUMBER" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Pw2-wS-dj0">
-                                <rect key="frame" x="16" y="315" width="288" height="36"/>
+                                <rect key="frame" x="16" y="301" width="288" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="eCX-Uh-d71"/>
                                 </constraints>
@@ -4893,10 +5016,10 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kKU-jc-c6C">
-                                <rect key="frame" x="16" y="514" width="288" height="44"/>
+                                <rect key="frame" x="16" y="434" width="288" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVl-UW-mZq">
-                                        <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="36"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="PAY">
@@ -4908,7 +5031,7 @@ The deposit will be applied to your first order.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9il-4M-oqv">
-                                        <rect key="frame" x="150" y="0.0" width="138" height="44"/>
+                                        <rect key="frame" x="150" y="0.0" width="138" height="36"/>
                                         <state key="normal" image="ApplePayBTN_64pt__black_textLogo_"/>
                                         <connections>
                                             <action selector="payWithApplePay:" destination="WpS-aR-xB5" eventType="touchUpInside" id="nbE-dY-A95"/>
@@ -4917,11 +5040,11 @@ The deposit will be applied to your first order.</string>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="5yh-wX-jhG"/>
+                                    <constraint firstAttribute="height" constant="36" id="5yh-wX-jhG"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNS-vI-v0D" customClass="BEMCheckBox">
-                                <rect key="frame" x="16" y="482" width="22" height="22"/>
+                                <rect key="frame" x="16" y="405" width="22" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="4I6-Pt-eDJ"/>
@@ -4937,7 +5060,7 @@ The deposit will be applied to your first order.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <textField opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CELL NUMBER" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-X3-lZT">
-                                <rect key="frame" x="16" y="124" width="136" height="36"/>
+                                <rect key="frame" x="16" y="120" width="136" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="roR-C2-eSo"/>
                                 </constraints>
@@ -4949,7 +5072,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EMAIL" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qQw-pb-eXP">
-                                <rect key="frame" x="160" y="124" width="144" height="36"/>
+                                <rect key="frame" x="160" y="120" width="144" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="9RA-f7-KhN"/>
                                 </constraints>
@@ -4961,7 +5084,7 @@ The deposit will be applied to your first order.</string>
                                 </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-ks-yRi">
-                                <rect key="frame" x="16" y="359" width="103" height="36"/>
+                                <rect key="frame" x="16" y="345" width="103" height="36"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXv-Pc-YIV">
                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="36"/>
@@ -4987,7 +5110,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIV-jx-WVO">
-                                <rect key="frame" x="234" y="359" width="70" height="36"/>
+                                <rect key="frame" x="234" y="345" width="70" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="OfB-rI-WEl"/>
                                     <constraint firstAttribute="height" constant="36" id="r1p-2u-tA2"/>
@@ -5003,7 +5126,7 @@ The deposit will be applied to your first order.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="wRn-6j-aA0" secondAttribute="bottom" constant="6" id="0E1-35-ayb"/>
+                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="wRn-6j-aA0" secondAttribute="bottom" constant="9" id="0E1-35-ayb"/>
                             <constraint firstItem="lar-3r-9l6" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="0YI-jl-LuK"/>
                             <constraint firstItem="qQw-pb-eXP" firstAttribute="leading" secondItem="5Mr-X3-lZT" secondAttribute="trailing" constant="8" id="15s-WA-wW7"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="eMD-m3-vHP" secondAttribute="trailing" constant="16" id="3zs-0k-qPi"/>
@@ -5011,15 +5134,15 @@ The deposit will be applied to your first order.</string>
                             <constraint firstItem="Pw2-wS-dj0" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="6HB-Iv-vTp"/>
                             <constraint firstItem="fTe-ks-yRi" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="9dh-R3-79q"/>
                             <constraint firstItem="B1O-w6-LKd" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="AuB-HG-0By"/>
-                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="top" secondItem="QfN-j4-7re" secondAttribute="bottom" constant="10" id="Dym-uO-vdC"/>
+                            <constraint firstItem="Pw2-wS-dj0" firstAttribute="top" secondItem="QfN-j4-7re" secondAttribute="bottom" constant="8" id="Dym-uO-vdC"/>
                             <constraint firstItem="QfN-j4-7re" firstAttribute="top" secondItem="Gn6-FM-bvC" secondAttribute="bottom" constant="12" id="FUu-DB-21n"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="trailing" secondItem="kfr-ru-Vpv" secondAttribute="trailing" id="Hi4-S5-YE6"/>
                             <constraint firstItem="LIV-jx-WVO" firstAttribute="leading" secondItem="fTe-ks-yRi" secondAttribute="trailing" constant="115" id="JC3-jc-UQ8"/>
                             <constraint firstItem="eMD-m3-vHP" firstAttribute="top" secondItem="NP6-vY-KhA" secondAttribute="bottom" constant="12" id="KPY-HT-KRW"/>
-                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="10" id="KQa-3K-V7P"/>
-                            <constraint firstItem="e9y-u2-MC5" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="10" id="LHF-ur-waP"/>
+                            <constraint firstItem="Gn6-FM-bvC" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="8" id="KQa-3K-V7P"/>
+                            <constraint firstItem="e9y-u2-MC5" firstAttribute="top" secondItem="B1O-w6-LKd" secondAttribute="bottom" constant="8" id="LHF-ur-waP"/>
                             <constraint firstItem="ZNS-vI-v0D" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="Ogt-1c-MRU"/>
-                            <constraint firstItem="5Mr-X3-lZT" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="12" id="Qh6-OQ-4To"/>
+                            <constraint firstItem="5Mr-X3-lZT" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="8" id="Qh6-OQ-4To"/>
                             <constraint firstItem="e9y-u2-MC5" firstAttribute="width" secondItem="Gn6-FM-bvC" secondAttribute="width" id="UOT-Cg-RRS"/>
                             <constraint firstItem="fTe-ks-yRi" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="XIB-mw-lqI"/>
                             <constraint firstItem="B1O-w6-LKd" firstAttribute="top" secondItem="lar-3r-9l6" secondAttribute="bottom" constant="10" id="aX2-Bi-163"/>
@@ -5031,16 +5154,18 @@ The deposit will be applied to your first order.</string>
                             <constraint firstItem="QfN-j4-7re" firstAttribute="trailing" secondItem="I4s-m5-Hv0" secondAttribute="trailingMargin" id="dYG-Gv-uJY"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="wRn-6j-aA0" secondAttribute="trailing" constant="16" id="dne-7e-MMi"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="e9y-u2-MC5" secondAttribute="trailing" constant="16" id="dxu-m3-RgI"/>
+                            <constraint firstItem="wRn-6j-aA0" firstAttribute="top" secondItem="fTe-ks-yRi" secondAttribute="bottom" constant="23" id="e62-aZ-WGV"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="top" secondItem="kfr-ru-Vpv" secondAttribute="top" id="eAu-Qw-9ok"/>
                             <constraint firstItem="LIV-jx-WVO" firstAttribute="top" secondItem="Pw2-wS-dj0" secondAttribute="bottom" constant="8" id="f73-tx-XKD"/>
                             <constraint firstItem="e9y-u2-MC5" firstAttribute="leading" secondItem="Gn6-FM-bvC" secondAttribute="trailing" constant="8" id="fMg-O3-Y6r"/>
-                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="ZNS-vI-v0D" secondAttribute="bottom" constant="10" id="fnu-JZ-EWt"/>
+                            <constraint firstItem="kKU-jc-c6C" firstAttribute="top" secondItem="ZNS-vI-v0D" secondAttribute="bottom" constant="7" id="fnu-JZ-EWt"/>
                             <constraint firstItem="Gn6-FM-bvC" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="gCA-YQ-dGQ"/>
                             <constraint firstItem="lar-3r-9l6" firstAttribute="top" secondItem="5Mr-X3-lZT" secondAttribute="bottom" constant="10" id="gNC-BL-PLW"/>
-                            <constraint firstItem="qQw-pb-eXP" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="12" id="igL-rb-nAc"/>
+                            <constraint firstItem="qQw-pb-eXP" firstAttribute="top" secondItem="eMD-m3-vHP" secondAttribute="bottom" constant="8" id="igL-rb-nAc"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="Pw2-wS-dj0" secondAttribute="trailing" constant="16" id="j4e-Ga-RYy"/>
                             <constraint firstItem="kfr-ru-Vpv" firstAttribute="trailing" secondItem="lar-3r-9l6" secondAttribute="trailing" constant="16" id="j66-pV-sTZ"/>
                             <constraint firstItem="QfN-j4-7re" firstAttribute="leading" secondItem="I4s-m5-Hv0" secondAttribute="leadingMargin" id="js5-cX-S8I"/>
+                            <constraint firstItem="wRn-6j-aA0" firstAttribute="top" secondItem="LIV-jx-WVO" secondAttribute="bottom" constant="23" id="nL7-zp-hN6"/>
                             <constraint firstAttribute="bottom" secondItem="kKU-jc-c6C" secondAttribute="bottom" constant="10" id="rEq-65-ldE"/>
                             <constraint firstItem="kKU-jc-c6C" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" constant="16" id="riA-8a-FDI"/>
                             <constraint firstItem="NP6-vY-KhA" firstAttribute="leading" secondItem="kfr-ru-Vpv" secondAttribute="leading" id="sTp-Fu-m5M"/>
@@ -5076,15 +5201,15 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="ShippingAddressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TuA-5s-Tgb" customClass="ShippingAddressViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vpW-9K-Xiy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOQ-tX-kb4">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHIPPING ADDRESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHq-en-waj">
-                                        <rect key="frame" x="91" y="12" width="139" height="21"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <rect key="frame" x="94.5" y="13" width="132" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                         <color key="textColor" red="0.15739924629999999" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -5097,12 +5222,13 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ga5-tD-CEG">
-                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <rect key="frame" x="16" y="416" width="288" height="44"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aNv-g5-qmJ"/>
                                 </constraints>
-                                <state key="normal" title="CONTINUE">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -5116,7 +5242,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
                                 <connections>
                                     <outlet property="delegate" destination="TuA-5s-Tgb" id="DVl-Su-pLT"/>
                                 </connections>
@@ -5128,7 +5254,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="street-address"/>
                                 <connections>
                                     <outlet property="delegate" destination="TuA-5s-Tgb" id="wLg-uM-Mkb"/>
                                 </connections>
@@ -5176,7 +5302,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" textContentType="name"/>
                                 <connections>
                                     <outlet property="delegate" destination="TuA-5s-Tgb" id="rtC-F4-ry9"/>
                                 </connections>
@@ -5223,14 +5349,14 @@ The deposit will be applied to your first order.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9f-Vb-nDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13333" y="-1843"/>
+            <point key="canvasLocation" x="13728.75" y="-1843.3098591549297"/>
         </scene>
         <!--Confirm Pay View Controller-->
         <scene sceneID="iPf-VU-TMS">
             <objects>
                 <viewController storyboardIdentifier="ConfirmPayViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WpS-aR-xB5" customClass="ConfirmPayViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYR-At-u8g">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxT-j9-REJ">
@@ -5251,7 +5377,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XG7-Pv-Yj7">
-                                <rect key="frame" x="0.0" y="434" width="320" height="134"/>
+                                <rect key="frame" x="0.0" y="346" width="320" height="134"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-ep-fnE">
                                         <rect key="frame" x="12" y="64" width="296" height="50"/>
@@ -5337,11 +5463,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="BodyPosturesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8z-Ht-9P7" customClass="BodyPosturesViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="By8-Mp-ptd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eB4-1f-jOV">
-                                <rect key="frame" x="0.0" y="152" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="152" width="320" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="150" id="jae-K4-tiG" customClass="BodyPostureTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -5472,7 +5598,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5dt-2i-Ued" customClass="DetailViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsh-ZQ-tma">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRG-A1-7RJ">
@@ -5512,7 +5638,7 @@ The deposit will be applied to your first order.</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hts-Bh-MCM">
-                                <rect key="frame" x="0.0" y="298" width="320" height="270"/>
+                                <rect key="frame" x="0.0" y="298" width="320" height="182"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Z5-TW-7Ou">
                                     <size key="itemSize" width="120" height="120"/>
@@ -5534,12 +5660,12 @@ The deposit will be applied to your first order.</string>
                                                         <constraint firstAttribute="height" constant="93" id="Lv0-6h-orb"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-Us-BEG">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-Us-BEG">
                                                     <rect key="frame" x="0.0" y="99" width="120" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Hj1-Kt-ZlR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -5567,9 +5693,9 @@ The deposit will be applied to your first order.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-P7-HQb">
                                 <rect key="frame" x="0.0" y="254" width="320" height="36"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your styling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgC-es-bKp">
-                                        <rect key="frame" x="122" y="8" width="76" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STYLING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgC-es-bKp">
+                                        <rect key="frame" x="130.5" y="8" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" red="0.99607843139999996" green="0.94901960780000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -5616,7 +5742,7 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="MonoDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1zh-tj-eSv" customClass="MonoDetailViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSI-oo-iFq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTW-31-rxb">
@@ -5726,11 +5852,11 @@ The deposit will be applied to your first order.</string>
             <objects>
                 <viewController storyboardIdentifier="BaseMeasurmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eDU-XD-RzO" customClass="BaseMeasurmentViewController" customModule="Bespokino" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xSC-bs-rOU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3UM-Ao-NOw">
-                                <rect key="frame" x="0.0" y="297.5" width="320" height="270.5"/>
+                                <rect key="frame" x="0.0" y="297.5" width="320" height="182.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="44" id="G2x-1U-tZY" customClass="MeasurmentTableViewCell" customModule="Bespokino" customModuleProvider="target">
@@ -6006,7 +6132,7 @@ The deposit will be applied to your first order.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPV-KE-QP3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11314" y="-191"/>
+            <point key="canvasLocation" x="11723" y="-953"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fA3-rT-g7b">
@@ -6063,6 +6189,24 @@ The deposit will be applied to your first order.</string>
             </objects>
             <point key="canvasLocation" x="12208" y="535"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tzY-2d-4mY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lmd-b2-PUP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Rn-Id-s0Q">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Fc-8T-v8x" kind="relationship" relationship="rootViewController" id="wYo-st-OAs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKJ-k8-3PR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2109" y="-1669"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ApplePayBTN_64pt__black_textLogo_" width="194" height="64"/>
@@ -6088,6 +6232,7 @@ The deposit will be applied to your first order.</string>
         <image name="menu" width="25" height="25"/>
         <image name="monogram_body" width="150" height="150"/>
         <image name="neck_guide" width="431" height="368"/>
+        <image name="no_internet" width="256" height="256"/>
         <image name="present" width="1036" height="772"/>
         <image name="right" width="64" height="64"/>
         <image name="send" width="1036" height="772"/>

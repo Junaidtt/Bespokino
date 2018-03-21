@@ -27,7 +27,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         UIImage(named: "info")!,
         UIImage(named: "star")!,
         UIImage(named: "measure")!,
-        UIImage(named: "ordering")!
+        UIImage(named: "exit")!
         
        ]
  
@@ -42,11 +42,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-      UIApplication.shared.statusBarStyle = .default
-        
+        UIApplication.shared.statusBarStyle = .default
         let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
-         statusBar.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
-        
+        statusBar.backgroundColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         self.menuTableView.reloadData()
 
     }
@@ -71,7 +69,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-        let yesBody = defaults.bool(forKey: "YESBODY")
+        let yesBody = defaults.bool(forKey: "BESPOKE")
         
         if yesBody{
             if cell.menulabel.text == "BESPOKE PROFILE"{
@@ -121,6 +119,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             defaults.removeObject(forKey: "FULLNAME")
             defaults.removeObject(forKey: "EMAIL")
 
+            Order.cartCount = 0
             defaults.synchronize()
             self.deleteAllRecords()
             GIDSignIn.sharedInstance().signOut()
@@ -149,7 +148,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }else if cell.menulabel.text == "BESPOKE PROFILE"{
            
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BaseMeasurmentViewController") as! BaseMeasurmentViewController
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "BespokeProfileViewController") as! BespokeProfileViewController
             let newFrontViewController = UINavigationController.init(rootViewController: newViewController)
             revealViewController.pushFrontViewController(newFrontViewController, animated: true)
             

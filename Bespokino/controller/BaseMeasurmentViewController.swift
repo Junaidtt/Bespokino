@@ -109,7 +109,9 @@ class BaseMeasurmentViewController: UIViewController,UITableViewDelegate,UITable
         
         
         
-        self.navigationController?.pushViewController(newViewController, animated: true)    }
+        self.navigationController?.pushViewController(newViewController, animated: true)
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return item.count

@@ -49,13 +49,7 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-//        let posture =  defaults.string(forKey: "POSTURECODE")
-//        let shoulder = defaults.string(forKey: "SHOULDERCODE")
-//        let chest = defaults.string(forKey: "CHESTCODE")
-//        let abdomen = defaults.string(forKey: "ABDOMENCODE")
-//        let pelvis = defaults.string(forKey: "PELVISCODE")
-        
+
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
@@ -66,25 +60,26 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
 
         self.FLAG = "POSTURE"
         
-        let posture1 = Model(img: UIImage(named: "posture_erect")!, n: "NORMAL",code:"posture-Normal")
-        let posture2 = Model(img: UIImage(named: "posture_leaning")!, n: "LEANING",code:"posture-LEANING")
-        let posture3 = Model(img: UIImage(named: "posture_erect")!, n: "ERACT",code:"posture-ERACT")
+        let posture1 = Model(img: UIImage(named: "posture-Normal")!, n: "NORMAL",code:"posture-Normal")
+        let posture2 = Model(img: UIImage(named: "posture-LEANING")!, n: "LEANING",code:"posture-LEANING")
+        let posture3 = Model(img: UIImage(named: "posture-ERACT")!, n: "ERACT",code:"posture-ERACT")
+        
         posture.append(posture1)
         posture.append(posture2)
         posture.append(posture3)
 
-        let shoulder1 = Model(img: UIImage(named: "shoulders_steep")!, n: "STEEP",code:"shoulders-STEAP")
-        let shoulder2 = Model(img: UIImage(named: "shoulders_normal")!, n: "NORMAL",code:"shoulders-LEANING")
-        let shoulder3 = Model(img: UIImage(named: "shoulders_flat")!, n: "FLAT",code:"shoulders-FLAT")
+        let shoulder1 = Model(img: UIImage(named: "shoulders-STEAP")!, n: "STEEP",code:"shoulders-STEAP")
+        let shoulder2 = Model(img: UIImage(named: "shoulders-NORMAL")!, n: "NORMAL",code:"shoulders-NORMAL")
+        let shoulder3 = Model(img: UIImage(named: "shoulders-FLAT")!, n: "FLAT",code:"shoulders-FLAT")
               shoulder.append(shoulder1)
               shoulder.append(shoulder2)
               shoulder.append(shoulder3)
         //  [UIImage(named: "chest_thin")!,UIImage(named: "chest_fit")!,UIImage(named: "chest_normal")!,UIImage(named: "chest_muscular")!,UIImage(named: "chest_large")!],
-        let chest1 = Model(img: UIImage(named: "chest_thin")!, n: "THIN",code:"chest-THIN")
-        let chest2 = Model(img: UIImage(named: "chest_fit")!, n: "FIT",code:"chest-FIT")
-        let chest3 = Model(img: UIImage(named: "chest_normal")!, n: "NORMAL",code:"chest-NORMAL")
-        let chest4 = Model(img: UIImage(named: "chest_muscular")!, n: "MUSCULAR",code:"chest-MUSCULAR")
-        let chest5 = Model(img: UIImage(named: "chest_large")!, n: "LARGE",code:"chest-LARGE")
+        let chest1 = Model(img: UIImage(named: "chest-THIN")!, n: "THIN",code:"chest-THIN")
+        let chest2 = Model(img: UIImage(named: "chest-FIT")!, n: "FIT",code:"chest-FIT")
+        let chest3 = Model(img: UIImage(named: "chest-NORMAL")!, n: "NORMAL",code:"chest-NORMAL")
+        let chest4 = Model(img: UIImage(named: "chest-MUSCULAR")!, n: "MUSCULAR",code:"chest-MUSCULAR")
+        let chest5 = Model(img: UIImage(named: "chest-LARGE")!, n: "LARGE",code:"chest-LARGE")
 
          chest.append(chest1)
          chest.append(chest2)
@@ -94,10 +89,10 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
         
         //[UIImage(named: "abdomen_thin")!,UIImage(named: "abdomen_normal")!,UIImage(named: "abdomen_medium")!,UIImage(named: "abdomen_large")!],
 
-        let abdomen1 = Model(img: UIImage(named: "abdomen_thin")!, n: "THIN",code:"abdomen-THIN")
-        let abdomen2 = Model(img: UIImage(named: "abdomen_normal")!, n: "NORMAL",code:"abdomen-NORMAL")
-        let abdomen3 = Model(img: UIImage(named: "abdomen_medium")!, n: "MEDIUM",code:"abdomen-MEDIUM")
-        let abdomen4 = Model(img: UIImage(named: "abdomen_large")!, n: "LARGE",code:"abdomen-LARGE")
+        let abdomen1 = Model(img: UIImage(named: "abdomen-THIN")!, n: "THIN",code:"abdomen-THIN")
+        let abdomen2 = Model(img: UIImage(named: "abdomen-NORMAL")!, n: "NORMAL",code:"abdomen-NORMAL")
+        let abdomen3 = Model(img: UIImage(named: "abdomen-MEDIUM")!, n: "MEDIUM",code:"abdomen-MEDIUM")
+        let abdomen4 = Model(img: UIImage(named: "abdomen-LARGE")!, n: "LARGE",code:"abdomen-LARGE")
 
         abdomen.append(abdomen1)
         abdomen.append(abdomen2)
@@ -107,10 +102,10 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
 
         // [UIImage(named: "pelvis_thin")!,UIImage(named: "pelvis_normal")!,UIImage(named: "pelvis_curved")!,UIImage(named: "pelvis_large")!]
 
-        let pelvis1 = Model(img: UIImage(named: "pelvis_thin")!, n: "THIN",code:"pelvis-THIN")
-        let pelvis2 = Model(img: UIImage(named: "pelvis_normal")!, n: "NORMAL",code:"pelvis-NORMAL")
-        let pelvis3 = Model(img: UIImage(named: "pelvis_curved")!, n: "CURVED",code:"pelvis-CURVED")
-        let pelvis4 = Model(img: UIImage(named: "pelvis_large")!, n: "LARGE",code:"pelvis-LARGE")
+        let pelvis1 = Model(img: UIImage(named: "pelvis-THIN")!, n: "THIN",code:"pelvis-THIN")
+        let pelvis2 = Model(img: UIImage(named: "pelvis-NORMAL")!, n: "NORMAL",code:"pelvis-NORMAL")
+        let pelvis3 = Model(img: UIImage(named: "pelvis-CURVED")!, n: "CURVED",code:"pelvis-CURVED")
+        let pelvis4 = Model(img: UIImage(named: "pelvis-LARGE")!, n: "LARGE",code:"pelvis-LARGE")
 
         pelvis.append(pelvis1)
         pelvis.append(pelvis2)
@@ -230,6 +225,7 @@ class BodyPosturesViewController: UIViewController,UITableViewDelegate,UITableVi
                 self.defaults.set(self.activedata[indexPath.row].name, forKey: "PELVIS")
                 self.defaults.set(self.activedata[indexPath.row].itemCode, forKey: "PELVISCODE")
 
+                self.defaults.set(true, forKey: "BESPOKE")
                 self.defaults.set(true, forKey: "YESBODY")
 
               //  self.FLAG = "POSTURE"

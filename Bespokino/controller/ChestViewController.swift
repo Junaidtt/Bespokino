@@ -18,7 +18,6 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
         UIImage(named: "yellow")!,
         UIImage(named: "green")!,
         UIImage(named: "blue")!
-
         ]
         var chestImages = ["hook","red","yellow","green","blue"]
     let defaults = UserDefaults.standard
@@ -54,15 +53,15 @@ class ChestViewController: UIViewController,UITableViewDataSource,UITableViewDel
         cell?.layer.borderWidth = 2
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         
-        m.setMeasurment(m: "2") { (success, result, Error) in
+        let defaults =  UserDefaults.standard
+        let modelNumber = defaults.string(forKey: "MODELNO")
+        m.setMeasurment(m: modelNumber!) { (success, result, Error) in
             
             if success {
                 
                 let value  = result as Measurement!
-                
                 let chestvalue:Double = (value?.chestMaster)!
                 let code  = Double(codeValue[indexPath.row])
-                
                 print(code+chestvalue)
                 defaults.set(chestImages[indexPath.row], forKey: "CHEST")
 

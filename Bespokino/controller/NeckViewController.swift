@@ -12,41 +12,43 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
   
     @IBOutlet weak var shirtImage: UIImageView!
     let m = MeasurementValue()
-    var codeValue9 = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10]
-    var codeValue1 = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9]
+    
+    var codeValue9 = [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]
+    var codeValue1 = [-9,-8,-7,-6,-5,-4,-3,-2,-1,0]
     var codeValue = [Int]()
 
     @IBOutlet weak var neckTB: UITableView!
     
+
+    var neck9:[UIImage] = [UIImage(named:"collar11")!,
+                           UIImage(named: "collar10")!,
+                           UIImage(named: "collar9")!,
+                           UIImage(named: "collar8")!,
+                           UIImage(named: "collar7")!,
+                           UIImage(named: "collar6")!,
+                           UIImage(named: "collar5")!,
+                           UIImage(named: "collar4")!,
+                           UIImage(named: "collar3")!,
+                           UIImage(named: "collar2")!,
+                           UIImage(named: "collar1")!]
     
-    var neck9:[UIImage] = [UIImage(named:"collar1")!,
-                            UIImage(named: "collar2")!,
-                            UIImage(named: "collar3")!,
-                            UIImage(named: "collar4")!,
-                            UIImage(named: "collar5")!,
-                            UIImage(named: "collar6")!,
-                            UIImage(named: "collar7")!,
-                            UIImage(named: "collar8")!,
-                            UIImage(named: "collar9")!,
-                            UIImage(named: "collar10")!,
-                            UIImage(named: "collar11")!]
     
     var neck1:[UIImage] = [
-        UIImage(named: "neck1")!,
-        UIImage(named: "neck2")!,
-        UIImage(named: "neck3")!,
-        UIImage(named: "neck4")!,
-        UIImage(named: "neck5")!,
-        UIImage(named: "neck6")!,
-        UIImage(named: "neck7")!,
-        UIImage(named: "neck8")!,
+        UIImage(named: "neck10")!,
         UIImage(named: "neck9")!,
-        UIImage(named: "neck10")!
+        UIImage(named: "neck8")!,
+        UIImage(named: "neck7")!,
+        UIImage(named: "neck6")!,
+        UIImage(named: "neck5")!,
+        UIImage(named: "neck4")!,
+        UIImage(named: "neck3")!,
+        UIImage(named: "neck2")!,
+        UIImage(named: "neck1")!
     ]
     
     var neck:[UIImage] = [UIImage]()
-    var neckImages = [String]()
-    var neckImages9 = ["collar1","collar2","collar3","collar4","collar5","collar6","collar7","collar8","collar9","collar10","collar11"]
+  var neckImages = [String]()
+  var neckImages9 = ["collar1","collar2","collar3","collar4","collar5","collar6","collar7","collar8","collar9","collar10","collar11"]
     var neckImages1 = ["neck1","neck2","neck3","neck4","neck5","neck6","neck7","neck8","neck9","neck10,"]
     
     let defaults = UserDefaults.standard
@@ -71,7 +73,6 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
             neckTB.reloadData()
             self.shirtImage.image = UIImage(named:"neck_guide8")
         }
-        
         
         // Do any additional setup after loading the view.
     }
@@ -123,18 +124,15 @@ class NeckViewController: UIViewController,IndicatorInfoProvider,UITableViewData
         cell?.layer.borderWidth = 2
         cell?.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
         
-        
-        m.setMeasurment(m: "2") { (success, result, Error) in
+         let modelNo = defaults.string(forKey: "MODELNO")
+        m.setMeasurment(m: modelNo!) { (success, result, Error) in
             
             if success {
                 
                 let value  = result as Measurement!
-                
                 let neckvalue:Double = (value?.neckMaster)!
                 let code  = Double(codeValue[indexPath.row])
-                
                 print(code+neckvalue)
-                
                 defaults.set(neckImages[indexPath.row], forKey: "NECK")
 
                 SelectedValues.neckMaster = code + neckvalue

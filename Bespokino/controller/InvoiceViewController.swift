@@ -68,30 +68,37 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 }
                 
             }
-            
+          
         }
        
         
-        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+        
+        
+        
+        let rightBarButton = UIBarButtonItem(image: UIImage(named:"hme"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
     
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+          self.invoiceTableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.data.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "invoice", for: indexPath)as! InvoiceTableViewCell
         
-        
-        if (self.data.count>0)
+        print(self.data.count)
+        if (self.data.count > 0)
         {
-            //String(format: "%.2f", myDouble)
         cell.shirtPrice.text = "$"+String(format: "%.2f",data[indexPath.row].BasicPrice)
         cell.fabricUpgradePrice.text = "$"+String(format: "%.2f",data[indexPath.row].FabricUpgrade)
-        cell.shirtCount.text = "\(data.count) Custom made shirt"
+       // cell.shirtCount.text = "\(data.count) Custom made shirt"
+             cell.shirtCount.text = "\(indexPath.row+1). Custom made shirt"
         cell.stylingPrice.text = "$"+String(format: "%.2f",data[indexPath.row].StylingAddup)
         
         }

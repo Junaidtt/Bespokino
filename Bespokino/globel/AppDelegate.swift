@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             appDelegate?.window??.rootViewController = protectedPage
             
         }else{
+            
             defaults.set(false, forKey: "isRegIn")
             
             defaults.synchronize()
@@ -75,22 +76,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     }
     @objc func internetChanged(note:Notification)  {
         let reachability  = note.object as! Reachability
-        
+        let defaults  = UserDefaults.standard
+        let check = defaults.bool(forKey: "isRegIn")
+        print(check)
         if reachability.connection != .none {
             print("Yes, internet connection")
 
             if reachability.connection == .wifi{
                 print("Wifi connection")
+                if check{
+                    let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = protectedPage
+                }
+            
 
             }else if reachability.connection == .cellular{
                  print("cellular connection")
+                if check{
+                    
+                    let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                    let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    let appDelegate = UIApplication.shared.delegate
+                    appDelegate?.window??.rootViewController = protectedPage
+                    
+                }
+              
             }
         }else{
             print("No internet connection")
             
 
-            self.displayAlert()
+            //self.displayAlert()
+
             
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+            let protectedPage = mainStoryBoard.instantiateViewController(withIdentifier: "NoInternetViewController") as! NoInternetViewController
+            let appDelegate = UIApplication.shared.delegate
+            appDelegate?.window??.rootViewController = protectedPage
+            
+
+        
         }
     }
     
@@ -220,16 +247,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             } else {
                 
                 print("Google Authentification Success")
+                print(GIDSignIn.sharedInstance().currentUser.authentication.accessToken)
+                print(GIDSignIn.sharedInstance().currentUser.authentication.clientID)
+
                 print(GIDSignIn.sharedInstance().currentUser.profile.description)
                 print(GIDSignIn.sharedInstance().currentUser.profile.email)
                 print(GIDSignIn.sharedInstance().currentUser.profile.name)
+                
                 Customer.firstName = GIDSignIn.sharedInstance().currentUser.profile.givenName
                 Customer.lastName = GIDSignIn.sharedInstance().currentUser.profile.familyName
                 Customer.email = GIDSignIn.sharedInstance().currentUser.profile.email
                 print(GIDSignIn.sharedInstance().currentUser.profile.familyName)
                 print(GIDSignIn.sharedInstance().currentUser.profile.givenName)
                let fullname = Customer.firstName! + " " + Customer.lastName!
-                AsyncTask.socialRegister()
+                let clientid:String = GIDSignIn.sharedInstance().currentUser.authentication.clientID+"google"
+               let async = AsyncTask()
+                async.socialRegister(fullname:fullname,uniqueid:clientid)
                 
                 let defaults = UserDefaults.standard
                 defaults.set(Customer.firstName!, forKey: "FISRTNAME")

@@ -76,7 +76,7 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         cell.marker.image = UIImage(named:"tick")!
         print(cell.name.text!)
         
-        if   (cell.name.text == "POCKET"){
+        if (cell.name.text == "POCKET"){
             print("pocket selected")
             StylingTask.pocket = "187"
             AdditionalOptions.pocket = "187"
@@ -162,7 +162,7 @@ class AdditionalOptionsViewController: UIViewController,UICollectionViewDelegate
         
         cell.marker.isHidden = true
         
-        if   (cell.name.text == "POCKET"){
+        if (cell.name.text == "POCKET"){
             print("pocket selected")
             StylingTask.pocket = ""
             AdditionalOptions.pocket = ""

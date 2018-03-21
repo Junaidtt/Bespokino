@@ -49,6 +49,7 @@ class ToolStatusViewController: UIViewController {
         super.viewDidAppear(true)
         
         let modelnumber = defaults.string(forKey: "MODELNO")
+        print(modelnumber!)
         self.modelNumberLabel.text = "BESPOKINO SHIRT MODEL NUMBER : \(modelnumber!)"
     }
     

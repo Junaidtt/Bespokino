@@ -163,6 +163,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
 
         print(PAY_TAG!)
         
+     
         
         if PAY_TAG! == "TWENTY"{
 
@@ -176,6 +177,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             
         }
         
+   
         getTokenButton.layer.cornerRadius = 5
         getTokenButton.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         checkmark.delegate = self
@@ -184,27 +186,15 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         getYourAddressButton.layer.borderWidth = 1.0
         getYourAddressButton.layer.borderColor = #colorLiteral(red: 1, green: 0.8000000119, blue: 0.400000006, alpha: 1)
         
-        
-        let yesData = defaults.bool(forKey: "USERINFO")
-        if yesData{
-            self.fullName.text = defaults.string(forKey: "FIRSTNAME")
-//            self.cellNumberText.text = defaults.string(forKey: "CELLNUMBER")
-            self.streetAddressText.text = defaults.string(forKey: "ADDRESS")
-           // self.stateTextField.text = defaults.string(forKey: "STATE")
-            self.zipTextField.text = defaults.string(forKey: "ZIP")
-//
-        }
-        let rightBarButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
+
+        let rightBarButton = UIBarButtonItem(image: UIImage(named:"hme"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
         
       
         picker.delegate = self
         picker.dataSource = self
         
-        
-        
-        
-        
+  
         expirationMonthTextField.inputView = picker
         expirationYearTextField.inputView = picker
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
@@ -252,6 +242,13 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         print(checkBox.on)
         self.checkmarkSelected = checkBox.on
+        if checkmarkSelected{
+ 
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
+            //  newViewController.shipping = self.customer
+             self.present(newViewController, animated: true, completion: nil)
+        }
         
     }
     @IBAction func continueButtonDidTap(_ sender: Any) {
@@ -289,7 +286,6 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         
         // TODO: Add code to get address components from the selected place.
         
-        // Get the address components.
         if let addressLines = place.addressComponents {
             // Populate all of the address fields we can find.
             for field in addressLines {
@@ -311,6 +307,9 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
                 case kGMSPlaceTypePostalCodeSuffix:
                     postal_code_suffix = field.name
                 // Print the items we aren't using.
+                
+                
+                    
                 default:
                     print("Type: \(field.type), Name: \(field.name)")
                 }
@@ -341,6 +340,8 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
+   
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         activeTextField = textField
@@ -369,6 +370,9 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     // Populate the address form fields.
     func fillAddressForm() {
+        
+        print(postal_code_suffix)
+        
         streetAddressText.text = street_number + " " + route
         cityTextField.text = locality
         cityTextField.text = administrative_area_level_1
@@ -608,14 +612,25 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     func textFieldDidBeginEditing(_ textField:UITextField) {
         
-      //  activeTextField = self.cardNameTextField
+
         self.activeTF = textField
+        
+        if textField == expirationMonthTextField{
+            
+            self.data = self.size
+            
+        }else if textField == expirationYearTextField{
+            
+            self.data = self.year
+        }
+        
+        self.picker.reloadAllComponents()
     }
     
     func textFieldShouldBeginEditing(_ textField:UITextField) -> Bool {
+
         
-        
-        
+
         return true
     }
     
@@ -776,6 +791,17 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             }
             
             break
+        case 12:
+
+            let async = AsyncTask()
+            let email = self.emailTextField.text
+            if(async.isValidEmailAddress(emailAddressString: email!)){
+                print("Email varified")
+            }else{
+                async.displayAlertMessage(messageToDisplay: "Check your email address")
+                self.emailTextField.text = ""
+            }
+            
             
         default:
             break
@@ -1021,22 +1047,19 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
                         if responseCode == "1"{
                             
                             if ccPayAmt! == 20.0{
-                                //self.postTwentyPayment()
+                                self.postTwentyPayment()
                             }else {
                                 self.FinalOrderPlacementTask()
                                 
                             }
-                            
-                            
+                   
                             DispatchQueue.main.async {
                                 
                                 self.displayAlertMessage(messageToDisplay: "Your transaction has Approved", title: "success")
                                 
                             }
                         }else if responseCode == "2"{
-                            
-                            
-                            
+   
                             guard let avsResultCode = transactionDic["avsResultCode"] as? String else {return}
                             
                             if avsResultCode == "A"{
@@ -1265,11 +1288,14 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        
+        print(month[row])
+  
         if activeTF == expirationMonthTextField{
+            print(month[row])
             expirationMonthTextField.text = month[row]
-            
+   
         }else if activeTF == expirationYearTextField{
+            print(yr[row])
             expirationYearTextField.text = yr[row]
         }
         
@@ -1282,7 +1308,19 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     
     func FinalOrderPlacementTask()  {
         
-        guard let url = URL(string: "http://www.bespokino.com/cfc/app3.cfc?wsdl&method=placeOrderAndCreatePDF&customerID=\(Order.customerID)&orderNo=\(Order.orderNo)&paperNo=\(Order.paperNo)") else { return }
+        
+        let defaults = UserDefaults.standard
+        //let currentTrackingID = defaults.string(forKey: "TRACKINGID")
+        let currentOrderNo = defaults.integer(forKey: "ORDERNO")
+        let currentCustomerID = defaults.integer(forKey: "CUSTOMERID")
+        let currentpaperNo = defaults.integer(forKey: "PAPERNO")
+        
+        
+        print(currentOrderNo)
+        print(currentCustomerID)
+        print(currentpaperNo)
+        
+        guard let url = URL(string: "http://www.bespokino.com/cfc/app3.cfc?wsdl&method=placeOrderAndCreatePDF&customerID=\(currentCustomerID)&orderNo=\(currentOrderNo)&paperNo=\(currentpaperNo)") else { return }
         
         let session = URLSession.shared
         session.dataTask(with: url) { (data, response, error) in
@@ -1294,7 +1332,9 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
                 print(data)
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
+                   
                     print(json)
+                    
                 } catch {
                     print(error)
                 }
@@ -1332,7 +1372,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
             self.streetAddressText.text = userArray[0].shippingAddress
             self.cityTextField.text = userArray[0].shippingCity
             if (userArray[0].shippingPostalcode == 0){
-                 self.zipTextField.text = " "
+                 self.zipTextField.placeholder = "ZIP CODE"
             }else{
                 self.zipTextField.text = "\(userArray[0].shippingPostalcode)"
             }
@@ -1591,6 +1631,24 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         }
         
         return true
+    }
+    
+    //Alert message
+    
+    func displayAlertMessage(messageToDisplay: String)
+    {
+        let alertController = UIAlertController(title: "info", message: messageToDisplay, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            
+            // Code in this block will trigger when OK button tapped.
+            print("Ok button tapped");
+            
+        }
+        
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
     }
     
 }

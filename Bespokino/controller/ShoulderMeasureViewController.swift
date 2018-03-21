@@ -80,7 +80,6 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
         if(self.modelNumber != nil){
             
             m.setMeasurment(m: self.modelNumber! ) { (success, result, Error) in
-              print("asdasd")
                 if success {
                     
                     let value  = result as Measurement!
@@ -91,7 +90,7 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
                     print(code + shouldervalue)
                     print(shoulder[indexPath.row])
                     
-
+      
                     defaults.set(shoulderImage[indexPath.row], forKey: "SHOULDER")
                     
                     SelectedValues.shoulderMaster = code + shouldervalue

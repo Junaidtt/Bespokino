@@ -14,36 +14,37 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
     @IBOutlet weak var cuffTB: UITableView!
     @IBOutlet weak var shirtImage: UIImageView!
     
-    let m = MeasurementValue()
-      var codeValue = [-8,-7,-6,-5,-4,-3,-2,-1,0]
+      let m = MeasurementValue()
+      var codeValue = [0,-1,-2,-3,-4,-5,-6,-7,-8]
     
     
-    var codeValue9 = [0,-1,-2,-3,-4,-5,-6,-7,-8]
-    var codeValue1 = [0,-1,-2,-3,-4,-5,-6,-7,-8]
+//    var codeValue9 = [0,-1,-2,-3,-4,-5,-6,-7,-8]
+//    var codeValue1 = [0,-1,-2,-3,-4,-5,-6,-7,-8]
 
- 
     var cuff9:[UIImage] = [
-        UIImage(named: "cuff9_9")!,
-        UIImage(named: "cuff9_8")!,
-        UIImage(named: "cuff9_7")!,
-        UIImage(named: "cuff9_6")!,
-        UIImage(named: "cuff9_5")!,
-        UIImage(named: "cuff9_4")!,
-        UIImage(named: "cuff9_3")!,
-        UIImage(named: "cuff9_2")!,
         UIImage(named: "cuff9_1")!,
+        UIImage(named: "cuff9_2")!,
+        UIImage(named: "cuff9_3")!,
+        UIImage(named: "cuff9_4")!,
+        UIImage(named: "cuff9_5")!,
+        UIImage(named: "cuff9_6")!,
+        UIImage(named: "cuff9_7")!,
+        UIImage(named: "cuff9_8")!,
+        UIImage(named: "cuff9_9")!,
         
         ]
+   
+
     var cuff1:[UIImage] = [
-        UIImage(named: "cuff8_9")!,
-        UIImage(named: "cuff8_8")!,
-        UIImage(named: "cuff8_7")!,
-        UIImage(named: "cuff8_6")!,
-        UIImage(named: "cuff8_5")!,
-        UIImage(named: "cuff8_4")!,
-        UIImage(named: "cuff8_3")!,
-        UIImage(named: "cuff8_2")!,
         UIImage(named: "cuff8_1")!,
+        UIImage(named: "cuff8_2")!,
+        UIImage(named: "cuff8_3")!,
+        UIImage(named: "cuff8_4")!,
+        UIImage(named: "cuff8_5")!,
+        UIImage(named: "cuff8_6")!,
+        UIImage(named: "cuff8_7")!,
+        UIImage(named: "cuff8_8")!,
+        UIImage(named: "cuff8_9")!,
         
         ]
     var cuff:[UIImage] = [UIImage]()
@@ -71,14 +72,14 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
             
             self.shirtImage.image = UIImage(named:"cuff_guide9")
             cuffImages = cuffImages9
-            codeValue = codeValue9
+            //codeValue = codeValue9
             cuffTB.reloadData()
             
         }else if (Int(modelNo!)! < 9){
             
              cuff = cuff1
               cuffImages = cuffImages8
-            codeValue = codeValue1
+           // codeValue = codeValue1
              self.shirtImage.image = UIImage(named:"cuff_guide8")
             cuffTB.reloadData()
 
@@ -98,13 +99,13 @@ class CuffMeasurmentViewController: UIViewController,IndicatorInfoProvider,UITab
             cuff.removeAll()
              cuff = cuff9
                 cuffImages = cuffImages9
-            codeValue = codeValue9
+          //  codeValue = codeValue9
             self.shirtImage.image = UIImage(named:"cuff_guide9")
             
         }else if (Int(modelNo!)! < 9){
               cuff = cuff1
             cuffImages = cuffImages8
-            codeValue = codeValue1
+          //  codeValue = codeValue1
             self.shirtImage.image = UIImage(named:"cuff_guide8")
         }
         self.cuffTB.reloadData()

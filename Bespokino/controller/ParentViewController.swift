@@ -90,16 +90,22 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
     
     func setUpBadgeCountAndBarButton() {
         // badge label
-        let label = UILabel(frame: CGRect(x: 10, y: -05, width: 20, height: 20))
-        label.layer.borderColor = UIColor.clear.cgColor
-        label.layer.borderWidth = 2
-        label.layer.cornerRadius = label.bounds.size.height / 2
-        label.textAlignment = .center
-        label.layer.masksToBounds = true
-        label.textColor = .white
-        label.font = label.font.withSize(12)
-        label.backgroundColor = .red
-        label.text = "\(self.badgeCount)"
+        
+      let label = UILabel(frame: CGRect(x: 10, y: -05, width: 20, height: 20))
+        if self.badgeCount > 0{
+            
+         
+            label.layer.borderColor = UIColor.clear.cgColor
+            label.layer.borderWidth = 2
+            label.layer.cornerRadius = label.bounds.size.height / 2
+            label.textAlignment = .center
+            label.layer.masksToBounds = true
+            label.textColor = .white
+            label.font = label.font.withSize(12)
+            label.backgroundColor = .red
+            label.text = "\(self.badgeCount)"
+        }
+        
         
         // button
         let rightButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -113,11 +119,15 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
     }
     @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
     {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
         
-        
-      //  self.present(newViewController, animated: true, completion: nil)
-        self.navigationController?.pushViewController(newViewController, animated: true)
+        if Order.cartCount > 0{
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
+            
+            
+            //  self.present(newViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }
+     
     }
 }

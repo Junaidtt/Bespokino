@@ -48,7 +48,7 @@ class CartViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         let yesBody =  defaults.bool(forKey: "YESBODY")
-        let measurment = defaults.bool(forKey: "MEASURMENT")
+        let measurment = defaults.bool(forKey: "BESPOKE")
         
         if (yesBody && measurment){
             checkOutButton.setTitle("CHECKOUT", for: .normal)

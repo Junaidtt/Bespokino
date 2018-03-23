@@ -78,7 +78,7 @@ class ShippingAddressViewController: UIViewController, UITextFieldDelegate{
     @IBAction func continueButtonDidTap(_ sender: Any) {
 
         
-        dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
         
 //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ConfirmPayViewController") as! ConfirmPayViewController

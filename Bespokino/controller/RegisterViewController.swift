@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
     @IBOutlet weak var passwordTextField: UITextField!
     var activeTextField = UITextField()
     
+ 
     let btnSize : CGFloat = 100
    // var size = ["27","28","29","30","31","32","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49"]
     
@@ -83,6 +84,13 @@ class RegisterViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        let rightBarButton = UIBarButtonItem(title: "REGISTER", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.registerButtonTapped(_:)))
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+//
+//        if let font = UIFont(name: "Helvetica", size: 12) {
+//            barBtn.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+//        }
     }
     @IBAction func registerButtonTapped(_ sender: Any) {
         

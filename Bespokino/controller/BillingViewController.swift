@@ -96,6 +96,7 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     @IBOutlet weak var expirationYearTextField:UITextField!
     @IBOutlet weak var cardVerificationCodeTextField:UITextField!
     
+    @IBOutlet weak var billingAddressButton: UIButton!
     @IBOutlet weak var getTokenButton: UIButton!
     
     @IBOutlet weak var activityIndicatorAcceptSDKDemo:UIActivityIndicatorView!
@@ -128,6 +129,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     @IBOutlet weak var zipTextField: UITextField!
    // @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var checkmark: BEMCheckBox!
+    
+    @IBOutlet weak var saveCardLabel: UILabel!
+    
+    
     @IBOutlet weak var continueButton: UIButton!
     var checkmarkSelected:Bool = false
     
@@ -162,7 +167,9 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         self.navigationItem.title = "BESPOKINO"
 
         print(PAY_TAG!)
+        billingAddressButton.layer.cornerRadius = 8
         
+        saveCardLabel.layer.cornerRadius = 8
      
         
         if PAY_TAG! == "TWENTY"{
@@ -222,6 +229,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     @IBAction func getYourAddressDidTap(_ sender: Any) {
         
         let autocompleteController = GMSAutocompleteViewController()
@@ -244,10 +255,10 @@ class BillingViewController: UIViewController ,BEMCheckBoxDelegate,GMSAutocomple
         self.checkmarkSelected = checkBox.on
         if checkmarkSelected{
  
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
-            //  newViewController.shipping = self.customer
-             self.present(newViewController, animated: true, completion: nil)
+//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            let newViewController = storyBoard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
+//            //  newViewController.shipping = self.customer
+//             self.present(newViewController, animated: true, completion: nil)
         }
         
     }

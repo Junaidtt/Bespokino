@@ -159,10 +159,15 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
                         
                         DispatchQueue.main.async {
                             
-                            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
-                            
-                            self.navigationController?.pushViewController(newViewController, animated: true)
+                            if Order.cartCount > 0 {
+                                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
+                                
+                                self.navigationController?.pushViewController(newViewController, animated: true)
+                            }else{
+                                self.displayAlert(message: "YOUR CART IS EMPTY")
+                            }
+                        
                           
                         }
 
@@ -182,7 +187,7 @@ class LengthViewController: UIViewController,UITableViewDataSource,UITableViewDe
     }
     
     func displayAlert(message:String)  {
-        let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let alertController = UIAlertController(title: "info", message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         
         let okAction  = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (action) in

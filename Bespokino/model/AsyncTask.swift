@@ -156,39 +156,26 @@ class AsyncTask: NSObject {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
-                    
                     guard let regResult = json as? [String:Any] else {return}
-
                     guard let err = regResult["Error"] as? Bool else {return}
-                    
                     if (!err){
-                        
                         let defaults = UserDefaults.standard
                         defaults.set(true, forKey: "isRegIn")
-                        defaults.synchronize()
-                        
+                       
                         Customer.firstName = user.firstName
                         Customer.lastName = user.lastName
-
-                      // defaults.set(user.firstName, forKey: "FULLNAME")
                         defaults.set(user.email, forKey: "EMAIL")
-                        
-                        
                         //guard let message = regResult["Message"] as? String else {return}
                         guard let userid  = regResult["UserId"] as? Int else {return}
-                        
                         guard let email = regResult["Email"] as? String else {return}
                         guard let customerid = regResult["UserId"] as? Int else {return}
                         guard let fullname = regResult["FullName"] as? String else {return}
                         guard let phoneNumber = regResult["PhoneNo"] as? String else {return}
                         guard let state = regResult["State"] as? String else {return}
-                  
                         guard let zip = regResult["Zip"] as? Int else {return}
                         guard let address = regResult["Address"] as? String else {return}
                         guard let city = regResult["City"] as? String else {return}
                         guard let measurment = regResult["Measurements"] as? Bool else {return}
-
-                      
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
                         self.defaults.set(customerid, forKey: "USERID")
                         self.defaults.set(fullname, forKey: "FULLNAME")
@@ -196,23 +183,17 @@ class AsyncTask: NSObject {
                             self.defaults.set(true, forKey: "BESPOKE")
                         }else{
                             self.defaults.set(false, forKey: "BESPOKE")
-                            
                         }
                         defaults.synchronize()
                         self.deleteAllRecords()
                         self.userLocalStorage(fullName: fullname, email: email,customerID: customerid, phoneNumber: phoneNumber, address: address, city: city, state: state, zip: zip)
-                        
                         Order.userId = userid
-                        // Order.modelNo = modelNo
-                        
+                        //Order.modelNo = modelNo
                         DispatchQueue.main.async {
-
-                            // self.view?.dismiss(animated: true)
-                            // self.displayAlertMessage(messageToDisplay: message)
                              let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                              let newViewController = storyBoard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
                              self.view?.present(newViewController, animated: true, completion: nil)
-                         //    self.view?.navigationController??.pushViewController(newViewController, animated: true)
+                       
                             
                         }
                     }else{
@@ -272,7 +253,7 @@ class AsyncTask: NSObject {
                         guard let city = regResult["City"] as? String else {return}
                         //guard let modelNo = regResult["modelNo"] as? Int else {return}
                         guard let measurment = regResult["Measurements"] as? Bool else {return}
-
+                        defaults.set(fullname, forKey: "FULLNAME")
                         defaults.set(customerid, forKey: "USERID")
                         defaults.set(true, forKey: "isRegIn")
                         if measurment{

@@ -43,6 +43,8 @@ class BespokeProfileViewController: UIViewController,UITableViewDelegate,UITable
         btnMenuButton.target = revealViewController()
         btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
     
+        self.bespokeTB.tableFooterView = UIView()
+
      
         let userid = defaults.string(forKey: "USERID")
     

@@ -27,12 +27,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
     @IBOutlet weak var facebookSignInButton: FBSDKLoginButton!
     
     @IBOutlet weak var googleSignInButton: GIDSignInButton!
+    @IBOutlet weak var barBtnItem: UIBarButtonItem!
     
     let async:AsyncTask = AsyncTask()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    
             let defaults = UserDefaults.standard
             let isRegIn = defaults.bool(forKey: "isRegIn")
         if isRegIn{
@@ -41,9 +43,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDeleg
             
             self.present(newViewController, animated: true, completion: nil)
             
-            // self.navigationController?.pushViewController(newViewController, animated: true)
         }
         
+        
+        func registerButtonTapped(_ sender:UIBarButtonItem!)
+        {
+           
+            performSegue(withIdentifier: "reg", sender: nil)
+        }
         
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)

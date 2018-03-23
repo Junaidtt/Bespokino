@@ -45,7 +45,7 @@ class ShoulderMeasureViewController: UIViewController,IndicatorInfoProvider,UITa
         picker.dataSource = self
         modelTextField.inputView = picker
         if  modelNumber != nil{
-            modelTextField.text = modelNumber!
+            modelTextField.text = "I'AM WEARING SHIRT MODEL : \(modelNumber!)"
 
         }
     }

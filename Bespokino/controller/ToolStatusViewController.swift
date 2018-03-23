@@ -58,12 +58,15 @@ class ToolStatusViewController: UIViewController {
         let yesMeasure = defaults.bool(forKey: "MEASURMENT")
         
         if yesMeasure{
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
             
-            
-            
-            self.navigationController?.pushViewController(newViewController, animated: true)
+            if Order.cartCount > 0{
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "InvoiceViewController") as! InvoiceViewController
+                self.navigationController?.pushViewController(newViewController, animated: true)
+            }else{
+                self.displayAlert(message: "YOUR CART IS EMPTY")
+            }
+          
         }else{
             print("tool present")
             self.presentMarker.isHidden = false
@@ -95,4 +98,17 @@ class ToolStatusViewController: UIViewController {
         self.present(newViewController, animated: true, completion: nil)
         //  self.navigationController?.pushViewController(newViewController, animated: true)
     }
+    func displayAlert(message:String)  {
+        let alertController = UIAlertController(title: "info", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        let okAction  = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }

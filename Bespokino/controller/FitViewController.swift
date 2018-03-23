@@ -28,7 +28,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
     let defaults = UserDefaults.standard
     @IBOutlet weak var prefferedFit: UILabel!
    
-      let alertVC = UIAlertController(title: "Enter Pants Waist Size", message: "", preferredStyle: .alert)
+    let alertVC = UIAlertController(title: "Enter Pants Waist Size", message: "", preferredStyle: .alert)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,9 +36,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         self.navigationItem.title = "BESPOKINO"
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
-     
  
-        
         let casualGesture = UITapGestureRecognizer(target: self, action: #selector(casualAction))
         let slimGesture = UITapGestureRecognizer(target: self, action: #selector(slimAction))
 
@@ -71,46 +69,49 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         let modelNo = defaults.string(forKey: "MODELNO")
         if modelNo != nil{
             print(modelNo!)
-            self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(modelNo!)"
-            self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Int(modelNo!)! - 1)"
+            self.casualLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(modelNo!)".uppercased()
+            self.slimLabel.text = "Your Bespokino Self-Measuring Tool Size is: \(Int(modelNo!)! - 1)".uppercased()
         }
+        
+        showAlert()
 
     }
+    
 
     override func viewDidAppear(_ animated: Bool) {
    
-        let yesPantWaitSize = defaults.bool(forKey: "YESPANT")
-        if (!yesPantWaitSize){
-            
-            alertVC.addTextField { (textField) in
-                textField.placeholder = "PANT WAIST SIZE"
-                textField.inputView = self.picker
-            }
-            let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
-                (alert) -> Void in
-                
-                let pantWaistSize = self.alertVC.textFields![0] as UITextField
-                
-                print("pantsize -- \(pantWaistSize.text!)")
-            })
-            alertVC.addAction(submitAction)
-            alertVC.view.tintColor = UIColor.black
-            present(alertVC, animated: true)
-
-
-        }else{
-
-           // self.modelNumber = defaults.string(forKey: "MODELNO")!
-           // Order.modelNo = Int(self.modelNumber)!
-
-
-        }
-      
-
+        casualView.layer.borderWidth = 2
+        casualView.layer.borderColor = #colorLiteral(red: 1, green: 0.8000000119, blue: 0.400000006, alpha: 1)
         
+        slimView.layer.borderWidth = 2
+        slimView.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.9490196078, blue: 0, alpha: 1)
+       
+    
     
       
     }
+    
+    
+    func showAlert()  {
+        alertVC.addTextField { (textField) in
+            textField.placeholder = "PANT WAIST SIZE"
+            textField.inputView = self.picker
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {
+            (alert) -> Void in
+            
+            let pantWaistSize = self.alertVC.textFields![0] as UITextField
+            
+            print("pantsize -- \(pantWaistSize.text!)")
+        })
+        alertVC.addAction(submitAction)
+        alertVC.view.tintColor = UIColor.black
+        present(alertVC, animated: true)
+        
+        
+    }
+    
+    
     @objc func casualAction(sender:UITapGestureRecognizer){
        print("casual view selected")
         
@@ -235,8 +236,11 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
         self.slimView.addGestureRecognizer(slimGesture)
         
         
-        modelTextField.text = model[row]
+        modelTextField.text = "PANTS WAIST SIZE: \(model[row])"
     
+        
+        alertVC.textFields![0].text = "PANTS WAIST SIZE: \(model[row])"
+        
         self.view.endEditing(false)
         print(model[row])
         self.pantWaistSize = model[row]
@@ -256,7 +260,7 @@ class FitViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelega
             }
        
         }
-        self.dismiss(animated: true, completion: nil)
+       // self.dismiss(animated: true, completion: nil)
     }
 
 }

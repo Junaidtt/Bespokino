@@ -102,6 +102,7 @@ class CartModel {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
+                    (Order.cartCount) -= 1
                 } catch {
                     print(error)
                 }

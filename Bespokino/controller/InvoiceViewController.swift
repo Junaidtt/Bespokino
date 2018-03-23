@@ -7,20 +7,18 @@
 //
 
 import UIKit
-
+import CoreData
 class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
    
 
     var data = [Invoice]()
     let invoiceTask = InvoiceTask()
-    
-    @IBOutlet weak var addressTextField2: UILabel!
-    @IBOutlet weak var addressTextField: UILabel!
-    @IBOutlet weak var nameTextField: UILabel!
-    @IBOutlet weak var dateText: UILabel!
-    @IBOutlet weak var customerTextField: UILabel!
-    @IBOutlet weak var orderNoTextField: UILabel!
-    
+//
+//    @IBOutlet weak var addressTextField2: UILabel!
+//    @IBOutlet weak var emailTF: UILabel!
+//    @IBOutlet weak var nameTextField: UILabel!
+//
+//
     @IBOutlet weak var subTotalPrice: UILabel!
     @IBOutlet weak var salesTaxPrice: UILabel!
     @IBOutlet weak var totalSalesAmount: UILabel!
@@ -49,14 +47,7 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 print(self.data[0].firstName)
                 DispatchQueue.main.async {
                     if (self.data.count>0){
-                       // self.nameTextField.text = "Junaid"
-                       // self.addressTextField.text = "TT"
-                        self.nameTextField.text = "\(self.data[0].firstName) \(self.data[0].lastName)"
-                        self.addressTextField.text = "\(self.data[0].address)"
-                        self.addressTextField2.text = "\(self.data[0].state) \(self.data[0].zip) \(self.data[0].country)"
-                        self.dateText.text = "Date: \(self.getCurrentDate())"
-                        self.customerTextField.text = "Customer: \(self.data[0].customerID)"
-                        self.orderNoTextField.text = "Order Number: \(self.data[0].orderNo)"
+                       
                         self.subTotalPrice.text = "$\(String(format: "%.2f",self.data[0].subTotalAmount))"
                         self.salesTaxPrice.text = "$\(String(format: "%.2f",self.data[0].salesTaxAmount))"
                         //self.shipmentPrice.text = "$\(String(format: "%.2f",self.data[0].shippingCost))"
@@ -71,9 +62,9 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
           
         }
        
-        
-        
-        
+     //   getUserInformation()
+        self.invoiceTableView.tableFooterView = UIView()
+
         
         let rightBarButton = UIBarButtonItem(image: UIImage(named:"hme"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
@@ -150,5 +141,26 @@ class InvoiceViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }))
         topWindow.makeKeyAndVisible()
         topWindow.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func getUserInformation()  {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let defaults = UserDefaults.standard
+        var userArray:[CustomerInfo] = []
+        
+        do{
+            userArray = try context.fetch(CustomerInfo.fetchRequest())
+            print(userArray[0].fullName!)
+            print(userArray[0].email!)
+            print(userArray[0].customerID)
+            print(userArray[0].userId)
+         
+        }catch{
+            
+            print(error)
+            
+        }
     }
 }
